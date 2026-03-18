@@ -1,0 +1,46 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "error": "Error",
+    "success": "Success"
+  },
+  "home": {
+    "title": "Fast & Delicious",
+    "subtitle": "Order your favorite food with ease",
+    "search_placeholder": "Search for restaurants or dishes",
+    "categories": "Categories",
+    "popular": "Popular near you"
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty",
+    "checkout": "Proceed to Checkout",
+    "items": "Items",
+    "subtotal": "Subtotal",
+    "delivery_fee": "Delivery Fee",
+    "total": "Total",
+    "add_more": "Add more items"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "payment_method": "Payment Method",
+    "place_order": "Place Order",
+    "summary": "Order Summary"
+  },
+  "address": {
+    "title": "Delivery Address",
+    "add_new": "Add New Address",
+    "street": "Street",
+    "city": "City",
+    "save_address": "Save Address"
+  },
+  "settings": {
+    "language": "Language",
+    "change_language": "Change Language",
+    "logout": "Logout"
+  }
+}

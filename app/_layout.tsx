@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import "../global.css";
+import "../i18n"; // Initialize i18n
 import { store } from "../store/store";
 import { Provider } from 'react-redux'
 

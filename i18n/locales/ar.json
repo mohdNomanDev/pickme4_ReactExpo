@@ -1,0 +1,46 @@
+{
+  "common": {
+    "welcome": "أهلاً بك",
+    "loading": "جاري التحميل...",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "error": "خطأ",
+    "success": "نجاح"
+  },
+  "home": {
+    "title": "سريع ولذيذ",
+    "subtitle": "اطلب طعامك المفضل بسهولة",
+    "search_placeholder": "ابحث عن مطاعم أو أطباق",
+    "categories": "الأقسام",
+    "popular": "الأكثر طلباً بالقرب منك"
+  },
+  "cart": {
+    "title": "سلة التسوق",
+    "empty": "سلة التسوق فارغة",
+    "checkout": "إتمام الطلب",
+    "items": "الأصناف",
+    "subtotal": "المجموع الفرعي",
+    "delivery_fee": "رسوم التوصيل",
+    "total": "المجموع الكلي",
+    "add_more": "إضافة المزيد"
+  },
+  "checkout": {
+    "title": "الدفع",
+    "payment_method": "طريقة الدفع",
+    "place_order": "إتمام الطلب",
+    "summary": "ملخص الطلب"
+  },
+  "address": {
+    "title": "عنوان التوصيل",
+    "add_new": "إضافة عنوان جديد",
+    "street": "الشارع",
+    "city": "المدينة",
+    "save_address": "حفظ العنوان"
+  },
+  "settings": {
+    "language": "اللغة",
+    "change_language": "تغيير اللغة",
+    "logout": "تسجيل الخروج"
+  }
+}
