@@ -1,44 +1,67 @@
 import { RootState } from "@/store/store";
+import { Ionicons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 import React, { useState } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { useTranslation } from "react-i18next";
+import { Pressable, Text, TouchableOpacity, View } from "react-native";
+import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import { useDispatch, useSelector } from "react-redux";
 import { IsBookmarked, toogleBookmark } from "../../store/bookmarkSlice";
 
+type LocalizedString = {
+  en: string;
+  ar: string;
+};
+
 type FoodItem = {
-  name: string;
+  name: LocalizedString;
   image: string;
   price?: string;
 };
 
-type RestaurantCardProps = {
+export type Restaurant = {
   id: number;
-  name: string;
+  name: LocalizedString;
   foodItems: FoodItem[];
-
   rating: number;
   deliveryTime: string;
   deliveryFee: string;
-
-  cuisine?: string;
+  cuisine?: LocalizedString;
   offer?: string;
 };
 
-const RestaurantCard: React.FC<RestaurantCardProps> = ({
-  id,
-  name,
-  foodItems,
-  rating,
-  deliveryTime,
-  deliveryFee,
-  cuisine,
-  offer,
-}) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+type RestaurantCardProps = {
+  restaurant: Restaurant;
+};
 
+const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
+  const {
+    id,
+    name,
+    foodItems,
+    rating,
+    deliveryTime,
+    deliveryFee,
+    cuisine,
+    offer,
+  } = restaurant;
+
+  const { i18n } = useTranslation();
+  const [currentIndex, setCurrentIndex] = useState(0);
   const dispatch = useDispatch();
   const bookmarkState = useSelector((state: RootState) => state.bookmark);
+  const { isRTL, currentLanguage } = useSelector(
+    (state: RootState) => state.language,
+  );
+
+  // Fallback logic for language
+  const lang =
+    (currentLanguage as "en" | "ar") ||
+    (i18n.language?.split("-")[0] as "en" | "ar") ||
+    "en";
 
   const currentFood = foodItems?.[currentIndex];
+  const isBookmarked = IsBookmarked({ bookmark: bookmarkState }, id);
 
   const handleNext = () => {
     if (!foodItems?.length) return;
@@ -50,58 +73,172 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
     setCurrentIndex((prev) => (prev === 0 ? foodItems.length - 1 : prev - 1));
   };
 
-  const isBookmarked = IsBookmarked({ bookmark: bookmarkState }, id);
-
   return (
-    <TouchableOpacity>
-      <View>
+    <View className="mb-6 bg-card dark:bg-card-dark rounded-[32px] overflow-hidden border border-border dark:border-border-dark shadow-sm">
+      <TouchableOpacity activeOpacity={0.9} className="flex-1">
         {/* IMAGE SECTION */}
-        <View>
-          {currentFood?.image && <Image source={{ uri: currentFood.image }} />}
+        <View className="relative h-56 w-full overflow-hidden">
+          <Animated.View
+            key={currentIndex}
+            entering={FadeIn.duration(400)}
+            exiting={FadeOut.duration(400)}
+            className="w-full h-full"
+          >
+            <Image
+              source={{ uri: currentFood?.image }}
+              contentFit="cover"
+              transition={500}
+              className="w-full h-full bg-gray-100 dark:bg-gray-800"
+            />
+          </Animated.View>
 
-          {/* Food Name (SYNCED with image) */}
-          {currentFood?.name && (
-            <View>
-              <Text>{currentFood.name + " " + currentFood.price}</Text>
+          {/* Top Overlays */}
+          <View
+            className={`absolute top-4 left-4 right-4 flex-row justify-between items-start ${isRTL ? "flex-row-reverse" : ""}`}
+          >
+            {offer ? (
+              <View className="bg-primary px-3 py-1.5 rounded-full shadow-lg shadow-primary/20">
+                <Text className="text-white text-[10px] font-bold uppercase tracking-wider">
+                  {offer}
+                </Text>
+              </View>
+            ) : (
+              <View />
+            )}
+
+            <Pressable
+              onPress={() => dispatch(toogleBookmark(id))}
+              className="w-10 h-10 rounded-full bg-white/90 dark:bg-black/50 items-center justify-center backdrop-blur-md"
+            >
+              <Ionicons
+                name={isBookmarked ? "bookmark" : "bookmark-outline"}
+                size={20}
+                color={isBookmarked ? "#f27f0d" : "#6b7280"}
+              />
+            </Pressable>
+          </View>
+
+          {/* Bottom Overlays: Food Info Slider */}
+          <View className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+            <View
+              className={`flex-row justify-between items-end ${isRTL ? "flex-row-reverse" : ""}`}
+            >
+              <View className="flex-1">
+                <Text
+                  className={`text-white text-sm font-semibold mb-1 ${isRTL ? "text-right" : "text-left"}`}
+                >
+                  {currentFood?.name?.[lang] || currentFood?.name?.["en"]}
+                </Text>
+                {currentFood?.price && (
+                  <Text
+                    className={`text-primary font-bold ${isRTL ? "text-right" : "text-left"}`}
+                  >
+                    {currentFood.price}
+                  </Text>
+                )}
+              </View>
+
+              {/* Slider Controls */}
+              {foodItems?.length > 1 && (
+                <View
+                  className={`flex-row space-x-2 ${isRTL ? "flex-row-reverse space-x-reverse" : ""}`}
+                >
+                  <TouchableOpacity
+                    onPress={handlePrev}
+                    className="w-8 h-8 rounded-full bg-white/20 items-center justify-center backdrop-blur-md"
+                  >
+                    <Ionicons
+                      name={isRTL ? "chevron-forward" : "chevron-back"}
+                      size={16}
+                      color="white"
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={handleNext}
+                    className="w-8 h-8 rounded-full bg-white/20 items-center justify-center backdrop-blur-md"
+                  >
+                    <Ionicons
+                      name={isRTL ? "chevron-back" : "chevron-forward"}
+                      size={16}
+                      color="white"
+                    />
+                  </TouchableOpacity>
+                </View>
+              )}
             </View>
-          )}
 
-          {/* Offer Badge */}
-          {offer && (
-            <View>
-              <Text>{offer}</Text>
-            </View>
-          )}
-
-          {/* Bookmark Button */}
-          <TouchableOpacity onPress={() => dispatch(toogleBookmark(id))}>
-            <Text>{isBookmarked ? "★" : "☆"}</Text>
-          </TouchableOpacity>
-
-          {/* Slider Controls */}
-          <View>
-            <TouchableOpacity onPress={handlePrev}>
-              <Text>{"<"}</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity onPress={handleNext}>
-              <Text>{">"}</Text>
-            </TouchableOpacity>
+            {/* Dot Indicator */}
+            {foodItems?.length > 1 && (
+              <View className="flex-row justify-center mt-3 space-x-1.5">
+                {foodItems.map((_, idx) => (
+                  <View
+                    key={idx}
+                    className={`h-1 rounded-full ${idx === currentIndex ? "w-4 bg-primary" : "w-1.5 bg-white/50"}`}
+                  />
+                ))}
+              </View>
+            )}
           </View>
         </View>
 
-        {/* DETAILS */}
-        <View>
-          <Text>{name}</Text>
+        {/* DETAILS SECTION */}
+        <View className="p-5">
+          <View
+            className={`flex-row justify-between items-start mb-2 ${isRTL ? "flex-row-reverse" : ""}`}
+          >
+            <View className="flex-1 mr-2">
+              <Text
+                className={`text-xl font-bold text-text dark:text-text-dark mb-1 ${isRTL ? "text-right" : "text-left"}`}
+              >
+                {name?.[lang] || name?.["en"]}
+              </Text>
+              {cuisine && (
+                <Text
+                  className={`text-text-muted dark:text-text-muted-dark text-xs ${isRTL ? "text-right" : "text-left"}`}
+                >
+                  {cuisine?.[lang] || cuisine?.["en"]}
+                </Text>
+              )}
+            </View>
+            <View className="bg-green-50 dark:bg-green-500/10 px-2 py-1 rounded-lg flex-row items-center gap-1">
+              <Ionicons
+                name="star"
+                size={14}
+                color="#22c55e"
+              />
+              <Text className="text-green-600 dark:text-green-400 font-bold text-sm">
+                {rating.toFixed(1)}
+              </Text>
+            </View>
+          </View>
 
-          {cuisine && <Text>{cuisine}</Text>}
+          {/* Meta Info */}
+          <View
+            className={`flex-row items-center border-t border-border dark:border-border-dark pt-4 mt-2 ${isRTL ? "flex-row-reverse" : ""}`}
+          >
+            <View
+              className={`flex-row items-center ${isRTL ? "ml-4" : "mr-4"}`}
+            >
+              <Ionicons name="time-outline" size={16} color="#6b7280" />
+              <Text className="text-text-muted dark:text-text-muted-dark text-xs ml-1.5">
+                {deliveryTime}
+              </Text>
+            </View>
 
-          <Text>{rating}</Text>
-          <Text>{deliveryTime}</Text>
-          <Text>{deliveryFee}</Text>
+            <View className="w-1 h-1 rounded-full bg-border dark:bg-border-dark" />
+
+            <View
+              className={`flex-row items-center ${isRTL ? "mr-4" : "ml-4"}`}
+            >
+              <Ionicons name="bicycle-outline" size={16} color="#6b7280" />
+              <Text className="text-text-muted dark:text-text-muted-dark text-xs ml-1.5">
+                {deliveryFee}
+              </Text>
+            </View>
+          </View>
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 };
 

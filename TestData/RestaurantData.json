@@ -1,0 +1,324 @@
+[
+  {
+    "id": 1,
+    "name": { "en": "Spice Hub", "ar": "مركز التوابل" },
+    "cuisine": { "en": "Indian", "ar": "هندي" },
+    "rating": 4.5,
+    "deliveryTime": "25-30 min",
+    "deliveryFee": "Free",
+    "offer": "20% OFF",
+    "foodItems": [
+      {
+        "name": { "en": "Butter Chicken", "ar": "دجاج بالزبدة" },
+        "image": "https://source.unsplash.com/400x300/?butter-chicken",
+        "price": "$12"
+      },
+      {
+        "name": { "en": "Paneer Tikka", "ar": "بانير تيكا" },
+        "image": "https://source.unsplash.com/400x300/?paneer",
+        "price": "$10"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": { "en": "Burger Town", "ar": "مدينة البرجر" },
+    "cuisine": { "en": "Fast Food", "ar": "وجبات سريعة" },
+    "rating": 4.2,
+    "deliveryTime": "20-25 min",
+    "deliveryFee": "$2",
+    "foodItems": [
+      {
+        "name": { "en": "Cheese Burger", "ar": "برجر بالجبن" },
+        "image": "https://source.unsplash.com/400x300/?burger",
+        "price": "$8"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": { "en": "Pizza Palace", "ar": "قصر البيتزا" },
+    "cuisine": { "en": "Italian", "ar": "إيطالي" },
+    "rating": 4.6,
+    "deliveryTime": "30-35 min",
+    "deliveryFee": "Free",
+    "offer": "10% OFF",
+    "foodItems": [
+      {
+        "name": { "en": "Pepperoni Pizza", "ar": "بيتزا بيبروني" },
+        "image": "https://source.unsplash.com/400x300/?pizza",
+        "price": "$14"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": { "en": "Sushi World", "ar": "عالم السوشي" },
+    "cuisine": { "en": "Japanese", "ar": "ياباني" },
+    "rating": 4.7,
+    "deliveryTime": "35-40 min",
+    "deliveryFee": "$3",
+    "foodItems": [
+      {
+        "name": { "en": "Salmon Sushi", "ar": "سوشي السلمون" },
+        "image": "https://source.unsplash.com/400x300/?sushi",
+        "price": "$15"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": { "en": "Arabian Nights", "ar": "ليالي عربية" },
+    "cuisine": { "en": "Middle Eastern", "ar": "شرق أوسطي" },
+    "rating": 4.4,
+    "deliveryTime": "25-30 min",
+    "deliveryFee": "Free",
+    "foodItems": [
+      {
+        "name": { "en": "Shawarma", "ar": "شاورما" },
+        "image": "https://source.unsplash.com/400x300/?shawarma",
+        "price": "$7"
+      }
+    ]
+  },
+
+  {
+    "id": 6,
+    "name": { "en": "Taco Fiesta", "ar": "تاكو فييستا" },
+    "cuisine": { "en": "Mexican", "ar": "مكسيكي" },
+    "rating": 4.3,
+    "deliveryTime": "20-30 min",
+    "deliveryFee": "$2",
+    "foodItems": [
+      {
+        "name": { "en": "Chicken Taco", "ar": "تاكو دجاج" },
+        "image": "https://source.unsplash.com/400x300/?taco",
+        "price": "$9"
+      }
+    ]
+  },
+
+  {
+    "id": 7,
+    "name": { "en": "Healthy Bowl", "ar": "الوعاء الصحي" },
+    "cuisine": { "en": "Healthy", "ar": "صحي" },
+    "rating": 4.8,
+    "deliveryTime": "15-20 min",
+    "deliveryFee": "Free",
+    "foodItems": [
+      {
+        "name": { "en": "Salad Bowl", "ar": "سلطة" },
+        "image": "https://source.unsplash.com/400x300/?salad",
+        "price": "$11"
+      }
+    ]
+  },
+
+  {
+    "id": 8,
+    "name": { "en": "BBQ King", "ar": "ملك الشواء" },
+    "cuisine": { "en": "Grill", "ar": "مشاوي" },
+    "rating": 4.6,
+    "deliveryTime": "30-40 min",
+    "deliveryFee": "$3",
+    "foodItems": [
+      {
+        "name": { "en": "Grilled Chicken", "ar": "دجاج مشوي" },
+        "image": "https://source.unsplash.com/400x300/?grilled-chicken",
+        "price": "$13"
+      }
+    ]
+  },
+
+  {
+    "id": 9,
+    "name": { "en": "Pasta House", "ar": "بيت الباستا" },
+    "cuisine": { "en": "Italian", "ar": "إيطالي" },
+    "rating": 4.5,
+    "deliveryTime": "25-30 min",
+    "deliveryFee": "Free",
+    "foodItems": [
+      {
+        "name": { "en": "Alfredo Pasta", "ar": "باستا ألفريدو" },
+        "image": "https://source.unsplash.com/400x300/?pasta",
+        "price": "$12"
+      }
+    ]
+  },
+
+  {
+    "id": 10,
+    "name": { "en": "Seafood Delight", "ar": "مأكولات بحرية" },
+    "cuisine": { "en": "Seafood", "ar": "مأكولات بحرية" },
+    "rating": 4.7,
+    "deliveryTime": "35-45 min",
+    "deliveryFee": "$4",
+    "foodItems": [
+      {
+        "name": { "en": "Grilled Fish", "ar": "سمك مشوي" },
+        "image": "https://source.unsplash.com/400x300/?fish",
+        "price": "$16"
+      }
+    ]
+  },
+
+  {
+    "id": 11,
+    "name": { "en": "Street Bites", "ar": "مأكولات الشارع" },
+    "cuisine": { "en": "Snacks", "ar": "وجبات خفيفة" },
+    "rating": 4.1,
+    "deliveryTime": "15-20 min",
+    "deliveryFee": "$1",
+    "foodItems": [
+      {
+        "name": { "en": "Samosa", "ar": "سمبوسة" },
+        "image": "https://source.unsplash.com/400x300/?samosa",
+        "price": "$5"
+      }
+    ]
+  },
+
+  {
+    "id": 12,
+    "name": { "en": "Coffee Corner", "ar": "ركن القهوة" },
+    "cuisine": { "en": "Cafe", "ar": "مقهى" },
+    "rating": 4.6,
+    "deliveryTime": "10-15 min",
+    "deliveryFee": "Free",
+    "foodItems": [
+      {
+        "name": { "en": "Cappuccino", "ar": "كابتشينو" },
+        "image": "https://source.unsplash.com/400x300/?coffee",
+        "price": "$6"
+      }
+    ]
+  },
+
+  {
+    "id": 13,
+    "name": { "en": "Dessert Heaven", "ar": "جنة الحلويات" },
+    "cuisine": { "en": "Desserts", "ar": "حلويات" },
+    "rating": 4.9,
+    "deliveryTime": "20-25 min",
+    "deliveryFee": "$2",
+    "foodItems": [
+      {
+        "name": { "en": "Chocolate Cake", "ar": "كيك الشوكولاتة" },
+        "image": "https://source.unsplash.com/400x300/?cake",
+        "price": "$8"
+      }
+    ]
+  },
+
+  {
+    "id": 14,
+    "name": { "en": "Noodle House", "ar": "بيت النودلز" },
+    "cuisine": { "en": "Chinese", "ar": "صيني" },
+    "rating": 4.4,
+    "deliveryTime": "25-30 min",
+    "deliveryFee": "$2",
+    "foodItems": [
+      {
+        "name": { "en": "Chicken Noodles", "ar": "نودلز دجاج" },
+        "image": "https://source.unsplash.com/400x300/?noodles",
+        "price": "$11"
+      }
+    ]
+  },
+
+  {
+    "id": 15,
+    "name": { "en": "Fried Chicken Hub", "ar": "مركز الدجاج المقلي" },
+    "cuisine": { "en": "Fast Food", "ar": "وجبات سريعة" },
+    "rating": 4.3,
+    "deliveryTime": "20-25 min",
+    "deliveryFee": "$2",
+    "foodItems": [
+      {
+        "name": { "en": "Fried Chicken", "ar": "دجاج مقلي" },
+        "image": "https://source.unsplash.com/400x300/?fried-chicken",
+        "price": "$9"
+      }
+    ]
+  },
+
+  {
+    "id": 16,
+    "name": { "en": "Wrap & Roll", "ar": "راب آند رول" },
+    "cuisine": { "en": "Wraps", "ar": "لفائف" },
+    "rating": 4.2,
+    "deliveryTime": "15-20 min",
+    "deliveryFee": "$1",
+    "foodItems": [
+      {
+        "name": { "en": "Chicken Wrap", "ar": "لفافة دجاج" },
+        "image": "https://source.unsplash.com/400x300/?wrap",
+        "price": "$7"
+      }
+    ]
+  },
+
+  {
+    "id": 17,
+    "name": { "en": "Veggie Delight", "ar": "متعة الخضار" },
+    "cuisine": { "en": "Vegetarian", "ar": "نباتي" },
+    "rating": 4.5,
+    "deliveryTime": "20-25 min",
+    "deliveryFee": "Free",
+    "foodItems": [
+      {
+        "name": { "en": "Veg Curry", "ar": "كاري خضار" },
+        "image": "https://source.unsplash.com/400x300/?vegetarian",
+        "price": "$10"
+      }
+    ]
+  },
+
+  {
+    "id": 18,
+    "name": { "en": "Ice Cream Bar", "ar": "بار الآيس كريم" },
+    "cuisine": { "en": "Desserts", "ar": "حلويات" },
+    "rating": 4.7,
+    "deliveryTime": "10-15 min",
+    "deliveryFee": "$1",
+    "foodItems": [
+      {
+        "name": { "en": "Vanilla Ice Cream", "ar": "آيس كريم فانيليا" },
+        "image": "https://source.unsplash.com/400x300/?ice-cream",
+        "price": "$5"
+      }
+    ]
+  },
+
+  {
+    "id": 19,
+    "name": { "en": "Grill Master", "ar": "سيد الشواء" },
+    "cuisine": { "en": "BBQ", "ar": "شواء" },
+    "rating": 4.6,
+    "deliveryTime": "30-35 min",
+    "deliveryFee": "$3",
+    "foodItems": [
+      {
+        "name": { "en": "BBQ Ribs", "ar": "ضلوع مشوية" },
+        "image": "https://source.unsplash.com/400x300/?bbq",
+        "price": "$18"
+      }
+    ]
+  },
+
+  {
+    "id": 20,
+    "name": { "en": "Breakfast Club", "ar": "نادي الإفطار" },
+    "cuisine": { "en": "Breakfast", "ar": "إفطار" },
+    "rating": 4.4,
+    "deliveryTime": "15-20 min",
+    "deliveryFee": "Free",
+    "foodItems": [
+      {
+        "name": { "en": "Pancakes", "ar": "فطائر" },
+        "image": "https://source.unsplash.com/400x300/?pancakes",
+        "price": "$9"
+      }
+    ]
+  }
+]
