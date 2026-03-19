@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, FlatList, Dimensions, Platform, Pressable } from "react-native";
+import React, { useCallback, useMemo } from "react";
+import { View, Text, FlatList, Platform, Pressable, useWindowDimensions } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { Ionicons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
@@ -14,11 +14,45 @@ const restaurantData = restaurantDataJson as unknown as Restaurant[];
 const RestaurantCardList = () => {
   const { t } = useTranslation();
   const { isRTL } = useSelector((state: RootState) => state.language);
-  const { width } = Dimensions.get('window');
+  const { width } = useWindowDimensions();
 
   // Determine number of columns based on screen width
-  const numColumns = width > 1024 ? 3 : width > 768 ? 2 : 1;
+  const numColumns = useMemo(() => 
+    width > 1024 ? 3 : width > 768 ? 2 : 1
+  , [width]);
+
   const isWeb = Platform.OS === 'web';
+
+  const renderItem = useCallback(({ item, index }: { item: Restaurant; index: number }) => (
+    <Animated.View 
+      entering={FadeInDown.delay(index * 50).duration(600).springify()}
+      style={{ flex: 1 / numColumns }}
+    >
+      <RestaurantCard restaurant={item} />
+    </Animated.View>
+  ), [numColumns]);
+
+  const ListHeader = useMemo(() => (
+    /* Heading Section */
+    <Animated.View 
+      entering={FadeInDown.duration(600).springify()}
+      className={`mb-8 flex-row items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}
+    >
+      <View className="flex-1">
+        <Text className={`text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark ${isRTL ? 'text-right' : 'text-left'}`}>
+          {restaurantData.length} {t('restaurant.count_header')}
+        </Text>
+        <View className={`h-1.5 w-12 bg-primary rounded-full mt-2 ${isRTL ? 'self-end' : 'self-start'}`} />
+      </View>
+      
+      {/* Optional Filter Icon or Action */}
+      <Pressable className="p-3 bg-gray-100 dark:bg-gray-800 rounded-2xl active:opacity-70">
+        <Ionicons name="options-outline" size={24} color="#f27f0d" />
+      </Pressable>
+    </Animated.View>
+  ), [isRTL, t]);
+
+  const keyExtractor = useCallback((item: Restaurant) => item.id.toString(), []);
 
   return (
     <View className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6">
@@ -26,41 +60,20 @@ const RestaurantCardList = () => {
         data={restaurantData}
         key={numColumns} // Force re-render when column count changes
         numColumns={numColumns}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={keyExtractor}
+        renderItem={renderItem}
+        ListHeaderComponent={ListHeader}
         showsVerticalScrollIndicator={false}
         columnWrapperStyle={numColumns > 1 ? { gap: 24, marginBottom: 24 } : undefined}
         contentContainerStyle={{ 
           paddingBottom: 40,
-          // For web, ensure we have some horizontal gap
           ...(isWeb && numColumns > 1 ? { paddingHorizontal: 4 } : {})
         }}
-        ListHeaderComponent={
-          /* Heading Section */
-          <Animated.View 
-            entering={FadeInDown.duration(600).springify()}
-            className={`mb-8 flex-row items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}
-          >
-            <View className="flex-1">
-              <Text className={`text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark ${isRTL ? 'text-right' : 'text-left'}`}>
-                {restaurantData.length} {t('restaurant.count_header')}
-              </Text>
-              <View className={`h-1.5 w-12 bg-primary rounded-full mt-2 ${isRTL ? 'self-end' : 'self-start'}`} />
-            </View>
-            
-            {/* Optional Filter Icon or Action */}
-            <Pressable className="p-3 bg-gray-100 dark:bg-gray-800 rounded-2xl active:opacity-70">
-              <Ionicons name="options-outline" size={24} color="#f27f0d" />
-            </Pressable>
-          </Animated.View>
-        }
-        renderItem={({ item, index }) => (
-          <Animated.View 
-            entering={FadeInDown.delay(index * 100).duration(600).springify()}
-            style={{ flex: 1 / numColumns }}
-          >
-            <RestaurantCard restaurant={item} />
-          </Animated.View>
-        )}
+        // Performance Props
+        initialNumToRender={6}
+        maxToRenderPerBatch={10}
+        windowSize={5}
+        removeClippedSubviews={Platform.OS !== 'web'} // Improves memory on native
       />
     </View>
   );

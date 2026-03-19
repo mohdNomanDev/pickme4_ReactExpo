@@ -1,12 +1,12 @@
 import { RootState } from "@/store/store";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Pressable, Text, TouchableOpacity, View, Platform } from "react-native";
+import React, { useState, memo } from "react";
+import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleBookmark } from "../../store/bookmarkSlice";
+import { useRTL } from "@/hooks/useRTL";
 
 type LocalizedString = {
   en: string;
@@ -34,7 +34,7 @@ type RestaurantCardProps = {
   restaurant: Restaurant;
 };
 
-const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
+const RestaurantCard: React.FC<RestaurantCardProps> = memo(({ restaurant }) => {
   const {
     id,
     name,
@@ -46,25 +46,15 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
     offer,
   } = restaurant;
 
-  const { i18n } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const dispatch = useDispatch();
-  const { isRTL, currentLanguage } = useSelector(
-    (state: RootState) => state.language,
-  );
-
-  const isWeb = Platform.OS === 'web';
-
-  // Fallback logic for language
-  const lang =
-    (currentLanguage as "en" | "ar") ||
-    (i18n.language?.split("-")[0] as "en" | "ar") ||
-    "en";
+  const { isRTL, lang, rowClass, getGapClass, textAlign } = useRTL();
 
   const currentFood = foodItems?.[currentIndex];
   const isBookmarked = useSelector((state: RootState) =>
-    state.bookmark.value.includes(id),
+    state.bookmark.value.includes(id)
   );
+
   const handleNext = () => {
     if (!foodItems?.length) return;
     setCurrentIndex((prev) => (prev + 1) % foodItems.length);
@@ -75,11 +65,6 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
     setCurrentIndex((prev) => (prev === 0 ? foodItems.length - 1 : prev - 1));
   };
 
-  // On Web, if dir="rtl" is set on html, flex-row already behaves like RTL.
-  // On Mobile, we restore the user's preferred flex-row-reverse behavior.
-  const rowClass = isWeb ? "flex-row" : `flex-row ${isRTL ? "flex-row-reverse" : ""}`;
-  const gapClass = isWeb ? "gap-2" : (isRTL ? "space-x-reverse space-x-2" : "space-x-2");
-
   return (
     <View className="mb-6 bg-card dark:bg-card-dark rounded-[32px] overflow-hidden border border-border dark:border-border-dark shadow-sm">
       <TouchableOpacity activeOpacity={0.9} className="flex-1">
@@ -89,13 +74,13 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
             key={currentIndex}
             entering={FadeIn.duration(400)}
             exiting={FadeOut.duration(400)}
-            style={{ width: '100%', height: '100%' }}
+            style={{ width: "100%", height: "100%" }}
           >
             <Image
               source={currentFood?.image}
               contentFit="cover"
               transition={500}
-              style={{ width: '100%', height: '100%' }}
+              style={{ width: "100%", height: "100%" }}
               className="bg-gray-100 dark:bg-gray-800"
             />
           </Animated.View>
@@ -128,19 +113,15 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
 
           {/* Bottom Overlays: Food Info Slider */}
           <View className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
-            <View
-              className={`${rowClass} justify-between items-end`}
-            >
+            <View className={`${rowClass} justify-between items-end`}>
               <View className="flex-1">
                 <Text
-                  className={`text-white text-sm font-semibold mb-1 ${isRTL ? "text-right" : "text-left"}`}
+                  className={`text-white text-sm font-semibold mb-1 ${textAlign}`}
                 >
                   {currentFood?.name?.[lang] || currentFood?.name?.["en"]}
                 </Text>
                 {currentFood?.price && (
-                  <Text
-                    className={`text-primary font-bold ${isRTL ? "text-right" : "text-left"}`}
-                  >
+                  <Text className={`text-primary font-bold ${textAlign}`}>
                     {currentFood.price}
                   </Text>
                 )}
@@ -148,9 +129,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
 
               {/* Slider Controls */}
               {foodItems?.length > 1 && (
-                <View
-                  className={`${rowClass} ${gapClass} items-center`}
-                >
+                <View className={`${rowClass} ${getGapClass(2)} items-center`}>
                   <TouchableOpacity
                     onPress={handlePrev}
                     className="w-8 h-8 rounded-full bg-white/20 items-center justify-center backdrop-blur-md"
@@ -177,7 +156,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
 
             {/* Dot Indicator */}
             {foodItems?.length > 1 && (
-              <View className="flex-row justify-center mt-3 gap-1.5">
+              <View className={`flex-row justify-center mt-3 ${getGapClass(1.5)}`}>
                 {foodItems.map((_, idx) => (
                   <View
                     key={idx}
@@ -191,18 +170,16 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
 
         {/* DETAILS SECTION */}
         <View className="p-5">
-          <View
-            className={`${rowClass} justify-between items-start mb-2`}
-          >
+          <View className={`${rowClass} justify-between items-start mb-2`}>
             <View className={`flex-1 ${isRTL ? "ml-2" : "mr-2"}`}>
               <Text
-                className={`text-xl font-bold text-text dark:text-text-dark mb-1 ${isRTL ? "text-right" : "text-left"}`}
+                className={`text-xl font-bold text-text dark:text-text-dark mb-1 ${textAlign}`}
               >
                 {name?.[lang] || name?.["en"]}
               </Text>
               {cuisine && (
                 <Text
-                  className={`text-text-muted dark:text-text-muted-dark text-xs ${isRTL ? "text-right" : "text-left"}`}
+                  className={`text-text-muted dark:text-text-muted-dark text-xs ${textAlign}`}
                 >
                   {cuisine?.[lang] || cuisine?.["en"]}
                 </Text>
@@ -220,9 +197,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
           <View
             className={`${rowClass} items-center border-t border-border dark:border-border-dark pt-4 mt-2`}
           >
-            <View
-              className={`flex-row items-center ${isRTL ? "ml-4" : "mr-4"}`}
-            >
+            <View className={`flex-row items-center ${isRTL ? "ml-4" : "mr-4"}`}>
               <Ionicons name="time-outline" size={16} color="#6b7280" />
               <Text className="text-text-muted dark:text-text-muted-dark text-xs ml-1.5">
                 {deliveryTime}
@@ -231,9 +206,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
 
             <View className="w-1 h-1 rounded-full bg-border dark:bg-border-dark" />
 
-            <View
-              className={`flex-row items-center ${isRTL ? "mr-4" : "ml-4"}`}
-            >
+            <View className={`flex-row items-center ${isRTL ? "mr-4" : "ml-4"}`}>
               <Ionicons name="bicycle-outline" size={16} color="#6b7280" />
               <Text className="text-text-muted dark:text-text-muted-dark text-xs ml-1.5">
                 {deliveryFee}
@@ -244,6 +217,6 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
       </TouchableOpacity>
     </View>
   );
-};
+});
 
 export default RestaurantCard;
