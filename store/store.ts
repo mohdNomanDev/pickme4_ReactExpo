@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { bookmarkSlice } from "./bookmarkSlice";
 import { languageSlice } from "./languageSlice";
+import themeReducer from "./themeSlice";
 
 export const store = configureStore({
   reducer: {
     language: languageSlice.reducer,
     bookmark: bookmarkSlice.reducer,
+    theme: themeReducer,
   },
 });
 

@@ -21,15 +21,21 @@ module.exports = {
         },
         "background": {
           DEFAULT: "#f8f7f5",
-          dark: "#121212",
+          dark: "#0a0a0a",
         },
         "card": {
           DEFAULT: "#ffffff",
-          dark: "#1e1e1e",
+          dark: "#141414",
         },
         "text": {
           DEFAULT: "#1a1a1a",
+          muted: "#6b7280",
           dark: "#f8f7f5",
+          "muted-dark": "#9ca3af",
+        },
+        "border": {
+          DEFAULT: "#e5e7eb",
+          dark: "#262626",
         }
       },
       fontFamily: {

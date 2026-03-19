@@ -4,55 +4,65 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { IsBookmarked, toogleBookmark } from "../../store/bookmarkSlice";
 
+type FoodItem = {
+  name: string;
+  image: string;
+  price?: string;
+};
+
 type RestaurantCardProps = {
   id: number;
   name: string;
-  images: string[];
+  foodItems: FoodItem[];
+
   rating: number;
   deliveryTime: string;
   deliveryFee: string;
 
   cuisine?: string;
   offer?: string;
-  featuredFoodName?: string;
 };
 
 const RestaurantCard: React.FC<RestaurantCardProps> = ({
   id,
   name,
-  images,
+  foodItems,
   rating,
   deliveryTime,
   deliveryFee,
   cuisine,
   offer,
-  featuredFoodName,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
   const dispatch = useDispatch();
   const bookmarkState = useSelector((state: RootState) => state.bookmark);
 
+  const currentFood = foodItems?.[currentIndex];
+
   const handleNext = () => {
-    if (images.length === 0) return;
-    setCurrentIndex((prev) => (prev + 1) % images.length);
+    if (!foodItems?.length) return;
+    setCurrentIndex((prev) => (prev + 1) % foodItems.length);
   };
 
   const handlePrev = () => {
-    if (images.length === 0) return;
-    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+    if (!foodItems?.length) return;
+    setCurrentIndex((prev) => (prev === 0 ? foodItems.length - 1 : prev - 1));
   };
+
+  const isBookmarked = IsBookmarked({ bookmark: bookmarkState }, id);
 
   return (
     <TouchableOpacity>
       <View>
         {/* IMAGE SECTION */}
         <View>
-          <Image source={{ uri: images[currentIndex] }} />
+          {currentFood?.image && <Image source={{ uri: currentFood.image }} />}
 
-          {/* Food Name Overlay */}
-          {featuredFoodName && (
+          {/* Food Name (SYNCED with image) */}
+          {currentFood?.name && (
             <View>
-              <Text>{featuredFoodName}</Text>
+              <Text>{currentFood.name + " " + currentFood.price}</Text>
             </View>
           )}
 
@@ -65,9 +75,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({
 
           {/* Bookmark Button */}
           <TouchableOpacity onPress={() => dispatch(toogleBookmark(id))}>
-            <Text>
-              {IsBookmarked({ bookmark: bookmarkState }, id) ? "★" : "☆"}
-            </Text>
+            <Text>{isBookmarked ? "★" : "☆"}</Text>
           </TouchableOpacity>
 
           {/* Slider Controls */}
