@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import { useDispatch, useSelector } from "react-redux";
-import { IsBookmarked, toogleBookmark } from "../../store/bookmarkSlice";
+import { toggleBookmark } from "../../store/bookmarkSlice";
 
 type LocalizedString = {
   en: string;
@@ -49,7 +49,6 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
   const { i18n } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const dispatch = useDispatch();
-  const bookmarkState = useSelector((state: RootState) => state.bookmark);
   const { isRTL, currentLanguage } = useSelector(
     (state: RootState) => state.language,
   );
@@ -61,8 +60,9 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
     "en";
 
   const currentFood = foodItems?.[currentIndex];
-  const isBookmarked = IsBookmarked({ bookmark: bookmarkState }, id);
-
+  const isBookmarked = useSelector((state: RootState) =>
+    state.bookmark.value.includes(id),
+  );
   const handleNext = () => {
     if (!foodItems?.length) return;
     setCurrentIndex((prev) => (prev + 1) % foodItems.length);
@@ -107,7 +107,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
             )}
 
             <Pressable
-              onPress={() => dispatch(toogleBookmark(id))}
+              onPress={() => dispatch(toggleBookmark(id))}
               className="w-10 h-10 rounded-full bg-white/90 dark:bg-black/50 items-center justify-center backdrop-blur-md"
             >
               <Ionicons
@@ -201,11 +201,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
               )}
             </View>
             <View className="bg-green-50 dark:bg-green-500/10 px-2 py-1 rounded-lg flex-row items-center gap-1">
-              <Ionicons
-                name="star"
-                size={14}
-                color="#22c55e"
-              />
+              <Ionicons name="star" size={14} color="#22c55e" />
               <Text className="text-green-600 dark:text-green-400 font-bold text-sm">
                 {rating.toFixed(1)}
               </Text>

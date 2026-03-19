@@ -13,7 +13,7 @@ export const bookmarkSlice = createSlice({
   name: "bookmark",
   initialState,
   reducers: {
-    toogleBookmark: (state, action: PayloadAction<number>) => {
+    toggleBookmark: (state, action: PayloadAction<number>) => {
       if (state.value.includes(action.payload)) {
         state.value = state.value.filter((id) => id !== action.payload);
       } else {
@@ -23,14 +23,7 @@ export const bookmarkSlice = createSlice({
   },
 });
 
-export const IsBookmarked = (
-  state: { bookmark: bookmarkState },
-  id: number,
-) => {
-  return state.bookmark.value.includes(id);
-};
-
 // Action creators are generated for each case reducer function
-export const { toogleBookmark } = bookmarkSlice.actions;
+export const { toggleBookmark } = bookmarkSlice.actions;
 
 export default bookmarkSlice.reducer;

@@ -12,12 +12,9 @@ export default function Home() {
         <LanguageToggle />
       </View>
 
-      <ScrollView 
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1 }}
-      >
+      <View className="flex-1">
         <RestaurantCardList />
-      </ScrollView>
+      </View>
     </View>
   );
 }
