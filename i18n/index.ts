@@ -45,20 +45,19 @@ if (I18nManager.isRTL !== isRTL) {
 }
 
 // 4. Async loading of saved preference (avoids crashing SSR)
-if (Platform.OS !== 'web' || typeof window !== 'undefined') {
-  AsyncStorage.getItem(LANGUAGE_KEY).then((savedLanguage) => {
+export const initI18nPromise = (async () => {
+  if (Platform.OS !== 'web' || typeof window !== 'undefined') {
+    const savedLanguage = await AsyncStorage.getItem(LANGUAGE_KEY);
     if (savedLanguage && savedLanguage !== i18n.language) {
-      i18n.changeLanguage(savedLanguage);
+      await i18n.changeLanguage(savedLanguage);
       
       const shouldBeRTL = savedLanguage === 'ar';
       if (I18nManager.isRTL !== shouldBeRTL) {
         I18nManager.allowRTL(shouldBeRTL);
         I18nManager.forceRTL(shouldBeRTL);
-        // On native, we don't reload here to avoid infinite loops on startup,
-        // we assume the user will toggle if they want a different language than device default.
       }
     }
-  });
-}
+  }
+})();
 
 export default i18n;

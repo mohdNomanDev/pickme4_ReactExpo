@@ -10,27 +10,25 @@ export default function Home() {
   const { isRTL } = useSelector((state: RootState) => state.language);
 
   return (
-    <View className="flex-1 items-center justify-center bg-background dark:bg-background-dark p-6">
-      <View className="absolute top-12 right-6 left-6 flex-row justify-between items-center">
+    <View className="flex-1 items-center justify-center bg-background dark:bg-background-dark p-6 md:p-12">
+      <View className="absolute top-12 right-6 left-6 md:right-12 md:left-12 flex-row justify-between items-center">
         <ThemeToggle />
         <LanguageToggle />
       </View>
 
-      <View className="p-8 bg-card dark:bg-card-dark rounded-3xl shadow-sm items-center border border-gray-100 dark:border-gray-800 w-full">
+      <View className="w-full md:max-w-md lg:max-w-lg p-8 bg-card dark:bg-card-dark rounded-3xl shadow-sm items-center border border-gray-100 dark:border-gray-800">
         <Text 
-          className="text-3xl font-display font-bold text-primary mt-6 mb-2 w-full"
-          style={{ textAlign: isRTL ? 'right' : 'center' }}
+          className={`text-3xl font-display font-bold text-primary mt-6 mb-2 w-full ${isRTL ? 'text-right' : 'text-center'}`}
         >
           {t('home.title')}
         </Text>
         <Text 
-          className="text-lg text-text dark:text-text-dark w-full"
-          style={{ textAlign: isRTL ? 'right' : 'center' }}
+          className={`text-lg text-text dark:text-text-dark w-full ${isRTL ? 'text-right' : 'text-center'}`}
         >
           {t('home.subtitle')}
         </Text>
         
-        <View className="mt-8 px-8 py-4 bg-primary rounded-full shadow-lg shadow-primary/30">
+        <View className="mt-8 px-8 py-4 bg-primary rounded-full shadow-lg shadow-primary/30 w-full md:w-auto items-center">
           <Text className="text-white font-bold text-lg">
             {t('checkout.place_order')}
           </Text>
