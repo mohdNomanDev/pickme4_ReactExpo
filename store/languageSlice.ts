@@ -43,7 +43,13 @@ export const toggleLanguageAction = createAsyncThunk(
     // Native reload for RTL changes
     if (Platform.OS !== 'web') {
       try {
-        await Updates.reloadAsync();
+        if (__DEV__) {
+          // DevSettings.reload() is more reliable for RTL changes in Expo Go/Development
+          const { DevSettings } = require('react-native');
+          DevSettings.reload();
+        } else {
+          await Updates.reloadAsync();
+        }
       } catch (error) {
         console.error('Failed to reload app for RTL change:', error);
       }
@@ -61,9 +67,13 @@ export const languageSlice = createSlice({
       state.currentLanguage = action.payload.currentLanguage;
       state.isRTL = action.payload.isRTL;
     },
+    syncLanguage: (state) => {
+      state.currentLanguage = i18n.language;
+      state.isRTL = I18nManager.isRTL;
+    }
   },
 });
 
-export const { setLanguage } = languageSlice.actions;
+export const { setLanguage, syncLanguage } = languageSlice.actions;
 
 export default languageSlice.reducer;

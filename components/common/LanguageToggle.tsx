@@ -4,7 +4,8 @@ import Animated, {
   useAnimatedStyle, 
   useSharedValue, 
   withSpring, 
-  withTiming 
+  withTiming,
+  FadeIn
 } from 'react-native-reanimated';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '../../store/store';
@@ -57,7 +58,7 @@ export const LanguageToggle = () => {
       {/* Indicator Dot */}
       <Animated.View 
         className="h-1.5 w-1.5 bg-orange-500 rounded-full absolute -top-0.5 -right-0.5"
-        entering={withSpring(1)}
+        entering={FadeIn.duration(400)}
       />
     </AnimatedPressable>
   );
