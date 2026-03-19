@@ -76,8 +76,9 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
   };
 
   // On Web, if dir="rtl" is set on html, flex-row already behaves like RTL.
-  // Adding flex-row-reverse would flip it back to LTR.
-  const containerDirection = isRTL && !isWeb ? "flex-row-reverse" : "flex-row";
+  // On Mobile, we restore the user's preferred flex-row-reverse behavior.
+  const rowClass = isWeb ? "flex-row" : `flex-row ${isRTL ? "flex-row-reverse" : ""}`;
+  const gapClass = isWeb ? "gap-2" : (isRTL ? "space-x-reverse space-x-2" : "space-x-2");
 
   return (
     <View className="mb-6 bg-card dark:bg-card-dark rounded-[32px] overflow-hidden border border-border dark:border-border-dark shadow-sm">
@@ -88,19 +89,20 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
             key={currentIndex}
             entering={FadeIn.duration(400)}
             exiting={FadeOut.duration(400)}
-            className="w-full h-full"
+            style={{ width: '100%', height: '100%' }}
           >
             <Image
-              source={{ uri: currentFood?.image }}
+              source={currentFood?.image}
               contentFit="cover"
               transition={500}
-              className="w-full h-full bg-gray-100 dark:bg-gray-800"
+              style={{ width: '100%', height: '100%' }}
+              className="bg-gray-100 dark:bg-gray-800"
             />
           </Animated.View>
 
           {/* Top Overlays */}
           <View
-            className={`absolute top-4 left-4 right-4 items-start ${containerDirection} justify-between`}
+            className={`absolute top-4 left-4 right-4 items-start ${rowClass} justify-between`}
           >
             {offer ? (
               <View className="bg-primary px-3 py-1.5 rounded-full shadow-lg shadow-primary/20">
@@ -127,7 +129,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
           {/* Bottom Overlays: Food Info Slider */}
           <View className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
             <View
-              className={`${containerDirection} justify-between items-end`}
+              className={`${rowClass} justify-between items-end`}
             >
               <View className="flex-1">
                 <Text
@@ -147,7 +149,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
               {/* Slider Controls */}
               {foodItems?.length > 1 && (
                 <View
-                  className={`${containerDirection} gap-2 items-center`}
+                  className={`${rowClass} ${gapClass} items-center`}
                 >
                   <TouchableOpacity
                     onPress={handlePrev}
@@ -190,7 +192,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
         {/* DETAILS SECTION */}
         <View className="p-5">
           <View
-            className={`${containerDirection} justify-between items-start mb-2`}
+            className={`${rowClass} justify-between items-start mb-2`}
           >
             <View className={`flex-1 ${isRTL ? "ml-2" : "mr-2"}`}>
               <Text
@@ -216,7 +218,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = ({ restaurant }) => {
 
           {/* Meta Info */}
           <View
-            className={`${containerDirection} items-center border-t border-border dark:border-border-dark pt-4 mt-2`}
+            className={`${rowClass} items-center border-t border-border dark:border-border-dark pt-4 mt-2`}
           >
             <View
               className={`flex-row items-center ${isRTL ? "ml-4" : "mr-4"}`}
