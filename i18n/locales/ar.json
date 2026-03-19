@@ -42,5 +42,11 @@
     "language": "اللغة",
     "change_language": "تغيير اللغة",
     "logout": "تسجيل الخروج"
+  },
+  "restaurant": {
+    "count_header": "مطاعم توصيل إليك",
+    "free_delivery": "توصيل مجاني",
+    "closed": "مغلق",
+    "min_order": "الحد الأدنى للطلب"
   }
 }

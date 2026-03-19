@@ -42,5 +42,11 @@
     "language": "Language",
     "change_language": "Change Language",
     "logout": "Logout"
+  },
+  "restaurant": {
+    "count_header": "restaurants delivering to you",
+    "free_delivery": "Free Delivery",
+    "closed": "Closed",
+    "min_order": "Min Order"
   }
 }
