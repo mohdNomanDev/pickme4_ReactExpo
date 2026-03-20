@@ -219,4 +219,6 @@ const RestaurantCard: React.FC<RestaurantCardProps> = memo(({ restaurant }) => {
   );
 });
 
+RestaurantCard.displayName = "RestaurantCard";
+
 export default RestaurantCard;
