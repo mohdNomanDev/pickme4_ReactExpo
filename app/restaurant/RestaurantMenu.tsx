@@ -1,4 +1,4 @@
-import { ScrollView, View, Platform } from "react-native";
+import { ScrollView, View } from "react-native";
 import RestaurantDetails from "@/components/restaurant/RestaurantDetails";
 import restaurantData from "@/TestData/RestaurantData.json";
 import { useEffect, useState } from "react";
