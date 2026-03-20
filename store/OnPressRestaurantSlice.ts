@@ -2,22 +2,22 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { createSlice } from "@reduxjs/toolkit";
 
 export interface CounterState {
-  restaurantId: string;
+  restaurantId: number;
 }
 
 const initialState: CounterState = {
-  restaurantId: "",
+  restaurantId: 0,
 };
 
 export const onPressRestaurantSlice = createSlice({
   name: "selectedRestaurant",
   initialState,
   reducers: {
-    setRestaurantId: (state, action: PayloadAction<string>) => {
+    setRestaurantId: (state, action: PayloadAction<number>) => {
       state.restaurantId = action.payload;
     },
     removeRestaurantId: (state) => {
-      state.restaurantId = "";
+      state.restaurantId = 0;
     },
   },
 });

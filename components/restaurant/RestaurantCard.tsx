@@ -8,6 +8,7 @@ import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleBookmark } from "../../store/bookmarkSlice";
+import { setRestaurantId } from "../../store/OnPressRestaurantSlice";
 
 /**
  * LocalizedString and FoodItem types for type safety
@@ -101,13 +102,13 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
   }, [dispatch, restaurant?.id]);
 
   const handleNavigateToMenu = useCallback(() => {
+    dispatch(setRestaurantId(restaurant.id));
     router.push("/restaurant/RestaurantMenu");
-  }, [router]);
+  }, [dispatch, router]);
 
   if (!restaurant) return null;
 
-  const { id, foodItems, rating, deliveryTime, deliveryFee, offer } =
-    restaurant;
+  const { foodItems, rating, deliveryTime, deliveryFee, offer } = restaurant;
 
   return (
     <View className="mb-6 bg-card dark:bg-card-dark rounded-[32px] overflow-hidden border border-border dark:border-border-dark shadow-sm hover:shadow-md transition-shadow">
