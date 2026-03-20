@@ -28,6 +28,7 @@ export type Restaurant = {
   deliveryFee: string;
   cuisine?: LocalizedString;
   offer?: string;
+  area?: LocalizedString;
 };
 
 type RestaurantCardProps = {
@@ -44,6 +45,7 @@ const RestaurantCard: React.FC<RestaurantCardProps> = memo(({ restaurant }) => {
     deliveryFee,
     cuisine,
     offer,
+    area,
   } = restaurant;
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -179,10 +181,20 @@ const RestaurantCard: React.FC<RestaurantCardProps> = memo(({ restaurant }) => {
               </Text>
               {cuisine && (
                 <Text
-                  className={`text-text-muted dark:text-text-muted-dark text-xs ${textAlign}`}
+                  className={`text-text-muted dark:text-text-muted-dark text-xs mb-1 ${textAlign}`}
                 >
                   {cuisine?.[lang] || cuisine?.["en"]}
                 </Text>
+              )}
+              {area && (
+                <View className={`flex-row items-center ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  <Ionicons name="location-outline" size={12} color="#6b7280" />
+                  <Text
+                    className={`text-text-muted dark:text-text-muted-dark text-[10px] ${isRTL ? 'mr-1' : 'ml-1'} ${textAlign}`}
+                  >
+                    {area?.[lang] || area?.["en"]}
+                  </Text>
+                </View>
               )}
             </View>
             <View className="bg-green-50 dark:bg-green-500/10 px-2 py-1 rounded-lg flex-row items-center gap-1">
