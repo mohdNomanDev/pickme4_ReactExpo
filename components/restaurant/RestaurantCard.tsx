@@ -2,6 +2,7 @@ import { useRTL } from "@/hooks/useRTL";
 import { RootState } from "@/store/store";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
+import { useRouter } from "expo-router";
 import React, { memo, useCallback, useMemo, useState } from "react";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
@@ -43,6 +44,7 @@ type RestaurantCardProps = {
  * Optimized for performance and high-quality UI/UX in Saudi market.
  */
 const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
+  const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const dispatch = useDispatch();
   const { isRTL, lang, rowClass, getGapClass, textAlign } = useRTL();
@@ -98,6 +100,10 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
     }
   }, [dispatch, restaurant?.id]);
 
+  const handleNavigateToMenu = useCallback(() => {
+    router.push("/restaurant/RestaurantMenu");
+  }, [router]);
+
   if (!restaurant) return null;
 
   const { id, foodItems, rating, deliveryTime, deliveryFee, offer } =
@@ -105,7 +111,11 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
   return (
     <View className="mb-6 bg-card dark:bg-card-dark rounded-[32px] overflow-hidden border border-border dark:border-border-dark shadow-sm hover:shadow-md transition-shadow">
-      <TouchableOpacity activeOpacity={0.9} className="flex-1">
+      <TouchableOpacity
+        activeOpacity={0.9}
+        className="flex-1"
+        onPress={handleNavigateToMenu}
+      >
         {/* IMAGE SECTION */}
         <View className="relative h-60 w-full overflow-hidden">
           <Animated.View
