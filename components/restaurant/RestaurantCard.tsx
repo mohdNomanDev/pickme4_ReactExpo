@@ -49,7 +49,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
   // Optimized State Selectors
   const isBookmarked = useSelector((state: RootState) =>
-    restaurant?.id ? state.bookmark.value.includes(restaurant.id) : false
+    restaurant?.id ? state.bookmark.value.includes(restaurant.id) : false,
   );
 
   // Memoized Calculations
@@ -86,7 +86,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
       e?.stopPropagation?.();
       if (!restaurant?.foodItems?.length) return;
       setCurrentIndex((prev) =>
-        prev === 0 ? restaurant.foodItems.length - 1 : prev - 1
+        prev === 0 ? restaurant.foodItems.length - 1 : prev - 1,
       );
     },
     [restaurant?.foodItems?.length],
@@ -100,14 +100,8 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
   if (!restaurant) return null;
 
-  const {
-    id,
-    foodItems,
-    rating,
-    deliveryTime,
-    deliveryFee,
-    offer,
-  } = restaurant;
+  const { id, foodItems, rating, deliveryTime, deliveryFee, offer } =
+    restaurant;
 
   return (
     <View className="mb-6 bg-card dark:bg-card-dark rounded-[32px] overflow-hidden border border-border dark:border-border-dark shadow-sm hover:shadow-md transition-shadow">
