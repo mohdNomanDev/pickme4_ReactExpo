@@ -36,6 +36,8 @@ type RestaurantCardProps = {
 };
 
 const RestaurantCard: React.FC<RestaurantCardProps> = memo(({ restaurant }) => {
+  if (!restaurant) return null;
+
   const {
     id,
     name,
