@@ -7,19 +7,28 @@
     "deliveryTime": "25-30 min",
     "deliveryFee": "Free",
     "offer": "20% OFF",
+    "distance": "2.5 km",
+    "area": { "en": "Riyadh, Olaya", "ar": "الرياض، العليا" },
+    "description": { "en": "Authentic Indian spices and curries.", "ar": "توابل هندية أصلية." },
+    "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
+    "isOpen": true,
+    "tags": ["popular", "spicy"],
     "foodItems": [
       {
         "name": { "en": "Butter Chicken", "ar": "دجاج بالزبدة" },
-        "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80",
+        "category": { "en": "Main Course", "ar": "طبق رئيسي" },
+        "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
         "price": "$12"
       },
       {
         "name": { "en": "Paneer Tikka", "ar": "بانير تيكا" },
-        "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80",
+        "category": { "en": "Starters", "ar": "مقبلات" },
+        "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
         "price": "$10"
       }
     ]
   },
+
   {
     "id": 2,
     "name": { "en": "Burger Town", "ar": "مدينة البرجر" },
@@ -27,14 +36,28 @@
     "rating": 4.2,
     "deliveryTime": "20-25 min",
     "deliveryFee": "$2",
+    "distance": "1.8 km",
+    "area": { "en": "Riyadh, Olaya", "ar": "الرياض، العليا" },
+    "description": { "en": "Juicy burgers and crispy fries.", "ar": "برجر لذيذ." },
+    "image": "https://images.unsplash.com/photo-1550547660-d9450f859349",
+    "isOpen": true,
+    "tags": ["fast"],
     "foodItems": [
       {
         "name": { "en": "Cheese Burger", "ar": "برجر بالجبن" },
-        "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=800&q=80",
+        "category": { "en": "Burgers", "ar": "برجر" },
+        "image": "https://images.unsplash.com/photo-1550547660-d9450f859349",
         "price": "$8"
+      },
+      {
+        "name": { "en": "Fries", "ar": "بطاطس" },
+        "category": { "en": "Sides", "ar": "وجبات جانبية" },
+        "image": "https://images.unsplash.com/photo-1550547660-d9450f859349",
+        "price": "$4"
       }
     ]
   },
+
   {
     "id": 3,
     "name": { "en": "Pizza Palace", "ar": "قصر البيتزا" },
@@ -42,15 +65,22 @@
     "rating": 4.6,
     "deliveryTime": "30-35 min",
     "deliveryFee": "Free",
-    "offer": "10% OFF",
+    "distance": "3.1 km",
+    "area": { "en": "Riyadh, Olaya", "ar": "الرياض، العليا" },
+    "description": { "en": "Fresh baked pizzas.", "ar": "بيتزا طازجة." },
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
+    "isOpen": false,
+    "tags": ["pizza"],
     "foodItems": [
       {
         "name": { "en": "Pepperoni Pizza", "ar": "بيتزا بيبروني" },
-        "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80",
+        "category": { "en": "Pizza", "ar": "بيتزا" },
+        "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
         "price": "$14"
       }
     ]
   },
+
   {
     "id": 4,
     "name": { "en": "Sushi World", "ar": "عالم السوشي" },
@@ -58,14 +88,22 @@
     "rating": 4.7,
     "deliveryTime": "35-40 min",
     "deliveryFee": "$3",
+    "distance": "4.2 km",
+    "area": { "en": "Riyadh, Olaya", "ar": "الرياض، العليا" },
+    "description": { "en": "Premium sushi.", "ar": "سوشي فاخر." },
+    "image": "https://images.unsplash.com/photo-1553621042-f6e147245754",
+    "isOpen": true,
+    "tags": ["premium"],
     "foodItems": [
       {
         "name": { "en": "Salmon Sushi", "ar": "سوشي السلمون" },
-        "image": "https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=80",
+        "category": { "en": "Main Course", "ar": "طبق رئيسي" },
+        "image": "https://images.unsplash.com/photo-1553621042-f6e147245754",
         "price": "$15"
       }
     ]
   },
+
   {
     "id": 5,
     "name": { "en": "Arabian Nights", "ar": "ليالي عربية" },
@@ -73,14 +111,22 @@
     "rating": 4.4,
     "deliveryTime": "25-30 min",
     "deliveryFee": "Free",
+    "distance": "2.3 km",
+    "area": { "en": "Riyadh, Olaya", "ar": "الرياض، العليا" },
+    "description": { "en": "Arabic grills.", "ar": "مشاوي عربية." },
+    "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
+    "isOpen": true,
+    "tags": ["grill"],
     "foodItems": [
       {
         "name": { "en": "Shawarma", "ar": "شاورما" },
-        "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4?auto=format&fit=crop&w=800&q=80",
+        "category": { "en": "Wraps", "ar": "لفائف" },
+        "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
         "price": "$7"
       }
     ]
   },
+
   {
     "id": 6,
     "name": { "en": "Taco Fiesta", "ar": "تاكو فييستا" },
@@ -88,14 +134,22 @@
     "rating": 4.3,
     "deliveryTime": "20-30 min",
     "deliveryFee": "$2",
+    "distance": "1.9 km",
+    "area": { "en": "Riyadh, Olaya", "ar": "الرياض، العليا" },
+    "description": { "en": "Mexican tacos.", "ar": "تاكو مكسيكي." },
+    "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47",
+    "isOpen": true,
+    "tags": ["mexican"],
     "foodItems": [
       {
         "name": { "en": "Chicken Taco", "ar": "تاكو دجاج" },
-        "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80",
+        "category": { "en": "Main Course", "ar": "طبق رئيسي" },
+        "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47",
         "price": "$9"
       }
     ]
   },
+
   {
     "id": 7,
     "name": { "en": "Healthy Bowl", "ar": "الوعاء الصحي" },
@@ -103,14 +157,22 @@
     "rating": 4.8,
     "deliveryTime": "15-20 min",
     "deliveryFee": "Free",
+    "distance": "1.2 km",
+    "area": { "en": "Riyadh, Olaya", "ar": "الرياض، العليا" },
+    "description": { "en": "Healthy meals.", "ar": "وجبات صحية." },
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+    "isOpen": true,
+    "tags": ["healthy"],
     "foodItems": [
       {
         "name": { "en": "Salad Bowl", "ar": "سلطة" },
-        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80",
+        "category": { "en": "Salads", "ar": "سلطات" },
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
         "price": "$11"
       }
     ]
   },
+
   {
     "id": 8,
     "name": { "en": "BBQ King", "ar": "ملك الشواء" },
@@ -118,191 +180,64 @@
     "rating": 4.6,
     "deliveryTime": "30-40 min",
     "deliveryFee": "$3",
+    "distance": "3.6 km",
+    "area": { "en": "Riyadh, Olaya", "ar": "الرياض، العليا" },
+    "description": { "en": "Grilled meats.", "ar": "مشاوي." },
+    "image": "https://images.unsplash.com/photo-1532550907401-a500c9a57435",
+    "isOpen": true,
+    "tags": ["bbq"],
     "foodItems": [
       {
         "name": { "en": "Grilled Chicken", "ar": "دجاج مشوي" },
-        "image": "https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=800&q=80",
+        "category": { "en": "Main Course", "ar": "طبق رئيسي" },
+        "image": "https://images.unsplash.com/photo-1532550907401-a500c9a57435",
         "price": "$13"
       }
     ]
   },
+
   {
     "id": 9,
-    "name": { "en": "Pasta House", "ar": "بيت الباستا" },
-    "cuisine": { "en": "Italian", "ar": "إيطالي" },
-    "rating": 4.5,
-    "deliveryTime": "25-30 min",
-    "deliveryFee": "Free",
-    "foodItems": [
-      {
-        "name": { "en": "Alfredo Pasta", "ar": "باستا ألفريدو" },
-        "image": "https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&w=800&q=80",
-        "price": "$12"
-      }
-    ]
-  },
-  {
-    "id": 10,
-    "name": { "en": "Seafood Delight", "ar": "مأكولات بحرية" },
-    "cuisine": { "en": "Seafood", "ar": "مأكولات بحرية" },
-    "rating": 4.7,
-    "deliveryTime": "35-45 min",
-    "deliveryFee": "$4",
-    "foodItems": [
-      {
-        "name": { "en": "Grilled Fish", "ar": "سمك مشوي" },
-        "image": "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=800&q=80",
-        "price": "$16"
-      }
-    ]
-  },
-  {
-    "id": 11,
-    "name": { "en": "Street Bites", "ar": "مأكولات الشارع" },
-    "cuisine": { "en": "Snacks", "ar": "وجبات خفيفة" },
-    "rating": 4.1,
-    "deliveryTime": "15-20 min",
-    "deliveryFee": "$1",
-    "foodItems": [
-      {
-        "name": { "en": "Samosa", "ar": "سمبوسة" },
-        "image": "https://images.unsplash.com/photo-1601050638917-3f0480dc48b6?auto=format&fit=crop&w=800&q=80",
-        "price": "$5"
-      }
-    ]
-  },
-  {
-    "id": 12,
-    "name": { "en": "Coffee Corner", "ar": "ركن القهوة" },
-    "cuisine": { "en": "Cafe", "ar": "مقهى" },
-    "rating": 4.6,
-    "deliveryTime": "10-15 min",
-    "deliveryFee": "Free",
-    "foodItems": [
-      {
-        "name": { "en": "Cappuccino", "ar": "كابتشينو" },
-        "image": "https://images.unsplash.com/photo-1541167760496-162955ed8a9f?auto=format&fit=crop&w=800&q=80",
-        "price": "$6"
-      }
-    ]
-  },
-  {
-    "id": 13,
     "name": { "en": "Dessert Heaven", "ar": "جنة الحلويات" },
     "cuisine": { "en": "Desserts", "ar": "حلويات" },
     "rating": 4.9,
     "deliveryTime": "20-25 min",
     "deliveryFee": "$2",
+    "distance": "2.1 km",
+    "area": { "en": "Riyadh, Olaya", "ar": "الرياض، العليا" },
+    "description": { "en": "Sweet desserts.", "ar": "حلويات." },
+    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+    "isOpen": true,
+    "tags": ["dessert"],
     "foodItems": [
       {
         "name": { "en": "Chocolate Cake", "ar": "كيك الشوكولاتة" },
-        "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80",
+        "category": { "en": "Cakes", "ar": "كعك" },
+        "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
         "price": "$8"
       }
     ]
   },
+
   {
-    "id": 14,
-    "name": { "en": "Noodle House", "ar": "بيت النودلز" },
-    "cuisine": { "en": "Chinese", "ar": "صيني" },
-    "rating": 4.4,
-    "deliveryTime": "25-30 min",
-    "deliveryFee": "$2",
-    "foodItems": [
-      {
-        "name": { "en": "Chicken Noodles", "ar": "نودلز دجاج" },
-        "image": "https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&w=800&q=80",
-        "price": "$11"
-      }
-    ]
-  },
-  {
-    "id": 15,
-    "name": { "en": "Fried Chicken Hub", "ar": "مركز الدجاج المقلي" },
-    "cuisine": { "en": "Fast Food", "ar": "وجبات سريعة" },
-    "rating": 4.3,
-    "deliveryTime": "20-25 min",
-    "deliveryFee": "$2",
-    "foodItems": [
-      {
-        "name": { "en": "Fried Chicken", "ar": "دجاج مقلي" },
-        "image": "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=800&q=80",
-        "price": "$9"
-      }
-    ]
-  },
-  {
-    "id": 16,
-    "name": { "en": "Wrap & Roll", "ar": "راب آند رول" },
-    "cuisine": { "en": "Wraps", "ar": "لفائف" },
-    "rating": 4.2,
-    "deliveryTime": "15-20 min",
-    "deliveryFee": "$1",
-    "foodItems": [
-      {
-        "name": { "en": "Chicken Wrap", "ar": "لفافة دجاج" },
-        "image": "https://images.unsplash.com/photo-1626700051175-651852e7dd7a?auto=format&fit=crop&w=800&q=80",
-        "price": "$7"
-      }
-    ]
-  },
-  {
-    "id": 17,
-    "name": { "en": "Veggie Delight", "ar": "متعة الخضار" },
-    "cuisine": { "en": "Vegetarian", "ar": "نباتي" },
-    "rating": 4.5,
-    "deliveryTime": "20-25 min",
-    "deliveryFee": "Free",
-    "foodItems": [
-      {
-        "name": { "en": "Veg Curry", "ar": "كاري خضار" },
-        "image": "https://images.unsplash.com/photo-1540914124281-342729f3aa3f?auto=format&fit=crop&w=800&q=80",
-        "price": "$10"
-      }
-    ]
-  },
-  {
-    "id": 18,
-    "name": { "en": "Ice Cream Bar", "ar": "بار الآيس كريم" },
-    "cuisine": { "en": "Desserts", "ar": "حلويات" },
-    "rating": 4.7,
-    "deliveryTime": "10-15 min",
-    "deliveryFee": "$1",
-    "foodItems": [
-      {
-        "name": { "en": "Vanilla Ice Cream", "ar": "آيس كريم فانيليا" },
-        "image": "https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=800&q=80",
-        "price": "$5"
-      }
-    ]
-  },
-  {
-    "id": 19,
-    "name": { "en": "Grill Master", "ar": "سيد الشواء" },
-    "cuisine": { "en": "BBQ", "ar": "شواء" },
+    "id": 10,
+    "name": { "en": "Coffee Corner", "ar": "ركن القهوة" },
+    "cuisine": { "en": "Cafe", "ar": "مقهى" },
     "rating": 4.6,
-    "deliveryTime": "30-35 min",
-    "deliveryFee": "$3",
-    "foodItems": [
-      {
-        "name": { "en": "BBQ Ribs", "ar": "ضلوع مشوية" },
-        "image": "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80",
-        "price": "$18"
-      }
-    ]
-  },
-  {
-    "id": 20,
-    "name": { "en": "Breakfast Club", "ar": "نادي الإفطار" },
-    "cuisine": { "en": "Breakfast", "ar": "إفطار" },
-    "rating": 4.4,
-    "deliveryTime": "15-20 min",
+    "deliveryTime": "10-15 min",
     "deliveryFee": "Free",
+    "distance": "1.0 km",
+    "area": { "en": "Riyadh, Olaya", "ar": "الرياض، العليا" },
+    "description": { "en": "Coffee and snacks.", "ar": "قهوة ووجبات خفيفة." },
+    "image": "https://images.unsplash.com/photo-1541167760496-162955ed8a9f",
+    "isOpen": true,
+    "tags": ["coffee"],
     "foodItems": [
       {
-        "name": { "en": "Pancakes", "ar": "فطائر" },
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80",
-        "price": "$9"
+        "name": { "en": "Cappuccino", "ar": "كابتشينو" },
+        "category": { "en": "Drinks", "ar": "مشروبات" },
+        "image": "https://images.unsplash.com/photo-1541167760496-162955ed8a9f",
+        "price": "$6"
       }
     ]
   }
