@@ -45,10 +45,7 @@
       "ar": "توابل هندية أصلية."
     },
     "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
-    "tags": [
-      "popular",
-      "spicy"
-    ],
+    "tags": ["popular", "spicy"],
     "foodItems": [
       {
         "name": {
@@ -122,6 +119,24 @@
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": "SAR 18"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Starters",
+        "ar": "مقبلات"
+      },
+      {
+        "en": "Sides",
+        "ar": "أطباق جانبية"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      }
     ]
   },
   {
@@ -170,9 +185,7 @@
       "ar": "برجر لذيذ وبطاطس مقلية."
     },
     "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
-    "tags": [
-      "fastfood"
-    ],
+    "tags": ["fastfood"],
     "foodItems": [
       {
         "name": {
@@ -234,6 +247,24 @@
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": "SAR 18"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Soups",
+        "ar": "شوربات"
+      },
+      {
+        "en": "Desserts",
+        "ar": "حلويات"
+      }
     ]
   },
   {
@@ -282,9 +313,7 @@
       "ar": "بيتزا طازجة ولذيذة."
     },
     "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
-    "tags": [
-      "cheesy"
-    ],
+    "tags": ["cheesy"],
     "foodItems": [
       {
         "name": {
@@ -346,6 +375,24 @@
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": "SAR 18"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Appetizers",
+        "ar": "مقبلات"
+      },
+      {
+        "en": "Salads",
+        "ar": "سلطات"
+      }
     ]
   },
   {
@@ -394,9 +441,7 @@
       "ar": "سوشي طازج."
     },
     "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c",
-    "tags": [
-      "premium"
-    ],
+    "tags": ["premium"],
     "foodItems": [
       {
         "name": {
@@ -494,6 +539,28 @@
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": "SAR 30"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Soups",
+        "ar": "شوربات"
+      },
+      {
+        "en": "Desserts",
+        "ar": "حلويات"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Salads",
+        "ar": "سلطات"
+      }
     ]
   },
   {
@@ -542,9 +609,7 @@
       "ar": "أفضل شاورما."
     },
     "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
-    "tags": [
-      "popular"
-    ],
+    "tags": ["popular"],
     "foodItems": [
       {
         "name": {
@@ -654,6 +719,24 @@
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": "SAR 28"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Sides",
+        "ar": "أطباق جانبية"
+      },
+      {
+        "en": "Desserts",
+        "ar": "حلويات"
+      },
+      {
+        "en": "Appetizers",
+        "ar": "مقبلات"
+      }
     ]
   },
   {
@@ -702,10 +785,7 @@
       "ar": "سلطات طازجة وأطباق بروتين."
     },
     "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
-    "tags": [
-      "healthy",
-      "fresh"
-    ],
+    "tags": ["healthy", "fresh"],
     "foodItems": [
       {
         "name": {
@@ -815,6 +895,32 @@
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": "SAR 12"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Salads",
+        "ar": "سلطات"
+      },
+      {
+        "en": "Desserts",
+        "ar": "حلويات"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Appetizers",
+        "ar": "مقبلات"
+      },
+      {
+        "en": "Sides",
+        "ar": "أطباق جانبية"
+      },
+      {
+        "en": "Soups",
+        "ar": "شوربات"
+      }
     ]
   },
   {
@@ -863,10 +969,7 @@
       "ar": "تاكو مكسيكي أصلي."
     },
     "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47",
-    "tags": [
-      "spicy",
-      "mexican"
-    ],
+    "tags": ["spicy", "mexican"],
     "foodItems": [
       {
         "name": {
@@ -928,6 +1031,24 @@
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": "SAR 12"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Appetizers",
+        "ar": "مقبلات"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Desserts",
+        "ar": "حلويات"
+      }
     ]
   },
   {
@@ -976,10 +1097,7 @@
       "ar": "باستا يدوية مع صوصات كلاسيكية."
     },
     "image": "https://images.unsplash.com/photo-1473093226795-af9932fe5856",
-    "tags": [
-      "pasta",
-      "italian"
-    ],
+    "tags": ["pasta", "italian"],
     "foodItems": [
       {
         "name": {
@@ -1077,6 +1195,24 @@
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": "SAR 12"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Sides",
+        "ar": "أطباق جانبية"
+      },
+      {
+        "en": "Soups",
+        "ar": "شوربات"
+      }
     ]
   },
   {
@@ -1125,10 +1261,7 @@
       "ar": "قطع لحم فاخرة مشوية بإتقان."
     },
     "image": "https://images.unsplash.com/photo-1546241072-48010ad28c2c",
-    "tags": [
-      "steak",
-      "fine-dining"
-    ],
+    "tags": ["steak", "fine-dining"],
     "foodItems": [
       {
         "name": {
@@ -1202,6 +1335,20 @@
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": "SAR 28"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Soups",
+        "ar": "شوربات"
+      },
+      {
+        "en": "Desserts",
+        "ar": "حلويات"
+      }
     ]
   },
   {
@@ -1250,10 +1397,7 @@
       "ar": "ديم سوم مطهو على البخار ومقلي."
     },
     "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c",
-    "tags": [
-      "chinese",
-      "dumplings"
-    ],
+    "tags": ["chinese", "dumplings"],
     "foodItems": [
       {
         "name": {
@@ -1339,6 +1483,24 @@
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": "SAR 28"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Appetizers",
+        "ar": "مقبلات"
+      },
+      {
+        "en": "Desserts",
+        "ar": "حلويات"
+      }
     ]
   },
   {
@@ -1387,10 +1549,7 @@
       "ar": "نودلز مقلية ورامين."
     },
     "image": "https://images.unsplash.com/photo-1552611052-33e04de081de",
-    "tags": [
-      "asian",
-      "noodles"
-    ],
+    "tags": ["asian", "noodles"],
     "foodItems": [
       {
         "name": {
@@ -1476,6 +1635,28 @@
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": "SAR 12"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Soups",
+        "ar": "شوربات"
+      },
+      {
+        "en": "Sides",
+        "ar": "أطباق جانبية"
+      },
+      {
+        "en": "Salads",
+        "ar": "سلطات"
+      }
     ]
   },
   {
@@ -1524,10 +1705,7 @@
       "ar": "كيك ومعجنات وحلويات."
     },
     "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
-    "tags": [
-      "sweets",
-      "desserts"
-    ],
+    "tags": ["sweets", "desserts"],
     "foodItems": [
       {
         "name": {
@@ -1601,6 +1779,28 @@
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": "SAR 18"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Desserts",
+        "ar": "حلويات"
+      },
+      {
+        "en": "Soups",
+        "ar": "شوربات"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Salads",
+        "ar": "سلطات"
+      }
     ]
   },
   {
@@ -1649,10 +1849,7 @@
       "ar": "عصائر طازجة وسموذي."
     },
     "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b2",
-    "tags": [
-      "juice",
-      "healthy"
-    ],
+    "tags": ["juice", "healthy"],
     "foodItems": [
       {
         "name": {
@@ -1750,6 +1947,32 @@
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": "SAR 20"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Sides",
+        "ar": "أطباق جانبية"
+      },
+      {
+        "en": "Salads",
+        "ar": "سلطات"
+      },
+      {
+        "en": "Main Course",
+        "ar": "طبق رئيسي"
+      },
+      {
+        "en": "Appetizers",
+        "ar": "مقبلات"
+      },
+      {
+        "en": "Soups",
+        "ar": "شوربات"
+      }
     ]
   },
   {
@@ -1798,10 +2021,7 @@
       "ar": "معجنات فرنسية وأطباق كلاسيكية."
     },
     "image": "https://images.unsplash.com/photo-1550966841-3eeec10e7b99",
-    "tags": [
-      "french",
-      "bakery"
-    ],
+    "tags": ["french", "bakery"],
     "foodItems": [
       {
         "name": {
@@ -1863,6 +2083,28 @@
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": "SAR 16"
       }
+    ],
+    "menuCategories": [
+      {
+        "en": "Bakery",
+        "ar": "مخبوزات"
+      },
+      {
+        "en": "Salads",
+        "ar": "سلطات"
+      },
+      {
+        "en": "Appetizers",
+        "ar": "مقبلات"
+      },
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Sides",
+        "ar": "أطباق جانبية"
+      }
     ]
   },
   {
@@ -1911,10 +2153,7 @@
       "ar": "قهوة مختصة وإفطار."
     },
     "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
-    "tags": [
-      "coffee",
-      "breakfast"
-    ],
+    "tags": ["coffee", "breakfast"],
     "foodItems": [
       {
         "name": {
@@ -1975,6 +2214,20 @@
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": "SAR 16"
+      }
+    ],
+    "menuCategories": [
+      {
+        "en": "Drinks",
+        "ar": "مشروبات"
+      },
+      {
+        "en": "Salads",
+        "ar": "سلطات"
+      },
+      {
+        "en": "Sides",
+        "ar": "أطباق جانبية"
       }
     ]
   }
