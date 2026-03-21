@@ -1,5 +1,6 @@
 import { ScrollView, View } from "react-native";
 import RestaurantDetails from "@/components/restaurant/RestaurantDetails";
+import FoodCardListing from "@/components/restaurant/FoodCardListing";
 import restaurantData from "@/TestData/RestaurantData.json";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -34,9 +35,11 @@ export default function RestaurantMenu() {
         <View className="w-full max-w-7xl mx-auto">
           <RestaurantDetails data={selectedRestaurant} />
           
-          {/* Placeholder for Menu Items Section */}
+          {/* Menu Items Section */}
           <View className="px-6 md:px-10 pb-20 max-w-5xl mx-auto w-full">
-            {/* Menu items logic will go here */}
+            {selectedRestaurant && selectedRestaurant.foodItems && (
+              <FoodCardListing foodItems={selectedRestaurant.foodItems} />
+            )}
           </View>
         </View>
       </ScrollView>
