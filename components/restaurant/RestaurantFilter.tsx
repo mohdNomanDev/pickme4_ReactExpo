@@ -1,25 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import { View } from "react-native";
 import SortBySection from "./SortBySection";
 import PriceRangeSection from "./PriceRangeSection";
 import RatingSection from "./RatingSection";
 import DietarySection from "./DietarySection";
 
-const RestaurantFilter = () => {
-  const [sortBy, setSortBy] = useState("recommended");
-  const [priceRange, setPriceRange] = useState("$$");
-  const [rating, setRating] = useState("4.0+");
-  const [dietary, setDietary] = useState<string[]>([]);
+export interface FilterState {
+  sortBy: string;
+  priceRange: string;
+  rating: string;
+  dietary: string[];
+}
 
+type Props = {
+  filters: FilterState;
+  setFilters: React.Dispatch<React.SetStateAction<FilterState>>;
+};
+
+const RestaurantFilter = ({ filters, setFilters }: Props) => {
   return (
-    <View>
-      <SortBySection value={sortBy} onChange={setSortBy} />
+    <View className="flex-1 w-full mt-2">
+      <SortBySection 
+        value={filters.sortBy} 
+        onChange={(val: string) => setFilters(prev => ({ ...prev, sortBy: val }))} 
+      />
 
-      <PriceRangeSection value={priceRange} onChange={setPriceRange} />
+      <PriceRangeSection 
+        value={filters.priceRange} 
+        onChange={(val: string) => setFilters(prev => ({ ...prev, priceRange: val }))} 
+      />
 
-      <RatingSection value={rating} onChange={setRating} />
+      <RatingSection 
+        value={filters.rating} 
+        onChange={(val: string) => setFilters(prev => ({ ...prev, rating: val }))} 
+      />
 
-      <DietarySection value={dietary} onChange={setDietary} />
+      <DietarySection 
+        value={filters.dietary} 
+        onChange={(val: string[]) => setFilters(prev => ({ ...prev, dietary: val }))} 
+      />
     </View>
   );
 };

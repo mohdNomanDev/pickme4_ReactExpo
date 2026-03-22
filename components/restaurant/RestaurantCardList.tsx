@@ -15,16 +15,44 @@ import FilterSheet from "@/components/common/FilterSheet";
 import RestaurantCard, {
   Restaurant,
 } from "@/components/restaurant/RestaurantCard";
+import RestaurantFilter, { FilterState } from "@/components/restaurant/RestaurantFilter";
 import { RootState } from "@/store/store";
 import restaurantDataJson from "@/TestData/RestaurantData.json";
 
 const restaurantData = restaurantDataJson as unknown as Restaurant[];
+
+const DEFAULT_FILTERS: FilterState = {
+  sortBy: "recommended",
+  priceRange: "",
+  rating: "",
+  dietary: [],
+};
 
 const RestaurantCardList = () => {
   const { t } = useTranslation();
   const { isRTL } = useSelector((state: RootState) => state.language);
   const { width } = useWindowDimensions();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
+
+  // Calculate active filter count for the Show Results badge
+  const activeFilterCount = useMemo(() => {
+    let count = 0;
+    if (filters.sortBy !== "recommended") count++;
+    if (filters.priceRange) count++;
+    if (filters.rating) count++;
+    if (filters.dietary.length > 0) count += filters.dietary.length;
+    return count;
+  }, [filters]);
+
+  const handleClearFilters = () => {
+    setFilters(DEFAULT_FILTERS);
+  };
+
+  const handleApplyFilters = () => {
+    setIsFilterOpen(false);
+    // TODO: Implement actual filtering logic on restaurantData here
+  };
 
   // Determine number of columns based on screen width
   const numColumns = useMemo(
@@ -67,7 +95,7 @@ const RestaurantCardList = () => {
           {/* Filter Icon or Action */}
           <FilterButton
             onPress={() => setIsFilterOpen(true)}
-            isActive={isFilterOpen}
+            isActive={isFilterOpen || activeFilterCount > 0}
           />
         </View>
         <View
@@ -75,8 +103,8 @@ const RestaurantCardList = () => {
         />
       </Animated.View>
     ),
-    [isRTL, t, isFilterOpen],
-  ); // Added isFilterOpen to dependencies to re-render button state
+    [isRTL, t, isFilterOpen, activeFilterCount],
+  ); // Added dependencies to re-render button state
 
   const keyExtractor = useCallback(
     (item: Restaurant) => item.id.toString(),
@@ -110,13 +138,11 @@ const RestaurantCardList = () => {
       <FilterSheet
         visible={isFilterOpen}
         onClose={() => setIsFilterOpen(false)}
+        onClear={handleClearFilters}
+        onApply={handleApplyFilters}
+        resultsCount={activeFilterCount > 0 ? activeFilterCount : undefined}
       >
-        <Text
-          className={`text-xl font-bold mb-4 text-gray-900 dark:text-white ${isRTL ? "text-right" : "text-left"}`}
-        >
-          {t("filter", { defaultValue: isRTL ? "تصفية" : "Filter Options" })}
-        </Text>
-        {/* TODO: Add filter options here */}
+        <RestaurantFilter filters={filters} setFilters={setFilters} />
       </FilterSheet>
     </View>
   );
