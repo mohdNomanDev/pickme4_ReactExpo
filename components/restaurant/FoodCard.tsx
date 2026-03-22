@@ -3,17 +3,16 @@ import React from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
+type LocalizedString = {
+  en: string;
+  ar: string;
+};
+
 type FoodItem = {
-  name: {
-    en: string;
-    ar: string;
-  };
-  category: {
-    en: string;
-    ar: string;
-  };
+  name: LocalizedString;
+  category: LocalizedString;
   image: string;
-  price: string;
+  price: number;
 };
 
 type Props = {
