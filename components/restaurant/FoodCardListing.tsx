@@ -1,9 +1,9 @@
+import FilterButton from "@/components/common/FilterButton";
+import FilterSheet from "@/components/common/FilterSheet";
+import { useRTL } from "@/hooks/useRTL";
 import React, { useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import FoodCard from "./FoodCard";
-import FilterButton from "@/components/common/FilterButton";
-import BottomSheet from "@/components/common/BottomSheet";
-import { useRTL } from "@/hooks/useRTL";
 
 type FoodItem = {
   name: {
@@ -33,7 +33,9 @@ const FoodCardListing = ({ foodItems }: Props) => {
   return (
     <View className="mt-8">
       {/* Section Header */}
-      <View className={`flex-row items-center justify-between mb-5 w-full ${isRTL ? 'flex-row-reverse' : ''}`}>
+      <View
+        className={`flex-row items-center justify-between mb-5 w-full ${isRTL ? "flex-row-reverse" : ""}`}
+      >
         <Text
           className={`flex-1 pr-4 text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight ${
             isRTL ? "text-right pr-0 pl-4" : "text-left pr-4 pl-0"
@@ -41,7 +43,10 @@ const FoodCardListing = ({ foodItems }: Props) => {
         >
           {isRTL ? "جميع الأطباق" : "All Dishes"}
         </Text>
-        <FilterButton onPress={() => setIsFilterOpen(true)} isActive={isFilterOpen} />
+        <FilterButton
+          onPress={() => setIsFilterOpen(true)}
+          isActive={isFilterOpen}
+        />
       </View>
 
       {/* List */}
@@ -54,12 +59,17 @@ const FoodCardListing = ({ foodItems }: Props) => {
         showsVerticalScrollIndicator={false}
       />
 
-      <BottomSheet visible={isFilterOpen} onClose={() => setIsFilterOpen(false)}>
-        <Text className={`text-xl font-bold mb-4 text-gray-900 dark:text-white ${isRTL ? "text-right" : "text-left"}`}>
+      <FilterSheet
+        visible={isFilterOpen}
+        onClose={() => setIsFilterOpen(false)}
+      >
+        <Text
+          className={`text-xl font-bold mb-4 text-gray-900 dark:text-white ${isRTL ? "text-right" : "text-left"}`}
+        >
           {isRTL ? "تصفية" : "Filter Options"}
         </Text>
         {/* TODO: Add filter options here */}
-      </BottomSheet>
+      </FilterSheet>
     </View>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, TouchableOpacity } from "react-native";
+import { Text, Pressable } from "react-native";
 
 type Props = {
   onPress?: () => void;
@@ -8,9 +8,14 @@ type Props = {
 
 const ClearButton = ({ onPress, title = "Clear" }: Props) => {
   return (
-    <TouchableOpacity onPress={onPress}>
-      <Text>{title}</Text>
-    </TouchableOpacity>
+    <Pressable 
+      onPress={onPress} 
+      className="active:opacity-70 px-2 py-2"
+    >
+      <Text className="text-red-500 dark:text-red-400 font-semibold text-base md:text-lg">
+        {title}
+      </Text>
+    </Pressable>
   );
 };
 
