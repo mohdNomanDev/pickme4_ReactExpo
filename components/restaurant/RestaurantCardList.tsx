@@ -15,7 +15,9 @@ import FilterSheet from "@/components/common/FilterSheet";
 import RestaurantCard, {
   Restaurant,
 } from "@/components/restaurant/RestaurantCard";
-import RestaurantFilter, { FilterState } from "@/components/restaurant/RestaurantFilter";
+import RestaurantFilter, {
+  FilterState,
+} from "@/components/restaurant/RestaurantFilter";
 import { RootState } from "@/store/store";
 import restaurantDataJson from "@/TestData/RestaurantData.json";
 

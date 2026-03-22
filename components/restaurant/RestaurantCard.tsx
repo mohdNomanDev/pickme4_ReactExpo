@@ -21,7 +21,7 @@ type LocalizedString = {
 type FoodItem = {
   name: LocalizedString;
   image: string;
-  price?: string;
+  price?: number;
 };
 
 export type Restaurant = {
@@ -30,7 +30,8 @@ export type Restaurant = {
   foodItems: FoodItem[];
   rating: number;
   deliveryTime: string;
-  deliveryFee: string;
+  deliveryFee: number;
+  currency?: string;
   cuisine?: LocalizedString;
   offer?: string;
   area?: LocalizedString;
@@ -74,6 +75,31 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
     [restaurant?.area, lang],
   );
 
+  // Helpers to localize currency and formatting
+  const localizedCurrencyStr = useMemo(() => {
+    const currencyMap: Record<string, { en: string; ar: string }> = {
+      SAR: { en: "SAR", ar: "ر.س" },
+    };
+    const cCode = restaurant?.currency || "SAR";
+    return currencyMap[cCode]?.[lang] || cCode;
+  }, [restaurant?.currency, lang]);
+
+  const formattedPrice = useMemo(() => {
+    if (currentFood?.price === undefined) return null;
+    return isRTL 
+      ? `${currentFood.price} ${localizedCurrencyStr}` 
+      : `${localizedCurrencyStr} ${currentFood.price}`;
+  }, [currentFood?.price, localizedCurrencyStr, isRTL]);
+
+  const formattedDeliveryFee = useMemo(() => {
+    if (restaurant?.deliveryFee === 0) {
+      return isRTL ? "مجاناً" : "Free";
+    }
+    return isRTL 
+      ? `${restaurant.deliveryFee} ${localizedCurrencyStr}` 
+      : `${localizedCurrencyStr} ${restaurant.deliveryFee}`;
+  }, [restaurant?.deliveryFee, localizedCurrencyStr, isRTL]);
+
   // Memoized Event Handlers
   const handleNext = useCallback(
     (e?: any) => {
@@ -108,7 +134,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
   if (!restaurant) return null;
 
-  const { foodItems, rating, deliveryTime, deliveryFee, offer } = restaurant;
+  const { foodItems, rating, deliveryTime, offer } = restaurant;
 
   return (
     <View className="mb-6 bg-card dark:bg-card-dark rounded-[32px] overflow-hidden border border-border dark:border-border-dark shadow-sm hover:shadow-md transition-shadow">
@@ -172,11 +198,11 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                 >
                   {currentFood?.name?.[lang] || currentFood?.name?.["en"]}
                 </Text>
-                {currentFood?.price && (
+                {formattedPrice && (
                   <Text
                     className={`text-primary font-bold text-sm ${textAlign}`}
                   >
-                    {currentFood.price}
+                    {formattedPrice}
                   </Text>
                 )}
               </View>
@@ -294,8 +320,8 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
               <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
                 <Ionicons name="bicycle-outline" size={16} color="#6b7280" />
               </View>
-              <Text className="text-text dark:text-text-dark text-[13px] font-semibold">
-                {deliveryFee}
+              <Text className={`text-text dark:text-text-dark text-[13px] font-semibold ${restaurant?.deliveryFee === 0 ? 'text-green-600 dark:text-green-400' : ''}`}>
+                {formattedDeliveryFee}
               </Text>
             </View>
           </View>

@@ -25,7 +25,7 @@
     },
     "rating": 4.5,
     "deliveryTime": "25-30 min",
-    "deliveryFee": "Free",
+    "deliveryFee": 0,
     "offer": "20% OFF",
     "distance": "2.5 km",
     "state": {
@@ -45,7 +45,10 @@
       "ar": "توابل هندية أصلية."
     },
     "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
-    "tags": ["popular", "spicy"],
+    "tags": [
+      "popular",
+      "spicy"
+    ],
     "foodItems": [
       {
         "name": {
@@ -57,7 +60,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
-        "price": "SAR 45"
+        "price": 45
       },
       {
         "name": {
@@ -69,7 +72,7 @@
           "ar": "مقبلات"
         },
         "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8",
-        "price": "SAR 32"
+        "price": 32
       },
       {
         "name": {
@@ -81,7 +84,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 45"
+        "price": 45
       },
       {
         "name": {
@@ -93,7 +96,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 45"
+        "price": 45
       },
       {
         "name": {
@@ -105,7 +108,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -117,7 +120,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 18"
+        "price": 18
       }
     ],
     "menuCategories": [
@@ -137,7 +140,8 @@
         "en": "Drinks",
         "ar": "مشروبات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 2,
@@ -165,7 +169,7 @@
     },
     "rating": 4.3,
     "deliveryTime": "20-25 min",
-    "deliveryFee": "SAR 15",
+    "deliveryFee": 15,
     "offer": "Buy 1 Get 1",
     "distance": "1.8 km",
     "state": {
@@ -185,7 +189,9 @@
       "ar": "برجر لذيذ وبطاطس مقلية."
     },
     "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
-    "tags": ["fastfood"],
+    "tags": [
+      "fastfood"
+    ],
     "foodItems": [
       {
         "name": {
@@ -197,7 +203,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
-        "price": "SAR 28"
+        "price": 28
       },
       {
         "name": {
@@ -209,7 +215,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 18"
+        "price": 18
       },
       {
         "name": {
@@ -221,7 +227,7 @@
           "ar": "شوربات"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 20"
+        "price": 20
       },
       {
         "name": {
@@ -233,7 +239,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 28"
+        "price": 28
       },
       {
         "name": {
@@ -245,7 +251,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 18"
+        "price": 18
       }
     ],
     "menuCategories": [
@@ -265,7 +271,8 @@
         "en": "Desserts",
         "ar": "حلويات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 3,
@@ -293,7 +300,7 @@
     },
     "rating": 4.6,
     "deliveryTime": "30-35 min",
-    "deliveryFee": "SAR 10",
+    "deliveryFee": 10,
     "offer": "15% OFF",
     "distance": "3.2 km",
     "state": {
@@ -313,7 +320,9 @@
       "ar": "بيتزا طازجة ولذيذة."
     },
     "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
-    "tags": ["cheesy"],
+    "tags": [
+      "cheesy"
+    ],
     "foodItems": [
       {
         "name": {
@@ -325,7 +334,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e",
-        "price": "SAR 42"
+        "price": 42
       },
       {
         "name": {
@@ -337,7 +346,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 18"
+        "price": 18
       },
       {
         "name": {
@@ -349,7 +358,7 @@
           "ar": "مقبلات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 25"
+        "price": 25
       },
       {
         "name": {
@@ -361,7 +370,7 @@
           "ar": "سلطات"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 30"
+        "price": 30
       },
       {
         "name": {
@@ -373,7 +382,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 18"
+        "price": 18
       }
     ],
     "menuCategories": [
@@ -393,7 +402,8 @@
         "en": "Salads",
         "ar": "سلطات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 4,
@@ -421,7 +431,7 @@
     },
     "rating": 4.7,
     "deliveryTime": "35-40 min",
-    "deliveryFee": "SAR 20",
+    "deliveryFee": 20,
     "offer": "10% OFF",
     "distance": "4.1 km",
     "state": {
@@ -441,7 +451,9 @@
       "ar": "سوشي طازج."
     },
     "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c",
-    "tags": ["premium"],
+    "tags": [
+      "premium"
+    ],
     "foodItems": [
       {
         "name": {
@@ -453,7 +465,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1553621042-f6e147245754",
-        "price": "SAR 55"
+        "price": 55
       },
       {
         "name": {
@@ -465,7 +477,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 85"
+        "price": 85
       },
       {
         "name": {
@@ -477,7 +489,7 @@
           "ar": "شوربات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 20"
+        "price": 20
       },
       {
         "name": {
@@ -489,7 +501,7 @@
           "ar": "شوربات"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 20"
+        "price": 20
       },
       {
         "name": {
@@ -501,7 +513,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 28"
+        "price": 28
       },
       {
         "name": {
@@ -513,7 +525,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 12"
+        "price": 12
       },
       {
         "name": {
@@ -525,7 +537,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 18"
+        "price": 18
       },
       {
         "name": {
@@ -537,7 +549,7 @@
           "ar": "سلطات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 30"
+        "price": 30
       }
     ],
     "menuCategories": [
@@ -561,7 +573,8 @@
         "en": "Salads",
         "ar": "سلطات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 5,
@@ -589,7 +602,7 @@
     },
     "rating": 4.4,
     "deliveryTime": "15-20 min",
-    "deliveryFee": "Free",
+    "deliveryFee": 0,
     "offer": "Combo Deal",
     "distance": "1.2 km",
     "state": {
@@ -609,7 +622,9 @@
       "ar": "أفضل شاورما."
     },
     "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
-    "tags": ["popular"],
+    "tags": [
+      "popular"
+    ],
     "foodItems": [
       {
         "name": {
@@ -621,7 +636,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
-        "price": "SAR 12"
+        "price": 12
       },
       {
         "name": {
@@ -633,7 +648,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 16"
+        "price": 16
       },
       {
         "name": {
@@ -645,7 +660,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 28"
+        "price": 28
       },
       {
         "name": {
@@ -657,7 +672,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -669,7 +684,7 @@
           "ar": "مقبلات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 25"
+        "price": 25
       },
       {
         "name": {
@@ -681,7 +696,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 28"
+        "price": 28
       },
       {
         "name": {
@@ -693,7 +708,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -705,7 +720,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -717,7 +732,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 28"
+        "price": 28
       }
     ],
     "menuCategories": [
@@ -737,7 +752,8 @@
         "en": "Appetizers",
         "ar": "مقبلات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 6,
@@ -765,7 +781,7 @@
     },
     "rating": 4.8,
     "deliveryTime": "15-25 min",
-    "deliveryFee": "SAR 5",
+    "deliveryFee": 5,
     "offer": "Free Drink",
     "distance": "2.1 km",
     "state": {
@@ -785,7 +801,10 @@
       "ar": "سلطات طازجة وأطباق بروتين."
     },
     "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
-    "tags": ["healthy", "fresh"],
+    "tags": [
+      "healthy",
+      "fresh"
+    ],
     "foodItems": [
       {
         "name": {
@@ -797,7 +816,7 @@
           "ar": "سلطات"
         },
         "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
-        "price": "SAR 38"
+        "price": 38
       },
       {
         "name": {
@@ -809,7 +828,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 28"
+        "price": 28
       },
       {
         "name": {
@@ -821,7 +840,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 12"
+        "price": 12
       },
       {
         "name": {
@@ -833,7 +852,7 @@
           "ar": "مقبلات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 25"
+        "price": 25
       },
       {
         "name": {
@@ -845,7 +864,7 @@
           "ar": "سلطات"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 30"
+        "price": 30
       },
       {
         "name": {
@@ -857,7 +876,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 16"
+        "price": 16
       },
       {
         "name": {
@@ -869,7 +888,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -881,7 +900,7 @@
           "ar": "شوربات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 20"
+        "price": 20
       },
       {
         "name": {
@@ -893,7 +912,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 12"
+        "price": 12
       }
     ],
     "menuCategories": [
@@ -921,7 +940,8 @@
         "en": "Soups",
         "ar": "شوربات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 7,
@@ -949,7 +969,7 @@
     },
     "rating": 4.2,
     "deliveryTime": "25-35 min",
-    "deliveryFee": "SAR 12",
+    "deliveryFee": 12,
     "offer": "Free Delivery",
     "distance": "3.5 km",
     "state": {
@@ -969,7 +989,10 @@
       "ar": "تاكو مكسيكي أصلي."
     },
     "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47",
-    "tags": ["spicy", "mexican"],
+    "tags": [
+      "spicy",
+      "mexican"
+    ],
     "foodItems": [
       {
         "name": {
@@ -981,7 +1004,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85",
-        "price": "SAR 35"
+        "price": 35
       },
       {
         "name": {
@@ -993,7 +1016,7 @@
           "ar": "مقبلات"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 25"
+        "price": 25
       },
       {
         "name": {
@@ -1005,7 +1028,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 18"
+        "price": 18
       },
       {
         "name": {
@@ -1017,7 +1040,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 28"
+        "price": 28
       },
       {
         "name": {
@@ -1029,7 +1052,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 12"
+        "price": 12
       }
     ],
     "menuCategories": [
@@ -1049,7 +1072,8 @@
         "en": "Desserts",
         "ar": "حلويات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 8,
@@ -1077,7 +1101,7 @@
     },
     "rating": 4.5,
     "deliveryTime": "30-40 min",
-    "deliveryFee": "SAR 15",
+    "deliveryFee": 15,
     "offer": "New Member 20%",
     "distance": "2.8 km",
     "state": {
@@ -1097,7 +1121,10 @@
       "ar": "باستا يدوية مع صوصات كلاسيكية."
     },
     "image": "https://images.unsplash.com/photo-1473093226795-af9932fe5856",
-    "tags": ["pasta", "italian"],
+    "tags": [
+      "pasta",
+      "italian"
+    ],
     "foodItems": [
       {
         "name": {
@@ -1109,7 +1136,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1645112481351-9ee8ca616cae",
-        "price": "SAR 48"
+        "price": 48
       },
       {
         "name": {
@@ -1121,7 +1148,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 12"
+        "price": 12
       },
       {
         "name": {
@@ -1133,7 +1160,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 16"
+        "price": 16
       },
       {
         "name": {
@@ -1145,7 +1172,7 @@
           "ar": "شوربات"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 20"
+        "price": 20
       },
       {
         "name": {
@@ -1157,7 +1184,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -1169,7 +1196,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 12"
+        "price": 12
       },
       {
         "name": {
@@ -1181,7 +1208,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -1193,7 +1220,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 12"
+        "price": 12
       }
     ],
     "menuCategories": [
@@ -1213,7 +1240,8 @@
         "en": "Soups",
         "ar": "شوربات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 9,
@@ -1241,7 +1269,7 @@
     },
     "rating": 4.9,
     "deliveryTime": "40-50 min",
-    "deliveryFee": "SAR 25",
+    "deliveryFee": 25,
     "offer": "Premium Quality",
     "distance": "5.2 km",
     "state": {
@@ -1261,7 +1289,10 @@
       "ar": "قطع لحم فاخرة مشوية بإتقان."
     },
     "image": "https://images.unsplash.com/photo-1546241072-48010ad28c2c",
-    "tags": ["steak", "fine-dining"],
+    "tags": [
+      "steak",
+      "fine-dining"
+    ],
     "foodItems": [
       {
         "name": {
@@ -1273,7 +1304,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
-        "price": "SAR 120"
+        "price": 120
       },
       {
         "name": {
@@ -1285,7 +1316,7 @@
           "ar": "شوربات"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 20"
+        "price": 20
       },
       {
         "name": {
@@ -1297,7 +1328,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 28"
+        "price": 28
       },
       {
         "name": {
@@ -1309,7 +1340,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 28"
+        "price": 28
       },
       {
         "name": {
@@ -1321,7 +1352,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 85"
+        "price": 85
       },
       {
         "name": {
@@ -1333,7 +1364,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 28"
+        "price": 28
       }
     ],
     "menuCategories": [
@@ -1349,7 +1380,8 @@
         "en": "Desserts",
         "ar": "حلويات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 10,
@@ -1377,7 +1409,7 @@
     },
     "rating": 4.4,
     "deliveryTime": "20-30 min",
-    "deliveryFee": "SAR 10",
+    "deliveryFee": 10,
     "offer": "Happy Hour 15%",
     "distance": "1.9 km",
     "state": {
@@ -1397,7 +1429,10 @@
       "ar": "ديم سوم مطهو على البخار ومقلي."
     },
     "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c",
-    "tags": ["chinese", "dumplings"],
+    "tags": [
+      "chinese",
+      "dumplings"
+    ],
     "foodItems": [
       {
         "name": {
@@ -1409,7 +1444,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1563245394-17f991e39c9f",
-        "price": "SAR 36"
+        "price": 36
       },
       {
         "name": {
@@ -1421,7 +1456,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 85"
+        "price": 85
       },
       {
         "name": {
@@ -1433,7 +1468,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 85"
+        "price": 85
       },
       {
         "name": {
@@ -1445,7 +1480,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 45"
+        "price": 45
       },
       {
         "name": {
@@ -1457,7 +1492,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 18"
+        "price": 18
       },
       {
         "name": {
@@ -1469,7 +1504,7 @@
           "ar": "مقبلات"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 25"
+        "price": 25
       },
       {
         "name": {
@@ -1481,7 +1516,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 28"
+        "price": 28
       }
     ],
     "menuCategories": [
@@ -1501,7 +1536,8 @@
         "en": "Desserts",
         "ar": "حلويات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 11,
@@ -1529,7 +1565,7 @@
     },
     "rating": 4.3,
     "deliveryTime": "25-30 min",
-    "deliveryFee": "SAR 8",
+    "deliveryFee": 8,
     "offer": "Free Spring Rolls",
     "distance": "2.4 km",
     "state": {
@@ -1549,7 +1585,10 @@
       "ar": "نودلز مقلية ورامين."
     },
     "image": "https://images.unsplash.com/photo-1552611052-33e04de081de",
-    "tags": ["asian", "noodles"],
+    "tags": [
+      "asian",
+      "noodles"
+    ],
     "foodItems": [
       {
         "name": {
@@ -1561,7 +1600,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de",
-        "price": "SAR 42"
+        "price": 42
       },
       {
         "name": {
@@ -1573,7 +1612,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 12"
+        "price": 12
       },
       {
         "name": {
@@ -1585,7 +1624,7 @@
           "ar": "شوربات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 20"
+        "price": 20
       },
       {
         "name": {
@@ -1597,7 +1636,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 18"
+        "price": 18
       },
       {
         "name": {
@@ -1609,7 +1648,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -1621,7 +1660,7 @@
           "ar": "سلطات"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 30"
+        "price": 30
       },
       {
         "name": {
@@ -1633,7 +1672,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 12"
+        "price": 12
       }
     ],
     "menuCategories": [
@@ -1657,7 +1696,8 @@
         "en": "Salads",
         "ar": "سلطات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 12,
@@ -1685,7 +1725,7 @@
     },
     "rating": 4.7,
     "deliveryTime": "15-20 min",
-    "deliveryFee": "SAR 5",
+    "deliveryFee": 5,
     "offer": "Buy 2 Get 1",
     "distance": "1.1 km",
     "state": {
@@ -1705,7 +1745,10 @@
       "ar": "كيك ومعجنات وحلويات."
     },
     "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
-    "tags": ["sweets", "desserts"],
+    "tags": [
+      "sweets",
+      "desserts"
+    ],
     "foodItems": [
       {
         "name": {
@@ -1717,7 +1760,7 @@
           "ar": "حلويات"
         },
         "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
-        "price": "SAR 25"
+        "price": 25
       },
       {
         "name": {
@@ -1729,7 +1772,7 @@
           "ar": "شوربات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 20"
+        "price": 20
       },
       {
         "name": {
@@ -1741,7 +1784,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 12"
+        "price": 12
       },
       {
         "name": {
@@ -1753,7 +1796,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 45"
+        "price": 45
       },
       {
         "name": {
@@ -1765,7 +1808,7 @@
           "ar": "سلطات"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 30"
+        "price": 30
       },
       {
         "name": {
@@ -1777,7 +1820,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 18"
+        "price": 18
       }
     ],
     "menuCategories": [
@@ -1801,7 +1844,8 @@
         "en": "Salads",
         "ar": "سلطات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 13,
@@ -1829,7 +1873,7 @@
     },
     "rating": 4.6,
     "deliveryTime": "10-20 min",
-    "deliveryFee": "SAR 5",
+    "deliveryFee": 5,
     "offer": "25% OFF Juices",
     "distance": "0.8 km",
     "state": {
@@ -1849,7 +1893,10 @@
       "ar": "عصائر طازجة وسموذي."
     },
     "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b2",
-    "tags": ["juice", "healthy"],
+    "tags": [
+      "juice",
+      "healthy"
+    ],
     "foodItems": [
       {
         "name": {
@@ -1861,7 +1908,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -1873,7 +1920,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -1885,7 +1932,7 @@
           "ar": "سلطات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 30"
+        "price": 30
       },
       {
         "name": {
@@ -1897,7 +1944,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 15"
+        "price": 15
       },
       {
         "name": {
@@ -1909,7 +1956,7 @@
           "ar": "طبق رئيسي"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": "SAR 85"
+        "price": 85
       },
       {
         "name": {
@@ -1921,7 +1968,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 16"
+        "price": 16
       },
       {
         "name": {
@@ -1933,7 +1980,7 @@
           "ar": "مقبلات"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": "SAR 25"
+        "price": 25
       },
       {
         "name": {
@@ -1945,7 +1992,7 @@
           "ar": "شوربات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 20"
+        "price": 20
       }
     ],
     "menuCategories": [
@@ -1973,7 +2020,8 @@
         "en": "Soups",
         "ar": "شوربات"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 14,
@@ -2001,7 +2049,7 @@
     },
     "rating": 4.8,
     "deliveryTime": "35-45 min",
-    "deliveryFee": "SAR 20",
+    "deliveryFee": 20,
     "offer": "Premium Selection",
     "distance": "4.5 km",
     "state": {
@@ -2021,7 +2069,10 @@
       "ar": "معجنات فرنسية وأطباق كلاسيكية."
     },
     "image": "https://images.unsplash.com/photo-1550966841-3eeec10e7b99",
-    "tags": ["french", "bakery"],
+    "tags": [
+      "french",
+      "bakery"
+    ],
     "foodItems": [
       {
         "name": {
@@ -2033,7 +2084,7 @@
           "ar": "مخبوزات"
         },
         "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a",
-        "price": "SAR 18"
+        "price": 18
       },
       {
         "name": {
@@ -2045,7 +2096,7 @@
           "ar": "سلطات"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 30"
+        "price": 30
       },
       {
         "name": {
@@ -2057,7 +2108,7 @@
           "ar": "مقبلات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 25"
+        "price": 25
       },
       {
         "name": {
@@ -2069,7 +2120,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 18"
+        "price": 18
       },
       {
         "name": {
@@ -2081,7 +2132,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 16"
+        "price": 16
       }
     ],
     "menuCategories": [
@@ -2105,7 +2156,8 @@
         "en": "Sides",
         "ar": "أطباق جانبية"
       }
-    ]
+    ],
+    "currency": "SAR"
   },
   {
     "id": 15,
@@ -2133,7 +2185,7 @@
     },
     "rating": 4.5,
     "deliveryTime": "15-25 min",
-    "deliveryFee": "SAR 7",
+    "deliveryFee": 7,
     "offer": "Morning Special",
     "distance": "1.3 km",
     "state": {
@@ -2153,7 +2205,10 @@
       "ar": "قهوة مختصة وإفطار."
     },
     "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
-    "tags": ["coffee", "breakfast"],
+    "tags": [
+      "coffee",
+      "breakfast"
+    ],
     "foodItems": [
       {
         "name": {
@@ -2165,7 +2220,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1541167760496-162955ed8a9f",
-        "price": "SAR 22"
+        "price": 22
       },
       {
         "name": {
@@ -2177,7 +2232,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 12"
+        "price": 12
       },
       {
         "name": {
@@ -2189,7 +2244,7 @@
           "ar": "مشروبات"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": "SAR 18"
+        "price": 18
       },
       {
         "name": {
@@ -2201,7 +2256,7 @@
           "ar": "سلطات"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 30"
+        "price": 30
       },
       {
         "name": {
@@ -2213,7 +2268,7 @@
           "ar": "أطباق جانبية"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": "SAR 16"
+        "price": 16
       }
     ],
     "menuCategories": [
@@ -2229,6 +2284,7 @@
         "en": "Sides",
         "ar": "أطباق جانبية"
       }
-    ]
+    ],
+    "currency": "SAR"
   }
 ]
