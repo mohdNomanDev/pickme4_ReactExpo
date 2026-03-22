@@ -3,8 +3,9 @@ import FilterSheet from "@/components/common/FilterSheet";
 import FoodFilter, { FoodFilterState } from "@/components/restaurant/FoodFilter";
 import { useRTL } from "@/hooks/useRTL";
 import { Ionicons } from "@expo/vector-icons";
-import React, { useState, useMemo } from "react";
-import { FlatList, Text, View } from "react-native";
+import React, { useState, useMemo, useCallback } from "react";
+import { FlatList, Text, View, useWindowDimensions, Platform } from "react-native";
+import Animated, { FadeInDown } from "react-native-reanimated";
 import FoodCard from "./FoodCard";
 
 type LocalizedString = {
@@ -31,8 +32,13 @@ const DEFAULT_FILTERS: FoodFilterState = {
 
 const FoodCardListing = ({ foodItems }: Props) => {
   const { isRTL } = useRTL();
+  const { width } = useWindowDimensions();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FoodFilterState>(DEFAULT_FILTERS);
+
+  // Responsive Grid Logic
+  const numColumns = useMemo(() => (width > 1024 ? 2 : 1), [width]);
+  const isWeb = Platform.OS === "web";
 
   // Extract unique categories dynamically from the passed food items
   const availableCategories = useMemo(() => {
@@ -92,12 +98,19 @@ const FoodCardListing = ({ foodItems }: Props) => {
     setIsFilterOpen(false);
   };
 
-  const renderItem = ({ item }: { item: FoodItem }) => {
-    return <FoodCard data={item} />;
-  };
+  const renderItem = useCallback(({ item, index }: { item: FoodItem; index: number }) => {
+    return (
+      <Animated.View 
+        entering={FadeInDown.delay(index * 40).duration(500).springify()}
+        style={{ flex: 1 / numColumns }}
+      >
+        <FoodCard data={item} />
+      </Animated.View>
+    );
+  }, [numColumns]);
 
   return (
-    <View className="mt-8">
+    <View className="mt-8 flex-1">
       {/* Section Header */}
       <View
         className={`flex-row items-center justify-between mb-5 w-full ${isRTL ? "flex-row-reverse" : ""}`}
@@ -119,11 +132,21 @@ const FoodCardListing = ({ foodItems }: Props) => {
       {filteredData.length > 0 ? (
         <FlatList
           data={filteredData}
+          key={numColumns} // Force re-render on grid size change
+          numColumns={numColumns}
           renderItem={renderItem}
           keyExtractor={(_, index) => index.toString()}
           scrollEnabled={false} // Disabled because it is rendered inside a ScrollView in RestaurantMenu
-          contentContainerStyle={{ gap: 16 }}
+          columnWrapperStyle={numColumns > 1 ? { gap: 16, marginBottom: 16 } : undefined}
+          contentContainerStyle={{ 
+            gap: numColumns === 1 ? 16 : 0, 
+            ...(isWeb ? { paddingBottom: 24 } : {}) 
+          }}
           showsVerticalScrollIndicator={false}
+          // Performance
+          initialNumToRender={8}
+          maxToRenderPerBatch={10}
+          windowSize={5}
         />
       ) : (
         <View className="items-center justify-center py-10">

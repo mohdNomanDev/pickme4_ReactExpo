@@ -1,4 +1,5 @@
 import { ScrollView, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import RestaurantDetails from "@/components/restaurant/RestaurantDetails";
 import FoodCardListing from "@/components/restaurant/FoodCardListing";
 import restaurantData from "@/TestData/RestaurantData.json";
@@ -23,7 +24,7 @@ export default function RestaurantMenu() {
   }, [selectedRestaurantId]);
 
   return (
-    <View className="flex-1 bg-background dark:bg-background-dark">
+    <SafeAreaView edges={['top', 'bottom']} className="flex-1 bg-background dark:bg-background-dark">
       <ScrollView 
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ 
@@ -43,6 +44,6 @@ export default function RestaurantMenu() {
           </View>
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }

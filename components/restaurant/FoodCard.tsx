@@ -1,6 +1,6 @@
 import { useRTL } from "@/hooks/useRTL";
-import React from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import React, { useMemo } from "react";
+import { Image, Text, TouchableOpacity, View, Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 type LocalizedString = {
@@ -29,18 +29,25 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
     }
   };
 
+  const formattedPrice = useMemo(() => {
+    const currencyStr = lang === 'ar' ? 'ر.س' : 'SAR';
+    return isRTL ? `${data.price} ${currencyStr}` : `${currencyStr} ${data.price}`;
+  }, [data.price, lang, isRTL]);
+
+  const isWeb = Platform.OS === 'web';
+
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       className={`bg-white dark:bg-gray-800 rounded-3xl p-3.5 flex-row items-center shadow-sm border border-gray-100 dark:border-gray-800 ${
-        isRTL ? "flex-row-reverse" : ""
-      }`}
+        isWeb ? 'hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200' : ''
+      } ${isRTL ? "flex-row-reverse" : ""}`}
     >
       {/* Food Image */}
       <View className="relative">
         <Image
           source={{ uri: data.image }}
-          className="w-28 h-28 rounded-2xl bg-gray-100"
+          className="w-28 h-28 rounded-2xl bg-gray-100 dark:bg-gray-700"
           resizeMode="cover"
         />
       </View>
@@ -75,13 +82,13 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
             isRTL ? "flex-row-reverse" : ""
           }`}
         >
-          <Text className="text-base font-extrabold text-orange-500 tracking-tight">
-            {data.price}
+          <Text className="text-base font-extrabold text-primary tracking-tight">
+            {formattedPrice}
           </Text>
 
           <TouchableOpacity
             onPress={handleAddToCart}
-            className="bg-orange-500 w-9 h-9 rounded-full items-center justify-center shadow-sm"
+            className="bg-primary w-9 h-9 rounded-full items-center justify-center shadow-sm active:bg-primary/80"
             activeOpacity={0.7}
           >
             <Ionicons name="add" size={22} color="white" />
