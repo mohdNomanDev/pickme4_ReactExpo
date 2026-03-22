@@ -22,22 +22,24 @@ export const useRTL = () => {
   const isWeb = Platform.OS === 'web';
 
   /**
-   * On Web, if dir="rtl" is set on html, flex-row already behaves like RTL.
-   * On Mobile, we need flex-row-reverse to manually flip the layout.
+   * React Native's I18nManager naturally reverses flex-row when RTL is active.
+   * On Web, dir="rtl" on the HTML tag ensures flex-row behaves identically.
+   * Do NOT use flex-row-reverse conditionally, as it breaks the automatic flip.
    */
-  const rowClass = isWeb ? "flex-row" : `flex-row ${isRTL ? "flex-row-reverse" : ""}`;
+  const rowClass = "flex-row";
   
   /**
-   * Spacing utility: space-x doesn't always handle RTL well on native without space-x-reverse.
-   * Gap is preferred for Web, space-x for Mobile.
+   * Spacing utility: NativeWind handles gap natively across platforms now,
+   * but fallback to this just in case.
    */
   const getGapClass = (spacing: number = 2) => {
-    if (isWeb) return `gap-${spacing}`;
-    return isRTL ? `space-x-reverse space-x-${spacing}` : `space-x-${spacing}`;
+    return `gap-${spacing}`;
   };
 
-  const textAlign = isRTL ? "text-right" : "text-left";
-  const flexRow = isWeb ? "flex-row" : (isRTL ? "flex-row-reverse" : "flex-row");
+  // Modern NativeWind v4 logical properties: text-start / text-end are better
+  // but keeping textAlign for backwards compatibility in components.
+  const textAlign = "text-start";
+  const flexRow = "flex-row";
 
   return {
     isRTL,

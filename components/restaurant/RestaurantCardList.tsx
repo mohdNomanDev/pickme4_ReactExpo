@@ -151,14 +151,10 @@ const RestaurantCardList = () => {
         className="mb-8"
       >
         <View
-          className={`flex-row items-center justify-between w-full ${
-            isRTL ? "flex-row-reverse" : ""
-          }`}
+          className="flex-row items-center justify-between w-full"
         >
           <Text
-            className={`flex-1 pr-4 text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark ${
-              isRTL ? "text-right pr-0 pl-4" : "text-left pr-4 pl-0"
-            }`}
+            className={`flex-1 pr-4 text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark text-start pe-4`}
           >
             {filteredData.length} {t("restaurant.count_header")}
           </Text>
@@ -169,9 +165,7 @@ const RestaurantCardList = () => {
           />
         </View>
         <View
-          className={`h-1.5 w-12 bg-primary rounded-full mt-2 ${
-            isRTL ? "self-end" : "self-start"
-          }`}
+          className={`h-1.5 w-12 bg-primary rounded-full mt-2 self-start`}
         />
       </Animated.View>
     ),

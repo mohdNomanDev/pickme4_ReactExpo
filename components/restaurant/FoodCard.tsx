@@ -41,7 +41,7 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
       activeOpacity={0.8}
       className={`bg-white dark:bg-gray-800 rounded-3xl p-3.5 flex-row items-center shadow-sm border border-gray-100 dark:border-gray-800 ${
         isWeb ? 'hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200' : ''
-      } ${isRTL ? "flex-row-reverse" : ""}`}
+      }`}
     >
       {/* Food Image */}
       <View className="relative">
@@ -53,13 +53,11 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
       </View>
 
       {/* Food Details */}
-      <View className={`flex-1 justify-between h-28 py-1 ${isRTL ? "mr-4" : "ml-4"}`}>
+      <View className="flex-1 justify-between h-28 py-1 ms-4">
         <View>
           {/* Name */}
           <Text
-            className={`text-lg font-bold text-gray-900 dark:text-white mb-1 ${
-              isRTL ? "text-right" : "text-left"
-            }`}
+            className={`text-lg font-bold text-gray-900 dark:text-white mb-1 text-start`}
             numberOfLines={1}
           >
             {lang === "ar" ? data.name.ar : data.name.en}
@@ -67,9 +65,7 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
 
           {/* Category */}
           <Text
-            className={`text-sm text-gray-500 dark:text-gray-400 font-medium ${
-              isRTL ? "text-right" : "text-left"
-            }`}
+            className={`text-sm text-gray-500 dark:text-gray-400 font-medium text-start`}
             numberOfLines={1}
           >
             {lang === "ar" ? data.category.ar : data.category.en}
@@ -78,9 +74,7 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
 
         {/* Bottom Row: Price & Add to Cart */}
         <View
-          className={`flex-row items-center justify-between mt-2 ${
-            isRTL ? "flex-row-reverse" : ""
-          }`}
+          className="flex-row items-center justify-between mt-2"
         >
           <Text className="text-base font-extrabold text-primary tracking-tight">
             {formattedPrice}

@@ -257,7 +257,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
         {/* DETAILS SECTION */}
         <View className="p-6">
           <View className={`${rowClass} justify-between items-start mb-3`}>
-            <View className={`flex-1 ${isRTL ? "ml-3" : "mr-3"}`}>
+            <View className={`flex-1 me-3`}>
               <Text
                 numberOfLines={1}
                 className={`text-2xl font-bold text-text dark:text-text-dark mb-1 ${textAlign}`}
@@ -283,7 +283,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                       color="#9ca3af"
                     />
                     <Text
-                      className={`text-text-muted dark:text-text-muted-dark text-[11px] font-medium ${isRTL ? "mr-1" : "ml-1"} ${textAlign}`}
+                      className={`text-text-muted dark:text-text-muted-dark text-[11px] font-medium ms-1 ${textAlign}`}
                     >
                       {areaName}
                     </Text>
@@ -304,7 +304,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
             className={`${rowClass} items-center border-t border-border dark:border-border-dark pt-5 mt-2`}
           >
             <View
-              className={`flex-row items-center ${isRTL ? "ml-5" : "mr-5"}`}
+              className={`flex-row items-center me-5`}
             >
               <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
                 <Ionicons name="time-outline" size={16} color="#6b7280" />
@@ -315,7 +315,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
             </View>
 
             <View
-              className={`flex-row items-center ${isRTL ? "mr-5" : "ml-5"}`}
+              className={`flex-row items-center ms-5`}
             >
               <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
                 <Ionicons name="bicycle-outline" size={16} color="#6b7280" />

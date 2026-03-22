@@ -23,11 +23,11 @@ const DietarySection = ({ value = [], onChange }: any) => {
 
   return (
     <View className="mb-6">
-      <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
+      <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 text-start`}>
         {isRTL ? "المتطلبات الغذائية" : "Dietary"}
       </Text>
 
-      <View className={`flex-row flex-wrap gap-3 ${isRTL ? 'justify-end' : 'justify-start'}`}>
+      <View className={`flex-row flex-wrap gap-3 justify-start`}>
         {OPTIONS.map((item) => {
           const isSelected = value.includes(item.value);
           return (

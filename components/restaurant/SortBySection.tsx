@@ -16,7 +16,7 @@ const SortBySection = ({ value, onChange }: any) => {
 
   return (
     <View className="mb-6">
-      <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
+      <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 text-start`}>
         {isRTL ? "ترتيب حسب" : "Sort By"}
       </Text>
 
@@ -31,12 +31,11 @@ const SortBySection = ({ value, onChange }: any) => {
                 isSelected 
                   ? "bg-primary/10 border-primary dark:bg-primary/20" 
                   : "bg-gray-50 border-transparent dark:bg-gray-800 dark:border-gray-700"
-              } ${isRTL ? 'flex-row-reverse' : ''}`}
+              }`}
             >
               <Text className={`flex-1 text-base font-medium ${
                 isSelected ? "text-primary" : "text-gray-700 dark:text-gray-300"
-              } ${isRTL ? 'text-right pr-3 pl-0' : 'text-left pl-3 pr-0'}`}>
-                {isRTL ? item.labelAr : item.label}
+              } text-start ps-3`}>                {isRTL ? item.labelAr : item.label}
               </Text>
               
               {/* Radio Indicator */}

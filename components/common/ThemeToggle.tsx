@@ -26,7 +26,7 @@ export default function ThemeToggle() {
     <View className="flex flex-row justify-center items-center">
       <Pressable
         onPress={toggleTheme}
-        className="flex-row items-center space-x-2 px-3 py-2 rounded-full active:opacity-70 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+        className="flex-row items-center gap-2 px-3 py-2 rounded-full active:opacity-70 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
       >
         <Ionicons
           name={getIcon()}

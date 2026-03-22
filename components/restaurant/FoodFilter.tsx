@@ -49,7 +49,7 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
     <View className="flex-1 w-full mt-2">
       {/* Sort By Section */}
       <View className="mb-6">
-        <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
+        <Text className="text-lg font-bold text-gray-900 dark:text-white mb-3 text-start">
           {isRTL ? "ترتيب حسب" : "Sort By"}
         </Text>
         <View className="space-y-2">
@@ -63,11 +63,11 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
                   isSelected 
                     ? "bg-primary/10 border-primary dark:bg-primary/20" 
                     : "bg-gray-50 border-transparent dark:bg-gray-800 dark:border-gray-700"
-                } ${isRTL ? 'flex-row-reverse' : ''}`}
+                }`}
               >
-                <Text className={`flex-1 text-base font-medium ${
+                <Text className={`flex-1 text-base font-medium text-start ps-3 ${
                   isSelected ? "text-primary" : "text-gray-700 dark:text-gray-300"
-                } ${isRTL ? 'text-right pr-3 pl-0' : 'text-left pl-3 pr-0'}`}>
+                }`}>
                   {isRTL ? item.labelAr : item.label}
                 </Text>
                 <View className={`w-5 h-5 rounded-full border-2 items-center justify-center ${
@@ -84,10 +84,10 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
       {/* Categories Section */}
       {availableCategories.length > 0 && (
         <View className="mb-6">
-          <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
+          <Text className="text-lg font-bold text-gray-900 dark:text-white mb-3 text-start">
             {isRTL ? "التصنيفات" : "Categories"}
           </Text>
-          <View className={`flex-row flex-wrap gap-3 ${isRTL ? 'justify-end' : 'justify-start'}`}>
+          <View className="flex-row flex-wrap gap-3 justify-start">
             {availableCategories.map((cat, idx) => {
               const catValue = cat.en;
               const isSelected = filters.categories.includes(catValue);
@@ -117,10 +117,10 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
 
       {/* Price Range Section */}
       <View className="mb-6">
-        <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
+        <Text className="text-lg font-bold text-gray-900 dark:text-white mb-3 text-start">
           {isRTL ? "نطاق السعر" : "Price Range"}
         </Text>
-        <View className={`flex-row flex-wrap gap-3 ${isRTL ? 'justify-end' : 'justify-start'}`}>
+        <View className="flex-row flex-wrap gap-3 justify-start">
           {PRICE_OPTIONS.map((item) => {
             const isSelected = filters.priceRange === item.id;
             return (

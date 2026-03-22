@@ -28,30 +28,36 @@ export const toggleLanguageAction = createAsyncThunk(
     // Update i18n instance
     await i18n.changeLanguage(newLanguage);
 
-    // Set layout direction
+    // Set layout direction internally
     I18nManager.allowRTL(isRTL);
     I18nManager.forceRTL(isRTL);
 
-    // Handle platform-specific RTL updates
     if (Platform.OS === "web") {
+      // On Web, update DOM safely and dispatch immediately since CSS handles RTL automatically
       document.documentElement.dir = isRTL ? "rtl" : "ltr";
       document.documentElement.lang = newLanguage;
-    }
-
-    dispatch(setLanguage({ currentLanguage: newLanguage, isRTL }));
-
-    // Native reload for RTL changes
-    if (Platform.OS !== "web") {
-      try {
-        if (__DEV__) {
-          // DevSettings.reload() is more reliable for RTL changes in Expo Go/Development
-          DevSettings.reload();
-        } else {
-          await Updates.reloadAsync();
+      dispatch(setLanguage({ currentLanguage: newLanguage, isRTL }));
+    } else {
+      // On Native, we DO NOT dispatch the state change yet.
+      // Dispatching would cause a React re-render of components (e.g. text alignment) 
+      // while the underlying Yoga layout engine is still tied to the old I18nManager state,
+      // resulting in a visually broken layout before the reload occurs.
+      
+      setTimeout(async () => {
+        try {
+          if (__DEV__) {
+            // DevSettings.reload() handles bridge reloads gracefully in development
+            DevSettings.reload();
+          } else {
+            // Updates.reloadAsync() handles production bundle reloads
+            await Updates.reloadAsync();
+          }
+        } catch (error) {
+          console.error("Failed to reload app for RTL change:", error);
+          // Fallback dispatch if reload somehow fails
+          dispatch(setLanguage({ currentLanguage: newLanguage, isRTL }));
         }
-      } catch (error) {
-        console.error("Failed to reload app for RTL change:", error);
-      }
+      }, 50);
     }
 
     return { currentLanguage: newLanguage, isRTL };

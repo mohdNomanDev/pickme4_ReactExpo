@@ -74,9 +74,7 @@ const FilterSheet = ({
           >
             {/* Header Section */}
             <View
-              className={`flex-row items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100 dark:border-gray-800 ${
-                isRTL ? "flex-row-reverse" : ""
-              }`}
+              className="flex-row items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100 dark:border-gray-800"
             >
               <CloseButton onPress={onClose} />
 

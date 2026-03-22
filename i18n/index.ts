@@ -41,19 +41,32 @@ if (I18nManager.isRTL !== isRTL) {
   I18nManager.allowRTL(isRTL);
   I18nManager.forceRTL(isRTL);
 }
+// Sync Web HTML tags on first paint
+if (Platform.OS === "web" && typeof window !== "undefined") {
+  document.documentElement.dir = isRTL ? "rtl" : "ltr";
+  document.documentElement.lang = initialLng;
+}
 
 // 4. Async loading of saved preference (avoids crashing SSR)
 export const initI18nPromise = (async () => {
   if (Platform.OS !== "web" || typeof window !== "undefined") {
     const savedLanguage = await AsyncStorage.getItem(LANGUAGE_KEY);
+    const targetLang = savedLanguage || initialLng;
+    const shouldBeRTL = targetLang === "ar";
+
     if (savedLanguage && savedLanguage !== i18n.language) {
       await i18n.changeLanguage(savedLanguage);
+    }
+    
+    if (I18nManager.isRTL !== shouldBeRTL) {
+      I18nManager.allowRTL(shouldBeRTL);
+      I18nManager.forceRTL(shouldBeRTL);
+    }
 
-      const shouldBeRTL = savedLanguage === "ar";
-      if (I18nManager.isRTL !== shouldBeRTL) {
-        I18nManager.allowRTL(shouldBeRTL);
-        I18nManager.forceRTL(shouldBeRTL);
-      }
+    // Ensure Web HTML tags match the saved preference
+    if (Platform.OS === "web" && typeof window !== "undefined") {
+      document.documentElement.dir = shouldBeRTL ? "rtl" : "ltr";
+      document.documentElement.lang = targetLang;
     }
   }
 })();

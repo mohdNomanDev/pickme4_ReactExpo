@@ -11,11 +11,11 @@ const RatingSection = ({ value, onChange }: any) => {
 
   return (
     <View className="mb-6">
-      <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 ${isRTL ? 'text-right' : 'text-left'}`}>
+      <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 text-start`}>
         {isRTL ? "التقييم" : "Ratings"}
       </Text>
 
-      <View className={`flex-row flex-wrap gap-3 ${isRTL ? 'justify-end' : 'justify-start'}`}>
+      <View className={`flex-row flex-wrap gap-3 justify-start`}>
         {OPTIONS.map((item) => {
           const isSelected = value === item;
           return (
@@ -26,7 +26,7 @@ const RatingSection = ({ value, onChange }: any) => {
                 isSelected 
                   ? "bg-primary/10 border-primary dark:bg-primary/20" 
                   : "bg-white border-gray-200 dark:bg-card-dark dark:border-gray-700"
-              } ${isRTL ? 'flex-row-reverse' : ''}`}
+              }`}
             >
               <Ionicons 
                 name="star" 

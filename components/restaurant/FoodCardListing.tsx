@@ -113,12 +113,10 @@ const FoodCardListing = ({ foodItems }: Props) => {
     <View className="mt-8 flex-1">
       {/* Section Header */}
       <View
-        className={`flex-row items-center justify-between mb-5 w-full ${isRTL ? "flex-row-reverse" : ""}`}
+        className="flex-row items-center justify-between mb-5 w-full"
       >
         <Text
-          className={`flex-1 pr-4 text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight ${
-            isRTL ? "text-right pr-0 pl-4" : "text-left pr-4 pl-0"
-          }`}
+          className="flex-1 text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight text-start pe-4"
         >
           {isRTL ? "جميع الأطباق" : "All Dishes"}
         </Text>
