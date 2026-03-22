@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 import RestaurantCard, { Restaurant } from "@/components/restaurant/RestaurantCard";
+import FilterButton from "@/components/common/FilterButton";
 import restaurantDataJson from "@/TestData/RestaurantData.json";
 import { RootState } from "@/store/store";
 
@@ -36,19 +37,17 @@ const RestaurantCardList = () => {
     /* Heading Section */
     <Animated.View 
       entering={FadeInDown.duration(600).springify()}
-      className={`mb-8 flex-row items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}
+      className="mb-8"
     >
-      <View className="flex-1">
-        <Text className={`text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark ${isRTL ? 'text-right' : 'text-left'}`}>
+      <View className={`flex-row items-center justify-between w-full ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <Text className={`flex-1 pr-4 text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark ${isRTL ? 'text-right pr-0 pl-4' : 'text-left pr-4 pl-0'}`}>
           {restaurantData.length} {t('restaurant.count_header')}
         </Text>
-        <View className={`h-1.5 w-12 bg-primary rounded-full mt-2 ${isRTL ? 'self-end' : 'self-start'}`} />
+        
+        {/* Filter Icon or Action */}
+        <FilterButton onPress={() => {}} isActive={false} />
       </View>
-      
-      {/* Optional Filter Icon or Action */}
-      <Pressable className="p-3 bg-gray-100 dark:bg-gray-800 rounded-2xl active:opacity-70">
-        <Ionicons name="options-outline" size={24} color="#f27f0d" />
-      </Pressable>
+      <View className={`h-1.5 w-12 bg-primary rounded-full mt-2 ${isRTL ? 'self-end' : 'self-start'}`} />
     </Animated.View>
   ), [isRTL, t]);
 
