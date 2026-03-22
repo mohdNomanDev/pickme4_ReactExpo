@@ -1,6 +1,7 @@
 import React from "react";
 import { FlatList, Text, View } from "react-native";
 import FoodCard from "./FoodCard";
+import FilterButton from "@/components/common/FilterButton";
 import { useRTL } from "@/hooks/useRTL";
 
 type FoodItem = {
@@ -30,13 +31,16 @@ const FoodCardListing = ({ foodItems }: Props) => {
   return (
     <View className="mt-8">
       {/* Section Header */}
-      <Text
-        className={`text-2xl font-extrabold text-gray-900 dark:text-white mb-5 tracking-tight ${
-          isRTL ? "text-right" : "text-left"
-        }`}
-      >
-        {isRTL ? "جميع الأطباق" : "All Dishes"}
-      </Text>
+      <View className={`flex-row items-center justify-between mb-5 w-full ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <Text
+          className={`flex-1 pr-4 text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight ${
+            isRTL ? "text-right pr-0 pl-4" : "text-left pr-4 pl-0"
+          }`}
+        >
+          {isRTL ? "جميع الأطباق" : "All Dishes"}
+        </Text>
+        <FilterButton onPress={() => {}} isActive={false} />
+      </View>
 
       {/* List */}
       <FlatList
