@@ -7,6 +7,7 @@ import {
   View,
   Text,
   ScrollView,
+  useWindowDimensions,
 } from "react-native";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -37,6 +38,10 @@ const FilterSheet = ({
 }: Props) => {
   const { t } = useTranslation();
   const { isRTL } = useSelector((state: RootState) => state.language);
+  const { height, width } = useWindowDimensions();
+
+  // Determine if the device is a tablet or web browser (large screen)
+  const isLargeScreen = width >= 768;
 
   return (
     <Modal
@@ -45,19 +50,28 @@ const FilterSheet = ({
       animationType="fade"
       onRequestClose={onClose}
     >
-      <View className="flex-1 justify-end bg-black/50">
+      <View 
+        className={`flex-1 bg-black/50 ${isLargeScreen ? 'justify-center items-center p-4' : 'justify-end'}`}
+      >
         {/* Background Overlay */}
         <TouchableWithoutFeedback onPress={onClose}>
           <View className="absolute inset-0" />
         </TouchableWithoutFeedback>
 
-        {/* Bottom Sheet Container */}
+        {/* Modal / Bottom Sheet Container */}
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : undefined}
-          className="w-full justify-end max-w-3xl mx-auto flex-shrink-1"
-          style={{ maxHeight: "90%" }}
+          className={`w-full max-w-2xl flex-shrink-1 ${!isLargeScreen ? 'mt-auto' : ''}`}
         >
-          <View className="bg-white dark:bg-card-dark rounded-t-3xl shadow-2xl overflow-hidden flex-shrink-1 pb-safe">
+          <View 
+            className={`bg-white dark:bg-card-dark shadow-2xl overflow-hidden flex-shrink-1 w-full ${
+              isLargeScreen ? 'rounded-3xl' : 'rounded-t-3xl pb-safe'
+            }`}
+            style={{ 
+              // Using exact pixel calculation to prevent web CSS height bounding issues
+              maxHeight: height * (isLargeScreen ? 0.85 : 0.9) 
+            }}
+          >
             {/* Header Section */}
             <View
               className={`flex-row items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100 dark:border-gray-800 ${
