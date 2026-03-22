@@ -1,30 +1,96 @@
 import FilterButton from "@/components/common/FilterButton";
 import FilterSheet from "@/components/common/FilterSheet";
+import FoodFilter, { FoodFilterState } from "@/components/restaurant/FoodFilter";
 import { useRTL } from "@/hooks/useRTL";
-import React, { useState } from "react";
+import { Ionicons } from "@expo/vector-icons";
+import React, { useState, useMemo } from "react";
 import { FlatList, Text, View } from "react-native";
 import FoodCard from "./FoodCard";
 
+type LocalizedString = {
+  en: string;
+  ar: string;
+};
+
 type FoodItem = {
-  name: {
-    en: string;
-    ar: string;
-  };
-  category: {
-    en: string;
-    ar: string;
-  };
+  name: LocalizedString;
+  category: LocalizedString;
   image: string;
-  price: string;
+  price: number;
 };
 
 type Props = {
   foodItems: FoodItem[];
 };
 
+const DEFAULT_FILTERS: FoodFilterState = {
+  sortBy: "recommended",
+  priceRange: "",
+  categories: [],
+};
+
 const FoodCardListing = ({ foodItems }: Props) => {
   const { isRTL } = useRTL();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
+  const [filters, setFilters] = useState<FoodFilterState>(DEFAULT_FILTERS);
+
+  // Extract unique categories dynamically from the passed food items
+  const availableCategories = useMemo(() => {
+    const catsMap = new Map<string, LocalizedString>();
+    foodItems.forEach(item => {
+      if (item.category && item.category.en) {
+        catsMap.set(item.category.en, item.category);
+      }
+    });
+    return Array.from(catsMap.values());
+  }, [foodItems]);
+
+  const activeFilterCount = useMemo(() => {
+    let count = 0;
+    if (filters.sortBy !== "recommended") count++;
+    if (filters.priceRange) count++;
+    if (filters.categories.length > 0) count += filters.categories.length;
+    return count;
+  }, [filters]);
+
+  const filteredData = useMemo(() => {
+    let data = [...foodItems];
+
+    // Filter by Category
+    if (filters.categories.length > 0) {
+      data = data.filter(item => item.category && filters.categories.includes(item.category.en));
+    }
+
+    // Filter by Price Range
+    if (filters.priceRange) {
+      const isOver100 = filters.priceRange === "100+";
+      const [minStr, maxStr] = filters.priceRange.split("-");
+      const min = parseInt(minStr, 10);
+      const max = isOver100 ? Infinity : parseInt(maxStr, 10);
+
+      data = data.filter(item => {
+        const price = item.price || 0;
+        return price >= min && price <= max;
+      });
+    }
+
+    // Sort By
+    if (filters.sortBy === "price_low_high") {
+      data.sort((a, b) => (a.price || 0) - (b.price || 0));
+    } else if (filters.sortBy === "price_high_low") {
+      data.sort((a, b) => (b.price || 0) - (a.price || 0));
+    }
+
+    return data;
+  }, [foodItems, filters]);
+
+  const handleClearFilters = () => {
+    setFilters(DEFAULT_FILTERS);
+  };
+
+  const handleApplyFilters = () => {
+    setIsFilterOpen(false);
+  };
 
   const renderItem = ({ item }: { item: FoodItem }) => {
     return <FoodCard data={item} />;
@@ -45,30 +111,50 @@ const FoodCardListing = ({ foodItems }: Props) => {
         </Text>
         <FilterButton
           onPress={() => setIsFilterOpen(true)}
-          isActive={isFilterOpen}
+          isActive={isFilterOpen || activeFilterCount > 0}
         />
       </View>
 
-      {/* List */}
-      <FlatList
-        data={foodItems}
-        renderItem={renderItem}
-        keyExtractor={(_, index) => index.toString()}
-        scrollEnabled={false} // Disabled because it is rendered inside a ScrollView in RestaurantMenu
-        contentContainerStyle={{ gap: 16 }}
-        showsVerticalScrollIndicator={false}
-      />
+      {/* List or Empty State */}
+      {filteredData.length > 0 ? (
+        <FlatList
+          data={filteredData}
+          renderItem={renderItem}
+          keyExtractor={(_, index) => index.toString()}
+          scrollEnabled={false} // Disabled because it is rendered inside a ScrollView in RestaurantMenu
+          contentContainerStyle={{ gap: 16 }}
+          showsVerticalScrollIndicator={false}
+        />
+      ) : (
+        <View className="items-center justify-center py-10">
+          <View className="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-full items-center justify-center mb-4">
+            <Ionicons name="fast-food-outline" size={36} color="#9ca3af" />
+          </View>
+          <Text className="text-lg font-bold text-gray-900 dark:text-white mb-2 text-center">
+            {isRTL ? "لم يتم العثور على أطباق" : "No dishes found"}
+          </Text>
+          <Text className="text-gray-500 dark:text-gray-400 text-center max-w-[250px] text-sm">
+            {isRTL 
+              ? "حاول تغيير فلاتر البحث لرؤية المزيد من الأطباق." 
+              : "Try adjusting your filters to see more dishes."}
+          </Text>
+        </View>
+      )}
 
+      {/* Filter Modal */}
       <FilterSheet
         visible={isFilterOpen}
         onClose={() => setIsFilterOpen(false)}
+        onClear={handleClearFilters}
+        onApply={handleApplyFilters}
+        resultsCount={filteredData.length}
+        title={isRTL ? "تصفية الأطباق" : "Filter Dishes"}
       >
-        <Text
-          className={`text-xl font-bold mb-4 text-gray-900 dark:text-white ${isRTL ? "text-right" : "text-left"}`}
-        >
-          {isRTL ? "تصفية" : "Filter Options"}
-        </Text>
-        {/* TODO: Add filter options here */}
+        <FoodFilter 
+          filters={filters} 
+          setFilters={setFilters} 
+          availableCategories={availableCategories} 
+        />
       </FilterSheet>
     </View>
   );
