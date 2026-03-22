@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { FlatList, Text, View } from "react-native";
 import FoodCard from "./FoodCard";
 import FilterButton from "@/components/common/FilterButton";
+import BottomSheet from "@/components/common/BottomSheet";
 import { useRTL } from "@/hooks/useRTL";
 
 type FoodItem = {
@@ -23,6 +24,7 @@ type Props = {
 
 const FoodCardListing = ({ foodItems }: Props) => {
   const { isRTL } = useRTL();
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const renderItem = ({ item }: { item: FoodItem }) => {
     return <FoodCard data={item} />;
@@ -39,7 +41,7 @@ const FoodCardListing = ({ foodItems }: Props) => {
         >
           {isRTL ? "جميع الأطباق" : "All Dishes"}
         </Text>
-        <FilterButton onPress={() => {}} isActive={false} />
+        <FilterButton onPress={() => setIsFilterOpen(true)} isActive={isFilterOpen} />
       </View>
 
       {/* List */}
@@ -51,6 +53,13 @@ const FoodCardListing = ({ foodItems }: Props) => {
         contentContainerStyle={{ gap: 16 }}
         showsVerticalScrollIndicator={false}
       />
+
+      <BottomSheet visible={isFilterOpen} onClose={() => setIsFilterOpen(false)}>
+        <Text className={`text-xl font-bold mb-4 text-gray-900 dark:text-white ${isRTL ? "text-right" : "text-left"}`}>
+          {isRTL ? "تصفية" : "Filter Options"}
+        </Text>
+        {/* TODO: Add filter options here */}
+      </BottomSheet>
     </View>
   );
 };

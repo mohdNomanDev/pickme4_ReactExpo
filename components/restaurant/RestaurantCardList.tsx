@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 import { View, Text, FlatList, Platform, Pressable, useWindowDimensions } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { Ionicons } from "@expo/vector-icons";
@@ -7,6 +7,7 @@ import { useTranslation } from "react-i18next";
 
 import RestaurantCard, { Restaurant } from "@/components/restaurant/RestaurantCard";
 import FilterButton from "@/components/common/FilterButton";
+import BottomSheet from "@/components/common/BottomSheet";
 import restaurantDataJson from "@/TestData/RestaurantData.json";
 import { RootState } from "@/store/store";
 
@@ -16,6 +17,7 @@ const RestaurantCardList = () => {
   const { t } = useTranslation();
   const { isRTL } = useSelector((state: RootState) => state.language);
   const { width } = useWindowDimensions();
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   // Determine number of columns based on screen width
   const numColumns = useMemo(() => 
@@ -45,11 +47,11 @@ const RestaurantCardList = () => {
         </Text>
         
         {/* Filter Icon or Action */}
-        <FilterButton onPress={() => {}} isActive={false} />
+        <FilterButton onPress={() => setIsFilterOpen(true)} isActive={isFilterOpen} />
       </View>
       <View className={`h-1.5 w-12 bg-primary rounded-full mt-2 ${isRTL ? 'self-end' : 'self-start'}`} />
     </Animated.View>
-  ), [isRTL, t]);
+  ), [isRTL, t, isFilterOpen]); // Added isFilterOpen to dependencies to re-render button state
 
   const keyExtractor = useCallback((item: Restaurant) => item.id.toString(), []);
 
@@ -74,6 +76,13 @@ const RestaurantCardList = () => {
         windowSize={5}
         removeClippedSubviews={Platform.OS !== 'web'} // Improves memory on native
       />
+
+      <BottomSheet visible={isFilterOpen} onClose={() => setIsFilterOpen(false)}>
+        <Text className={`text-xl font-bold mb-4 text-gray-900 dark:text-white ${isRTL ? "text-right" : "text-left"}`}>
+          {t('filter', { defaultValue: isRTL ? 'تصفية' : 'Filter Options' })}
+        </Text>
+        {/* TODO: Add filter options here */}
+      </BottomSheet>
     </View>
   );
 };
