@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
+import Navbar from '../../components/navbar/navbar';
 
 export default function FoodHome() {
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       {/* Top Navigation Area */}
-      <View>
+      <View style={{ zIndex: 50 }}>
+        <Navbar />
       </View>
 
       <ScrollView>
