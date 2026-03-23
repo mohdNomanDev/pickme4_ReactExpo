@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Navbar from '../../components/navbar/navbar';
+import RestaurantCardList from '../../components/restaurant/RestaurantCardList';
 
 export default function FoodHome() {
   return (
@@ -35,10 +36,7 @@ export default function FoodHome() {
 
           {/* Featured Restaurants Section */}
           <View className="w-full flex-1">
-            <Text className="text-xl md:text-2xl font-extrabold text-gray-900 mb-4">Featured Restaurants</Text>
-            <View className="w-full h-64 md:h-96 bg-gray-200 rounded-3xl items-center justify-center border border-gray-300">
-              <Text className="text-gray-500 font-bold text-lg">Featured Restaurants Section</Text>
-            </View>
+            <RestaurantCardList />
           </View>
 
         </View>
