@@ -1,0 +1,213 @@
+[
+  {
+    "id": "usr_001",
+    "name": {
+      "first": "Ahmed",
+      "last": "Al-Faisal",
+      "full": "Ahmed Al-Faisal",
+      "ar": "أحمد الفيصل"
+    },
+    "email": "ahmed.faisal@example.com",
+    "phone": "+966501234567",
+    "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
+    "gender": "male",
+    "language": "ar",
+    "isRTL": true,
+    "walletBalance": 150.50,
+    "loyaltyPoints": 1250,
+    "addresses": [
+      {
+        "id": "addr_001",
+        "type": "home",
+        "title": "Home",
+        "city": "Riyadh",
+        "district": "Al Olaya",
+        "street": "King Fahd Road",
+        "buildingNumber": "1234",
+        "floor": "",
+        "apartment": "",
+        "postalCode": "12211",
+        "coordinates": {
+          "lat": 24.7136,
+          "lng": 46.6753
+        },
+        "notes": "Leave at the door, call when arrived.",
+        "isDefault": true
+      }
+    ],
+    "paymentMethods": [
+      {
+        "id": "pm_001",
+        "type": "mada",
+        "last4": "5678",
+        "brand": "Mada",
+        "isDefault": true
+      },
+      {
+        "id": "pm_002",
+        "type": "apple_pay",
+        "isDefault": false
+      }
+    ],
+    "preferences": {
+      "favoriteCuisines": ["arabic", "shawarma", "kabsa"],
+      "allergies": [],
+      "notifications": {
+        "push": true,
+        "sms": true,
+        "email": false,
+        "whatsapp": true
+      }
+    },
+    "cart": [
+      {
+        "itemId": "item_001",
+        "restaurantId": "rest_001",
+        "name": "Chicken Shawarma",
+        "price": 22.50,
+        "quantity": 2,
+        "notes": "Extra garlic sauce"
+      }
+    ],
+    "orderHistory": [
+      {
+        "orderId": "ord_1001",
+        "restaurantId": "rest_002",
+        "status": "delivered",
+        "date": "2026-03-20T19:30:00Z",
+        "total": 120.00
+      }
+    ],
+    "createdAt": "2025-01-10T10:30:00Z"
+  },
+  {
+    "id": "usr_002",
+    "name": {
+      "first": "Fatima",
+      "last": "Al-Zahra",
+      "full": "Fatima Al-Zahra",
+      "ar": "فاطمة الزهراء"
+    },
+    "email": "fatima.zahra@example.com",
+    "phone": "+966509876543",
+    "avatar": "https://randomuser.me/api/portraits/women/2.jpg",
+    "gender": "female",
+    "language": "ar",
+    "isRTL": true,
+    "walletBalance": 0.00,
+    "loyaltyPoints": 400,
+    "addresses": [
+      {
+        "id": "addr_002",
+        "type": "work",
+        "title": "Office",
+        "city": "Jeddah",
+        "district": "Al Shati",
+        "street": "Corniche Road",
+        "buildingNumber": "88",
+        "floor": "12",
+        "apartment": "1204",
+        "postalCode": "23412",
+        "coordinates": {
+          "lat": 21.6085,
+          "lng": 39.1039
+        },
+        "notes": "Leave at the reception.",
+        "isDefault": true
+      }
+    ],
+    "paymentMethods": [
+      {
+        "id": "pm_003",
+        "type": "credit_card",
+        "last4": "1234",
+        "brand": "Visa",
+        "isDefault": true
+      },
+      {
+        "id": "pm_004",
+        "type": "stc_pay",
+        "phone": "+966509876543",
+        "isDefault": false
+      }
+    ],
+    "preferences": {
+      "favoriteCuisines": ["fast_food", "desserts", "coffee"],
+      "allergies": ["nuts"],
+      "notifications": {
+        "push": true,
+        "sms": false,
+        "email": true,
+        "whatsapp": false
+      }
+    },
+    "cart": [],
+    "orderHistory": [],
+    "createdAt": "2025-02-15T14:20:00Z"
+  },
+  {
+    "id": "usr_003",
+    "name": {
+      "first": "Mohammed",
+      "last": "Al-Saud",
+      "full": "Mohammed Al-Saud",
+      "ar": "محمد آل سعود"
+    },
+    "email": "mohammed.saud@example.com",
+    "phone": "+966555667788",
+    "avatar": "https://randomuser.me/api/portraits/men/3.jpg",
+    "gender": "male",
+    "language": "en",
+    "isRTL": false,
+    "walletBalance": 500.00,
+    "loyaltyPoints": 8500,
+    "addresses": [
+      {
+        "id": "addr_003",
+        "type": "home",
+        "title": "Apartment",
+        "city": "Dammam",
+        "district": "Al Faisaliyah",
+        "street": "Prince Mohammed Bin Fahd Road",
+        "buildingNumber": "45",
+        "floor": "3",
+        "apartment": "12",
+        "postalCode": "32271",
+        "coordinates": {
+          "lat": 26.4207,
+          "lng": 50.0888
+        },
+        "notes": "",
+        "isDefault": true
+      }
+    ],
+    "paymentMethods": [
+      {
+        "id": "pm_005",
+        "type": "cod",
+        "isDefault": true
+      }
+    ],
+    "preferences": {
+      "favoriteCuisines": ["italian", "burgers", "healthy"],
+      "allergies": [],
+      "notifications": {
+        "push": true,
+        "sms": true,
+        "email": true,
+        "whatsapp": true
+      }
+    },
+    "cart": [],
+    "orderHistory": [
+       {
+        "orderId": "ord_1002",
+        "restaurantId": "rest_005",
+        "status": "cancelled",
+        "date": "2026-03-10T11:00:00Z",
+        "total": 85.00
+      }
+    ],
+    "createdAt": "2025-03-01T08:10:00Z"
+  }
+]
