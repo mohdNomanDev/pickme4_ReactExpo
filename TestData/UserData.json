@@ -33,6 +33,42 @@
         },
         "notes": "Leave at the door, call when arrived.",
         "isDefault": true
+      },
+      {
+        "id": "addr_004",
+        "type": "work",
+        "title": "Office HQ",
+        "city": "Riyadh",
+        "district": "Al Malaz",
+        "street": "Makkah Al Mukarramah Branch Rd",
+        "buildingNumber": "789",
+        "floor": "5",
+        "apartment": "502",
+        "postalCode": "12831",
+        "coordinates": {
+          "lat": 24.6645,
+          "lng": 46.7328
+        },
+        "notes": "Deliver to reception.",
+        "isDefault": false
+      },
+      {
+        "id": "addr_005",
+        "type": "other",
+        "title": "Parents House",
+        "city": "Riyadh",
+        "district": "Al Yasmin",
+        "street": "Abu Bakr Al Siddiq Road",
+        "buildingNumber": "456",
+        "floor": "",
+        "apartment": "",
+        "postalCode": "13322",
+        "coordinates": {
+          "lat": 24.8105,
+          "lng": 46.6558
+        },
+        "notes": "Ring the bell, don't leave outside.",
+        "isDefault": false
       }
     ],
     "paymentMethods": [
