@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Pressable, ScrollView, TextInput, Platform } from 'react-native';
+import { View, Text, Pressable, ScrollView, Platform } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -17,16 +17,6 @@ export default function LocationDropdown() {
       className={`absolute top-14 ${isRTL ? 'right-0' : 'left-0'} w-80 bg-white dark:bg-card-dark rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 z-50 overflow-hidden ${Platform.OS === 'web' ? 'shadow-gray-200 dark:shadow-black' : ''}`}
       style={Platform.OS !== 'web' ? { elevation: 5 } : {}}
     >
-      {/* Header / Search Area */}
-      <View className={`p-3 border-b border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 flex-row items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
-        <Ionicons name="search" size={18} color={colorScheme === 'dark' ? '#9CA3AF' : '#6B7280'} />
-        <TextInput 
-          placeholder={t('location.search_placeholder', 'Search for area, street name...')} 
-          className={`flex-1 text-sm text-gray-800 dark:text-white ${isRTL ? 'text-right' : 'text-left'}`}
-          placeholderTextColor={colorScheme === 'dark' ? '#6B7280' : '#9CA3AF'}
-        />
-      </View>
-
       {/* Action: Use Current Location */}
       <Pressable className={`flex-row items-center gap-3 p-4 border-b border-gray-100 dark:border-gray-800 bg-orange-50/50 dark:bg-orange-900/20 active:bg-orange-100 dark:active:bg-orange-900/40 ${isRTL ? 'flex-row-reverse' : ''}`}>
         <View className="w-8 h-8 bg-orange-100 dark:bg-orange-500/20 rounded-full items-center justify-center">
