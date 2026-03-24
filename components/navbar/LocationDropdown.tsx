@@ -7,18 +7,23 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import SavedAddresses from "./SavedAddresses";
 
-export default function LocationDropdown() {
+interface LocationDropdownProps {
+  onClose?: () => void;
+}
+
+export default function LocationDropdown({ onClose }: LocationDropdownProps) {
   const { t } = useTranslation();
   const { isRTL } = useSelector((state: RootState) => state.language);
   const { colorScheme } = useColorScheme();
 
   return (
     <View
-      className={`absolute top-14 ${isRTL ? "right-0" : "left-0"} w-80 bg-white dark:bg-card-dark rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 z-50 overflow-hidden ${Platform.OS === "web" ? "shadow-gray-200 dark:shadow-black" : ""}`}
+      className={`w-80 bg-white dark:bg-card-dark rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 z-50 overflow-hidden ${Platform.OS === "web" ? "shadow-gray-200 dark:shadow-black" : ""}`}
       style={Platform.OS !== "web" ? { elevation: 5 } : {}}
     >
       {/* Action: Use Current Location */}
       <Pressable
+        onPress={onClose}
         className={`flex-row items-center gap-3 p-4 border-b border-gray-100 dark:border-gray-800 bg-orange-50/50 dark:bg-orange-900/20 active:bg-orange-100 dark:active:bg-orange-900/40 ${isRTL ? "flex-row-reverse" : ""}`}
       >
         <View className="w-8 h-8 bg-orange-100 dark:bg-orange-500/20 rounded-full items-center justify-center">
@@ -34,12 +39,13 @@ export default function LocationDropdown() {
       {/* Saved Addresses Section */}
       <View className="max-h-60">
         <ScrollView showsVerticalScrollIndicator={false}>
-          <SavedAddresses />
+          <SavedAddresses onClose={onClose} />
         </ScrollView>
       </View>
 
       {/* Action: Add New Address */}
       <Pressable
+        onPress={onClose}
         className={`flex-row items-center gap-2 p-4 border-t border-gray-100 dark:border-gray-800 active:bg-gray-50 dark:active:bg-gray-800/50 ${isRTL ? "flex-row-reverse" : ""}`}
       >
         <Ionicons name="add" size={20} color="#F97316" />
