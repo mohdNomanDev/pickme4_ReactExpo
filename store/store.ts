@@ -3,7 +3,8 @@ import { bookmarkSlice } from "./bookmarkSlice";
 import { languageSlice } from "./languageSlice";
 import themeReducer from "./themeSlice";
 import { onPressRestaurantSlice } from "./OnPressRestaurantSlice";
-
+import selectedAddressReducer from "./selectedAddressSlice";
+import userReducer from "./userSlice";
 
 export const store = configureStore({
   reducer: {
@@ -11,6 +12,8 @@ export const store = configureStore({
     bookmark: bookmarkSlice.reducer,
     theme: themeReducer,
     onPressRestaurant: onPressRestaurantSlice.reducer,
+    selectedAddress: selectedAddressReducer,
+    user: userReducer,
   },
 });
 
@@ -18,3 +21,4 @@ export const store = configureStore({
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch;
+
