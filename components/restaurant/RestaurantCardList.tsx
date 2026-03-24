@@ -31,7 +31,11 @@ const DEFAULT_FILTERS: FilterState = {
   dietary: [],
 };
 
-const RestaurantCardList = () => {
+interface RestaurantCardListProps {
+  headerContent?: React.ReactNode;
+}
+
+const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   const { t } = useTranslation();
   const { isRTL } = useSelector((state: RootState) => state.language);
   const { width } = useWindowDimensions();
@@ -146,30 +150,33 @@ const RestaurantCardList = () => {
 
   const ListHeader = useMemo(
     () => (
-      <Animated.View
-        entering={FadeInDown.duration(600).springify()}
-        className="mb-8"
-      >
-        <View
-          className="flex-row items-center justify-between w-full"
+      <View>
+        {headerContent}
+        <Animated.View
+          entering={FadeInDown.duration(600).springify()}
+          className="mb-8"
         >
-          <Text
-            className={`flex-1 pr-4 text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark text-start pe-4`}
+          <View
+            className="flex-row items-center justify-between w-full"
           >
-            {filteredData.length} {t("restaurant.count_header")}
-          </Text>
+            <Text
+              className={`flex-1 pr-4 text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark text-start pe-4`}
+            >
+              {filteredData.length} {t("restaurant.count_header")}
+            </Text>
 
-          <FilterButton
-            onPress={() => setIsFilterOpen(true)}
-            isActive={isFilterOpen || activeFilterCount > 0}
+            <FilterButton
+              onPress={() => setIsFilterOpen(true)}
+              isActive={isFilterOpen || activeFilterCount > 0}
+            />
+          </View>
+          <View
+            className={`h-1.5 w-12 bg-primary rounded-full mt-2 self-start`}
           />
-        </View>
-        <View
-          className={`h-1.5 w-12 bg-primary rounded-full mt-2 self-start`}
-        />
-      </Animated.View>
+        </Animated.View>
+      </View>
     ),
-    [isRTL, t, isFilterOpen, activeFilterCount, filteredData.length]
+    [t, isFilterOpen, activeFilterCount, filteredData.length, headerContent]
   );
 
   const ListEmpty = useMemo(

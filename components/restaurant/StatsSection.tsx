@@ -10,7 +10,8 @@ const Stats = ({ data, lang, isRTL }: any) => {
       SAR: { en: "SAR", ar: "ر.س" },
     };
     const cCode = data.currency || "SAR";
-    const localizedCurrency = currencyMap[cCode]?.[lang] || cCode;
+    const typedLang = lang as 'en' | 'ar';
+    const localizedCurrency = currencyMap[cCode]?.[typedLang] || cCode;
     
     return isRTL 
       ? `${data.deliveryFee} ${localizedCurrency}` 

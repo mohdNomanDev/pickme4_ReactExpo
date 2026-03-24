@@ -35,6 +35,7 @@ export type Restaurant = {
   cuisine?: LocalizedString;
   offer?: string;
   area?: LocalizedString;
+  tags?: string[];
 };
 
 type RestaurantCardProps = {

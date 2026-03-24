@@ -28,40 +28,32 @@ export default function FoodHome() {
          </View>
       </View>
 
-      <ScrollView 
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}
-        className="w-full flex-1"
-      >
-        <View className="max-w-7xl mx-auto w-full px-4 md:px-8 py-6 flex-1 gap-8">
-          
-          {/* Banner / Offers Carousel Section */}
-          <View className="w-full h-48 md:h-64 bg-gray-200 dark:bg-gray-800 rounded-3xl items-center justify-center border border-gray-300 dark:border-gray-700">
-            <Text className="text-gray-500 dark:text-gray-400 font-bold text-lg">
-              {t('home.banner', 'Banner Section')}
-            </Text>
-          </View>
+      <View className="w-full flex-1">
+        <RestaurantCardList 
+          headerContent={
+            <View className="w-full flex-1 gap-8 mb-8 mt-2">
+              {/* Banner / Offers Carousel Section */}
+              <View className="w-full h-48 md:h-64 bg-gray-200 dark:bg-gray-800 rounded-3xl items-center justify-center border border-gray-300 dark:border-gray-700">
+                <Text className="text-gray-500 dark:text-gray-400 font-bold text-lg">
+                  {t('home.banner', 'Banner Section')}
+                </Text>
+              </View>
 
-          {/* Quick Categories Section */}
-          <View className="w-full">
-            <Text className={`text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
-              {t('home.categories', 'Categories')}
-            </Text>
-            <View className="w-full h-24 md:h-32 bg-gray-200 dark:bg-gray-800 rounded-2xl items-center justify-center border border-gray-300 dark:border-gray-700">
-              <Text className="text-gray-500 dark:text-gray-400 font-bold text-lg">
-                {t('home.categories_section', 'Categories Section')}
-              </Text>
+              {/* Quick Categories Section */}
+              <View className="w-full">
+                <Text className={`text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mb-4 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  {t('home.categories', 'Categories')}
+                </Text>
+                <View className="w-full h-24 md:h-32 bg-gray-200 dark:bg-gray-800 rounded-2xl items-center justify-center border border-gray-300 dark:border-gray-700">
+                  <Text className="text-gray-500 dark:text-gray-400 font-bold text-lg">
+                    {t('home.categories_section', 'Categories Section')}
+                  </Text>
+                </View>
+              </View>
             </View>
-          </View>
-
-          {/* Featured Restaurants Section */}
-          <View className="w-full flex-1">
-            {/* The title for this section is now handled inside RestaurantCardList itself, so we just render the component */}
-            <RestaurantCardList />
-          </View>
-
-        </View>
-      </ScrollView>
+          }
+        />
+      </View>
     </SafeAreaView>
   );
 }
