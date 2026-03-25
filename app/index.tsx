@@ -1,6 +1,5 @@
-import React from "react";
-import FoodHome from "./FoodHome";
+import { Redirect } from "expo-router";
 
 export default function Home() {
-  return <FoodHome />;
+  return <Redirect href="/FoodHome" />;
 }
