@@ -45,7 +45,8 @@ const RestaurantDetails = ({ data }: Props) => {
         <Image
           source={{ uri: data.image }}
           className="w-full h-full"
-          resizeMode="cover"
+          contentFit="cover"
+          transition={300}
         />
         {/* Overlay gradient/darken for better text readability and blending */}
         <View className="absolute inset-0 bg-black/30" />
@@ -75,3 +76,4 @@ const RestaurantDetails = ({ data }: Props) => {
 };
 
 export default RestaurantDetails;
+;

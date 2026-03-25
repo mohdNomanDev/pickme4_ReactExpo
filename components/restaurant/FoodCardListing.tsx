@@ -4,7 +4,7 @@ import FoodFilter, { FoodFilterState } from "@/components/restaurant/FoodFilter"
 import { useRTL } from "@/hooks/useRTL";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState, useMemo, useCallback } from "react";
-import { FlatList, Text, View, useWindowDimensions, Platform } from "react-native";
+import { Text, View, useWindowDimensions, Platform } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import FoodCard from "./FoodCard";
 
@@ -98,17 +98,6 @@ const FoodCardListing = ({ foodItems }: Props) => {
     setIsFilterOpen(false);
   };
 
-  const renderItem = useCallback(({ item, index }: { item: FoodItem; index: number }) => {
-    return (
-      <Animated.View 
-        entering={FadeInDown.delay(index * 40).duration(500).springify()}
-        style={{ flex: 1 / numColumns }}
-      >
-        <FoodCard data={item} />
-      </Animated.View>
-    );
-  }, [numColumns]);
-
   return (
     <View className="mt-8 flex-1">
       {/* Section Header */}
@@ -128,24 +117,17 @@ const FoodCardListing = ({ foodItems }: Props) => {
 
       {/* List or Empty State */}
       {filteredData.length > 0 ? (
-        <FlatList
-          data={filteredData}
-          key={numColumns} // Force re-render on grid size change
-          numColumns={numColumns}
-          renderItem={renderItem}
-          keyExtractor={(_, index) => index.toString()}
-          scrollEnabled={false} // Disabled because it is rendered inside a ScrollView in RestaurantMenu
-          columnWrapperStyle={numColumns > 1 ? { gap: 16, marginBottom: 16 } : undefined}
-          contentContainerStyle={{ 
-            gap: numColumns === 1 ? 16 : 0, 
-            ...(isWeb ? { paddingBottom: 24 } : {}) 
-          }}
-          showsVerticalScrollIndicator={false}
-          // Performance
-          initialNumToRender={8}
-          maxToRenderPerBatch={10}
-          windowSize={5}
-        />
+        <View className={`flex-row flex-wrap w-full gap-4 ${isWeb ? 'pb-6' : ''}`}>
+          {filteredData.map((item, index) => (
+            <Animated.View 
+              key={index}
+              entering={FadeInDown.delay(index * 40).duration(500).springify()}
+              style={{ width: numColumns === 1 ? '100%' : 'calc(50% - 8px)' }}
+            >
+              <FoodCard data={item} />
+            </Animated.View>
+          ))}
+        </View>
       ) : (
         <View className="items-center justify-center py-10">
           <View className="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-full items-center justify-center mb-4">

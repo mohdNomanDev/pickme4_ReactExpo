@@ -1,6 +1,7 @@
 import { useRTL } from "@/hooks/useRTL";
 import React, { useMemo } from "react";
-import { Image, Text, TouchableOpacity, View, Platform } from "react-native";
+import { Text, TouchableOpacity, View, Platform } from "react-native";
+import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 
 type LocalizedString = {
@@ -48,7 +49,8 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
         <Image
           source={{ uri: data.image }}
           className="w-28 h-28 rounded-2xl bg-gray-100 dark:bg-gray-700"
-          resizeMode="cover"
+          contentFit="cover"
+          transition={200}
         />
       </View>
 
