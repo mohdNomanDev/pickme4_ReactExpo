@@ -1,121 +1,125 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { Formik } from 'formik';
+import FormField from '../common/FormField';
+import { addressSchema } from '../../utils/validations';
 
 const AddNewAddress = () => {
-  const [addressDetails, setAddressDetails] = useState({
+  const initialValues = {
     city: '',
-    district: '', // Hayy
+    district: '',
     street: '',
     buildingNumber: '',
     floorApt: '',
     additionalDirections: '',
-    label: 'Home', // Home, Work, Other
+    label: 'Home',
     contactName: '',
     contactPhone: '',
-  });
+  };
 
-  const handleSave = () => {
+  const handleSave = (values: typeof initialValues) => {
     // TODO: Implement save logic
-    console.log('Address saved:', addressDetails);
+    console.log('Address saved:', values);
   };
 
   return (
     <ScrollView>
-      <View>
-        <Text>Add New Address</Text>
-
-        {/* Map Placeholder - Very common in Saudi food delivery apps for precise location */}
-        <View>
-          <Text>Map View Placeholder - Pin Location</Text>
-        </View>
-
-        {/* Location Details Form */}
-        <View>
-          <Text>City</Text>
-          <TextInput
-            placeholder="Enter City"
-            value={addressDetails.city}
-            onChangeText={(text) => setAddressDetails({ ...addressDetails, city: text })}
-          />
-
-          <Text>District / Neighborhood (Hayy)</Text>
-          <TextInput
-            placeholder="Enter District"
-            value={addressDetails.district}
-            onChangeText={(text) => setAddressDetails({ ...addressDetails, district: text })}
-          />
-
-          <Text>Street Name</Text>
-          <TextInput
-            placeholder="Enter Street Name"
-            value={addressDetails.street}
-            onChangeText={(text) => setAddressDetails({ ...addressDetails, street: text })}
-          />
-
-          <Text>Building Number</Text>
-          <TextInput
-            placeholder="Enter Building Number"
-            value={addressDetails.buildingNumber}
-            onChangeText={(text) => setAddressDetails({ ...addressDetails, buildingNumber: text })}
-          />
-
-          <Text>Floor / Apartment (Optional)</Text>
-          <TextInput
-            placeholder="Enter Floor/Apt"
-            value={addressDetails.floorApt}
-            onChangeText={(text) => setAddressDetails({ ...addressDetails, floorApt: text })}
-          />
-
-          <Text>Additional Directions (Optional)</Text>
-          <TextInput
-            placeholder="Landmarks or extra directions"
-            multiline
-            value={addressDetails.additionalDirections}
-            onChangeText={(text) => setAddressDetails({ ...addressDetails, additionalDirections: text })}
-          />
-        </View>
-
-        {/* Contact Information */}
-        <View>
-          <Text>Contact Details</Text>
-          
-          <Text>Name</Text>
-          <TextInput
-            placeholder="Contact Person Name"
-            value={addressDetails.contactName}
-            onChangeText={(text) => setAddressDetails({ ...addressDetails, contactName: text })}
-          />
-
-          <Text>Phone Number</Text>
-          <TextInput
-            placeholder="Phone Number (e.g., 05X XXX XXXX)"
-            keyboardType="phone-pad"
-            value={addressDetails.contactPhone}
-            onChangeText={(text) => setAddressDetails({ ...addressDetails, contactPhone: text })}
-          />
-        </View>
-
-        {/* Address Label Selection */}
-        <View>
-          <Text>Save As</Text>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={addressSchema}
+        onSubmit={handleSave}
+      >
+        {({ handleSubmit, setFieldValue, values }) => (
           <View>
-            <TouchableOpacity onPress={() => setAddressDetails({ ...addressDetails, label: 'Home' })}>
-              <Text>Home</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setAddressDetails({ ...addressDetails, label: 'Work' })}>
-              <Text>Work</Text>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => setAddressDetails({ ...addressDetails, label: 'Other' })}>
-              <Text>Other</Text>
+            <Text>Add New Address</Text>
+
+            {/* Map Placeholder */}
+            <View>
+              <Text>Map View Placeholder - Pin Location</Text>
+            </View>
+
+            {/* Location Details Form */}
+            <View>
+              <FormField
+                name="city"
+                label="City"
+                placeholder="Enter City"
+              />
+
+              <FormField
+                name="district"
+                label="District / Neighborhood (Hayy)"
+                placeholder="Enter District"
+              />
+
+              <FormField
+                name="street"
+                label="Street Name"
+                placeholder="Enter Street Name"
+              />
+
+              <FormField
+                name="buildingNumber"
+                label="Building Number"
+                placeholder="Enter Building Number"
+              />
+
+              <FormField
+                name="floorApt"
+                label="Floor / Apartment (Optional)"
+                placeholder="Enter Floor/Apt"
+              />
+
+              <FormField
+                name="additionalDirections"
+                label="Additional Directions (Optional)"
+                placeholder="Landmarks or extra directions"
+                multiline
+              />
+            </View>
+
+            {/* Contact Information */}
+            <View>
+              <Text>Contact Details</Text>
+              
+              <FormField
+                name="contactName"
+                label="Name"
+                placeholder="Contact Person Name"
+              />
+
+              <FormField
+                name="contactPhone"
+                label="Phone Number"
+                placeholder="Phone Number (e.g., 05X XXX XXXX)"
+                keyboardType="phone-pad"
+              />
+            </View>
+
+            {/* Address Label Selection */}
+            <View>
+              <Text>Save As</Text>
+              <View>
+                <TouchableOpacity onPress={() => setFieldValue('label', 'Home')}>
+                  <Text style={{ fontWeight: values.label === 'Home' ? 'bold' : 'normal' }}>Home</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => setFieldValue('label', 'Work')}>
+                  <Text style={{ fontWeight: values.label === 'Work' ? 'bold' : 'normal' }}>Work</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => setFieldValue('label', 'Other')}>
+                  <Text style={{ fontWeight: values.label === 'Other' ? 'bold' : 'normal' }}>Other</Text>
+                </TouchableOpacity>
+              </View>
+              {/* Optional: if you wanted to use a FormField or show error for label */}
+            </View>
+
+            {/* Submit Button */}
+            <TouchableOpacity onPress={() => handleSubmit()}>
+              <Text>Save Address</Text>
             </TouchableOpacity>
           </View>
-        </View>
-
-        {/* Submit Button */}
-        <TouchableOpacity onPress={handleSave}>
-          <Text>Save Address</Text>
-        </TouchableOpacity>
-      </View>
+        )}
+      </Formik>
     </ScrollView>
   );
 };
