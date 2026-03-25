@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, ScrollView, Platform } from 'react-native';
 import { Formik } from 'formik';
 import { Ionicons } from '@expo/vector-icons';
 import FormField from '../common/FormField';
@@ -30,13 +30,20 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
   };
 
   return (
-    <View className="flex-1 bg-white dark:bg-card-dark rounded-t-3xl pt-2 mt-12 max-h-[90vh]">
+    <View className="flex-1 bg-white dark:bg-card-dark w-full md:rounded-3xl md:my-8 md:border border-gray-100 dark:border-gray-800 overflow-hidden shadow-sm dark:shadow-none">
       {/* Header */}
-      <View className="flex-row items-center justify-between px-6 pb-4 border-b border-gray-100 dark:border-gray-800">
-        <Text className="text-xl font-bold text-gray-900 dark:text-white">Add New Address</Text>
-        {onCancel && (
-          <TouchableOpacity onPress={onCancel} className="p-2 rounded-full bg-gray-100 dark:bg-gray-800">
-            <Ionicons name="close" size={20} color="#6b7280" />
+      <View className="flex-row items-center justify-between px-6 py-5 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-card-dark z-10">
+        <View className="flex-row items-center gap-3">
+          {Platform.OS !== 'web' && onCancel && (
+            <TouchableOpacity onPress={onCancel} className="mr-2">
+              <Ionicons name="arrow-back" size={24} color="#f97316" />
+            </TouchableOpacity>
+          )}
+          <Text className="text-2xl font-bold text-gray-900 dark:text-white">Add New Address</Text>
+        </View>
+        {Platform.OS === 'web' && onCancel && (
+          <TouchableOpacity onPress={onCancel} className="p-2 rounded-full bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+            <Ionicons name="close" size={24} color="#6b7280" />
           </TouchableOpacity>
         )}
       </View>
@@ -48,20 +55,21 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
           onSubmit={handleSave}
         >
           {({ handleSubmit, setFieldValue, values }) => (
-            <View className="gap-6">
+            <View className="gap-8 max-w-3xl mx-auto w-full">
               {/* Map Placeholder */}
-              <View className="h-48 bg-gray-50 dark:bg-gray-800/50 rounded-2xl items-center justify-center border border-gray-200 dark:border-gray-700 overflow-hidden mb-2">
-                <View className="w-12 h-12 bg-white dark:bg-gray-700 rounded-full items-center justify-center shadow-sm mb-3">
-                  <Ionicons name="location" size={24} color="#f97316" />
+              <View className="h-56 bg-orange-50/50 dark:bg-gray-800/30 rounded-3xl items-center justify-center border border-orange-100 dark:border-gray-700 overflow-hidden mb-2">
+                <View className="w-14 h-14 bg-white dark:bg-gray-800 rounded-full items-center justify-center shadow-sm mb-3">
+                  <Ionicons name="location" size={28} color="#f97316" />
                 </View>
-                <Text className="text-gray-500 dark:text-gray-400 font-medium">Pin Location on Map</Text>
+                <Text className="text-gray-600 dark:text-gray-400 font-medium text-lg">Pin Location on Map</Text>
+                <Text className="text-gray-400 dark:text-gray-500 text-sm mt-1">Tap to select exact coordinates</Text>
               </View>
 
               {/* Location Details Form */}
               <View>
-                <Text className="text-lg font-bold text-gray-900 dark:text-white mb-4">Location Details</Text>
+                <Text className="text-xl font-bold text-gray-900 dark:text-white mb-5">Location Details</Text>
                 
-                <View className="flex-row gap-4">
+                <View className="flex-col md:flex-row gap-0 md:gap-4">
                   <View className="flex-1">
                     <FormField name="city" label="City" placeholder="Enter City" />
                   </View>
@@ -72,7 +80,7 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
 
                 <FormField name="street" label="Street Name" placeholder="Enter Street Name" />
                 
-                <View className="flex-row gap-4">
+                <View className="flex-col md:flex-row gap-0 md:gap-4">
                   <View className="flex-1">
                     <FormField name="buildingNumber" label="Building No." placeholder="e.g. 12" />
                   </View>
@@ -90,20 +98,26 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
               </View>
 
               {/* Contact Information */}
-              <View className="mt-2">
-                <Text className="text-lg font-bold text-gray-900 dark:text-white mb-4">Contact Details</Text>
-                <FormField name="contactName" label="Name" placeholder="Contact Person Name" />
-                <FormField
-                  name="contactPhone"
-                  label="Phone Number"
-                  placeholder="05X XXX XXXX"
-                  keyboardType="phone-pad"
-                />
+              <View>
+                <Text className="text-xl font-bold text-gray-900 dark:text-white mb-5">Contact Details</Text>
+                <View className="flex-col md:flex-row gap-0 md:gap-4">
+                  <View className="flex-1">
+                    <FormField name="contactName" label="Name" placeholder="Contact Person Name" />
+                  </View>
+                  <View className="flex-1">
+                    <FormField
+                      name="contactPhone"
+                      label="Phone Number"
+                      placeholder="05X XXX XXXX"
+                      keyboardType="phone-pad"
+                    />
+                  </View>
+                </View>
               </View>
 
               {/* Address Label Selection */}
-              <View className="mt-2">
-                <Text className="text-lg font-bold text-gray-900 dark:text-white mb-3">Save As</Text>
+              <View>
+                <Text className="text-xl font-bold text-gray-900 dark:text-white mb-4">Save As</Text>
                 <View className="flex-row gap-3">
                   {['Home', 'Work', 'Other'].map((lbl) => {
                     const isSelected = values.label === lbl;
@@ -116,18 +130,18 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
                       <TouchableOpacity
                         key={lbl}
                         onPress={() => setFieldValue('label', lbl)}
-                        className={`flex-1 py-3 px-2 rounded-xl flex-row items-center justify-center gap-2 border ${
+                        className={`flex-1 py-4 px-2 rounded-2xl flex-row items-center justify-center gap-2 border-2 transition-all ${
                           isSelected 
-                            ? 'bg-orange-50 border-orange-500 dark:bg-orange-900/20' 
-                            : 'bg-white border-gray-200 dark:bg-card-dark dark:border-gray-700'
+                            ? 'bg-orange-50 border-orange-500 dark:bg-orange-900/20 dark:border-orange-500' 
+                            : 'bg-white border-gray-100 dark:bg-card-dark dark:border-gray-800'
                         }`}
                       >
                         <Ionicons 
                           name={iconName} 
-                          size={18} 
-                          color={isSelected ? '#f97316' : '#6b7280'} 
+                          size={20} 
+                          color={isSelected ? '#f97316' : '#9ca3af'} 
                         />
-                        <Text className={`font-medium text-sm ${isSelected ? 'text-orange-600 dark:text-orange-500' : 'text-gray-600 dark:text-gray-400'}`}>
+                        <Text className={`font-bold text-base ${isSelected ? 'text-orange-600 dark:text-orange-500' : 'text-gray-500 dark:text-gray-400'}`}>
                           {lbl}
                         </Text>
                       </TouchableOpacity>
@@ -139,7 +153,7 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
               {/* Submit Button */}
               <TouchableOpacity
                 onPress={() => handleSubmit()}
-                className="bg-orange-500 rounded-2xl py-4 mt-6 items-center shadow-md shadow-orange-200 dark:shadow-none"
+                className="bg-orange-500 rounded-2xl py-4 mt-4 items-center shadow-lg shadow-orange-500/30 dark:shadow-none"
               >
                 <Text className="text-white font-bold text-lg">Save Address</Text>
               </TouchableOpacity>
