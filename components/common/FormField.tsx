@@ -9,18 +9,28 @@ interface FormFieldProps extends TextInputProps {
 
 const FormField: React.FC<FormFieldProps> = ({ label, name, ...props }) => {
   const [field, meta, helpers] = useField(name);
+  const hasError = meta.touched && meta.error;
 
   return (
-    <View>
-      <Text>{label}</Text>
+    <View className="mb-4">
+      <Text className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+        {label}
+      </Text>
       <TextInput
+        className={`px-4 py-3 rounded-xl border bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 ${
+          hasError
+            ? 'border-red-500'
+            : 'border-gray-200 dark:border-gray-700 focus:border-orange-500 focus:bg-white dark:focus:bg-gray-900'
+        } ${props.multiline ? 'min-h-[100px] text-top' : ''}`}
         value={field.value}
         onChangeText={helpers.setValue}
         onBlur={() => helpers.setTouched(true)}
+        placeholderTextColor="#9ca3af"
+        textAlignVertical={props.multiline ? 'top' : 'center'}
         {...props}
       />
-      {meta.touched && meta.error && (
-        <Text>{meta.error}</Text>
+      {hasError && (
+        <Text className="text-red-500 text-xs mt-1">{meta.error}</Text>
       )}
     </View>
   );
