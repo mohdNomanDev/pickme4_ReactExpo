@@ -19,8 +19,6 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
     floorApt: '',
     additionalDirections: '',
     label: 'Home',
-    contactName: '',
-    contactPhone: '',
   };
 
   const handleSave = (values: typeof initialValues) => {
@@ -95,24 +93,6 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
                   placeholder="Landmarks or extra directions"
                   multiline
                 />
-              </View>
-
-              {/* Contact Information */}
-              <View>
-                <Text className="text-xl font-bold text-gray-900 dark:text-white mb-5">Contact Details</Text>
-                <View className="flex-col md:flex-row gap-0 md:gap-4">
-                  <View className="flex-1">
-                    <FormField name="contactName" label="Name" placeholder="Contact Person Name" />
-                  </View>
-                  <View className="flex-1">
-                    <FormField
-                      name="contactPhone"
-                      label="Phone Number"
-                      placeholder="05X XXX XXXX"
-                      keyboardType="phone-pad"
-                    />
-                  </View>
-                </View>
               </View>
 
               {/* Address Label Selection */}

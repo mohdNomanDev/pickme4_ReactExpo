@@ -10,8 +10,4 @@ export const addressSchema = Yup.object().shape({
   floorApt: Yup.string(),
   additionalDirections: Yup.string(),
   label: Yup.string().oneOf(['Home', 'Work', 'Other']).required('Label is required'),
-  contactName: Yup.string().required('Contact name is required'),
-  contactPhone: Yup.string()
-    .matches(phoneRegExp, 'Phone number is not valid (e.g., 05X XXX XXXX)')
-    .required('Phone number is required'),
 });
