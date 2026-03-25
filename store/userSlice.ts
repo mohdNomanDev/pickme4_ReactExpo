@@ -120,10 +120,21 @@ export const userSlice = createSlice({
         }
         state.currentUser.addresses.push(action.payload);
       }
+    },
+    updateUserAddress: (state, action: PayloadAction<UserAddress>) => {
+      if (state.currentUser) {
+        const index = state.currentUser.addresses.findIndex(addr => addr.id === action.payload.id);
+        if (index !== -1) {
+          if (action.payload.isDefault) {
+            state.currentUser.addresses = state.currentUser.addresses.map(addr => ({ ...addr, isDefault: false }));
+          }
+          state.currentUser.addresses[index] = action.payload;
+        }
+      }
     }
   },
 });
 
-export const { setUser, clearUser, updateWalletBalance, updateLoyaltyPoints, addUserAddress } = userSlice.actions;
+export const { setUser, clearUser, updateWalletBalance, updateLoyaltyPoints, addUserAddress, updateUserAddress } = userSlice.actions;
 
 export default userSlice.reducer;
