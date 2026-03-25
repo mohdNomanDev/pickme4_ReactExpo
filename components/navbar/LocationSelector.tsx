@@ -6,7 +6,6 @@ import {
   Modal,
   Pressable,
   Text,
-  TouchableWithoutFeedback,
   View,
 } from "react-native";
 import { useSelector } from "react-redux";
@@ -93,21 +92,21 @@ export default function LocationSelector() {
         animationType="fade"
         onRequestClose={closeDropdown}
       >
-        <TouchableWithoutFeedback onPress={closeDropdown}>
-          <View className="flex-1">
-            <TouchableWithoutFeedback>
-              <View
-                style={{
-                  position: "absolute",
-                  top: dropdownPos.top,
-                  left: dropdownPos.left,
-                }}
-              >
-                <LocationDropdown onClose={closeDropdown} />
-              </View>
-            </TouchableWithoutFeedback>
+        {/* Full screen background overlay that closes dropdown when tapped */}
+        <Pressable className="flex-1" onPress={closeDropdown}>
+          {/* The dropdown container itself. onPress={(e) => e.stopPropagation()} prevents closing when tapping inside */}
+          <View
+            style={{
+              position: "absolute",
+              top: dropdownPos.top,
+              left: dropdownPos.left,
+            }}
+          >
+            <Pressable onPress={(e) => e.stopPropagation()}>
+              <LocationDropdown onClose={closeDropdown} />
+            </Pressable>
           </View>
-        </TouchableWithoutFeedback>
+        </Pressable>
       </Modal>
     </View>
   );
