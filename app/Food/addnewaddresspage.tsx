@@ -8,7 +8,10 @@ export default function AddNewAddressPage() {
   const router = useRouter();
 
   return (
-    <SafeAreaView edges={['top', 'bottom']} className="flex-1 bg-gray-50 dark:bg-background-dark">
+    <SafeAreaView
+      edges={["top", "bottom"]}
+      className="flex-1 bg-gray-50 dark:bg-background-dark"
+    >
       <View className="flex-1 w-full max-w-5xl mx-auto md:px-6">
         <AddNewAddress
           onCancel={() => router.back()}

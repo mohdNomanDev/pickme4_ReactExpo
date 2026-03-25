@@ -20,7 +20,7 @@ export default function LocationDropdown({ onClose }: LocationDropdownProps) {
 
   const handleAddNewAddress = () => {
     if (onClose) onClose();
-    router.push("/FoodHome/addnewaddresspage");
+    router.push("/Food/addnewaddresspage");
   };
 
   return (

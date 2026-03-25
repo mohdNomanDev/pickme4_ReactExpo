@@ -1,12 +1,18 @@
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import { useColorScheme } from "nativewind";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { FlatList, Pressable, Text, View, TouchableOpacity } from "react-native";
+import {
+  FlatList,
+  Pressable,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedAddress } from "../../store/selectedAddressSlice";
 import { RootState } from "../../store/store";
-import { useRouter } from "expo-router";
 
 interface SavedAddressesProps {
   onClose?: () => void;
@@ -63,11 +69,11 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
         region: address.district,
       }),
     );
-    
+
     if (onClose) {
       onClose();
     }
-    router.push('/FoodHome/editaddresspage');
+    router.push("/Food/editaddresspage");
   };
 
   const getIconName = (type: string) => {
@@ -147,9 +153,11 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
               </View>
 
               {/* Action Buttons Container */}
-              <View className={`flex-row items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
+              <View
+                className={`flex-row items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}
+              >
                 {/* Edit Button */}
-                <TouchableOpacity 
+                <TouchableOpacity
                   onPress={() => handleEditAddress(item)}
                   className="p-2"
                   hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}

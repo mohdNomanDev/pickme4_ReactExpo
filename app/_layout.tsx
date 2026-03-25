@@ -1,17 +1,16 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Stack } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import { useColorScheme as useNativeWindColorScheme } from "nativewind";
 import { useEffect, useState } from "react";
-import * as SplashScreen from 'expo-splash-screen';
-import { Appearance, useColorScheme as useSystemColorScheme } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useColorScheme as useNativeWindColorScheme } from 'nativewind';
+import { useColorScheme as useSystemColorScheme } from "react-native";
 import "../global.css";
 
+import { Provider, useDispatch, useSelector } from "react-redux";
 import { initI18nPromise } from "../i18n"; // Initialize i18n
-import { store } from "../store/store";
-import { Provider, useDispatch, useSelector } from 'react-redux'
 import { syncLanguage } from "../store/languageSlice";
+import { RootState, store } from "../store/store";
 import { THEME_KEY, ThemeMode, syncTheme } from "../store/themeSlice";
-import { RootState } from "../store/store";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -32,7 +31,9 @@ function RootLayoutContent() {
         dispatch(syncLanguage());
 
         // Load theme from storage
-        const savedTheme = await AsyncStorage.getItem(THEME_KEY) as ThemeMode | null;
+        const savedTheme = (await AsyncStorage.getItem(
+          THEME_KEY,
+        )) as ThemeMode | null;
         if (savedTheme) {
           dispatch(syncTheme(savedTheme));
         }
@@ -48,8 +49,8 @@ function RootLayoutContent() {
 
   // 2. Dynamic Theme Application
   useEffect(() => {
-    if (themeMode === 'system') {
-      setColorScheme(systemColorScheme || 'light');
+    if (themeMode === "system") {
+      setColorScheme(systemColorScheme || "light");
     } else {
       setColorScheme(themeMode);
     }
@@ -69,7 +70,7 @@ function RootLayoutContent() {
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="index" />
-      <Stack.Screen name="FoodHome" />
+      <Stack.Screen name="(tabs)" />
     </Stack>
   );
 }
