@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useRTL } from '../../hooks/useRTL';
 import { useColorScheme } from 'nativewind';
+import { useRouter } from 'expo-router';
 import UserData from '../../TestData/UserData.json';
 
 // Components
@@ -19,6 +20,7 @@ export default function ProfilePage() {
   const { t } = useTranslation();
   const { isRTL } = useRTL();
   const { colorScheme, toggleColorScheme } = useColorScheme();
+  const router = useRouter();
 
   const userName = isRTL && currentUser.name.ar ? currentUser.name.ar : currentUser.name.full;
 
@@ -54,7 +56,12 @@ export default function ProfilePage() {
 
           {/* Settings Sections */}
           <SettingsSection title={t('profile.account_settings', 'Account Settings')}>
-            <ProfileOption icon="person-outline" title={t('profile.personal_info', 'Personal Information')} isRTL={isRTL} />
+            <ProfileOption 
+              icon="person-outline" 
+              title={t('profile.personal_info', 'Personal Information')} 
+              isRTL={isRTL} 
+              onPress={() => router.push('/Food/personalinformation')} 
+            />
             <ProfileOption icon="location-outline" title={t('profile.saved_addresses', 'Saved Addresses')} value={currentUser.addresses.length.toString()} isRTL={isRTL} />
             <ProfileOption icon="card-outline" title={t('profile.payment_methods', 'Payment Methods')} isRTL={isRTL} />
           </SettingsSection>
