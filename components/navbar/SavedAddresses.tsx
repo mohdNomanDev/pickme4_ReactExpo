@@ -2,10 +2,11 @@ import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { FlatList, Pressable, Text, View } from "react-native";
+import { FlatList, Pressable, Text, View, TouchableOpacity } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { setSelectedAddress } from "../../store/selectedAddressSlice";
 import { RootState } from "../../store/store";
+import { useRouter } from "expo-router";
 
 interface SavedAddressesProps {
   onClose?: () => void;
@@ -13,6 +14,7 @@ interface SavedAddressesProps {
 
 export default function SavedAddresses({ onClose }: SavedAddressesProps) {
   const dispatch = useDispatch();
+  const router = useRouter();
   const { t } = useTranslation();
   const { colorScheme } = useColorScheme();
   const { isRTL } = useSelector((state: RootState) => state.language);
@@ -45,6 +47,27 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
     if (onClose) {
       onClose();
     }
+  };
+
+  const handleEditAddress = (address: any) => {
+    // First set it as selected so the Edit page knows which one to edit
+    dispatch(
+      setSelectedAddress({
+        id: address.id,
+        title: address.title,
+        formattedAddress: `${address.city}, ${address.district}, ${address.street}`,
+        latitude: address.coordinates?.lat,
+        longitude: address.coordinates?.lng,
+        street: address.street,
+        city: address.city,
+        region: address.district,
+      }),
+    );
+    
+    if (onClose) {
+      onClose();
+    }
+    router.push('/FoodHome/editaddresspage');
   };
 
   const getIconName = (type: string) => {
@@ -123,9 +146,22 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
                 </Text>
               </View>
 
-              {isSelected && (
-                <Ionicons name="checkmark-circle" size={20} color="#F97316" />
-              )}
+              {/* Action Buttons Container */}
+              <View className={`flex-row items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}>
+                {/* Edit Button */}
+                <TouchableOpacity 
+                  onPress={() => handleEditAddress(item)}
+                  className="p-2"
+                  hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                >
+                  <Ionicons name="pencil" size={18} color="#9CA3AF" />
+                </TouchableOpacity>
+
+                {/* Selected Checkmark */}
+                {isSelected && (
+                  <Ionicons name="checkmark-circle" size={20} color="#F97316" />
+                )}
+              </View>
             </Pressable>
           );
         }}

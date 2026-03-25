@@ -19,15 +19,18 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
   const selectedAddress = useSelector((state: RootState) => state.selectedAddress.selectedAddress);
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
 
-  // Pre-fill form values with the selectedAddress state
+  // Attempt to find the full address details from the user's saved list to pre-fill everything perfectly
+  const fullAddressDetails = currentUser?.addresses?.find(a => a.id === selectedAddress?.id);
+
+  // Pre-fill form values using full address details if available, otherwise fallback to selectedAddress map
   const initialValues = {
-    city: selectedAddress?.city || '',
-    district: selectedAddress?.region || '', // Mapping region to district
-    street: selectedAddress?.street || '',
-    buildingNumber: '', // Not in selectedAddress by default, left empty or you can map if added
-    floorApt: '',
-    additionalDirections: '',
-    label: selectedAddress?.title || 'Home',
+    city: fullAddressDetails?.city || selectedAddress?.city || '',
+    district: fullAddressDetails?.district || selectedAddress?.region || '',
+    street: fullAddressDetails?.street || selectedAddress?.street || '',
+    buildingNumber: fullAddressDetails?.buildingNumber || '', 
+    floorApt: fullAddressDetails?.floor || '',
+    additionalDirections: fullAddressDetails?.notes || '',
+    label: fullAddressDetails?.title || selectedAddress?.title || 'Home',
   };
 
   const handleSave = (values: typeof initialValues) => {
@@ -39,7 +42,7 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
         region: values.district,
         street: values.street,
         title: values.label,
-        formattedAddress: `${values.buildingNumber} ${values.street}, ${values.district}, ${values.city}`
+        formattedAddress: `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.district}, ${values.city}`
       }));
 
       // 2. Dispatch updated address back to the user's saved addresses array
