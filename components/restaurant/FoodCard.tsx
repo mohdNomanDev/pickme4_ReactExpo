@@ -1,6 +1,6 @@
 import { useRTL } from "@/hooks/useRTL";
 import React, { useMemo } from "react";
-import { Text, TouchableOpacity, View, Platform } from "react-native";
+import { Text, TouchableOpacity, View, Platform, useWindowDimensions } from "react-native";
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 
@@ -23,6 +23,7 @@ type Props = {
 
 const FoodCard = ({ data, onAddToCart }: Props) => {
   const { lang, isRTL } = useRTL();
+  const { width } = useWindowDimensions();
 
   const handleAddToCart = () => {
     if (onAddToCart) {
@@ -36,59 +37,61 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
   }, [data.price, lang, isRTL]);
 
   const isWeb = Platform.OS === 'web';
+  const isTablet = width > 768;
 
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
-      className={`bg-white dark:bg-gray-800 rounded-3xl p-3.5 flex-row items-center shadow-sm border border-gray-100 dark:border-gray-800 ${
-        isWeb ? 'hover:shadow-md hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-200' : ''
+      activeOpacity={0.9}
+      className={`bg-white dark:bg-card-dark rounded-3xl overflow-hidden shadow-sm border border-gray-100 dark:border-gray-800 ${
+        isWeb ? 'hover:shadow-lg hover:-translate-y-1 transition-all duration-300' : ''
       }`}
     >
-      {/* Food Image */}
-      <View className="relative">
+      {/* Top Banner Image (Takes up top half of card) */}
+      <View className="relative w-full aspect-[4/3] bg-gray-100 dark:bg-gray-800">
         <Image
           source={{ uri: data.image }}
-          className="w-28 h-28 rounded-2xl bg-gray-100 dark:bg-gray-700"
+          style={{ width: '100%', height: '100%' }}
           contentFit="cover"
-          transition={200}
+          transition={300}
         />
+        {/* Subtle gradient overlay at the bottom of the image for contrast */}
+        <View className="absolute inset-0 bg-black/5" />
       </View>
 
-      {/* Food Details */}
-      <View className="flex-1 justify-between h-28 py-1 ms-4">
+      {/* Content Section (Bottom half) */}
+      <View className="p-4 md:p-5 flex-col justify-between flex-1">
         <View>
-          {/* Name */}
+          {/* Header Row: Title and Category */}
+          <View className={`flex-row justify-between items-start mb-1 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            <Text
+              className={`flex-1 text-[17px] leading-6 font-extrabold text-gray-900 dark:text-white ${isRTL ? 'text-right' : 'text-left'}`}
+              numberOfLines={2}
+            >
+              {lang === "ar" ? data.name.ar : data.name.en}
+            </Text>
+          </View>
+          
           <Text
-            className={`text-lg font-bold text-gray-900 dark:text-white mb-1 text-start`}
-            numberOfLines={1}
-          >
-            {lang === "ar" ? data.name.ar : data.name.en}
-          </Text>
-
-          {/* Category */}
-          <Text
-            className={`text-sm text-gray-500 dark:text-gray-400 font-medium text-start`}
+            className={`text-[13px] text-gray-500 dark:text-gray-400 font-medium mb-4 ${isRTL ? 'text-right' : 'text-left'}`}
             numberOfLines={1}
           >
             {lang === "ar" ? data.category.ar : data.category.en}
           </Text>
         </View>
 
-        {/* Bottom Row: Price & Add to Cart */}
-        <View
-          className="flex-row items-center justify-between mt-2"
-        >
-          <Text className="text-base font-extrabold text-primary tracking-tight">
+        {/* Footer Row: Price & Add Button */}
+        <View className={`flex-row items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <Text className="text-[17px] font-black text-primary tracking-tight">
             {formattedPrice}
           </Text>
 
           <TouchableOpacity
             onPress={handleAddToCart}
-            className="bg-primary w-9 h-9 rounded-full items-center justify-center shadow-sm active:bg-primary/80"
+            className="bg-primary/10 dark:bg-primary/20 w-10 h-10 rounded-full items-center justify-center active:bg-primary/20 dark:active:bg-primary/30 transition-colors"
             activeOpacity={0.7}
           >
-            <Ionicons name="add" size={22} color="white" />
-          </TouchableOpacity>
+            <Ionicons name="add" size={24} color="#f97316" />
+        </TouchableOpacity>
         </View>
       </View>
     </TouchableOpacity>
