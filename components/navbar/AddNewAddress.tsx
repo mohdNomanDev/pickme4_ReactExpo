@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Platform } from 'react-native';
 import { Formik } from 'formik';
 import { Ionicons } from '@expo/vector-icons';
+import { useDispatch } from 'react-redux';
+import { addUserAddress, UserAddress } from '../../store/userSlice';
 import FormField from '../common/FormField';
 import { addressSchema } from '../../utils/validations';
 
@@ -11,6 +13,8 @@ interface AddNewAddressProps {
 }
 
 const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
+  const dispatch = useDispatch();
+  
   const initialValues = {
     city: '',
     district: '',
@@ -22,8 +26,32 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
   };
 
   const handleSave = (values: typeof initialValues) => {
-    // TODO: Implement save logic
-    console.log('Address saved:', values);
+    // Note: In a real app, you would make an API call to a backend here.
+    // We cannot reliably write back to a local JSON file directly from an Expo device bundle.
+    // Instead, we dispatch the new address to the Redux state so the UI updates immediately!
+    
+    const newAddress: UserAddress = {
+      id: `addr_${Date.now()}`, // Temporary unique ID
+      type: values.label.toLowerCase(),
+      title: values.label,
+      city: values.city,
+      district: values.district,
+      street: values.street,
+      buildingNumber: values.buildingNumber,
+      floor: values.floorApt,
+      apartment: '',
+      postalCode: '', // Would normally be collected or mapped
+      coordinates: {
+        lat: 24.7136, // Dummy Riyadh coordinates (would come from Map Pin)
+        lng: 46.6753,
+      },
+      notes: values.additionalDirections,
+      isDefault: false,
+    };
+
+    dispatch(addUserAddress(newAddress));
+    console.log('Address saved to Redux State:', newAddress);
+    
     if (onSaveSuccess) onSaveSuccess();
   };
 
