@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useRTL } from '../../hooks/useRTL';
 import { Ionicons } from '@expo/vector-icons';
+import { useFormik } from 'formik';
+import { profileSchema } from '../../utils/validations';
 
 export interface ProfileInfoProps {
   user: any;
@@ -13,32 +15,46 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
   const { t } = useTranslation();
   const { isRTL } = useRTL();
 
-  const [firstName, setFirstName] = useState(user?.name?.first || '');
-  const [lastName, setLastName] = useState(user?.name?.last || '');
-  const [email, setEmail] = useState(user?.email || '');
-  const [phone, setPhone] = useState(user?.phone || '');
+  const formik = useFormik({
+    initialValues: {
+      firstName: user?.name?.first || '',
+      lastName: user?.name?.last || '',
+      email: user?.email || '',
+      phone: user?.phone || '',
+    },
+    validationSchema: profileSchema,
+    onSubmit: (values) => {
+      onSave(values);
+    },
+  });
 
-  const InputField = ({ label, value, onChangeText, icon, keyboardType = 'default', editable = true }: any) => (
+  const InputField = ({ label, value, onChangeText, onBlur, icon, keyboardType = 'default', editable = true, error, touched }: any) => (
     <View className="mb-4">
       <Text className={`text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>
         {label}
       </Text>
-      <View className={`flex-row items-center bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-3 md:py-4 ${isRTL ? 'flex-row-reverse' : ''} ${!editable ? 'opacity-70' : ''}`}>
-        <Ionicons name={icon} size={20} color="#9ca3af" className={isRTL ? 'ml-3 md:ml-4' : 'mr-3 md:mr-4'} />
+      <View className={`flex-row items-center bg-white dark:bg-gray-800 border ${touched && error ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'} rounded-xl px-4 py-3 md:py-4 ${isRTL ? 'flex-row-reverse' : ''} ${!editable ? 'opacity-70' : ''}`}>
+        <Ionicons name={icon} size={20} color={touched && error ? '#ef4444' : '#9ca3af'} className={isRTL ? 'ml-3 md:ml-4' : 'mr-3 md:mr-4'} />
         <TextInput
           value={value}
           onChangeText={onChangeText}
+          onBlur={onBlur}
           keyboardType={keyboardType}
           editable={editable}
           className={`flex-1 text-base md:text-lg text-gray-900 dark:text-white ${isRTL ? 'text-right' : 'text-left'}`}
           placeholderTextColor="#9ca3af"
         />
       </View>
+      {touched && error && (
+        <Text className={`text-xs text-red-500 mt-1 ${isRTL ? 'text-right' : 'text-left'}`}>
+          {error}
+        </Text>
+      )}
     </View>
   );
 
   return (
-    <View className="w-full max-w-[800px] mx-auto w-full">
+    <View className="w-full max-w-[800px] mx-auto">
       {/* Avatar Section */}
       <View className="items-center mb-8 md:mb-12">
         <View className="relative">
@@ -61,17 +77,23 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
           <View className="flex-1">
             <InputField 
               label={t('profile.first_name', 'First Name')} 
-              value={firstName} 
-              onChangeText={setFirstName} 
+              value={formik.values.firstName} 
+              onChangeText={formik.handleChange('firstName')} 
+              onBlur={formik.handleBlur('firstName')}
               icon="person-outline" 
+              error={formik.errors.firstName}
+              touched={formik.touched.firstName}
             />
           </View>
           <View className="flex-1">
             <InputField 
               label={t('profile.last_name', 'Last Name')} 
-              value={lastName} 
-              onChangeText={setLastName} 
+              value={formik.values.lastName} 
+              onChangeText={formik.handleChange('lastName')} 
+              onBlur={formik.handleBlur('lastName')}
               icon="person-outline" 
+              error={formik.errors.lastName}
+              touched={formik.touched.lastName}
             />
           </View>
         </View>
@@ -80,19 +102,25 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
           <View className="flex-1">
             <InputField 
               label={t('profile.email', 'Email Address')} 
-              value={email} 
-              onChangeText={setEmail} 
+              value={formik.values.email} 
+              onChangeText={formik.handleChange('email')} 
+              onBlur={formik.handleBlur('email')}
               icon="mail-outline" 
               keyboardType="email-address"
+              error={formik.errors.email}
+              touched={formik.touched.email}
             />
           </View>
           <View className="flex-1">
             <InputField 
               label={t('profile.phone', 'Phone Number')} 
-              value={phone} 
-              onChangeText={setPhone} 
+              value={formik.values.phone} 
+              onChangeText={formik.handleChange('phone')} 
+              onBlur={formik.handleBlur('phone')}
               icon="call-outline" 
               keyboardType="phone-pad"
+              error={formik.errors.phone}
+              touched={formik.touched.phone}
             />
           </View>
         </View>
@@ -101,7 +129,7 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
       {/* Save Button */}
       <View className="mt-8 mb-4 md:mt-10">
         <TouchableOpacity 
-          onPress={() => onSave({ firstName, lastName, email, phone })}
+          onPress={() => formik.handleSubmit()}
           activeOpacity={0.8}
           className="bg-orange-500 rounded-xl py-4 md:py-5 items-center shadow-sm"
           style={{ boxShadow: "0 4px 6px -1px rgba(249, 115, 22, 0.2)" }}
