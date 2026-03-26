@@ -131,10 +131,30 @@ export const userSlice = createSlice({
           state.currentUser.addresses[index] = action.payload;
         }
       }
+    },
+    updateUserProfile: (state, action: PayloadAction<{ firstName?: string; lastName?: string; email?: string; phone?: string }>) => {
+      if (state.currentUser) {
+        const { firstName, lastName, email, phone } = action.payload;
+        if (firstName !== undefined) state.currentUser.name.first = firstName;
+        if (lastName !== undefined) state.currentUser.name.last = lastName;
+        if (email !== undefined) state.currentUser.email = email;
+        if (phone !== undefined) state.currentUser.phone = phone;
+        
+        // Update full name
+        state.currentUser.name.full = `${state.currentUser.name.first} ${state.currentUser.name.last}`.trim();
+      }
     }
   },
 });
 
-export const { setUser, clearUser, updateWalletBalance, updateLoyaltyPoints, addUserAddress, updateUserAddress } = userSlice.actions;
+export const { 
+  setUser, 
+  clearUser, 
+  updateWalletBalance, 
+  updateLoyaltyPoints, 
+  addUserAddress, 
+  updateUserAddress,
+  updateUserProfile 
+} = userSlice.actions;
 
 export default userSlice.reducer;

@@ -5,19 +5,28 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
 import { useRTL } from '../../hooks/useRTL';
 import { Ionicons } from '@expo/vector-icons';
-import UserData from '../../TestData/UserData.json';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store/store';
+import { updateUserProfile } from '../../store/userSlice';
 import { ProfileInfo } from '../../components/profile/ProfileInfo';
-
-const currentUser = UserData[0];
 
 export default function PersonalInformationPage() {
   const { t } = useTranslation();
   const { isRTL } = useRTL();
   const router = useRouter();
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state: RootState) => state.user.currentUser);
 
   const handleSave = (data: any) => {
-    // Navigate back after saving
-    console.log('Saved personal info:', data);
+    // Only update if there are changes
+    if (data && Object.keys(data).length > 0) {
+      console.log('Updating user state with:', data);
+      dispatch(updateUserProfile(data));
+    } else {
+      console.log('No changes detected, skipping update');
+    }
+    
+    // Always navigate back
     router.back();
   };
 

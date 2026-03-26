@@ -24,7 +24,21 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
     },
     validationSchema: profileSchema,
     onSubmit: (values) => {
-      onSave(values);
+      // Filter only changed fields
+      const changes = Object.keys(values).reduce((acc: any, key) => {
+        if (values[key as keyof typeof values] !== formik.initialValues[key as keyof typeof values]) {
+          acc[key] = values[key as keyof typeof values];
+        }
+        return acc;
+      }, {});
+
+      if (Object.keys(changes).length > 0) {
+        onSave(changes);
+      } else {
+        // If no changes, we can still call onSave with empty object or handle as needed
+        // Usually, navigating back is expected even if no changes were saved
+        onSave({});
+      }
     },
   });
 
