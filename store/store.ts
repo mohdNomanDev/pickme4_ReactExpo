@@ -4,7 +4,7 @@ import { languageSlice } from "./languageSlice";
 import themeReducer from "./themeSlice";
 import { onPressRestaurantSlice } from "./OnPressRestaurantSlice";
 import selectedAddressReducer from "./selectedAddressSlice";
-import userReducer from "./userSlice";
+import {userSlice} from "./userSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +13,7 @@ export const store = configureStore({
     theme: themeReducer,
     onPressRestaurant: onPressRestaurantSlice.reducer,
     selectedAddress: selectedAddressReducer,
-    user: userReducer,
+    user: userSlice.reducer,
   },
 });
 
