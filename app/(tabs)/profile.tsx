@@ -1,6 +1,7 @@
+import userDataJson from "@/TestData/UserData.json";
 import { useRouter } from "expo-router";
 import { useColorScheme } from "nativewind";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -12,6 +13,7 @@ import { ProfileOption } from "../../components/profile/ProfileOption";
 import { QuickStats } from "../../components/profile/QuickStats";
 import { SettingsSection } from "../../components/profile/SettingsSection";
 import { UserInfoCard } from "../../components/profile/UserInfoCard";
+import { RootState } from "../../store/store";
 
 // Fetch first user from mock data for display purposes
 // const currentUser = UserData[0];
@@ -21,7 +23,16 @@ export default function ProfilePage() {
   const { isRTL } = useRTL();
   const { colorScheme, toggleColorScheme } = useColorScheme();
   const router = useRouter();
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const storeUser = useSelector((state: RootState) => state.user?.currentUser);
+  let [currentUser, setCurrentUser] = useState(storeUser || userDataJson[0]);
+
+  useEffect(() => {
+    if (storeUser) {
+      setCurrentUser(storeUser);
+    } else {
+      setCurrentUser(userDataJson[0]);
+    }
+  }, [storeUser]);
 
   const userName =
     isRTL && currentUser.name.ar ? currentUser.name.ar : currentUser.name.full;
@@ -132,4 +143,7 @@ export default function ProfilePage() {
       </ScrollView>
     </SafeAreaView>
   );
+}
+function state(state: unknown): SetStateAction<{}> {
+  throw new Error("Function not implemented.");
 }
