@@ -11,7 +11,7 @@ export interface CartIconProps extends ViewProps {
   className?: string;
 }
 
-export function CartIcon({
+export default function CartIcon({
   itemCount = 0,
   onPress,
   size = 28,
@@ -46,4 +46,4 @@ export function CartIcon({
   );
 }
 
-export default CartIcon;
+

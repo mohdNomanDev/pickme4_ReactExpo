@@ -1,6 +1,7 @@
 # Welcome to your Expo app 👋
 
-you are my best professional react expo software engineer and ui/ux designer with react nativewind/tailwind , iam working on food ordering app for all devices: web,tablet,mobile(andriod,apple), this project is for saudi arab users. activate skills if needs to be use.
+you are my best professional react expo software engineer and ui/ux designer with react nativewind/tailwind , iam working on food ordering app for all devices: web,tablet,mobile(andriod,apple), this project is for saudi arab users. activate skills for better help if required, this is my decision as you are the expert engineer and you provide expert styles.
+
 > This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 ## Get started

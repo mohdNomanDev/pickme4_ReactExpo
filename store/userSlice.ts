@@ -40,12 +40,17 @@ export interface UserPreferences {
 }
 
 export interface CartItem {
-  itemId: string;
-  restaurantId: string;
+  id?: string;
   name: string;
   price: number;
   quantity: number;
-  notes: string;
+  notes?: string;
+  image?: string;
+}
+
+export interface CartGroup {
+  restaurantId: string;
+  items: CartItem[];
 }
 
 export interface OrderHistoryItem {
@@ -75,7 +80,7 @@ export interface User {
   addresses: UserAddress[];
   paymentMethods: PaymentMethod[];
   preferences: UserPreferences;
-  cart: CartItem[];
+  cart: CartGroup[];
   orderHistory: OrderHistoryItem[];
   createdAt: string;
 }

@@ -13,7 +13,7 @@
     "gender": "male",
     "language": "ar",
     "isRTL": true,
-    "walletBalance": 150.50,
+    "walletBalance": 150.5,
     "loyaltyPoints": 1250,
     "addresses": [
       {
@@ -97,12 +97,68 @@
     },
     "cart": [
       {
-        "itemId": "item_001",
-        "restaurantId": "rest_001",
-        "name": "Chicken Shawarma",
-        "price": 22.50,
-        "quantity": 2,
-        "notes": "Extra garlic sauce"
+        "restaurantId": "rest_002",
+        "restaurantName": "Burger Kingdom",
+        "deliveryFee": 0,
+        "items": [
+          {
+            "id": "item_001",
+            "name": "Double Beef Burger",
+            "price": 45,
+            "quantity": 1,
+            "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+            "notes": "",
+            "addons": []
+          },
+          {
+            "id": "item_002",
+            "name": "Spicy Zinger Master",
+            "price": 38,
+            "quantity": 1,
+            "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
+            "notes": "",
+            "addons": []
+          },
+          {
+            "id": "item_003",
+            "name": "Mushroom Swiss Royale",
+            "price": 42,
+            "quantity": 1,
+            "image": "https://images.unsplash.com/photo-1550547660-d9450f859349",
+            "notes": "",
+            "addons": []
+          }
+        ]
+      },
+      {
+        "restaurantId": "rest_005",
+        "restaurantName": "The Grill House",
+        "deliveryFee": 12,
+        "items": [
+          {
+            "id": "item_004",
+            "name": "Classic Shawarma",
+            "price": 18,
+            "quantity": 2,
+            "image": "https://images.unsplash.com/photo-1604908176997-431b1a6a9d1f",
+            "notes": "Extra garlic sauce",
+            "addons": [
+              {
+                "name": "Cheese",
+                "price": 2
+              }
+            ]
+          },
+          {
+            "id": "item_005",
+            "name": "Classic Beef Wrap",
+            "price": 12.5,
+            "quantity": 1,
+            "image": "https://images.unsplash.com/photo-1604908554027-1c8bdf6c2e2c",
+            "notes": "",
+            "addons": []
+          }
+        ]
       }
     ],
     "orderHistory": [
@@ -111,7 +167,7 @@
         "restaurantId": "rest_002",
         "status": "delivered",
         "date": "2026-03-20T19:30:00Z",
-        "total": 120.00
+        "total": 120.0
       }
     ],
     "createdAt": "2025-01-10T10:30:00Z"
@@ -130,7 +186,7 @@
     "gender": "female",
     "language": "ar",
     "isRTL": true,
-    "walletBalance": 0.00,
+    "walletBalance": 0.0,
     "loyaltyPoints": 400,
     "addresses": [
       {
@@ -177,7 +233,19 @@
         "whatsapp": false
       }
     },
-    "cart": [],
+    "cart": [
+      {
+        "restaurantId": "rest_005",
+        "items": [
+          {
+            "name": "Chicken Shawarma",
+            "price": 22.5,
+            "quantity": 2,
+            "notes": "Extra garlic sauce"
+          }
+        ]
+      }
+    ],
     "orderHistory": [],
     "createdAt": "2025-02-15T14:20:00Z"
   },
@@ -195,7 +263,7 @@
     "gender": "male",
     "language": "en",
     "isRTL": false,
-    "walletBalance": 500.00,
+    "walletBalance": 500.0,
     "loyaltyPoints": 8500,
     "addresses": [
       {
@@ -236,12 +304,12 @@
     },
     "cart": [],
     "orderHistory": [
-       {
+      {
         "orderId": "ord_1002",
         "restaurantId": "rest_005",
         "status": "cancelled",
         "date": "2026-03-10T11:00:00Z",
-        "total": 85.00
+        "total": 85.0
       }
     ],
     "createdAt": "2025-03-01T08:10:00Z"

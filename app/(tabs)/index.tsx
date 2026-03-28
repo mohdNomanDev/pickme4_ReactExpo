@@ -1,10 +1,10 @@
 import { useRouter } from "expo-router";
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
-import { CartIcon } from "../../components/cart/CartIcon";
+import CartIcon from "../../components/cart/CartIcon";
 import { LanguageToggle } from "../../components/common/LanguageToggle";
 import ThemeToggle from "../../components/common/ThemeToggle";
 import Navbar from "../../components/navbar/navbar";
@@ -12,6 +12,7 @@ import RestaurantCardList from "../../components/restaurant/RestaurantCardList";
 import { RootState } from "../../store/store";
 import { setUser } from "../../store/userSlice";
 import userDataJson from "../../TestData/UserData.json";
+import { setCart } from "@/store/cartSlice";
 
 export default function FoodHome() {
   const { t } = useTranslation();
@@ -19,6 +20,7 @@ export default function FoodHome() {
   const dispatch = useDispatch();
   const { isRTL } = useSelector((state: RootState) => state.language);
   const { currentUser } = useSelector((state: RootState) => state.user);
+  const cartData = useSelector((state: any) => state.cart.cart);
 
   useEffect(() => {
     // Simulate fetching user data from backend on load
@@ -26,8 +28,19 @@ export default function FoodHome() {
       // Get the first user from our mock data as the logged-in user
       const mockUser = userDataJson[0] as any;
       dispatch(setUser(mockUser));
+
+      // Hydrate cart from mock user data
+      if (mockUser.cart) {
+        dispatch(setCart(mockUser.cart));
+      }
     }
   }, [currentUser, dispatch]);
+
+  const totalCartItems = useMemo(() => {
+    return cartData.reduce((total: number, restaurant: any) => {
+      return total + restaurant.items.reduce((sum: number, item: any) => sum + item.quantity, 0);
+    }, 0);
+  }, [cartData]);
 
   return (
     <SafeAreaView
@@ -38,7 +51,10 @@ export default function FoodHome() {
       <View
         className={`flex-row items-center justify-between px-4 py-2 bg-gray-200 dark:bg-card-dark border-b border-gray-300 dark:border-gray-800 w-full z-50`}
       >
-        <CartIcon itemCount={2} onPress={() => router.push("/Food/cart")} />
+        <CartIcon
+          itemCount={totalCartItems}
+          onPress={() => router.push("/Food/CartScreen")}
+        />
         <View className="flex-row items-center gap-4">
           <ThemeToggle />
           <LanguageToggle />
@@ -83,4 +99,3 @@ export default function FoodHome() {
     </SafeAreaView>
   );
 }
-
