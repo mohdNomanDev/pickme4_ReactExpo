@@ -1,8 +1,10 @@
+import { useRouter } from "expo-router";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useDispatch, useSelector } from "react-redux";
+import { CartIcon } from "../../components/cart/CartIcon";
 import { LanguageToggle } from "../../components/common/LanguageToggle";
 import ThemeToggle from "../../components/common/ThemeToggle";
 import Navbar from "../../components/navbar/navbar";
@@ -13,6 +15,7 @@ import userDataJson from "../../TestData/UserData.json";
 
 export default function FoodHome() {
   const { t } = useTranslation();
+  const router = useRouter();
   const dispatch = useDispatch();
   const { isRTL } = useSelector((state: RootState) => state.language);
   const { currentUser } = useSelector((state: RootState) => state.user);
@@ -31,12 +34,15 @@ export default function FoodHome() {
       className="flex-1 bg-gray-50 dark:bg-background-dark"
       edges={["top"]}
     >
-      {/* Temporary Testing Toggles */}
+      {/* Temporary Testing Toggles & Cart */}
       <View
-        className={`flex-row items-center gap-4 px-4 py-2 bg-gray-200 dark:bg-card-dark border-b border-gray-300 dark:border-gray-800 w-full z-50 ${isRTL ? "justify-start" : "justify-end"}`}
+        className={`flex-row items-center justify-between px-4 py-2 bg-gray-200 dark:bg-card-dark border-b border-gray-300 dark:border-gray-800 w-full z-50`}
       >
-        <ThemeToggle />
-        <LanguageToggle />
+        <CartIcon itemCount={2} onPress={() => router.push("/Food/cart")} />
+        <View className="flex-row items-center gap-4">
+          <ThemeToggle />
+          <LanguageToggle />
+        </View>
       </View>
 
       {/* Top Navigation Area */}
