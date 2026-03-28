@@ -144,6 +144,3 @@ export default function ProfilePage() {
     </SafeAreaView>
   );
 }
-function state(state: unknown): SetStateAction<{}> {
-  throw new Error("Function not implemented.");
-}
