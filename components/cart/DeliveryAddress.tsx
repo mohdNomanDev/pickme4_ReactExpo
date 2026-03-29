@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
@@ -11,41 +11,57 @@ const DeliveryAddress = ({ address }: { address?: any }) => {
   const displayAddress = selectedAddress || address;
 
   return (
-    <View className="bg-card dark:bg-card-dark rounded-2xl p-4 shadow-md border border-border dark:border-border-dark">
-      <View className="flex-row items-center justify-between mb-3">
-        <Text className="text-lg font-bold text-text dark:text-text-dark text-left ">
-          {"Deliver to"}
+    <View className="bg-card dark:bg-card-dark rounded-3xl p-5 shadow-lg shadow-black/5 dark:shadow-black/20 border border-border/50 dark:border-border-dark overflow-hidden">
+      <View className="flex-row items-center justify-between mb-4">
+        <Text className="text-lg font-extrabold text-text dark:text-text-dark tracking-tight text-left">
+          Deliver to
         </Text>
-        <TouchableOpacity className="bg-primary/20 px-4 py-1.5 rounded-full active:opacity-80">
-          <Text className="text-primary font-semibold text-xs">
-            {"CHANGE"}
+        <Pressable 
+          className="flex-row items-center bg-primary/10 dark:bg-primary/20 px-3.5 py-1.5 rounded-full border border-primary/20 dark:border-primary/30"
+          style={({ pressed, hovered }: any) => [
+            {
+              opacity: pressed ? 0.7 : hovered ? 0.9 : 1,
+              transform: [{ scale: pressed ? 0.96 : 1 }],
+            }
+          ]}
+        >
+          <Text className="text-primary font-bold text-[11px] uppercase tracking-[1px] mr-1">
+            Change
           </Text>
-        </TouchableOpacity>
+          <Ionicons name="chevron-forward" size={14} className="text-primary" />
+        </Pressable>
       </View>
 
-      <View className="flex-row items-start">
-        <View className="bg-background dark:bg-background-dark p-2.5 rounded-full mr-3 mt-1 border border-border dark:border-border-dark">
+      <View className="flex-row items-center">
+        <View className="bg-primary/10 dark:bg-primary/20 p-3.5 rounded-2xl mr-4 border border-primary/20 dark:border-primary/30">
           <Ionicons
-            name="location-outline"
-            size={20}
+            name="location"
+            size={24}
             className="text-primary"
           />
         </View>
-        <View className="flex-1">
+        <View className="flex-1 justify-center">
           {displayAddress ? (
             <>
-              <Text className="font-semibold text-text dark:text-text-dark mb-1 text-left ">
-                {displayAddress.type || displayAddress.title || "Home"}
-              </Text>
-              <Text className="text-text-muted dark:text-text-muted-dark text-sm leading-5 text-left ">
+              <View className="flex-row items-center mb-1">
+                <Text className="font-bold text-text dark:text-text-dark text-base text-left">
+                  {displayAddress.type || displayAddress.title || "Home"}
+                </Text>
+                {displayAddress.isDefault && (
+                  <View className="bg-green-100 dark:bg-green-900/30 px-2 py-0.5 rounded-md ml-2">
+                    <Text className="text-green-700 dark:text-green-400 text-[10px] font-bold uppercase tracking-wider">Default</Text>
+                  </View>
+                )}
+              </View>
+              <Text className="text-text-muted dark:text-text-muted-dark text-[13px] leading-5 text-left pr-4" numberOfLines={2}>
                 {displayAddress.street || displayAddress.formattedAddress}
                 {displayAddress.district ? `, ${displayAddress.district}` : ""}
                 {displayAddress.city ? `, ${displayAddress.city}` : ""}
               </Text>
             </>
           ) : (
-            <Text className="text-text-muted dark:text-text-muted-dark text-sm mt-1 text-left ">
-              {"No address selected"}
+            <Text className="text-text-muted dark:text-text-muted-dark text-sm text-left italic">
+              No address selected. Please add one.
             </Text>
           )}
         </View>
