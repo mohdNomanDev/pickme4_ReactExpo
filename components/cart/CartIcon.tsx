@@ -36,8 +36,8 @@ export default function CartIcon({
       <Ionicons name="cart-outline" size={size} color={iconColor} />
 
       {itemCount > 0 && (
-        <View className="absolute top-0 right-0 bg-red-500 rounded-full h-[20px] min-w-[20px] items-center justify-center px-1 border-2 border-white dark:border-gray-900 z-10">
-          <Text className="text-white text-[10px] font-bold text-center">
+        <View className="absolute top-0 right-0 bg-red-500 rounded-full h-[20px] min-w-[20px] items-center justify-center px-1 border-2 border-white dark:border-background-dark z-10">
+          <Text className="text-text dark:text-text-dark text-[10px] font-bold text-center">
             {itemCount > 99 ? "99+" : itemCount}
           </Text>
         </View>
@@ -45,5 +45,3 @@ export default function CartIcon({
     </TouchableOpacity>
   );
 }
-
-

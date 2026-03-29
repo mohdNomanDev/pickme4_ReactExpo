@@ -4,31 +4,56 @@ import { useDispatch } from "react-redux";
 import { increaseQty, decreaseQty } from "@/store/cartSlice";
 import { Ionicons } from "@expo/vector-icons";
 
-const QuantityControl = ({ quantity, item, restaurantId }: { quantity: number, item: any, restaurantId: string }) => {
+const QuantityControl = ({
+  quantity,
+  item,
+  restaurantId,
+}: {
+  quantity: number;
+  item: any;
+  restaurantId: string;
+}) => {
   const dispatch = useDispatch();
 
   return (
-    <View className="flex-row rtl:flex-row-reverse items-center bg-[#3A2A1D] rounded-full border border-[#4A3A2D] shadow-sm">
+    <View className="flex-row rtl:flex-row-reverse items-center bg-border dark:bg-border-dark rounded-full border border-border dark:border-border-dark shadow-sm">
       <TouchableOpacity
         className="p-2 items-center justify-center w-8 h-8 rounded-full active:opacity-80"
         onPress={() =>
           dispatch(decreaseQty({ restaurantId, itemName: item.name }))
         }
       >
-        <Ionicons name={quantity > 1 ? "remove" : "trash-outline"} size={16} className={quantity > 1 ? "text-gray-300" : "text-red-500"} />
+        <Ionicons
+          name={quantity > 1 ? "remove" : "trash-outline"}
+          size={16}
+          className={
+            quantity > 1
+              ? "text-text-muted dark:text-text-muted-dark"
+              : "text-red-500"
+          }
+        />
       </TouchableOpacity>
 
       <View className="px-1 min-w-[24px] items-center">
-        <Text className="font-bold text-white text-base" style={{ fontVariant: ['tabular-nums'] }}>{quantity}</Text>
+        <Text
+          className="font-bold text-text dark:text-text-dark text-base"
+          style={{ fontVariant: ["tabular-nums"] }}
+        >
+          {quantity}
+        </Text>
       </View>
 
       <TouchableOpacity
-        className="p-2 items-center justify-center w-8 h-8 rounded-full bg-orange-500 active:bg-orange-600 shadow-md"
+        className="p-2 items-center justify-center w-8 h-8 rounded-full bg-primary active:bg-primary/80 shadow-md"
         onPress={() =>
           dispatch(increaseQty({ restaurantId, itemName: item.name }))
         }
       >
-        <Ionicons name="add" size={16} className="text-white" />
+        <Ionicons
+          name="add"
+          size={16}
+          className="text-text dark:text-text-dark"
+        />
       </TouchableOpacity>
     </View>
   );
