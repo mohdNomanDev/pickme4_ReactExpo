@@ -2,7 +2,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { Tabs } from "expo-router";
 import { useColorScheme } from "nativewind";
-import { useTranslation } from "react-i18next";
 import { Platform, Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
@@ -83,8 +82,7 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 }
 
 export default function FoodHomeLayout() {
-  const { t } = useTranslation();
-
+  
   return (
     <Tabs
       tabBar={(props) => <CustomTabBar {...props} />}
@@ -95,7 +93,7 @@ export default function FoodHomeLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: t("tabs.home", "Home"),
+          title: "Home",
           tabBarIcon: ({ color, focused }) => (
             <View
               className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50 dark:bg-orange-500/20" : ""}`}
@@ -112,7 +110,7 @@ export default function FoodHomeLayout() {
       <Tabs.Screen
         name="search"
         options={{
-          title: t("tabs.search", "Search"),
+          title: "Search",
           tabBarIcon: ({ color, focused }) => (
             <View
               className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50 dark:bg-orange-500/20" : ""}`}
@@ -129,7 +127,7 @@ export default function FoodHomeLayout() {
       <Tabs.Screen
         name="orders"
         options={{
-          title: t("tabs.orders", "Orders"),
+          title: "Orders",
           tabBarIcon: ({ color, focused }) => (
             <View
               className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50 dark:bg-orange-500/20" : ""}`}
@@ -146,7 +144,7 @@ export default function FoodHomeLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: t("tabs.profile", "Profile"),
+          title: "Profile",
           tabBarIcon: ({ color, focused }) => (
             <View
               className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50 dark:bg-orange-500/20" : ""}`}

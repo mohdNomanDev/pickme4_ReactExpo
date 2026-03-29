@@ -11,7 +11,7 @@ const OPTIONS = [
 ];
 
 const PriceRangeSection = ({ value, onChange }: any) => {
-  const { isRTL, currentLanguage } = useSelector((state: RootState) => state.language);
+  const { currentLanguage } = useSelector((state: RootState) => state.language);
   
   // Localized currency
   const currencyStr = currentLanguage === 'ar' ? 'ر.س' : 'SAR';
@@ -19,7 +19,7 @@ const PriceRangeSection = ({ value, onChange }: any) => {
   return (
     <View className="mb-6">
       <Text className="text-lg font-bold text-gray-900 dark:text-white mb-3 text-start">
-        {isRTL ? "نطاق السعر" : "Price Range"}
+        {'Price Range'}
       </Text>
 
       <View className="flex-row flex-wrap gap-3 justify-start">
@@ -38,7 +38,7 @@ const PriceRangeSection = ({ value, onChange }: any) => {
               <Text className={`text-sm font-bold text-center ${
                 isSelected ? "text-white" : "text-gray-700 dark:text-gray-300"
               }`}>
-                {isRTL ? `${item.range} ${currencyStr}` : `${currencyStr} ${item.range}`}
+                {`${currencyStr} ${item.range}`}
               </Text>
             </Pressable>
           );

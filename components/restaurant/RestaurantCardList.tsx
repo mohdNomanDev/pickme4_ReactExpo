@@ -1,5 +1,4 @@
 import React, { useCallback, useMemo, useState } from "react";
-import { useTranslation } from "react-i18next";
 import {
   FlatList,
   Platform,
@@ -36,9 +35,7 @@ interface RestaurantCardListProps {
 }
 
 const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
-  const { t } = useTranslation();
-  const { isRTL } = useSelector((state: RootState) => state.language);
-  const { width } = useWindowDimensions();
+      const { width } = useWindowDimensions();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
 
@@ -72,7 +69,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
       data = data.filter((r) => {
         if (!r.foodItems || r.foodItems.length === 0) return false;
         const avgPrice =
-          r.foodItems.reduce((sum, item) => sum + (item.price || 0), 0) /
+          r.foodItems.reduce((sum: number, item: any) => sum + (item.price || 0), 0) /
           r.foodItems.length;
         return avgPrice >= min && avgPrice <= max;
       });
@@ -109,7 +106,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
     } else if (filters.sortBy === "price_low_high") {
       const getAvgPrice = (r: Restaurant) =>
         r.foodItems?.length
-          ? r.foodItems.reduce((sum, item) => sum + (item.price || 0), 0) /
+          ? r.foodItems.reduce((sum: number, item: any) => sum + (item.price || 0), 0) /
             r.foodItems.length
           : Number.MAX_SAFE_INTEGER;
       data.sort((a, b) => getAvgPrice(a) - getAvgPrice(b));
@@ -162,7 +159,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
             <Text
               className={`flex-1 pr-4 text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark text-start pe-4`}
             >
-              {filteredData.length} {t("restaurant.count_header")}
+              {filteredData.length} {"restaurant.count_header"}
             </Text>
 
             <FilterButton
@@ -176,7 +173,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
         </Animated.View>
       </View>
     ),
-    [t, isFilterOpen, activeFilterCount, filteredData.length, headerContent]
+    [isFilterOpen, activeFilterCount, filteredData.length, headerContent]
   );
 
   const ListEmpty = useMemo(
@@ -186,16 +183,14 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
           <Ionicons name="search-outline" size={48} color="#9ca3af" />
         </View>
         <Text className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-center">
-          {isRTL ? "لم يتم العثور على مطاعم" : "No restaurants found"}
+          {'No restaurants found'}
         </Text>
         <Text className="text-gray-500 dark:text-gray-400 text-center max-w-xs">
-          {isRTL 
-            ? "حاول تغيير أو مسح بعض فلاتر البحث لرؤية المزيد من النتائج." 
-            : "Try adjusting or clearing some filters to see more results."}
+          {'Try adjusting or clearing some filters to see more results.'}
         </Text>
       </View>
     ),
-    [isRTL]
+    [false]
   );
 
   const keyExtractor = useCallback(

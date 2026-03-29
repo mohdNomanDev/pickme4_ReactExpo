@@ -43,12 +43,12 @@ const cartSlice = createSlice({
         if (existingItem) {
           existingItem.quantity += 1;
         } else {
-          restaurant.items.push({ ...item, quantity: 1 });
+          restaurant.items.push({ name: item.name || "Item", price: item.price || 0, ...item, quantity: 1 });
         }
       } else {
         state.cart.push({
           restaurantId,
-          items: [{ ...item, quantity: 1 }],
+          items: [{ name: item.name || "Item", price: item.price || 0, ...item, quantity: 1 }],
         });
       }
     },

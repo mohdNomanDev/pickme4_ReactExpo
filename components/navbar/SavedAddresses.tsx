@@ -2,7 +2,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { useColorScheme } from "nativewind";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import {
   FlatList,
   Pressable,
@@ -21,10 +20,8 @@ interface SavedAddressesProps {
 export default function SavedAddresses({ onClose }: SavedAddressesProps) {
   const dispatch = useDispatch();
   const router = useRouter();
-  const { t } = useTranslation();
-  const { colorScheme } = useColorScheme();
-  const { isRTL } = useSelector((state: RootState) => state.language);
-  const currentUser = useSelector((state: RootState) => state.user.currentUser);
+    const { colorScheme } = useColorScheme();
+    const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const selectedAddress = useSelector(
     (state: RootState) => state.selectedAddress.selectedAddress,
   );
@@ -92,10 +89,10 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
     <View>
       <Text
         className={`px-4 py-2 mt-1 text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider ${
-          isRTL ? "text-right" : "text-left"
+          'text-left'
         }`}
       >
-        {t("location.saved_addresses", "Saved Addresses")}
+        {"Saved Addresses"}
       </Text>
 
       <FlatList
@@ -112,7 +109,7 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
               onPress={() => handleSelectAddress(item)}
               className={`flex-row items-center gap-3 px-4 py-3 active:bg-gray-100 dark:active:bg-gray-800 ${
                 isSelected ? "bg-gray-50 dark:bg-gray-800/50" : ""
-              } ${isRTL ? "flex-row-reverse" : ""}`}
+              } `}
             >
               <View
                 className={`w-8 h-8 rounded-full items-center justify-center ${
@@ -134,7 +131,7 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
                 />
               </View>
 
-              <View className={`flex-1 ${isRTL ? "items-end" : "items-start"}`}>
+              <View className={`flex-1 ${'items-start'}`}>
                 <Text
                   className={`text-sm font-bold ${
                     isSelected
@@ -154,7 +151,7 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
 
               {/* Action Buttons Container */}
               <View
-                className={`flex-row items-center gap-2 ${isRTL ? "flex-row-reverse" : ""}`}
+                className={`flex-row items-center gap-2 `}
               >
                 {/* Edit Button */}
                 <TouchableOpacity

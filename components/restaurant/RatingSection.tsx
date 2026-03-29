@@ -7,12 +7,11 @@ import { RootState } from "@/store/store";
 const OPTIONS = ["4.5+", "4.0+", "3.5+"];
 
 const RatingSection = ({ value, onChange }: any) => {
-  const { isRTL } = useSelector((state: RootState) => state.language);
-
+  
   return (
     <View className="mb-6">
       <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 text-start`}>
-        {isRTL ? "التقييم" : "Ratings"}
+        {'Ratings'}
       </Text>
 
       <View className={`flex-row flex-wrap gap-3 justify-start`}>

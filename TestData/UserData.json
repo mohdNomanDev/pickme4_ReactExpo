@@ -4,15 +4,12 @@
     "name": {
       "first": "Ahmed",
       "last": "Al-Faisal",
-      "full": "Ahmed Al-Faisal",
-      "ar": "أحمد الفيصل"
+      "full": "Ahmed Al-Faisal"
     },
     "email": "ahmed.faisal@example.com",
     "phone": "+966501234567",
     "avatar": "https://randomuser.me/api/portraits/men/1.jpg",
     "gender": "male",
-    "language": "ar",
-    "isRTL": true,
     "walletBalance": 150.5,
     "loyaltyPoints": 1250,
     "addresses": [
@@ -86,7 +83,11 @@
       }
     ],
     "preferences": {
-      "favoriteCuisines": ["arabic", "shawarma", "kabsa"],
+      "favoriteCuisines": [
+        "arabic",
+        "shawarma",
+        "kabsa"
+      ],
       "allergies": [],
       "notifications": {
         "push": true,
@@ -167,7 +168,7 @@
         "restaurantId": "rest_002",
         "status": "delivered",
         "date": "2026-03-20T19:30:00Z",
-        "total": 120.0
+        "total": 120
       }
     ],
     "createdAt": "2025-01-10T10:30:00Z"
@@ -177,16 +178,13 @@
     "name": {
       "first": "Fatima",
       "last": "Al-Zahra",
-      "full": "Fatima Al-Zahra",
-      "ar": "فاطمة الزهراء"
+      "full": "Fatima Al-Zahra"
     },
     "email": "fatima.zahra@example.com",
     "phone": "+966509876543",
     "avatar": "https://randomuser.me/api/portraits/women/2.jpg",
     "gender": "female",
-    "language": "ar",
-    "isRTL": true,
-    "walletBalance": 0.0,
+    "walletBalance": 0,
     "loyaltyPoints": 400,
     "addresses": [
       {
@@ -224,8 +222,14 @@
       }
     ],
     "preferences": {
-      "favoriteCuisines": ["fast_food", "desserts", "coffee"],
-      "allergies": ["nuts"],
+      "favoriteCuisines": [
+        "fast_food",
+        "desserts",
+        "coffee"
+      ],
+      "allergies": [
+        "nuts"
+      ],
       "notifications": {
         "push": true,
         "sms": false,
@@ -254,16 +258,13 @@
     "name": {
       "first": "Mohammed",
       "last": "Al-Saud",
-      "full": "Mohammed Al-Saud",
-      "ar": "محمد آل سعود"
+      "full": "Mohammed Al-Saud"
     },
     "email": "mohammed.saud@example.com",
     "phone": "+966555667788",
     "avatar": "https://randomuser.me/api/portraits/men/3.jpg",
     "gender": "male",
-    "language": "en",
-    "isRTL": false,
-    "walletBalance": 500.0,
+    "walletBalance": 500,
     "loyaltyPoints": 8500,
     "addresses": [
       {
@@ -293,7 +294,11 @@
       }
     ],
     "preferences": {
-      "favoriteCuisines": ["italian", "burgers", "healthy"],
+      "favoriteCuisines": [
+        "italian",
+        "burgers",
+        "healthy"
+      ],
       "allergies": [],
       "notifications": {
         "push": true,
@@ -309,7 +314,7 @@
         "restaurantId": "rest_005",
         "status": "cancelled",
         "date": "2026-03-10T11:00:00Z",
-        "total": 85.0
+        "total": 85
       }
     ],
     "createdAt": "2025-03-01T08:10:00Z"

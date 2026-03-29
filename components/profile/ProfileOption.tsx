@@ -5,9 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 export interface ProfileOptionProps {
   icon: keyof typeof Ionicons.glyphMap;
   title: string;
-  value?: string;
-  isRTL: boolean;
-  isDestructive?: boolean;
+  value?: string;isDestructive?: boolean;
   hasSwitch?: boolean;
   switchValue?: boolean;
   onPress?: () => void;
@@ -17,7 +15,6 @@ export const ProfileOption = ({
   icon,
   title,
   value,
-  isRTL,
   isDestructive = false,
   hasSwitch = false,
   switchValue = false,
@@ -56,7 +53,7 @@ export const ProfileOption = ({
         />
       ) : !isDestructive && (
         <Ionicons
-          name={isRTL ? "chevron-back" : "chevron-forward"}
+          name={'chevron-forward'}
           size={20}
           color="#9ca3af"
         />

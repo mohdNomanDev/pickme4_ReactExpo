@@ -1,7 +1,6 @@
 import FilterButton from "@/components/common/FilterButton";
 import FilterSheet from "@/components/common/FilterSheet";
 import FoodFilter, { FoodFilterState } from "@/components/restaurant/FoodFilter";
-import { useRTL } from "@/hooks/useRTL";
 import { Ionicons } from "@expo/vector-icons";
 import React, { useState, useMemo, useCallback } from "react";
 import { Text, View, useWindowDimensions, Platform } from "react-native";
@@ -31,8 +30,7 @@ const DEFAULT_FILTERS: FoodFilterState = {
 };
 
 const FoodCardListing = ({ foodItems }: Props) => {
-  const { isRTL } = useRTL();
-  const { width } = useWindowDimensions();
+    const { width } = useWindowDimensions();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FoodFilterState>(DEFAULT_FILTERS);
 
@@ -107,7 +105,7 @@ const FoodCardListing = ({ foodItems }: Props) => {
         <Text
           className="flex-1 text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight text-start pe-4"
         >
-          {isRTL ? "جميع الأطباق" : "All Dishes"}
+          {'All Dishes'}
         </Text>
         <FilterButton
           onPress={() => setIsFilterOpen(true)}
@@ -122,7 +120,7 @@ const FoodCardListing = ({ foodItems }: Props) => {
             <Animated.View 
               key={index}
               entering={FadeInDown.delay(index * 40).duration(500).springify()}
-              style={{ width: numColumns === 1 ? '100%' : 'calc(50% - 8px)' }}
+              style={{ width: numColumns === 1 ? '100%' : '48%' }}
             >
               <FoodCard data={item} />
             </Animated.View>
@@ -134,12 +132,10 @@ const FoodCardListing = ({ foodItems }: Props) => {
             <Ionicons name="fast-food-outline" size={36} color="#9ca3af" />
           </View>
           <Text className="text-lg font-bold text-gray-900 dark:text-white mb-2 text-center">
-            {isRTL ? "لم يتم العثور على أطباق" : "No dishes found"}
+            {'No dishes found'}
           </Text>
           <Text className="text-gray-500 dark:text-gray-400 text-center max-w-[250px] text-sm">
-            {isRTL 
-              ? "حاول تغيير فلاتر البحث لرؤية المزيد من الأطباق." 
-              : "Try adjusting your filters to see more dishes."}
+            {'Try adjusting your filters to see more dishes.'}
           </Text>
         </View>
       )}
@@ -151,7 +147,7 @@ const FoodCardListing = ({ foodItems }: Props) => {
         onClear={handleClearFilters}
         onApply={handleApplyFilters}
         resultsCount={filteredData.length}
-        title={isRTL ? "تصفية الأطباق" : "Filter Dishes"}
+        title={'Filter Dishes'}
       >
         <FoodFilter 
           filters={filters} 

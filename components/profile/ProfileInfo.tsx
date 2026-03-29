@@ -1,7 +1,5 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image } from 'react-native';
-import { useTranslation } from 'react-i18next';
-import { useRTL } from '../../hooks/useRTL';
 import { Ionicons } from '@expo/vector-icons';
 import { useFormik } from 'formik';
 import { profileSchema } from '../../utils/validations';
@@ -12,9 +10,7 @@ export interface ProfileInfoProps {
 }
 
 export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
-  const { t } = useTranslation();
-  const { isRTL } = useRTL();
-
+    
   const formik = useFormik({
     initialValues: {
       firstName: user?.name?.first || '',
@@ -44,23 +40,23 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
 
   const InputField = ({ label, value, onChangeText, onBlur, icon, keyboardType = 'default', editable = true, error, touched }: any) => (
     <View className="mb-4">
-      <Text className={`text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${isRTL ? 'text-right' : 'text-left'}`}>
+      <Text className={`text-sm font-medium text-gray-700 dark:text-gray-300 mb-2 ${'text-left'}`}>
         {label}
       </Text>
-      <View className={`flex-row items-center bg-white dark:bg-gray-800 border ${touched && error ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'} rounded-xl px-4 py-3 md:py-4 ${isRTL ? 'flex-row-reverse' : ''} ${!editable ? 'opacity-70' : ''}`}>
-        <Ionicons name={icon} size={20} color={touched && error ? '#ef4444' : '#9ca3af'} className={isRTL ? 'ml-3 md:ml-4' : 'mr-3 md:mr-4'} />
+      <View className={`flex-row items-center bg-white dark:bg-gray-800 border ${touched && error ? 'border-red-500' : 'border-gray-200 dark:border-gray-700'} rounded-xl px-4 py-3 md:py-4  ${!editable ? 'opacity-70' : ''}`}>
+        <Ionicons name={icon} size={20} color={touched && error ? '#ef4444' : '#9ca3af'} className={'mr-3 md:mr-4'} />
         <TextInput
           value={value}
           onChangeText={onChangeText}
           onBlur={onBlur}
           keyboardType={keyboardType}
           editable={editable}
-          className={`flex-1 text-base md:text-lg text-gray-900 dark:text-white ${isRTL ? 'text-right' : 'text-left'}`}
+          className={`flex-1 text-base md:text-lg text-gray-900 dark:text-white ${'text-left'}`}
           placeholderTextColor="#9ca3af"
         />
       </View>
       {touched && error && (
-        <Text className={`text-xs text-red-500 mt-1 ${isRTL ? 'text-right' : 'text-left'}`}>
+        <Text className={`text-xs text-red-500 mt-1 ${'text-left'}`}>
           {error}
         </Text>
       )}
@@ -90,7 +86,7 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
         <View className="md:flex-row md:gap-6 w-full">
           <View className="flex-1">
             <InputField 
-              label={t('profile.first_name', 'First Name')} 
+              label={'First Name'} 
               value={formik.values.firstName} 
               onChangeText={formik.handleChange('firstName')} 
               onBlur={formik.handleBlur('firstName')}
@@ -101,7 +97,7 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
           </View>
           <View className="flex-1">
             <InputField 
-              label={t('profile.last_name', 'Last Name')} 
+              label={'Last Name'} 
               value={formik.values.lastName} 
               onChangeText={formik.handleChange('lastName')} 
               onBlur={formik.handleBlur('lastName')}
@@ -115,7 +111,7 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
         <View className="md:flex-row md:gap-6 w-full">
           <View className="flex-1">
             <InputField 
-              label={t('profile.email', 'Email Address')} 
+              label={'Email Address'} 
               value={formik.values.email} 
               onChangeText={formik.handleChange('email')} 
               onBlur={formik.handleBlur('email')}
@@ -127,7 +123,7 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
           </View>
           <View className="flex-1">
             <InputField 
-              label={t('profile.phone', 'Phone Number')} 
+              label={'Phone Number'} 
               value={formik.values.phone} 
               onChangeText={formik.handleChange('phone')} 
               onBlur={formik.handleBlur('phone')}
@@ -149,7 +145,7 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
           style={{ boxShadow: "0 4px 6px -1px rgba(249, 115, 22, 0.2)" }}
         >
           <Text className="text-white font-bold text-lg md:text-xl">
-            {t('common.save_changes', 'Save Changes')}
+            {'Save Changes'}
           </Text>
         </TouchableOpacity>
       </View>

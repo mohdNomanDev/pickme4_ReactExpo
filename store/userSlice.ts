@@ -73,9 +73,7 @@ export interface User {
   phone: string;
   avatar: string;
   gender: string;
-  language: string;
-  isRTL: boolean;
-  walletBalance: number;
+  language: string;walletBalance: number;
   loyaltyPoints: number;
   addresses: UserAddress[];
   paymentMethods: PaymentMethod[];

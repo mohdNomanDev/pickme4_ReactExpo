@@ -1,9 +1,9 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
 import React from "react";
-import { Text, TouchableOpacity, View, ViewProps } from "react-native";
+import { Text, TouchableOpacity, View, TouchableOpacityProps } from "react-native";
 
-export interface CartIconProps extends ViewProps {
+export interface CartIconProps extends TouchableOpacityProps {
   itemCount?: number;
   onPress?: () => void;
   size?: number;

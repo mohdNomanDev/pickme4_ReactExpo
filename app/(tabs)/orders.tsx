@@ -1,14 +1,10 @@
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
-import { useRTL } from '../../hooks/useRTL';
 import { Ionicons } from '@expo/vector-icons';
 
 export default function OrdersPage() {
-  const { t } = useTranslation();
-  const { isRTL } = useRTL();
-
+    
   return (
     <SafeAreaView edges={['top']} className="flex-1 bg-gray-50 dark:bg-background-dark">
       <ScrollView 
@@ -21,7 +17,7 @@ export default function OrdersPage() {
             <Ionicons name="receipt" size={48} color="#f97316" />
           </View>
           <Text className="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-center">
-            {t('tabs.orders', 'Orders')}
+            {'Orders'}
           </Text>
           <Text className="text-gray-500 dark:text-gray-400 text-center max-w-xs leading-5">
             View your active orders and track their delivery status here.

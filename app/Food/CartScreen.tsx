@@ -1,6 +1,5 @@
 import React from "react";
 import { ScrollView, Text, View, Pressable } from "react-native";
-import { useTranslation } from "react-i18next";
 import CartRestaurantSection from "@/components/cart/CartRestaurantSection";
 import DeliveryAddress from "@/components/cart/DeliveryAddress";
 import OrderSummary from "@/components/cart/OrderSummary";
@@ -11,8 +10,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 
 const CartScreen = () => {
-  const { t } = useTranslation();
-  const cartData = useSelector((state: any) => state.cart.cart);
+    const cartData = useSelector((state: any) => state.cart.cart);
   const user = useSelector((state: any) => state.user?.user);
   const insets = useSafeAreaInsets();
   const router = useRouter();
@@ -35,11 +33,11 @@ const CartScreen = () => {
           <Ionicons
             name="arrow-back"
             size={24}
-            className="text-text dark:text-text-dark rtl:rotate-180"
+            className="text-text dark:text-text-dark "
           />
         </Pressable>
         <Text className="text-xl font-bold text-text dark:text-text-dark text-center flex-1">
-          {t("cart.title", "Your Cart")}
+          {"Your Cart"}
         </Text>
         <View className="w-10" />
       </View>
@@ -52,7 +50,7 @@ const CartScreen = () => {
             className="text-[#3A2A1D] mb-4"
           />
           <Text className="text-lg text-text-muted dark:text-text-muted-dark font-medium text-center">
-            {t("cart.empty", "Your cart is empty")}
+            {"Your cart is empty"}
           </Text>
         </View>
       ) : (

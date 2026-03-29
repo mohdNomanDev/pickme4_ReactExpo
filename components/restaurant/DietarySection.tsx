@@ -11,8 +11,7 @@ const OPTIONS = [
 ];
 
 const DietarySection = ({ value = [], onChange }: any) => {
-  const { isRTL } = useSelector((state: RootState) => state.language);
-
+  
   const toggleItem = (itemValue: string) => {
     if (value.includes(itemValue)) {
       onChange(value.filter((v: string) => v !== itemValue));
@@ -24,7 +23,7 @@ const DietarySection = ({ value = [], onChange }: any) => {
   return (
     <View className="mb-6">
       <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 text-start`}>
-        {isRTL ? "المتطلبات الغذائية" : "Dietary"}
+        {'Dietary'}
       </Text>
 
       <View className={`flex-row flex-wrap gap-3 justify-start`}>
@@ -45,7 +44,7 @@ const DietarySection = ({ value = [], onChange }: any) => {
                   ? "text-white dark:text-gray-900" 
                   : "text-gray-700 dark:text-gray-300"
               }`}>
-                {isRTL ? item.labelAr : item.label}
+                {item.label}
               </Text>
             </Pressable>
           );

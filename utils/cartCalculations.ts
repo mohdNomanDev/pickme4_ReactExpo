@@ -1,9 +1,9 @@
-export const calculateCartTotals = (cart) => {
+export const calculateCartTotals = (cart: any[]) => {
   let subtotal = 0;
 
   // 🧮 calculate subtotal
-  cart.forEach((restaurant) => {
-    restaurant.items.forEach((item) => {
+  cart.forEach((restaurant: any) => {
+    restaurant.items.forEach((item: any) => {
       subtotal += item.price * item.quantity;
     });
   });

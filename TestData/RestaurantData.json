@@ -2,8 +2,7 @@
   {
     "id": 1,
     "name": {
-      "en": "Spice Hub",
-      "ar": "مركز التوابل"
+      "en": "Spice Hub"
     },
     "timings": {
       "friday": {
@@ -20,8 +19,7 @@
       }
     },
     "cuisine": {
-      "en": "Indian",
-      "ar": "هندي"
+      "en": "Indian"
     },
     "rating": 4.5,
     "deliveryTime": "25-30 min",
@@ -29,20 +27,16 @@
     "offer": "20% OFF",
     "distance": "2.5 km",
     "state": {
-      "en": "Riyadh",
-      "ar": "الرياض"
+      "en": "Riyadh"
     },
     "district": {
-      "en": "Olaya",
-      "ar": "العليا"
+      "en": "Olaya"
     },
     "area": {
-      "en": "Riyadh, Olaya",
-      "ar": "الرياض، العليا"
+      "en": "Riyadh, Olaya"
     },
     "description": {
-      "en": "Authentic Indian spices and curries.",
-      "ar": "توابل هندية أصلية."
+      "en": "Authentic Indian spices and curries."
     },
     "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
     "tags": [
@@ -52,72 +46,60 @@
     "foodItems": [
       {
         "name": {
-          "en": "Butter Chicken",
-          "ar": "دجاج بالزبدة"
+          "en": "Butter Chicken"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
         "price": 45
       },
       {
         "name": {
-          "en": "Paneer Tikka",
-          "ar": "بانير تيكا"
+          "en": "Paneer Tikka"
         },
         "category": {
-          "en": "Starters",
-          "ar": "مقبلات"
+          "en": "Starters"
         },
         "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8",
         "price": 32
       },
       {
         "name": {
-          "en": "Grilled Chicken",
-          "ar": "دجاج مشوي"
+          "en": "Grilled Chicken"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 45
       },
       {
         "name": {
-          "en": "Grilled Chicken",
-          "ar": "دجاج مشوي"
+          "en": "Grilled Chicken"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 45
       },
       {
         "name": {
-          "en": "Crispy Fries",
-          "ar": "بطاطس مقرمشة"
+          "en": "Crispy Fries"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 15
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 18
@@ -125,20 +107,16 @@
     ],
     "menuCategories": [
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Starters",
-        "ar": "مقبلات"
+        "en": "Starters"
       },
       {
-        "en": "Sides",
-        "ar": "أطباق جانبية"
+        "en": "Sides"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       }
     ],
     "currency": "SAR"
@@ -146,8 +124,7 @@
   {
     "id": 2,
     "name": {
-      "en": "Burger Palace",
-      "ar": "قصر البرجر"
+      "en": "Burger Palace"
     },
     "timings": {
       "friday": {
@@ -164,8 +141,7 @@
       }
     },
     "cuisine": {
-      "en": "American",
-      "ar": "أمريكي"
+      "en": "American"
     },
     "rating": 4.3,
     "deliveryTime": "20-25 min",
@@ -173,20 +149,16 @@
     "offer": "Buy 1 Get 1",
     "distance": "1.8 km",
     "state": {
-      "en": "Riyadh",
-      "ar": "الرياض"
+      "en": "Riyadh"
     },
     "district": {
-      "en": "Malaz",
-      "ar": "الملز"
+      "en": "Malaz"
     },
     "area": {
-      "en": "Riyadh, Malaz",
-      "ar": "الرياض، الملز"
+      "en": "Riyadh, Malaz"
     },
     "description": {
-      "en": "Juicy burgers and crispy fries.",
-      "ar": "برجر لذيذ وبطاطس مقلية."
+      "en": "Juicy burgers and crispy fries."
     },
     "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
     "tags": [
@@ -195,60 +167,50 @@
     "foodItems": [
       {
         "name": {
-          "en": "Cheese Burger",
-          "ar": "برجر بالجبن"
+          "en": "Cheese Burger"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
         "price": 28
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 18
       },
       {
         "name": {
-          "en": "Mushroom Soup",
-          "ar": "شوربة فطر"
+          "en": "Mushroom Soup"
         },
         "category": {
-          "en": "Soups",
-          "ar": "شوربات"
+          "en": "Soups"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 20
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 18
@@ -256,20 +218,16 @@
     ],
     "menuCategories": [
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Soups",
-        "ar": "شوربات"
+        "en": "Soups"
       },
       {
-        "en": "Desserts",
-        "ar": "حلويات"
+        "en": "Desserts"
       }
     ],
     "currency": "SAR"
@@ -277,8 +235,7 @@
   {
     "id": 3,
     "name": {
-      "en": "Pizza Town",
-      "ar": "مدينة البيتزا"
+      "en": "Pizza Town"
     },
     "timings": {
       "friday": {
@@ -295,8 +252,7 @@
       }
     },
     "cuisine": {
-      "en": "Italian",
-      "ar": "إيطالي"
+      "en": "Italian"
     },
     "rating": 4.6,
     "deliveryTime": "30-35 min",
@@ -304,20 +260,16 @@
     "offer": "15% OFF",
     "distance": "3.2 km",
     "state": {
-      "en": "Jeddah",
-      "ar": "جدة"
+      "en": "Jeddah"
     },
     "district": {
-      "en": "Al Safa",
-      "ar": "الصفا"
+      "en": "Al Safa"
     },
     "area": {
-      "en": "Jeddah, Al Safa",
-      "ar": "جدة، الصفا"
+      "en": "Jeddah, Al Safa"
     },
     "description": {
-      "en": "Hot cheesy pizzas with fresh toppings.",
-      "ar": "بيتزا طازجة ولذيذة."
+      "en": "Hot cheesy pizzas with fresh toppings."
     },
     "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
     "tags": [
@@ -326,60 +278,50 @@
     "foodItems": [
       {
         "name": {
-          "en": "Pepperoni Pizza",
-          "ar": "بيتزا بيبروني"
+          "en": "Pepperoni Pizza"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e",
         "price": 42
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 18
       },
       {
         "name": {
-          "en": "Spicy Wings",
-          "ar": "أجنحة حارة"
+          "en": "Spicy Wings"
         },
         "category": {
-          "en": "Appetizers",
-          "ar": "مقبلات"
+          "en": "Appetizers"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 25
       },
       {
         "name": {
-          "en": "Classic Caesar Salad",
-          "ar": "سلطة سيزر كلاسيكية"
+          "en": "Classic Caesar Salad"
         },
         "category": {
-          "en": "Salads",
-          "ar": "سلطات"
+          "en": "Salads"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 30
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 18
@@ -387,20 +329,16 @@
     ],
     "menuCategories": [
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Appetizers",
-        "ar": "مقبلات"
+        "en": "Appetizers"
       },
       {
-        "en": "Salads",
-        "ar": "سلطات"
+        "en": "Salads"
       }
     ],
     "currency": "SAR"
@@ -408,8 +346,7 @@
   {
     "id": 4,
     "name": {
-      "en": "Sushi Zen",
-      "ar": "سوشي زن"
+      "en": "Sushi Zen"
     },
     "timings": {
       "friday": {
@@ -426,8 +363,7 @@
       }
     },
     "cuisine": {
-      "en": "Japanese",
-      "ar": "ياباني"
+      "en": "Japanese"
     },
     "rating": 4.7,
     "deliveryTime": "35-40 min",
@@ -435,20 +371,16 @@
     "offer": "10% OFF",
     "distance": "4.1 km",
     "state": {
-      "en": "Jeddah",
-      "ar": "جدة"
+      "en": "Jeddah"
     },
     "district": {
-      "en": "Al Rawdah",
-      "ar": "الروضة"
+      "en": "Al Rawdah"
     },
     "area": {
-      "en": "Jeddah, Rawdah",
-      "ar": "جدة، الروضة"
+      "en": "Jeddah, Rawdah"
     },
     "description": {
-      "en": "Fresh sushi and Japanese delicacies.",
-      "ar": "سوشي طازج."
+      "en": "Fresh sushi and Japanese delicacies."
     },
     "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c",
     "tags": [
@@ -457,96 +389,80 @@
     "foodItems": [
       {
         "name": {
-          "en": "Salmon Sushi",
-          "ar": "سوشي سلمون"
+          "en": "Salmon Sushi"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1553621042-f6e147245754",
         "price": 55
       },
       {
         "name": {
-          "en": "Beef Steak",
-          "ar": "ستيك لحم"
+          "en": "Beef Steak"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 85
       },
       {
         "name": {
-          "en": "Mushroom Soup",
-          "ar": "شوربة فطر"
+          "en": "Mushroom Soup"
         },
         "category": {
-          "en": "Soups",
-          "ar": "شوربات"
+          "en": "Soups"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 20
       },
       {
         "name": {
-          "en": "Mushroom Soup",
-          "ar": "شوربة فطر"
+          "en": "Mushroom Soup"
         },
         "category": {
-          "en": "Soups",
-          "ar": "شوربات"
+          "en": "Soups"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 20
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 12
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 18
       },
       {
         "name": {
-          "en": "Classic Caesar Salad",
-          "ar": "سلطة سيزر كلاسيكية"
+          "en": "Classic Caesar Salad"
         },
         "category": {
-          "en": "Salads",
-          "ar": "سلطات"
+          "en": "Salads"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 30
@@ -554,24 +470,19 @@
     ],
     "menuCategories": [
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Soups",
-        "ar": "شوربات"
+        "en": "Soups"
       },
       {
-        "en": "Desserts",
-        "ar": "حلويات"
+        "en": "Desserts"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Salads",
-        "ar": "سلطات"
+        "en": "Salads"
       }
     ],
     "currency": "SAR"
@@ -579,8 +490,7 @@
   {
     "id": 5,
     "name": {
-      "en": "Shawarma House",
-      "ar": "بيت الشاورما"
+      "en": "Shawarma House"
     },
     "timings": {
       "friday": {
@@ -597,8 +507,7 @@
       }
     },
     "cuisine": {
-      "en": "Arabic",
-      "ar": "عربي"
+      "en": "Arabic"
     },
     "rating": 4.4,
     "deliveryTime": "15-20 min",
@@ -606,20 +515,16 @@
     "offer": "Combo Deal",
     "distance": "1.2 km",
     "state": {
-      "en": "Dammam",
-      "ar": "الدمام"
+      "en": "Dammam"
     },
     "district": {
-      "en": "Shati",
-      "ar": "الشاطئ"
+      "en": "Shati"
     },
     "area": {
-      "en": "Dammam, Shati",
-      "ar": "الدمام، الشاطئ"
+      "en": "Dammam, Shati"
     },
     "description": {
-      "en": "Best shawarma wraps in town.",
-      "ar": "أفضل شاورما."
+      "en": "Best shawarma wraps in town."
     },
     "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
     "tags": [
@@ -628,108 +533,90 @@
     "foodItems": [
       {
         "name": {
-          "en": "Chicken Shawarma",
-          "ar": "شاورما دجاج"
+          "en": "Chicken Shawarma"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
         "price": 12
       },
       {
         "name": {
-          "en": "Onion Rings",
-          "ar": "حلقات البصل"
+          "en": "Onion Rings"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 16
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
         "name": {
-          "en": "Crispy Fries",
-          "ar": "بطاطس مقرمشة"
+          "en": "Crispy Fries"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 15
       },
       {
         "name": {
-          "en": "Spicy Wings",
-          "ar": "أجنحة حارة"
+          "en": "Spicy Wings"
         },
         "category": {
-          "en": "Appetizers",
-          "ar": "مقبلات"
+          "en": "Appetizers"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 25
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
         "name": {
-          "en": "Crispy Fries",
-          "ar": "بطاطس مقرمشة"
+          "en": "Crispy Fries"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 15
       },
       {
         "name": {
-          "en": "Crispy Fries",
-          "ar": "بطاطس مقرمشة"
+          "en": "Crispy Fries"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 15
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 28
@@ -737,20 +624,16 @@
     ],
     "menuCategories": [
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Sides",
-        "ar": "أطباق جانبية"
+        "en": "Sides"
       },
       {
-        "en": "Desserts",
-        "ar": "حلويات"
+        "en": "Desserts"
       },
       {
-        "en": "Appetizers",
-        "ar": "مقبلات"
+        "en": "Appetizers"
       }
     ],
     "currency": "SAR"
@@ -758,8 +641,7 @@
   {
     "id": 6,
     "name": {
-      "en": "Healthy Greens",
-      "ar": "الأوراق الخضراء"
+      "en": "Healthy Greens"
     },
     "timings": {
       "friday": {
@@ -776,8 +658,7 @@
       }
     },
     "cuisine": {
-      "en": "Healthy",
-      "ar": "صحي"
+      "en": "Healthy"
     },
     "rating": 4.8,
     "deliveryTime": "15-25 min",
@@ -785,20 +666,16 @@
     "offer": "Free Drink",
     "distance": "2.1 km",
     "state": {
-      "en": "Riyadh",
-      "ar": "الرياض"
+      "en": "Riyadh"
     },
     "district": {
-      "en": "Sulaimaniyah",
-      "ar": "السليمانية"
+      "en": "Sulaimaniyah"
     },
     "area": {
-      "en": "Riyadh, Sulaimaniyah",
-      "ar": "الرياض، السليمانية"
+      "en": "Riyadh, Sulaimaniyah"
     },
     "description": {
-      "en": "Fresh salads and protein bowls.",
-      "ar": "سلطات طازجة وأطباق بروتين."
+      "en": "Fresh salads and protein bowls."
     },
     "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
     "tags": [
@@ -808,108 +685,90 @@
     "foodItems": [
       {
         "name": {
-          "en": "Quinoa Salad",
-          "ar": "سلطة الكينوا"
+          "en": "Quinoa Salad"
         },
         "category": {
-          "en": "Salads",
-          "ar": "سلطات"
+          "en": "Salads"
         },
         "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
         "price": 38
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 28
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 12
       },
       {
         "name": {
-          "en": "Spicy Wings",
-          "ar": "أجنحة حارة"
+          "en": "Spicy Wings"
         },
         "category": {
-          "en": "Appetizers",
-          "ar": "مقبلات"
+          "en": "Appetizers"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 25
       },
       {
         "name": {
-          "en": "Classic Caesar Salad",
-          "ar": "سلطة سيزر كلاسيكية"
+          "en": "Classic Caesar Salad"
         },
         "category": {
-          "en": "Salads",
-          "ar": "سلطات"
+          "en": "Salads"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 30
       },
       {
         "name": {
-          "en": "Onion Rings",
-          "ar": "حلقات البصل"
+          "en": "Onion Rings"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 16
       },
       {
         "name": {
-          "en": "Crispy Fries",
-          "ar": "بطاطس مقرمشة"
+          "en": "Crispy Fries"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 15
       },
       {
         "name": {
-          "en": "Mushroom Soup",
-          "ar": "شوربة فطر"
+          "en": "Mushroom Soup"
         },
         "category": {
-          "en": "Soups",
-          "ar": "شوربات"
+          "en": "Soups"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 20
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 12
@@ -917,28 +776,22 @@
     ],
     "menuCategories": [
       {
-        "en": "Salads",
-        "ar": "سلطات"
+        "en": "Salads"
       },
       {
-        "en": "Desserts",
-        "ar": "حلويات"
+        "en": "Desserts"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Appetizers",
-        "ar": "مقبلات"
+        "en": "Appetizers"
       },
       {
-        "en": "Sides",
-        "ar": "أطباق جانبية"
+        "en": "Sides"
       },
       {
-        "en": "Soups",
-        "ar": "شوربات"
+        "en": "Soups"
       }
     ],
     "currency": "SAR"
@@ -946,8 +799,7 @@
   {
     "id": 7,
     "name": {
-      "en": "Taco Time",
-      "ar": "وقت التاكو"
+      "en": "Taco Time"
     },
     "timings": {
       "friday": {
@@ -964,8 +816,7 @@
       }
     },
     "cuisine": {
-      "en": "Mexican",
-      "ar": "مكسيكي"
+      "en": "Mexican"
     },
     "rating": 4.2,
     "deliveryTime": "25-35 min",
@@ -973,20 +824,16 @@
     "offer": "Free Delivery",
     "distance": "3.5 km",
     "state": {
-      "en": "Khobar",
-      "ar": "الخبر"
+      "en": "Khobar"
     },
     "district": {
-      "en": "Corniche",
-      "ar": "الكورنيش"
+      "en": "Corniche"
     },
     "area": {
-      "en": "Khobar, Corniche",
-      "ar": "الخبر، الكورنيش"
+      "en": "Khobar, Corniche"
     },
     "description": {
-      "en": "Authentic Mexican tacos and burritos.",
-      "ar": "تاكو مكسيكي أصلي."
+      "en": "Authentic Mexican tacos and burritos."
     },
     "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47",
     "tags": [
@@ -996,60 +843,50 @@
     "foodItems": [
       {
         "name": {
-          "en": "Beef Taco",
-          "ar": "تاكو لحم"
+          "en": "Beef Taco"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85",
         "price": 35
       },
       {
         "name": {
-          "en": "Spicy Wings",
-          "ar": "أجنحة حارة"
+          "en": "Spicy Wings"
         },
         "category": {
-          "en": "Appetizers",
-          "ar": "مقبلات"
+          "en": "Appetizers"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 25
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 18
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 12
@@ -1057,20 +894,16 @@
     ],
     "menuCategories": [
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Appetizers",
-        "ar": "مقبلات"
+        "en": "Appetizers"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Desserts",
-        "ar": "حلويات"
+        "en": "Desserts"
       }
     ],
     "currency": "SAR"
@@ -1078,8 +911,7 @@
   {
     "id": 8,
     "name": {
-      "en": "Pasta Villa",
-      "ar": "فيلا الباستا"
+      "en": "Pasta Villa"
     },
     "timings": {
       "friday": {
@@ -1096,8 +928,7 @@
       }
     },
     "cuisine": {
-      "en": "Italian",
-      "ar": "إيطالي"
+      "en": "Italian"
     },
     "rating": 4.5,
     "deliveryTime": "30-40 min",
@@ -1105,20 +936,16 @@
     "offer": "New Member 20%",
     "distance": "2.8 km",
     "state": {
-      "en": "Riyadh",
-      "ar": "الرياض"
+      "en": "Riyadh"
     },
     "district": {
-      "en": "Hittin",
-      "ar": "حطين"
+      "en": "Hittin"
     },
     "area": {
-      "en": "Riyadh, Hittin",
-      "ar": "الرياض، حطين"
+      "en": "Riyadh, Hittin"
     },
     "description": {
-      "en": "Handmade pasta with classic sauces.",
-      "ar": "باستا يدوية مع صوصات كلاسيكية."
+      "en": "Handmade pasta with classic sauces."
     },
     "image": "https://images.unsplash.com/photo-1473093226795-af9932fe5856",
     "tags": [
@@ -1128,96 +955,80 @@
     "foodItems": [
       {
         "name": {
-          "en": "Fettuccine Alfredo",
-          "ar": "فيتوتشيني ألفريدو"
+          "en": "Fettuccine Alfredo"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1645112481351-9ee8ca616cae",
         "price": 48
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 12
       },
       {
         "name": {
-          "en": "Onion Rings",
-          "ar": "حلقات البصل"
+          "en": "Onion Rings"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 16
       },
       {
         "name": {
-          "en": "Mushroom Soup",
-          "ar": "شوربة فطر"
+          "en": "Mushroom Soup"
         },
         "category": {
-          "en": "Soups",
-          "ar": "شوربات"
+          "en": "Soups"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 20
       },
       {
         "name": {
-          "en": "Crispy Fries",
-          "ar": "بطاطس مقرمشة"
+          "en": "Crispy Fries"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 15
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 12
       },
       {
         "name": {
-          "en": "Crispy Fries",
-          "ar": "بطاطس مقرمشة"
+          "en": "Crispy Fries"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 15
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 12
@@ -1225,20 +1036,16 @@
     ],
     "menuCategories": [
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Sides",
-        "ar": "أطباق جانبية"
+        "en": "Sides"
       },
       {
-        "en": "Soups",
-        "ar": "شوربات"
+        "en": "Soups"
       }
     ],
     "currency": "SAR"
@@ -1246,8 +1053,7 @@
   {
     "id": 9,
     "name": {
-      "en": "Steak & Co",
-      "ar": "ستيك وكو"
+      "en": "Steak & Co"
     },
     "timings": {
       "friday": {
@@ -1264,8 +1070,7 @@
       }
     },
     "cuisine": {
-      "en": "Steakhouse",
-      "ar": "ستيك هاوس"
+      "en": "Steakhouse"
     },
     "rating": 4.9,
     "deliveryTime": "40-50 min",
@@ -1273,20 +1078,16 @@
     "offer": "Premium Quality",
     "distance": "5.2 km",
     "state": {
-      "en": "Jeddah",
-      "ar": "جدة"
+      "en": "Jeddah"
     },
     "district": {
-      "en": "Al Shatie",
-      "ar": "الشاطئ"
+      "en": "Al Shatie"
     },
     "area": {
-      "en": "Jeddah, Shatie",
-      "ar": "جدة، الشاطئ"
+      "en": "Jeddah, Shatie"
     },
     "description": {
-      "en": "Premium cuts of meat grilled to perfection.",
-      "ar": "قطع لحم فاخرة مشوية بإتقان."
+      "en": "Premium cuts of meat grilled to perfection."
     },
     "image": "https://images.unsplash.com/photo-1546241072-48010ad28c2c",
     "tags": [
@@ -1296,72 +1097,60 @@
     "foodItems": [
       {
         "name": {
-          "en": "Ribeye Steak",
-          "ar": "ستيك ريب آي"
+          "en": "Ribeye Steak"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
         "price": 120
       },
       {
         "name": {
-          "en": "Mushroom Soup",
-          "ar": "شوربة فطر"
+          "en": "Mushroom Soup"
         },
         "category": {
-          "en": "Soups",
-          "ar": "شوربات"
+          "en": "Soups"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 20
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 28
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
         "name": {
-          "en": "Beef Steak",
-          "ar": "ستيك لحم"
+          "en": "Beef Steak"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 85
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
@@ -1369,16 +1158,13 @@
     ],
     "menuCategories": [
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Soups",
-        "ar": "شوربات"
+        "en": "Soups"
       },
       {
-        "en": "Desserts",
-        "ar": "حلويات"
+        "en": "Desserts"
       }
     ],
     "currency": "SAR"
@@ -1386,8 +1172,7 @@
   {
     "id": 10,
     "name": {
-      "en": "Dim Sum House",
-      "ar": "بيت الديم سوم"
+      "en": "Dim Sum House"
     },
     "timings": {
       "friday": {
@@ -1404,8 +1189,7 @@
       }
     },
     "cuisine": {
-      "en": "Chinese",
-      "ar": "صيني"
+      "en": "Chinese"
     },
     "rating": 4.4,
     "deliveryTime": "20-30 min",
@@ -1413,20 +1197,16 @@
     "offer": "Happy Hour 15%",
     "distance": "1.9 km",
     "state": {
-      "en": "Riyadh",
-      "ar": "الرياض"
+      "en": "Riyadh"
     },
     "district": {
-      "en": "Al Nakheel",
-      "ar": "النخيل"
+      "en": "Al Nakheel"
     },
     "area": {
-      "en": "Riyadh, Nakheel",
-      "ar": "الرياض، النخيل"
+      "en": "Riyadh, Nakheel"
     },
     "description": {
-      "en": "Steamed and fried dumplings.",
-      "ar": "ديم سوم مطهو على البخار ومقلي."
+      "en": "Steamed and fried dumplings."
     },
     "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c",
     "tags": [
@@ -1436,84 +1216,70 @@
     "foodItems": [
       {
         "name": {
-          "en": "Shrimp Dumplings",
-          "ar": "زلابية الجمبري"
+          "en": "Shrimp Dumplings"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1563245394-17f991e39c9f",
         "price": 36
       },
       {
         "name": {
-          "en": "Beef Steak",
-          "ar": "ستيك لحم"
+          "en": "Beef Steak"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 85
       },
       {
         "name": {
-          "en": "Beef Steak",
-          "ar": "ستيك لحم"
+          "en": "Beef Steak"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 85
       },
       {
         "name": {
-          "en": "Grilled Chicken",
-          "ar": "دجاج مشوي"
+          "en": "Grilled Chicken"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 45
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 18
       },
       {
         "name": {
-          "en": "Spicy Wings",
-          "ar": "أجنحة حارة"
+          "en": "Spicy Wings"
         },
         "category": {
-          "en": "Appetizers",
-          "ar": "مقبلات"
+          "en": "Appetizers"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 25
       },
       {
         "name": {
-          "en": "Cheesecake",
-          "ar": "تشيز كيك"
+          "en": "Cheesecake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 28
@@ -1521,20 +1287,16 @@
     ],
     "menuCategories": [
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Appetizers",
-        "ar": "مقبلات"
+        "en": "Appetizers"
       },
       {
-        "en": "Desserts",
-        "ar": "حلويات"
+        "en": "Desserts"
       }
     ],
     "currency": "SAR"
@@ -1542,8 +1304,7 @@
   {
     "id": 11,
     "name": {
-      "en": "Noodle Bar",
-      "ar": "بار النودلز"
+      "en": "Noodle Bar"
     },
     "timings": {
       "friday": {
@@ -1560,8 +1321,7 @@
       }
     },
     "cuisine": {
-      "en": "Asian",
-      "ar": "آسيوي"
+      "en": "Asian"
     },
     "rating": 4.3,
     "deliveryTime": "25-30 min",
@@ -1569,20 +1329,16 @@
     "offer": "Free Spring Rolls",
     "distance": "2.4 km",
     "state": {
-      "en": "Dammam",
-      "ar": "الدمام"
+      "en": "Dammam"
     },
     "district": {
-      "en": "Faisaliyah",
-      "ar": "الفيصلية"
+      "en": "Faisaliyah"
     },
     "area": {
-      "en": "Dammam, Faisaliyah",
-      "ar": "الدمام، الفيصلية"
+      "en": "Dammam, Faisaliyah"
     },
     "description": {
-      "en": "Stir-fried noodles and ramen.",
-      "ar": "نودلز مقلية ورامين."
+      "en": "Stir-fried noodles and ramen."
     },
     "image": "https://images.unsplash.com/photo-1552611052-33e04de081de",
     "tags": [
@@ -1592,84 +1348,70 @@
     "foodItems": [
       {
         "name": {
-          "en": "Pad Thai",
-          "ar": "باد تاي"
+          "en": "Pad Thai"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de",
         "price": 42
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 12
       },
       {
         "name": {
-          "en": "Mushroom Soup",
-          "ar": "شوربة فطر"
+          "en": "Mushroom Soup"
         },
         "category": {
-          "en": "Soups",
-          "ar": "شوربات"
+          "en": "Soups"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 20
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 18
       },
       {
         "name": {
-          "en": "Crispy Fries",
-          "ar": "بطاطس مقرمشة"
+          "en": "Crispy Fries"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 15
       },
       {
         "name": {
-          "en": "Classic Caesar Salad",
-          "ar": "سلطة سيزر كلاسيكية"
+          "en": "Classic Caesar Salad"
         },
         "category": {
-          "en": "Salads",
-          "ar": "سلطات"
+          "en": "Salads"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 30
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 12
@@ -1677,24 +1419,19 @@
     ],
     "menuCategories": [
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Soups",
-        "ar": "شوربات"
+        "en": "Soups"
       },
       {
-        "en": "Sides",
-        "ar": "أطباق جانبية"
+        "en": "Sides"
       },
       {
-        "en": "Salads",
-        "ar": "سلطات"
+        "en": "Salads"
       }
     ],
     "currency": "SAR"
@@ -1702,8 +1439,7 @@
   {
     "id": 12,
     "name": {
-      "en": "Dessert Delight",
-      "ar": "بهجة الحلويات"
+      "en": "Dessert Delight"
     },
     "timings": {
       "friday": {
@@ -1720,8 +1456,7 @@
       }
     },
     "cuisine": {
-      "en": "Desserts",
-      "ar": "حلويات"
+      "en": "Desserts"
     },
     "rating": 4.7,
     "deliveryTime": "15-20 min",
@@ -1729,20 +1464,16 @@
     "offer": "Buy 2 Get 1",
     "distance": "1.1 km",
     "state": {
-      "en": "Riyadh",
-      "ar": "الرياض"
+      "en": "Riyadh"
     },
     "district": {
-      "en": "Rawdah",
-      "ar": "الروضة"
+      "en": "Rawdah"
     },
     "area": {
-      "en": "Riyadh, Rawdah",
-      "ar": "الرياض، الروضة"
+      "en": "Riyadh, Rawdah"
     },
     "description": {
-      "en": "Cakes, pastries, and sweet treats.",
-      "ar": "كيك ومعجنات وحلويات."
+      "en": "Cakes, pastries, and sweet treats."
     },
     "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
     "tags": [
@@ -1752,72 +1483,60 @@
     "foodItems": [
       {
         "name": {
-          "en": "Chocolate Lava Cake",
-          "ar": "كيكة الشوكولاتة"
+          "en": "Chocolate Lava Cake"
         },
         "category": {
-          "en": "Desserts",
-          "ar": "حلويات"
+          "en": "Desserts"
         },
         "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
         "price": 25
       },
       {
         "name": {
-          "en": "Mushroom Soup",
-          "ar": "شوربة فطر"
+          "en": "Mushroom Soup"
         },
         "category": {
-          "en": "Soups",
-          "ar": "شوربات"
+          "en": "Soups"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 20
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 12
       },
       {
         "name": {
-          "en": "Grilled Chicken",
-          "ar": "دجاج مشوي"
+          "en": "Grilled Chicken"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 45
       },
       {
         "name": {
-          "en": "Classic Caesar Salad",
-          "ar": "سلطة سيزر كلاسيكية"
+          "en": "Classic Caesar Salad"
         },
         "category": {
-          "en": "Salads",
-          "ar": "سلطات"
+          "en": "Salads"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 30
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 18
@@ -1825,24 +1544,19 @@
     ],
     "menuCategories": [
       {
-        "en": "Desserts",
-        "ar": "حلويات"
+        "en": "Desserts"
       },
       {
-        "en": "Soups",
-        "ar": "شوربات"
+        "en": "Soups"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Salads",
-        "ar": "سلطات"
+        "en": "Salads"
       }
     ],
     "currency": "SAR"
@@ -1850,8 +1564,7 @@
   {
     "id": 13,
     "name": {
-      "en": "Juice Junction",
-      "ar": "ملتقى العصائر"
+      "en": "Juice Junction"
     },
     "timings": {
       "friday": {
@@ -1868,8 +1581,7 @@
       }
     },
     "cuisine": {
-      "en": "Beverages",
-      "ar": "مشروبات"
+      "en": "Beverages"
     },
     "rating": 4.6,
     "deliveryTime": "10-20 min",
@@ -1877,20 +1589,16 @@
     "offer": "25% OFF Juices",
     "distance": "0.8 km",
     "state": {
-      "en": "Khobar",
-      "ar": "الخبر"
+      "en": "Khobar"
     },
     "district": {
-      "en": "Olaya",
-      "ar": "العليا"
+      "en": "Olaya"
     },
     "area": {
-      "en": "Khobar, Olaya",
-      "ar": "الخبر، العليا"
+      "en": "Khobar, Olaya"
     },
     "description": {
-      "en": "Freshly squeezed juices and smoothies.",
-      "ar": "عصائر طازجة وسموذي."
+      "en": "Freshly squeezed juices and smoothies."
     },
     "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b2",
     "tags": [
@@ -1900,96 +1608,80 @@
     "foodItems": [
       {
         "name": {
-          "en": "Orange Juice",
-          "ar": "عصير برتقال"
+          "en": "Orange Juice"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423",
         "price": 15
       },
       {
         "name": {
-          "en": "Crispy Fries",
-          "ar": "بطاطس مقرمشة"
+          "en": "Crispy Fries"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 15
       },
       {
         "name": {
-          "en": "Classic Caesar Salad",
-          "ar": "سلطة سيزر كلاسيكية"
+          "en": "Classic Caesar Salad"
         },
         "category": {
-          "en": "Salads",
-          "ar": "سلطات"
+          "en": "Salads"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 30
       },
       {
         "name": {
-          "en": "Crispy Fries",
-          "ar": "بطاطس مقرمشة"
+          "en": "Crispy Fries"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 15
       },
       {
         "name": {
-          "en": "Beef Steak",
-          "ar": "ستيك لحم"
+          "en": "Beef Steak"
         },
         "category": {
-          "en": "Main Course",
-          "ar": "طبق رئيسي"
+          "en": "Main Course"
         },
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 85
       },
       {
         "name": {
-          "en": "Onion Rings",
-          "ar": "حلقات البصل"
+          "en": "Onion Rings"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 16
       },
       {
         "name": {
-          "en": "Spicy Wings",
-          "ar": "أجنحة حارة"
+          "en": "Spicy Wings"
         },
         "category": {
-          "en": "Appetizers",
-          "ar": "مقبلات"
+          "en": "Appetizers"
         },
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 25
       },
       {
         "name": {
-          "en": "Mushroom Soup",
-          "ar": "شوربة فطر"
+          "en": "Mushroom Soup"
         },
         "category": {
-          "en": "Soups",
-          "ar": "شوربات"
+          "en": "Soups"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 20
@@ -1997,28 +1689,22 @@
     ],
     "menuCategories": [
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Sides",
-        "ar": "أطباق جانبية"
+        "en": "Sides"
       },
       {
-        "en": "Salads",
-        "ar": "سلطات"
+        "en": "Salads"
       },
       {
-        "en": "Main Course",
-        "ar": "طبق رئيسي"
+        "en": "Main Course"
       },
       {
-        "en": "Appetizers",
-        "ar": "مقبلات"
+        "en": "Appetizers"
       },
       {
-        "en": "Soups",
-        "ar": "شوربات"
+        "en": "Soups"
       }
     ],
     "currency": "SAR"
@@ -2026,8 +1712,7 @@
   {
     "id": 14,
     "name": {
-      "en": "Le Paris",
-      "ar": "لو باريس"
+      "en": "Le Paris"
     },
     "timings": {
       "friday": {
@@ -2044,8 +1729,7 @@
       }
     },
     "cuisine": {
-      "en": "French",
-      "ar": "فرنسي"
+      "en": "French"
     },
     "rating": 4.8,
     "deliveryTime": "35-45 min",
@@ -2053,20 +1737,16 @@
     "offer": "Premium Selection",
     "distance": "4.5 km",
     "state": {
-      "en": "Riyadh",
-      "ar": "الرياض"
+      "en": "Riyadh"
     },
     "district": {
-      "en": "Takhassusi",
-      "ar": "التخصصي"
+      "en": "Takhassusi"
     },
     "area": {
-      "en": "Riyadh, Takhassusi",
-      "ar": "الرياض، التخصصي"
+      "en": "Riyadh, Takhassusi"
     },
     "description": {
-      "en": "French pastries and classic dishes.",
-      "ar": "معجنات فرنسية وأطباق كلاسيكية."
+      "en": "French pastries and classic dishes."
     },
     "image": "https://images.unsplash.com/photo-1550966841-3eeec10e7b99",
     "tags": [
@@ -2076,60 +1756,50 @@
     "foodItems": [
       {
         "name": {
-          "en": "Croissant",
-          "ar": "كرواسون"
+          "en": "Croissant"
         },
         "category": {
-          "en": "Bakery",
-          "ar": "مخبوزات"
+          "en": "Bakery"
         },
         "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a",
         "price": 18
       },
       {
         "name": {
-          "en": "Classic Caesar Salad",
-          "ar": "سلطة سيزر كلاسيكية"
+          "en": "Classic Caesar Salad"
         },
         "category": {
-          "en": "Salads",
-          "ar": "سلطات"
+          "en": "Salads"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 30
       },
       {
         "name": {
-          "en": "Spicy Wings",
-          "ar": "أجنحة حارة"
+          "en": "Spicy Wings"
         },
         "category": {
-          "en": "Appetizers",
-          "ar": "مقبلات"
+          "en": "Appetizers"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 25
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 18
       },
       {
         "name": {
-          "en": "Onion Rings",
-          "ar": "حلقات البصل"
+          "en": "Onion Rings"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 16
@@ -2137,24 +1807,19 @@
     ],
     "menuCategories": [
       {
-        "en": "Bakery",
-        "ar": "مخبوزات"
+        "en": "Bakery"
       },
       {
-        "en": "Salads",
-        "ar": "سلطات"
+        "en": "Salads"
       },
       {
-        "en": "Appetizers",
-        "ar": "مقبلات"
+        "en": "Appetizers"
       },
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Sides",
-        "ar": "أطباق جانبية"
+        "en": "Sides"
       }
     ],
     "currency": "SAR"
@@ -2162,8 +1827,7 @@
   {
     "id": 15,
     "name": {
-      "en": "The Coffee Club",
-      "ar": "نادي القهوة"
+      "en": "The Coffee Club"
     },
     "timings": {
       "friday": {
@@ -2180,8 +1844,7 @@
       }
     },
     "cuisine": {
-      "en": "Cafe",
-      "ar": "مقهى"
+      "en": "Cafe"
     },
     "rating": 4.5,
     "deliveryTime": "15-25 min",
@@ -2189,20 +1852,16 @@
     "offer": "Morning Special",
     "distance": "1.3 km",
     "state": {
-      "en": "Riyadh",
-      "ar": "الرياض"
+      "en": "Riyadh"
     },
     "district": {
-      "en": "KAFD",
-      "ar": "كافد"
+      "en": "KAFD"
     },
     "area": {
-      "en": "Riyadh, KAFD",
-      "ar": "الرياض، كافد"
+      "en": "Riyadh, KAFD"
     },
     "description": {
-      "en": "Specialty coffee and breakfast.",
-      "ar": "قهوة مختصة وإفطار."
+      "en": "Specialty coffee and breakfast."
     },
     "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
     "tags": [
@@ -2212,60 +1871,50 @@
     "foodItems": [
       {
         "name": {
-          "en": "Latte",
-          "ar": "لاتيه"
+          "en": "Latte"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1541167760496-162955ed8a9f",
         "price": 22
       },
       {
         "name": {
-          "en": "Iced Tea",
-          "ar": "شاي مثلج"
+          "en": "Iced Tea"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 12
       },
       {
         "name": {
-          "en": "Mojito",
-          "ar": "موهيتو"
+          "en": "Mojito"
         },
         "category": {
-          "en": "Drinks",
-          "ar": "مشروبات"
+          "en": "Drinks"
         },
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 18
       },
       {
         "name": {
-          "en": "Classic Caesar Salad",
-          "ar": "سلطة سيزر كلاسيكية"
+          "en": "Classic Caesar Salad"
         },
         "category": {
-          "en": "Salads",
-          "ar": "سلطات"
+          "en": "Salads"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 30
       },
       {
         "name": {
-          "en": "Onion Rings",
-          "ar": "حلقات البصل"
+          "en": "Onion Rings"
         },
         "category": {
-          "en": "Sides",
-          "ar": "أطباق جانبية"
+          "en": "Sides"
         },
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 16
@@ -2273,16 +1922,13 @@
     ],
     "menuCategories": [
       {
-        "en": "Drinks",
-        "ar": "مشروبات"
+        "en": "Drinks"
       },
       {
-        "en": "Salads",
-        "ar": "سلطات"
+        "en": "Salads"
       },
       {
-        "en": "Sides",
-        "ar": "أطباق جانبية"
+        "en": "Sides"
       }
     ],
     "currency": "SAR"

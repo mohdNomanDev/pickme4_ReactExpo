@@ -1,4 +1,3 @@
-import { useRTL } from "@/hooks/useRTL";
 import React, { useMemo } from "react";
 import { Text, TouchableOpacity, View, Platform, useWindowDimensions } from "react-native";
 import { Image } from "expo-image";
@@ -22,8 +21,7 @@ type Props = {
 };
 
 const FoodCard = ({ data, onAddToCart }: Props) => {
-  const { lang, isRTL } = useRTL();
-  const { width } = useWindowDimensions();
+    const { width } = useWindowDimensions();
 
   const handleAddToCart = () => {
     if (onAddToCart) {
@@ -32,9 +30,9 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
   };
 
   const formattedPrice = useMemo(() => {
-    const currencyStr = lang === 'ar' ? 'ر.س' : 'SAR';
-    return isRTL ? `${data.price} ${currencyStr}` : `${currencyStr} ${data.price}`;
-  }, [data.price, lang, isRTL]);
+    const currencyStr = 'SAR';
+    return `${currencyStr} ${data.price}`;
+  }, [data.price]);
 
   const isWeb = Platform.OS === 'web';
   const isTablet = width > 768;
@@ -62,25 +60,25 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
       <View className="p-4 md:p-5 flex-col justify-between flex-1">
         <View>
           {/* Header Row: Title and Category */}
-          <View className={`flex-row justify-between items-start mb-1 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <View className={`flex-row justify-between items-start mb-1 `}>
             <Text
-              className={`flex-1 text-[17px] leading-6 font-extrabold text-gray-900 dark:text-white ${isRTL ? 'text-right' : 'text-left'}`}
+              className={`flex-1 text-[17px] leading-6 font-extrabold text-gray-900 dark:text-white ${'text-left'}`}
               numberOfLines={2}
             >
-              {lang === "ar" ? data.name.ar : data.name.en}
+              {data.name.en}
             </Text>
           </View>
           
           <Text
-            className={`text-[13px] text-gray-500 dark:text-gray-400 font-medium mb-4 ${isRTL ? 'text-right' : 'text-left'}`}
+            className={`text-[13px] text-gray-500 dark:text-gray-400 font-medium mb-4 ${'text-left'}`}
             numberOfLines={1}
           >
-            {lang === "ar" ? data.category.ar : data.category.en}
+            {data.category.en}
           </Text>
         </View>
 
         {/* Footer Row: Price & Add Button */}
-        <View className={`flex-row items-center justify-between ${isRTL ? 'flex-row-reverse' : ''}`}>
+        <View className={`flex-row items-center justify-between `}>
           <Text className="text-[17px] font-black text-primary tracking-tight">
             {formattedPrice}
           </Text>

@@ -12,12 +12,11 @@ const OPTIONS = [
 ];
 
 const SortBySection = ({ value, onChange }: any) => {
-  const { isRTL } = useSelector((state: RootState) => state.language);
-
+  
   return (
     <View className="mb-6">
       <Text className={`text-lg font-bold text-gray-900 dark:text-white mb-3 text-start`}>
-        {isRTL ? "ترتيب حسب" : "Sort By"}
+        {'Sort By'}
       </Text>
 
       <View className="space-y-2">
@@ -35,7 +34,7 @@ const SortBySection = ({ value, onChange }: any) => {
             >
               <Text className={`flex-1 text-base font-medium ${
                 isSelected ? "text-primary" : "text-gray-700 dark:text-gray-300"
-              } text-start ps-3`}>                {isRTL ? item.labelAr : item.label}
+              } text-start ps-3`}>                {item.label}
               </Text>
               
               {/* Radio Indicator */}

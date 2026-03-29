@@ -2,10 +2,8 @@ import userDataJson from "@/TestData/UserData.json";
 import { useRouter } from "expo-router";
 import { useColorScheme } from "nativewind";
 import React, { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useRTL } from "../../hooks/useRTL";
 
 // Components
 import { useSelector } from "react-redux";
@@ -19,9 +17,7 @@ import { RootState } from "../../store/store";
 // const currentUser = UserData[0];
 
 export default function ProfilePage() {
-  const { t } = useTranslation();
-  const { isRTL } = useRTL();
-  const { colorScheme, toggleColorScheme } = useColorScheme();
+      const { colorScheme, toggleColorScheme } = useColorScheme();
   const router = useRouter();
   const storeUser = useSelector((state: RootState) => state.user?.currentUser);
   let [currentUser, setCurrentUser] = useState(storeUser || userDataJson[0]);
@@ -35,7 +31,7 @@ export default function ProfilePage() {
   }, [storeUser]);
 
   const userName =
-    isRTL && currentUser.name.ar ? currentUser.name.ar : currentUser.name.full;
+    currentUser.name.full;
 
   return (
     <SafeAreaView
@@ -50,7 +46,7 @@ export default function ProfilePage() {
         {/* Header Title */}
         <View className="px-6 pt-6 pb-4">
           <Text className="text-3xl font-extrabold text-gray-900 dark:text-white text-start">
-            {t("tabs.profile", "Profile")}
+            {"Profile"}
           </Text>
         </View>
 
@@ -66,73 +62,64 @@ export default function ProfilePage() {
           <QuickStats
             walletBalance={currentUser.walletBalance}
             loyaltyPoints={currentUser.loyaltyPoints}
-            walletLabel={t("profile.wallet", "Wallet")}
-            pointsLabel={t("profile.points", "Points")}
+            walletLabel={"Wallet"}
+            pointsLabel={"Points"}
           />
 
           {/* Settings Sections */}
           <SettingsSection
-            title={t("profile.account_settings", "Account Settings")}
+            title={"Account Settings"}
           >
             <ProfileOption
               icon="person-outline"
-              title={t("profile.personal_info", "Personal Information")}
-              isRTL={isRTL}
+              title={"Personal Information"}
               onPress={() => router.push("/Food/personalinformation")}
             />
             <ProfileOption
               icon="location-outline"
-              title={t("profile.saved_addresses", "Saved Addresses")}
+              title={"Saved Addresses"}
               value={currentUser.addresses.length.toString()}
-              isRTL={isRTL}
             />
             <ProfileOption
               icon="card-outline"
-              title={t("profile.payment_methods", "Payment Methods")}
-              isRTL={isRTL}
+              title={"Payment Methods"}
             />
           </SettingsSection>
 
-          <SettingsSection title={t("profile.preferences", "Preferences")}>
+          <SettingsSection title={"Preferences"}>
             <ProfileOption
               icon="notifications-outline"
-              title={t("profile.notifications", "Notifications")}
+              title={"Notifications"}
               hasSwitch
               switchValue={true}
-              isRTL={isRTL}
             />
             <ProfileOption
               icon="language-outline"
-              title={t("profile.language", "Language")}
-              value={isRTL ? "العربية" : "English"}
-              isRTL={isRTL}
+              title={"Language"}
+              value={'English'}
             />
             <ProfileOption
               icon="moon-outline"
-              title={t("profile.dark_mode", "Dark Mode")}
+              title={"Dark Mode"}
               hasSwitch
               switchValue={colorScheme === "dark"}
               onPress={toggleColorScheme}
-              isRTL={isRTL}
             />
           </SettingsSection>
 
-          <SettingsSection title={t("profile.more", "More")} isLast>
+          <SettingsSection title={"More"} isLast>
             <ProfileOption
               icon="help-buoy-outline"
-              title={t("profile.help_center", "Help Center")}
-              isRTL={isRTL}
+              title={"Help Center"}
             />
             <ProfileOption
               icon="document-text-outline"
-              title={t("profile.terms", "Terms & Conditions")}
-              isRTL={isRTL}
+              title={"Terms & Conditions"}
             />
             <ProfileOption
               icon="log-out-outline"
-              title={t("profile.logout", "Log Out")}
+              title={"Log Out"}
               isDestructive
-              isRTL={isRTL}
             />
           </SettingsSection>
 

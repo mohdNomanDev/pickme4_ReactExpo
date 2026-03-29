@@ -1,6 +1,6 @@
-import { useRTL } from "@/hooks/useRTL";
+import { Image } from "expo-image";
 import { useRouter } from "expo-router";
-import { Image, View } from "react-native";
+import {  View } from "react-native";
 import { BlurView } from "expo-blur";
 import Header from "./HeaderSection";
 import Info from "./InfoSection";
@@ -33,14 +33,13 @@ type Props = {
 };
 
 const RestaurantDetails = ({ data }: Props) => {
-  const { isRTL, lang } = useRTL();
-  const router = useRouter();
+    const router = useRouter();
 
   if (!data) return null;
 
   return (
     <View className="w-full">
-      {/* Background Image */}
+      {/* Background */}
       <View className="relative w-full h-72 md:h-96 lg:h-[450px]">
         <Image
           source={{ uri: data.image }}
@@ -53,7 +52,7 @@ const RestaurantDetails = ({ data }: Props) => {
         
         {/* Absolute Header inside the image container */}
         <View className="absolute top-4 left-4 right-4 md:top-8 md:left-8 md:right-8 z-20">
-          <Header isRTL={isRTL} onBack={() => router.back()} />
+          <Header onBack={() => router.back()} />
         </View>
       </View>
 
@@ -66,8 +65,8 @@ const RestaurantDetails = ({ data }: Props) => {
         >
           {/* We use a slightly transparent background to blend with BlurView */}
           <View className="px-5 pt-6 pb-8 bg-black/40">
-            <Info data={data} lang={lang} isRTL={isRTL} />
-            <Stats data={data} lang={lang} isRTL={isRTL} />
+            <Info data={data}  />
+            <Stats data={data}  />
           </View>
         </BlurView>
       </View>

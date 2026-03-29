@@ -1,13 +1,13 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 
-const Info = ({ data, lang, isRTL }: any) => (
+const Info = ({ data, lang }: any) => (
   <View className="mb-6">
     {/* Tag & Rating row */}
     <View className="flex-row items-center justify-between mb-4">
       <View className="bg-orange-500/20 px-3 py-1 rounded-full border border-orange-500/30">
         <Text className="text-xs text-orange-400 font-bold tracking-wide">
-          {isRTL ? "تجربة فاخرة" : "PREMIUM DINING"}
+          {'PREMIUM DINING'}
         </Text>
       </View>
       <View className="flex-row items-center gap-1.5">
@@ -22,7 +22,7 @@ const Info = ({ data, lang, isRTL }: any) => (
     <Text
       className="text-3xl font-extrabold text-white mb-2 tracking-tight text-start"
     >
-      {data.name?.[lang] ?? data.name?.en}
+      {data.name?.en}
     </Text>
 
     {/* Location */}

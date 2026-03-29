@@ -2,8 +2,6 @@ import React from 'react';
 import { ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform, View, Text } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
-import { useRTL } from '../../hooks/useRTL';
 import { Ionicons } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
@@ -11,9 +9,7 @@ import { updateUserProfile } from '../../store/userSlice';
 import { ProfileInfo } from '../../components/profile/ProfileInfo';
 
 export default function PersonalInformationPage() {
-  const { t } = useTranslation();
-  const { isRTL } = useRTL();
-  const router = useRouter();
+      const router = useRouter();
   const dispatch = useDispatch();
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
 
@@ -35,14 +31,14 @@ export default function PersonalInformationPage() {
       <Stack.Screen options={{ headerShown: false }} />
 
       {/* Professional Custom Header */}
-      <View className={`w-full px-4 h-16 flex-row items-center justify-between bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700/50 ${isRTL ? 'flex-row-reverse' : ''}`}>
+      <View className={`w-full px-4 h-16 flex-row items-center justify-between bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700/50 `}>
         <View className="flex-1 items-start">
           <TouchableOpacity 
             onPress={() => router.back()} 
             className="w-10 h-10 rounded-full items-center justify-center bg-gray-50 dark:bg-gray-700/50"
           >
             <Ionicons 
-              name={isRTL ? "chevron-forward" : "chevron-back"} 
+              name={'chevron-back'} 
               size={24} 
               color="#374151" 
               className="dark:text-gray-200"
@@ -52,7 +48,7 @@ export default function PersonalInformationPage() {
 
         <View className="flex-[2] items-center">
           <Text className="text-lg font-bold text-gray-900 dark:text-white">
-            {t('profile.personal_info', 'Personal Information')}
+            {'Personal Information'}
           </Text>
         </View>
 

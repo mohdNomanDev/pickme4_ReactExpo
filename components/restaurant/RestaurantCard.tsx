@@ -1,4 +1,3 @@
-import { useRTL } from "@/hooks/useRTL";
 import { RootState } from "@/store/store";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
@@ -50,8 +49,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const dispatch = useDispatch();
-  const { isRTL, lang, rowClass, getGapClass, textAlign } = useRTL();
-
+  
   // Optimized State Selectors
   const isBookmarked = useSelector((state: RootState) =>
     restaurant?.id ? state.bookmark.value.includes(restaurant.id) : false,
@@ -64,42 +62,38 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
   );
 
   const restaurantName = useMemo(
-    () => restaurant?.name?.[lang] || restaurant?.name?.["en"],
-    [restaurant?.name, lang],
+    () => restaurant?.name?.["en"],
+    [restaurant?.name],
   );
   const cuisineName = useMemo(
-    () => restaurant?.cuisine?.[lang] || restaurant?.cuisine?.["en"],
-    [restaurant?.cuisine, lang],
+    () => restaurant?.cuisine?.["en"] || restaurant?.cuisine?.["en"],
+    [restaurant?.cuisine],
   );
   const areaName = useMemo(
-    () => restaurant?.area?.[lang] || restaurant?.area?.["en"],
-    [restaurant?.area, lang],
+    () => restaurant?.area?.["en"] || restaurant?.area?.["en"],
+    [restaurant?.area],
   );
 
   // Helpers to localize currency and formatting
   const localizedCurrencyStr = useMemo(() => {
-    const currencyMap: Record<string, { en: string; ar: string }> = {
-      SAR: { en: "SAR", ar: "ر.س" },
+    const currencyMap: Record<string, string> = {
+      SAR: "SAR",
     };
     const cCode = restaurant?.currency || "SAR";
-    return currencyMap[cCode]?.[lang] || cCode;
-  }, [restaurant?.currency, lang]);
+    return currencyMap[cCode] || cCode;
+  }, [restaurant?.currency]);
 
   const formattedPrice = useMemo(() => {
     if (currentFood?.price === undefined) return null;
-    return isRTL 
-      ? `${currentFood.price} ${localizedCurrencyStr}` 
-      : `${localizedCurrencyStr} ${currentFood.price}`;
-  }, [currentFood?.price, localizedCurrencyStr, isRTL]);
+    return `${localizedCurrencyStr} ${currentFood.price}`;
+  }, [currentFood?.price, localizedCurrencyStr]);
 
   const formattedDeliveryFee = useMemo(() => {
     if (restaurant?.deliveryFee === 0) {
-      return isRTL ? "مجاناً" : "Free";
+      return 'Free';
     }
-    return isRTL 
-      ? `${restaurant.deliveryFee} ${localizedCurrencyStr}` 
-      : `${localizedCurrencyStr} ${restaurant.deliveryFee}`;
-  }, [restaurant?.deliveryFee, localizedCurrencyStr, isRTL]);
+    return `${localizedCurrencyStr} ${restaurant.deliveryFee}`;
+  }, [restaurant?.deliveryFee, localizedCurrencyStr]);
 
   // Memoized Event Handlers
   const handleNext = useCallback(
@@ -164,7 +158,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
           {/* Top Overlays */}
           <View
-            className={`absolute top-4 left-4 right-4 items-start ${rowClass} justify-between z-10`}
+            className={`absolute top-4 left-4 right-4 items-start ${"flex-row"} justify-between z-10`}
           >
             {offer ? (
               <View className="bg-primary px-3 py-1.5 rounded-2xl shadow-lg shadow-primary/30">
@@ -191,17 +185,17 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
           {/* Bottom Overlays: Food Info Slider */}
           <View className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
-            <View className={`${rowClass} justify-between items-end`}>
+            <View className={`${"flex-row"} justify-between items-end`}>
               <View className="flex-1">
                 <Text
                   numberOfLines={1}
-                  className={`text-white text-base font-bold mb-0.5 ${textAlign}`}
+                  className={`text-white text-base font-bold mb-0.5 ${"text-left"}`}
                 >
-                  {currentFood?.name?.[lang] || currentFood?.name?.["en"]}
+                  {currentFood?.name?.["en"]}
                 </Text>
                 {formattedPrice && (
                   <Text
-                    className={`text-primary font-bold text-sm ${textAlign}`}
+                    className={`text-primary font-bold text-sm ${"text-left"}`}
                   >
                     {formattedPrice}
                   </Text>
@@ -211,7 +205,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
               {/* Slider Controls */}
               {foodItems?.length > 1 && (
                 <View
-                  className={`${rowClass} ${getGapClass(2.5)} items-center mb-1`}
+                  className={`${"flex-row"} ${"gap-2"} items-center mb-1`}
                 >
                   <TouchableOpacity
                     onPress={handlePrev}
@@ -219,7 +213,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                     className="w-9 h-9 rounded-full bg-white/25 items-center justify-center backdrop-blur-lg border border-white/10"
                   >
                     <Ionicons
-                      name={isRTL ? "chevron-forward" : "chevron-back"}
+                      name={'chevron-back'}
                       size={18}
                       color="white"
                     />
@@ -230,7 +224,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                     className="w-9 h-9 rounded-full bg-white/25 items-center justify-center backdrop-blur-lg border border-white/10"
                   >
                     <Ionicons
-                      name={isRTL ? "chevron-back" : "chevron-forward"}
+                      name={'chevron-forward'}
                       size={18}
                       color="white"
                     />
@@ -242,7 +236,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
             {/* Dot Indicator */}
             {foodItems?.length > 1 && (
               <View
-                className={`flex-row justify-center mt-4 ${getGapClass(2)}`}
+                className={`flex-row justify-center mt-4 ${"gap-2"}`}
               >
                 {foodItems.map((_, idx) => (
                   <View
@@ -257,18 +251,18 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
         {/* DETAILS SECTION */}
         <View className="p-6">
-          <View className={`${rowClass} justify-between items-start mb-3`}>
+          <View className={`${"flex-row"} justify-between items-start mb-3`}>
             <View className={`flex-1 me-3`}>
               <Text
                 numberOfLines={1}
-                className={`text-2xl font-bold text-text dark:text-text-dark mb-1 ${textAlign}`}
+                className={`text-2xl font-bold text-text dark:text-text-dark mb-1 ${"text-left"}`}
               >
                 {restaurantName}
               </Text>
-              <View className={`${rowClass} items-center ${getGapClass(2)}`}>
+              <View className={`${"flex-row"} items-center ${"gap-2"}`}>
                 {cuisineName && (
                   <Text
-                    className={`text-text-muted dark:text-text-muted-dark text-xs font-medium ${textAlign}`}
+                    className={`text-text-muted dark:text-text-muted-dark text-xs font-medium ${"text-left"}`}
                   >
                     {cuisineName}
                   </Text>
@@ -277,14 +271,14 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                   <View className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600" />
                 )}
                 {areaName && (
-                  <View className={`${rowClass} items-center`}>
+                  <View className={`${"flex-row"} items-center`}>
                     <Ionicons
                       name="location-outline"
                       size={12}
                       color="#9ca3af"
                     />
                     <Text
-                      className={`text-text-muted dark:text-text-muted-dark text-[11px] font-medium ms-1 ${textAlign}`}
+                      className={`text-text-muted dark:text-text-muted-dark text-[11px] font-medium ms-1 ${"text-left"}`}
                     >
                       {areaName}
                     </Text>
@@ -302,7 +296,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
           {/* Meta Info */}
           <View
-            className={`${rowClass} items-center border-t border-border dark:border-border-dark pt-5 mt-2`}
+            className={`${"flex-row"} items-center border-t border-border dark:border-border-dark pt-5 mt-2`}
           >
             <View
               className={`flex-row items-center me-5`}

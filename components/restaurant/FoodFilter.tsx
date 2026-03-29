@@ -34,7 +34,7 @@ const PRICE_OPTIONS = [
 ];
 
 const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
-  const { isRTL, currentLanguage } = useSelector((state: RootState) => state.language);
+  const { currentLanguage } = useSelector((state: RootState) => state.language);
   const currencyStr = currentLanguage === 'ar' ? 'ر.س' : 'SAR';
 
   const toggleCategory = (catValue: string) => {
@@ -50,7 +50,7 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
       {/* Sort By Section */}
       <View className="mb-6">
         <Text className="text-lg font-bold text-gray-900 dark:text-white mb-3 text-start">
-          {isRTL ? "ترتيب حسب" : "Sort By"}
+          {'Sort By'}
         </Text>
         <View className="space-y-2">
           {SORT_OPTIONS.map((item) => {
@@ -68,7 +68,7 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
                 <Text className={`flex-1 text-base font-medium text-start ps-3 ${
                   isSelected ? "text-primary" : "text-gray-700 dark:text-gray-300"
                 }`}>
-                  {isRTL ? item.labelAr : item.label}
+                  {item.label}
                 </Text>
                 <View className={`w-5 h-5 rounded-full border-2 items-center justify-center ${
                   isSelected ? "border-primary" : "border-gray-300 dark:border-gray-600"
@@ -85,7 +85,7 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
       {availableCategories.length > 0 && (
         <View className="mb-6">
           <Text className="text-lg font-bold text-gray-900 dark:text-white mb-3 text-start">
-            {isRTL ? "التصنيفات" : "Categories"}
+            {'Categories'}
           </Text>
           <View className="flex-row flex-wrap gap-3 justify-start">
             {availableCategories.map((cat, idx) => {
@@ -118,7 +118,7 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
       {/* Price Range Section */}
       <View className="mb-6">
         <Text className="text-lg font-bold text-gray-900 dark:text-white mb-3 text-start">
-          {isRTL ? "نطاق السعر" : "Price Range"}
+          {'Price Range'}
         </Text>
         <View className="flex-row flex-wrap gap-3 justify-start">
           {PRICE_OPTIONS.map((item) => {
@@ -136,7 +136,7 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
                 <Text className={`text-sm font-bold text-center ${
                   isSelected ? "text-white" : "text-gray-700 dark:text-gray-300"
                 }`}>
-                  {isRTL ? `${item.range} ${currencyStr}` : `${currencyStr} ${item.range}`}
+                  {`${currencyStr} ${item.range}`}
                 </Text>
               </Pressable>
             );

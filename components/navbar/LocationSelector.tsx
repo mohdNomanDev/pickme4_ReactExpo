@@ -1,7 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
 import React, { useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
 import {
   Modal,
   Pressable,
@@ -17,9 +16,7 @@ export default function LocationSelector() {
   const [dropdownPos, setDropdownPos] = useState({ top: 0, left: 0 });
   const buttonRef = useRef<View>(null);
 
-  const { t } = useTranslation();
-  const { isRTL } = useSelector((state: RootState) => state.language);
-  const { colorScheme } = useColorScheme();
+      const { colorScheme } = useColorScheme();
   const selectedAddress = useSelector(
     (state: RootState) => state.selectedAddress.selectedAddress,
   );
@@ -28,7 +25,7 @@ export default function LocationSelector() {
   const displayLocation = selectedAddress
     ? selectedAddress.title ||
       `${selectedAddress.city}, ${selectedAddress.region || selectedAddress.street}`
-    : t("location.select_location", "Select Location");
+    : "Select Location";
 
   const toggleDropdown = () => {
     if (isOpen) {
@@ -37,7 +34,7 @@ export default function LocationSelector() {
       buttonRef.current?.measureInWindow((x, y, width, height) => {
         setDropdownPos({
           top: y + height + 8, // 8px spacing below button
-          left: isRTL ? x + width - 320 : x, // 320 is the w-80 width
+          left: x, // 320 is the w-80 width
         });
         setIsOpen(true);
       });
@@ -51,7 +48,7 @@ export default function LocationSelector() {
       <View ref={buttonRef} collapsable={false}>
         <Pressable
           onPress={toggleDropdown}
-          className={`flex-row items-center gap-2 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-full border border-gray-100 dark:border-gray-700 active:bg-gray-100 dark:active:bg-gray-700 ${isRTL ? "flex-row-reverse" : ""}`}
+          className={`flex-row items-center gap-2 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-full border border-gray-100 dark:border-gray-700 active:bg-gray-100 dark:active:bg-gray-700 `}
         >
           {/* Icon Container */}
           <View className="bg-white dark:bg-gray-700 p-1.5 rounded-full shadow-sm">
@@ -60,10 +57,10 @@ export default function LocationSelector() {
 
           {/* Text Container */}
           <View
-            className={`flex-col justify-center ${isRTL ? "items-end" : "items-start"} max-w-[150px]`}
+            className={`flex-col justify-center ${'items-start'} max-w-[150px]`}
           >
             <Text className="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider leading-none mb-0.5">
-              {t("location.delivering_to", "Delivering to")}
+              {"Delivering to"}
             </Text>
             <Text
               className="text-sm font-extrabold text-gray-900 dark:text-white leading-none"
@@ -75,7 +72,7 @@ export default function LocationSelector() {
           </View>
 
           {/* Dropdown Indicator Container */}
-          <View className={`${isRTL ? "mr-1" : "ml-1"}`}>
+          <View className={`${'ml-1'}`}>
             <Ionicons
               name={isOpen ? "chevron-up" : "chevron-down"}
               size={16}

@@ -7,8 +7,6 @@ import { useColorScheme as useSystemColorScheme } from "react-native";
 import "../global.css";
 
 import { Provider, useDispatch, useSelector } from "react-redux";
-import { initI18nPromise } from "../i18n"; // Initialize i18n
-import { syncLanguage } from "../store/languageSlice";
 import { RootState, store } from "../store/store";
 import { THEME_KEY, ThemeMode, syncTheme } from "../store/themeSlice";
 
@@ -26,10 +24,6 @@ function RootLayoutContent() {
   useEffect(() => {
     async function prepare() {
       try {
-        // Wait for i18n
-        await initI18nPromise;
-        dispatch(syncLanguage());
-
         // Load theme from storage
         const savedTheme = (await AsyncStorage.getItem(
           THEME_KEY,

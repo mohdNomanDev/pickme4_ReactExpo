@@ -9,7 +9,6 @@ import {
   ScrollView,
   useWindowDimensions,
 } from "react-native";
-import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 
@@ -36,9 +35,7 @@ const FilterSheet = ({
   title,
   children,
 }: Props) => {
-  const { t } = useTranslation();
-  const { isRTL } = useSelector((state: RootState) => state.language);
-  const { height, width } = useWindowDimensions();
+      const { height, width } = useWindowDimensions();
 
   // Determine if the device is a tablet or web browser (large screen)
   const isLargeScreen = width >= 768;
@@ -79,10 +76,10 @@ const FilterSheet = ({
               <CloseButton onPress={onClose} />
 
               <Text className="flex-1 text-center text-xl md:text-2xl font-bold text-gray-900 dark:text-white mx-4">
-                {title || (isRTL ? "تصفية" : "Filter Options")}
+                {title || ('Filter Options')}
               </Text>
 
-              <ClearButton onPress={onClear} title={isRTL ? "مسح" : "Clear"} />
+              <ClearButton onPress={onClear} title={'Clear'} />
             </View>
 
             {/* Scrollable Content */}
@@ -98,7 +95,7 @@ const FilterSheet = ({
             <View className="px-6 py-4 border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-card-dark">
               <ShowResultsButton
                 onPress={onApply}
-                title={isRTL ? "عرض النتائج" : "Show Results"}
+                title={'Show Results'}
                 count={resultsCount}
               />
             </View>
