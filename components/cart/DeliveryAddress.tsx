@@ -1,9 +1,15 @@
 import React from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
-const DeliveryAddress = ({ address }: { address: any }) => {
+const DeliveryAddress = ({ address }: { address?: any }) => {
+  const selectedAddress = useSelector((state: RootState) => state.selectedAddress.selectedAddress);
   
+  // Use selectedAddress from store, fallback to prop if needed
+  const displayAddress = selectedAddress || address;
+
   return (
     <View className="bg-card dark:bg-card-dark rounded-2xl p-4 shadow-md border border-border dark:border-border-dark">
       <View className="flex-row items-center justify-between mb-3">
@@ -26,13 +32,15 @@ const DeliveryAddress = ({ address }: { address: any }) => {
           />
         </View>
         <View className="flex-1">
-          {address ? (
+          {displayAddress ? (
             <>
               <Text className="font-semibold text-text dark:text-text-dark mb-1 text-left ">
-                {address.type || "Home"}
+                {displayAddress.type || displayAddress.title || "Home"}
               </Text>
               <Text className="text-text-muted dark:text-text-muted-dark text-sm leading-5 text-left ">
-                {address.street}, {address.district}, {address.city}
+                {displayAddress.street || displayAddress.formattedAddress}
+                {displayAddress.district ? `, ${displayAddress.district}` : ""}
+                {displayAddress.city ? `, ${displayAddress.city}` : ""}
               </Text>
             </>
           ) : (

@@ -11,6 +11,7 @@ import { RootState } from "../../store/store";
 import { setUser } from "../../store/userSlice";
 import userDataJson from "../../TestData/UserData.json";
 import { setCart } from "@/store/cartSlice";
+import { setSelectedAddress } from "@/store/selectedAddressSlice";
 
 export default function FoodHome() {
   const router = useRouter();
@@ -28,6 +29,12 @@ export default function FoodHome() {
       // Hydrate cart from mock user data
       if (mockUser.cart) {
         dispatch(setCart(mockUser.cart));
+      }
+
+      // Hydrate selected address from user's default address
+      if (mockUser.addresses && mockUser.addresses.length > 0) {
+        const defaultAddress = mockUser.addresses.find((a: any) => a.isDefault) || mockUser.addresses[0];
+        dispatch(setSelectedAddress(defaultAddress));
       }
     }
   }, [currentUser, dispatch]);
