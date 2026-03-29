@@ -17,7 +17,7 @@ const OrderSummary = () => {
       <PaymentMethod />
 
       <View className="mb-2">
-        <View className="flex-row rtl:flex-row-reverse justify-between items-center py-1.5">
+        <View className="flex-row justify-between items-center py-1.5">
           <Text className="text-text-muted dark:text-text-muted-dark text-sm text-left rtl:text-right">
             {t("cart.subtotal", "Subtotal")}
           </Text>
@@ -29,7 +29,7 @@ const OrderSummary = () => {
           </Text>
         </View>
 
-        <View className="flex-row rtl:flex-row-reverse justify-between items-center py-1.5">
+        <View className="flex-row justify-between items-center py-1.5">
           <Text className="text-text-muted dark:text-text-muted-dark text-sm text-left rtl:text-right">
             {t("cart.deliveryFee", "Delivery Fee")}
           </Text>
@@ -43,7 +43,7 @@ const OrderSummary = () => {
           </Text>
         </View>
 
-        <View className="flex-row rtl:flex-row-reverse justify-between items-center py-1.5">
+        <View className="flex-row justify-between items-center py-1.5">
           <Text className="text-text-muted dark:text-text-muted-dark text-sm text-left rtl:text-right">
             {t("cart.vat", "VAT (15%)")}
           </Text>
@@ -55,7 +55,7 @@ const OrderSummary = () => {
           </Text>
         </View>
 
-        <View className="flex-row rtl:flex-row-reverse justify-between items-center py-2 mt-3 pt-4 border-t border-border dark:border-border-dark">
+        <View className="flex-row justify-between items-center py-2 mt-3 pt-4 border-t border-border dark:border-border-dark">
           <Text className="font-bold text-text dark:text-text-dark text-lg text-left rtl:text-right">
             {t("cart.total", "Total")}
           </Text>

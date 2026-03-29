@@ -8,8 +8,8 @@ const PromoCode = () => {
 
   return (
     <View className="bg-card dark:bg-card-dark rounded-2xl p-4 shadow-md border border-border dark:border-border-dark mb-4">
-      <View className="flex-row rtl:flex-row-reverse items-center">
-        <View className="flex-1 flex-row rtl:flex-row-reverse items-center bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-xl px-3 h-12">
+      <View className="flex-row items-center">
+        <View className="flex-1 flex-row items-center bg-background dark:bg-background-dark border border-border dark:border-border-dark rounded-xl px-3 h-12">
           <Ionicons
             name="pricetag-outline"
             size={20}

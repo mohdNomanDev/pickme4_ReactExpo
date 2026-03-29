@@ -8,7 +8,7 @@ const DeliveryAddress = ({ address }: { address: any }) => {
 
   return (
     <View className="bg-card dark:bg-card-dark rounded-2xl p-4 shadow-md border border-border dark:border-border-dark">
-      <View className="flex-row rtl:flex-row-reverse items-center justify-between mb-3">
+      <View className="flex-row items-center justify-between mb-3">
         <Text className="text-lg font-bold text-text dark:text-text-dark text-left rtl:text-right">
           {t("cart.deliverTo", "Deliver to")}
         </Text>
@@ -19,7 +19,7 @@ const DeliveryAddress = ({ address }: { address: any }) => {
         </TouchableOpacity>
       </View>
 
-      <View className="flex-row rtl:flex-row-reverse items-start">
+      <View className="flex-row items-start">
         <View className="bg-background dark:bg-background-dark p-2.5 rounded-full mr-3 mt-1 rtl:mr-0 rtl:ml-3 border border-border dark:border-border-dark">
           <Ionicons
             name="location-outline"

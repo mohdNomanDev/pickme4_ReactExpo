@@ -16,7 +16,7 @@ const QuantityControl = ({
   const dispatch = useDispatch();
 
   return (
-    <View className="flex-row rtl:flex-row-reverse items-center bg-border dark:bg-border-dark rounded-full border border-border dark:border-border-dark shadow-sm">
+    <View className="flex-row items-center bg-border dark:bg-border-dark rounded-full border border-border dark:border-border-dark shadow-sm">
       <TouchableOpacity
         className="p-2 items-center justify-center w-8 h-8 rounded-full active:opacity-80"
         onPress={() =>

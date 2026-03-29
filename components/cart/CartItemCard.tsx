@@ -12,7 +12,7 @@ const CartItemCard = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <View className="flex-row rtl:flex-row-reverse items-center bg-background dark:bg-background-dark rounded-xl p-3 shadow-sm border border-border dark:border-border-dark">
+    <View className="flex-row items-center bg-background dark:bg-background-dark rounded-xl p-3 shadow-sm border border-border dark:border-border-dark">
       <Image
         source={{
           uri:

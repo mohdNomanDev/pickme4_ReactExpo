@@ -24,9 +24,8 @@ const CartScreen = () => {
       className="flex-1 bg-background dark:bg-background-dark"
       style={{ paddingBottom: insets.bottom }}
     >
-      {/* Header */}
       <View
-        className="flex-row rtl:flex-row-reverse items-center justify-between px-4 py-4 bg-card dark:bg-card-dark border-b border-border dark:border-border-dark"
+        className="flex-row items-center justify-between px-4 py-4 bg-card dark:bg-card-dark border-b border-border dark:border-border-dark"
         style={{ paddingTop: insets.top + 16 }}
       >
         <Pressable
@@ -42,7 +41,7 @@ const CartScreen = () => {
         <Text className="text-xl font-bold text-text dark:text-text-dark text-center flex-1">
           {t("cart.title", "Your Cart")}
         </Text>
-        <View className="w-10" /> {/* Spacer for centering */}
+        <View className="w-10" />
       </View>
 
       {cartData.length === 0 ? (
@@ -57,9 +56,9 @@ const CartScreen = () => {
           </Text>
         </View>
       ) : (
-        <View className="flex-1 flex-col lg:flex-row rtl:flex-row-reverse w-full max-w-7xl mx-auto">
+        <View className="flex-1 md:flex-row w-full max-w-7xl mx-auto">
           <ScrollView
-            className="flex-1 lg:w-2/3"
+            className="flex-1 md:w-2/3"
             contentContainerStyle={{ padding: 16, gap: 16 }}
             showsVerticalScrollIndicator={false}
           >
@@ -70,12 +69,11 @@ const CartScreen = () => {
             <DeliveryAddress address={defaultAddress} />
 
             <PromoCode />
-            {/* Add some padding at the bottom for mobile so content isn't hidden behind the sticky OrderSummary */}
-            <View className="h-4 lg:hidden" />
+            <View className="h-4 md:hidden" />
           </ScrollView>
 
           <View
-            className="p-4 bg-card dark:bg-card-dark rounded-t-3xl lg:rounded-2xl lg:w-1/3 lg:m-4 shadow-lg border-t lg:border border-border dark:border-border-dark lg:sticky lg:top-6"
+            className="p-4 bg-card dark:bg-card-dark rounded-t-3xl md:rounded-2xl md:w-1/3 md:m-4 shadow-lg border-t md:border border-border dark:border-border-dark md:top-6"
             style={{
               shadowColor: "#000",
               shadowOffset: { width: 0, height: -4 },

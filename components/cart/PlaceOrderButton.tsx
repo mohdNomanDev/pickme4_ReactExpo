@@ -7,7 +7,7 @@ const PlaceOrderButton = ({ total }: { total: number }) => {
 
   return (
     <TouchableOpacity
-      className="bg-primary active:opacity-80 rounded-xl py-4 px-6 flex-row rtl:flex-row-reverse justify-between items-center shadow-lg w-full mt-4"
+      className="bg-primary active:opacity-80 rounded-xl py-4 px-6 flex-row justify-between items-center shadow-lg w-full mt-4"
       style={{
         shadowColor: "#F97316",
         shadowOffset: { width: 0, height: 4 },

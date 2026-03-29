@@ -10,8 +10,8 @@ const PaymentMethod = () => {
       <Text className="text-sm font-semibold text-text-muted dark:text-text-muted-dark mb-2 text-left rtl:text-right">
         {t("cart.paymentMethod", "Payment Method")}
       </Text>
-      <TouchableOpacity className="flex-row rtl:flex-row-reverse items-center justify-between bg-background dark:bg-background-dark p-3 rounded-xl border border-primary active:opacity-80 shadow-md">
-        <View className="flex-row rtl:flex-row-reverse items-center">
+      <TouchableOpacity className="flex-row items-center justify-between bg-background dark:bg-background-dark p-3 rounded-xl border border-primary active:opacity-80 shadow-md">
+        <View className="flex-row items-center">
           <View className="bg-card dark:bg-card-dark p-2 rounded-lg shadow-sm border border-border dark:border-border-dark mr-3 rtl:mr-0 rtl:ml-3">
             <Ionicons name="card-outline" size={24} className="text-primary" />
           </View>

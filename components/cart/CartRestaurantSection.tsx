@@ -6,7 +6,7 @@ import CartItemCard from "./CartItemCard";
 const CartRestaurantSection = ({ section }: { section: any }) => {
   return (
     <View className="bg-card dark:bg-card-dark rounded-2xl p-4 mb-4 shadow-md border border-border dark:border-border-dark">
-      <View className="flex-row rtl:flex-row-reverse items-center mb-4 pb-3 border-b border-border dark:border-border-dark">
+      <View className="flex-row items-center mb-4 pb-3 border-b border-border dark:border-border-dark">
         <View className="bg-primary/20 p-2 rounded-full mr-3 rtl:mr-0 rtl:ml-3">
           <Ionicons
             name="restaurant-outline"
