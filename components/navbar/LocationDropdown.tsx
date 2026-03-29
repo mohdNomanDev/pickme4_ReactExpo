@@ -9,9 +9,10 @@ import SavedAddresses from "./SavedAddresses";
 
 interface LocationDropdownProps {
   onClose?: () => void;
+  containerClassName?: string;
 }
 
-export default function LocationDropdown({ onClose }: LocationDropdownProps) {
+export default function LocationDropdown({ onClose, containerClassName = "" }: LocationDropdownProps) {
       const { colorScheme } = useColorScheme();
   const router = useRouter();
 
@@ -22,7 +23,7 @@ export default function LocationDropdown({ onClose }: LocationDropdownProps) {
 
   return (
     <View
-      className={`w-80 bg-white dark:bg-card-dark rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 z-50 overflow-hidden ${Platform.OS === "web" ? "shadow-gray-200 dark:shadow-black" : ""}`}
+      className={`w-80 bg-white dark:bg-card-dark rounded-2xl shadow-xl border border-gray-100 dark:border-gray-800 z-50 overflow-hidden ${Platform.OS === "web" ? "shadow-gray-200 dark:shadow-black" : ""} ${containerClassName}`}
       style={Platform.OS !== "web" ? { elevation: 5 } : {}}
     >
       {/* Action: Use Current Location */}
