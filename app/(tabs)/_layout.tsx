@@ -125,6 +125,23 @@ export default function FoodHomeLayout() {
         }}
       />
       <Tabs.Screen
+        name="cart"
+        options={{
+          title: "Cart",
+          tabBarIcon: ({ color, focused }) => (
+            <View
+              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50 dark:bg-orange-500/20" : ""}`}
+            >
+              <Ionicons
+                name={focused ? "cart" : "cart-outline"}
+                size={24}
+                color={color}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="orders"
         options={{
           title: "Orders",

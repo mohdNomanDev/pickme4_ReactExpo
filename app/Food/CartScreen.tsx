@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, View, Pressable } from "react-native";
+import { ScrollView, Text, View, Pressable, Platform } from "react-native";
 import CartRestaurantSection from "@/components/cart/CartRestaurantSection";
 import DeliveryAddress from "@/components/cart/DeliveryAddress";
 import OrderSummary from "@/components/cart/OrderSummary";
@@ -9,33 +9,53 @@ import { Ionicons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 
-const CartScreen = () => {
-    const cartData = useSelector((state: any) => state.cart.cart);
+interface CartScreenProps {
+  isTab?: boolean;
+}
+
+const CartScreen = ({ isTab = false }: CartScreenProps) => {
+  const cartData = useSelector((state: any) => state.cart.cart);
   const user = useSelector((state: any) => state.user?.user);
   const insets = useSafeAreaInsets();
   const router = useRouter();
 
   const defaultAddress = user?.addresses?.find((a: any) => a.isDefault) || null;
 
+  // Extra padding to ensure content doesn't collide with the absolute custom tab bar
+  const paddingBottom = isTab 
+    ? Math.max(insets.bottom, Platform.OS === "ios" ? 100 : 90) 
+    : insets.bottom;
+
   return (
     <View
       className="flex-1 bg-background dark:bg-background-dark"
-      style={{ paddingBottom: insets.bottom }}
+      style={{ paddingBottom }}
     >
       <View
         className="flex-row items-center justify-between px-4 py-4 bg-card dark:bg-card-dark border-b border-border dark:border-border-dark"
         style={{ paddingTop: insets.top + 16 }}
       >
-        <Pressable
-          onPress={() => router.back()}
-          className="p-2 w-10 h-10 items-center justify-center rounded-full bg-border dark:bg-border-dark active:opacity-80"
-        >
-          <Ionicons
-            name="arrow-back"
-            size={24}
-            className="text-text dark:text-text-dark "
-          />
-        </Pressable>
+        {!isTab ? (
+          <Pressable
+            onPress={() => {
+              if (router.canGoBack()) {
+                router.back();
+              } else {
+                router.replace("/");
+              }
+            }}
+            className="p-2 w-10 h-10 items-center justify-center rounded-full bg-border dark:bg-border-dark active:opacity-80"
+          >
+            <Ionicons
+              name="arrow-back"
+              size={24}
+              className="text-text dark:text-text-dark "
+            />
+          </Pressable>
+        ) : (
+          <View className="w-10 h-10" />
+        )}
+        
         <Text className="text-xl font-bold text-text dark:text-text-dark text-center flex-1">
           {"Your Cart"}
         </Text>
