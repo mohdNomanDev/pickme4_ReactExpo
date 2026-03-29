@@ -16,27 +16,27 @@ const OrderSummary = () => {
     <View className="bg-transparent">
       <PaymentMethod />
       
-      <View className="mb-4">
-        <View className="flex-row justify-between items-center py-1">
-          <Text className="text-gray-500 dark:text-gray-400 text-sm">{t("cart.subtotal", "Subtotal")}</Text>
-          <Text className="text-gray-700 dark:text-gray-300 text-sm font-semibold" style={{ fontVariant: ['tabular-nums'] }}>{t("currency", "SAR")} {subtotal.toFixed(2)}</Text>
+      <View className="mb-2">
+        <View className="flex-row rtl:flex-row-reverse justify-between items-center py-1.5">
+          <Text className="text-gray-400 text-sm text-left rtl:text-right">{t("cart.subtotal", "Subtotal")}</Text>
+          <Text className="text-gray-200 text-sm font-semibold text-right rtl:text-left" style={{ fontVariant: ['tabular-nums'] }}>{t("currency", "SAR")} {subtotal.toFixed(2)}</Text>
         </View>
 
-        <View className="flex-row justify-between items-center py-1">
-          <Text className="text-gray-500 dark:text-gray-400 text-sm">{t("cart.deliveryFee", "Delivery Fee")}</Text>
-          <Text className="text-gray-700 dark:text-gray-300 text-sm font-semibold" style={{ fontVariant: ['tabular-nums'] }}>
+        <View className="flex-row rtl:flex-row-reverse justify-between items-center py-1.5">
+          <Text className="text-gray-400 text-sm text-left rtl:text-right">{t("cart.deliveryFee", "Delivery Fee")}</Text>
+          <Text className="text-gray-200 text-sm font-semibold text-right rtl:text-left" style={{ fontVariant: ['tabular-nums'] }}>
             {deliveryFee === 0 ? t("cart.free", "FREE") : `${t("currency", "SAR")} ${deliveryFee.toFixed(2)}`}
           </Text>
         </View>
 
-        <View className="flex-row justify-between items-center py-1">
-          <Text className="text-gray-500 dark:text-gray-400 text-sm">{t("cart.vat", "VAT (15%)")}</Text>
-          <Text className="text-gray-700 dark:text-gray-300 text-sm font-semibold" style={{ fontVariant: ['tabular-nums'] }}>{t("currency", "SAR")} {vat.toFixed(2)}</Text>
+        <View className="flex-row rtl:flex-row-reverse justify-between items-center py-1.5">
+          <Text className="text-gray-400 text-sm text-left rtl:text-right">{t("cart.vat", "VAT (15%)")}</Text>
+          <Text className="text-gray-200 text-sm font-semibold text-right rtl:text-left" style={{ fontVariant: ['tabular-nums'] }}>{t("currency", "SAR")} {vat.toFixed(2)}</Text>
         </View>
 
-        <View className="flex-row justify-between items-center py-1 mt-2 pt-3 border-t border-gray-200 dark:border-gray-700">
-          <Text className="font-bold text-gray-900 dark:text-white text-lg">{t("cart.total", "Total")}</Text>
-          <Text className="font-bold text-gray-900 dark:text-white text-xl" style={{ fontVariant: ['tabular-nums'] }}>{t("currency", "SAR")} {total.toFixed(2)}</Text>
+        <View className="flex-row rtl:flex-row-reverse justify-between items-center py-2 mt-3 pt-4 border-t border-[#3A2A1D]">
+          <Text className="font-bold text-white text-lg text-left rtl:text-right">{t("cart.total", "Total")}</Text>
+          <Text className="font-bold text-orange-500 text-xl text-right rtl:text-left" style={{ fontVariant: ['tabular-nums'] }}>{t("currency", "SAR")} {total.toFixed(2)}</Text>
         </View>
       </View>
 

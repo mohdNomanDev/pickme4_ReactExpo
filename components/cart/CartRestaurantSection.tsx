@@ -5,12 +5,12 @@ import CartItemCard from "./CartItemCard";
 
 const CartRestaurantSection = ({ section }: { section: any }) => {
   return (
-    <View className="bg-white dark:bg-gray-800 rounded-2xl p-4 mb-4 shadow-sm border border-gray-100 dark:border-gray-700">
-      <View className="flex-row items-center mb-4 pb-3 border-b border-gray-100 dark:border-gray-700">
-        <View className="bg-orange-100 dark:bg-orange-900/30 p-2 rounded-full mr-3">
-          <Ionicons name="restaurant-outline" size={20} className="text-orange-500 dark:text-orange-400" />
+    <View className="bg-[#2C1F14] rounded-2xl p-4 mb-4 shadow-md border border-[#3A2A1D]">
+      <View className="flex-row rtl:flex-row-reverse items-center mb-4 pb-3 border-b border-[#3A2A1D]">
+        <View className="bg-orange-500/20 p-2 rounded-full mr-3 rtl:mr-0 rtl:ml-3">
+          <Ionicons name="restaurant-outline" size={20} className="text-orange-500" />
         </View>
-        <Text className="text-lg font-bold text-gray-900 dark:text-white flex-1">
+        <Text className="text-lg font-bold text-white flex-1 text-left rtl:text-right">
           {section.restaurantId}
         </Text>
       </View>

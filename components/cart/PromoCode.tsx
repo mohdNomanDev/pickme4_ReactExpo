@@ -7,18 +7,18 @@ const PromoCode = () => {
   const { t } = useTranslation();
   
   return (
-    <View className="bg-white dark:bg-gray-800 rounded-2xl p-4 mb-4 shadow-sm border border-gray-100 dark:border-gray-700">
-      <View className="flex-row items-center">
-        <View className="flex-1 flex-row items-center bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-3 h-12">
-          <Ionicons name="pricetag-outline" size={20} className="text-gray-400 mr-2" />
+    <View className="bg-[#2C1F14] rounded-2xl p-4 shadow-md border border-[#3A2A1D] mb-4">
+      <View className="flex-row rtl:flex-row-reverse items-center">
+        <View className="flex-1 flex-row rtl:flex-row-reverse items-center bg-[#1A110A] border border-[#3A2A1D] rounded-xl px-3 h-12">
+          <Ionicons name="pricetag-outline" size={20} className="text-gray-400 mr-2 rtl:mr-0 rtl:ml-2 rtl:rotate-90" />
           <TextInput 
             placeholder={t("cart.promoPlaceholder", "Enter Promo Code")}
             placeholderTextColor="#9ca3af"
-            className="flex-1 text-gray-900 dark:text-white font-medium"
+            className="flex-1 text-white font-medium text-left rtl:text-right"
           />
         </View>
-        <TouchableOpacity className="bg-gray-900 dark:bg-white ml-3 px-5 h-12 justify-center rounded-xl active:opacity-70">
-          <Text className="text-white dark:text-gray-900 font-bold">
+        <TouchableOpacity className="bg-[#3A2A1D] ml-3 rtl:ml-0 rtl:mr-3 px-5 h-12 justify-center rounded-xl active:opacity-80 border border-[#4A3A2D]">
+          <Text className="text-white font-bold">
             {t("cart.apply", "Apply")}
           </Text>
         </TouchableOpacity>

@@ -20,30 +20,30 @@ const CartScreen = () => {
   const defaultAddress = user?.addresses?.find((a: any) => a.isDefault) || null;
 
   return (
-    <View className="flex-1 bg-gray-50 dark:bg-gray-900" style={{ paddingBottom: insets.bottom }}>
+    <View className="flex-1 bg-[#1A110A]" style={{ paddingBottom: insets.bottom }}>
       {/* Header */}
       <View 
-        className="flex-row items-center justify-between px-4 py-4 bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700" 
+        className="flex-row rtl:flex-row-reverse items-center justify-between px-4 py-4 bg-[#2C1F14] border-b border-[#3A2A1D]" 
         style={{ paddingTop: insets.top + 16 }}
       >
-        <Pressable onPress={() => router.back()} className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 active:opacity-70">
-          <Ionicons name="arrow-back" size={24} className="text-gray-800 dark:text-white" />
+        <Pressable onPress={() => router.back()} className="p-2 w-10 h-10 items-center justify-center rounded-full bg-[#3A2A1D] active:opacity-80">
+          <Ionicons name="arrow-back" size={24} className="text-white rtl:rotate-180" />
         </Pressable>
-        <Text className="text-xl font-bold text-gray-900 dark:text-white">{t("cart.title", "Your Cart")}</Text>
+        <Text className="text-xl font-bold text-white text-center flex-1">{t("cart.title", "Your Cart")}</Text>
         <View className="w-10" /> {/* Spacer for centering */}
       </View>
 
       {cartData.length === 0 ? (
         <View className="flex-1 items-center justify-center p-4">
-          <Ionicons name="cart-outline" size={80} className="text-gray-300 dark:text-gray-600 mb-4" />
-          <Text className="text-lg text-gray-500 dark:text-gray-400 font-medium">
+          <Ionicons name="cart-outline" size={80} className="text-[#3A2A1D] mb-4" />
+          <Text className="text-lg text-gray-400 font-medium text-center">
             {t("cart.empty", "Your cart is empty")}
-          </Text>
+        </Text>
         </View>
       ) : (
-        <>
+        <View className="flex-1 flex-col lg:flex-row rtl:flex-row-reverse w-full max-w-7xl mx-auto">
           <ScrollView 
-            className="flex-1"
+            className="flex-1 lg:w-2/3"
             contentContainerStyle={{ padding: 16, gap: 16 }}
             showsVerticalScrollIndicator={false}
           >
@@ -54,12 +54,17 @@ const CartScreen = () => {
             <DeliveryAddress address={defaultAddress} />
 
             <PromoCode />
+            {/* Add some padding at the bottom for mobile so content isn't hidden behind the sticky OrderSummary */}
+            <View className="h-4 lg:hidden" />
           </ScrollView>
 
-          <View className="p-4 bg-white dark:bg-gray-800 rounded-t-3xl shadow-lg border-t border-gray-100 dark:border-gray-700" style={{ boxShadow: "0 -4px 6px -1px rgba(0, 0, 0, 0.05)" }}>
+          <View 
+            className="p-4 bg-[#2C1F14] rounded-t-3xl lg:rounded-2xl lg:w-1/3 lg:m-4 shadow-lg border-t lg:border border-[#3A2A1D] lg:sticky lg:top-6" 
+            style={{ shadowColor: "#000", shadowOffset: { width: 0, height: -4 }, shadowOpacity: 0.3, shadowRadius: 6, elevation: 10 }}
+          >
             <OrderSummary />
           </View>
-        </>
+        </View>
       )}
     </View>
   );
