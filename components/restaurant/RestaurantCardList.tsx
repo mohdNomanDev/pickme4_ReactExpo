@@ -84,7 +84,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
           if (d === "vegetarian" || d === "vegan" || d === "gluten-free") {
             return (
               r.tags?.includes("healthy") ||
-              r.cuisine?.en.toLowerCase() === "healthy"
+              r.cuisine?.toLowerCase() === "healthy"
             );
           }
           return r.tags?.includes(d);

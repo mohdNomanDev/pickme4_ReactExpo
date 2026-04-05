@@ -3,14 +3,9 @@ import { Text, TouchableOpacity, View, Platform, useWindowDimensions } from "rea
 import { Image } from "expo-image";
 import { Ionicons } from "@expo/vector-icons";
 
-type LocalizedString = {
-  en: string;
-  ar: string;
-};
-
 type FoodItem = {
-  name: LocalizedString;
-  category: LocalizedString;
+  name: string;
+  category: string;
   image: string;
   price: number;
 };
@@ -65,7 +60,7 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
               className={`flex-1 text-[17px] leading-6 font-extrabold text-gray-900 dark:text-white ${'text-left'}`}
               numberOfLines={2}
             >
-              {data.name.en}
+              {data.name}
             </Text>
           </View>
           
@@ -73,7 +68,7 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
             className={`text-[13px] text-gray-500 dark:text-gray-400 font-medium mb-4 ${'text-left'}`}
             numberOfLines={1}
           >
-            {data.category.en}
+            {data.category}
           </Text>
         </View>
 

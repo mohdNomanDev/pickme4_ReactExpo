@@ -1,9 +1,7 @@
 [
   {
     "id": 1,
-    "name": {
-      "en": "Spice Hub"
-    },
+    "name": "Spice Hub",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -18,26 +16,16 @@
         "closing": "23:00"
       }
     },
-    "cuisine": {
-      "en": "Indian"
-    },
+    "cuisine": "Indian",
     "rating": 4.5,
     "deliveryTime": "25-30 min",
     "deliveryFee": 0,
     "offer": "20% OFF",
     "distance": "2.5 km",
-    "state": {
-      "en": "Riyadh"
-    },
-    "district": {
-      "en": "Olaya"
-    },
-    "area": {
-      "en": "Riyadh, Olaya"
-    },
-    "description": {
-      "en": "Authentic Indian spices and curries."
-    },
+    "state": "Riyadh",
+    "district": "Olaya",
+    "area": "Riyadh, Olaya",
+    "description": "Authentic Indian spices and curries.",
     "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
     "tags": [
       "popular",
@@ -45,87 +33,53 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Butter Chicken"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Butter Chicken",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
         "price": 45
       },
       {
-        "name": {
-          "en": "Paneer Tikka"
-        },
-        "category": {
-          "en": "Starters"
-        },
+        "name": "Paneer Tikka",
+        "category": "Starters",
         "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8",
         "price": 32
       },
       {
-        "name": {
-          "en": "Grilled Chicken"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Grilled Chicken",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 45
       },
       {
-        "name": {
-          "en": "Grilled Chicken"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Grilled Chicken",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 45
       },
       {
-        "name": {
-          "en": "Crispy Fries"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Crispy Fries",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 15
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 18
       }
     ],
     "menuCategories": [
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Starters"
-      },
-      {
-        "en": "Sides"
-      },
-      {
-        "en": "Drinks"
-      }
+      "Main Course",
+      "Starters",
+      "Sides",
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 2,
-    "name": {
-      "en": "Burger Palace"
-    },
+    "name": "Burger Palace",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -140,103 +94,63 @@
         "closing": "23:00"
       }
     },
-    "cuisine": {
-      "en": "American"
-    },
+    "cuisine": "American",
     "rating": 4.3,
     "deliveryTime": "20-25 min",
     "deliveryFee": 15,
     "offer": "Buy 1 Get 1",
     "distance": "1.8 km",
-    "state": {
-      "en": "Riyadh"
-    },
-    "district": {
-      "en": "Malaz"
-    },
-    "area": {
-      "en": "Riyadh, Malaz"
-    },
-    "description": {
-      "en": "Juicy burgers and crispy fries."
-    },
+    "state": "Riyadh",
+    "district": "Malaz",
+    "area": "Riyadh, Malaz",
+    "description": "Juicy burgers and crispy fries.",
     "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
     "tags": [
       "fastfood"
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Cheese Burger"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Cheese Burger",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
         "price": 28
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 18
       },
       {
-        "name": {
-          "en": "Mushroom Soup"
-        },
-        "category": {
-          "en": "Soups"
-        },
+        "name": "Mushroom Soup",
+        "category": "Soups",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 20
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 18
       }
     ],
     "menuCategories": [
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Soups"
-      },
-      {
-        "en": "Desserts"
-      }
+      "Main Course",
+      "Drinks",
+      "Soups",
+      "Desserts"
     ],
     "currency": "SAR"
   },
   {
     "id": 3,
-    "name": {
-      "en": "Pizza Town"
-    },
+    "name": "Pizza Town",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -251,103 +165,63 @@
         "closing": "23:00"
       }
     },
-    "cuisine": {
-      "en": "Italian"
-    },
+    "cuisine": "Italian",
     "rating": 4.6,
     "deliveryTime": "30-35 min",
     "deliveryFee": 10,
     "offer": "15% OFF",
     "distance": "3.2 km",
-    "state": {
-      "en": "Jeddah"
-    },
-    "district": {
-      "en": "Al Safa"
-    },
-    "area": {
-      "en": "Jeddah, Al Safa"
-    },
-    "description": {
-      "en": "Hot cheesy pizzas with fresh toppings."
-    },
+    "state": "Jeddah",
+    "district": "Al Safa",
+    "area": "Jeddah, Al Safa",
+    "description": "Hot cheesy pizzas with fresh toppings.",
     "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
     "tags": [
       "cheesy"
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Pepperoni Pizza"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Pepperoni Pizza",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e",
         "price": 42
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 18
       },
       {
-        "name": {
-          "en": "Spicy Wings"
-        },
-        "category": {
-          "en": "Appetizers"
-        },
+        "name": "Spicy Wings",
+        "category": "Appetizers",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 25
       },
       {
-        "name": {
-          "en": "Classic Caesar Salad"
-        },
-        "category": {
-          "en": "Salads"
-        },
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 30
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 18
       }
     ],
     "menuCategories": [
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Appetizers"
-      },
-      {
-        "en": "Salads"
-      }
+      "Main Course",
+      "Drinks",
+      "Appetizers",
+      "Salads"
     ],
     "currency": "SAR"
   },
   {
     "id": 4,
-    "name": {
-      "en": "Sushi Zen"
-    },
+    "name": "Sushi Zen",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -362,136 +236,82 @@
         "closing": "23:00"
       }
     },
-    "cuisine": {
-      "en": "Japanese"
-    },
+    "cuisine": "Japanese",
     "rating": 4.7,
     "deliveryTime": "35-40 min",
     "deliveryFee": 20,
     "offer": "10% OFF",
     "distance": "4.1 km",
-    "state": {
-      "en": "Jeddah"
-    },
-    "district": {
-      "en": "Al Rawdah"
-    },
-    "area": {
-      "en": "Jeddah, Rawdah"
-    },
-    "description": {
-      "en": "Fresh sushi and Japanese delicacies."
-    },
+    "state": "Jeddah",
+    "district": "Al Rawdah",
+    "area": "Jeddah, Rawdah",
+    "description": "Fresh sushi and Japanese delicacies.",
     "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c",
     "tags": [
       "premium"
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Salmon Sushi"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Salmon Sushi",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1553621042-f6e147245754",
         "price": 55
       },
       {
-        "name": {
-          "en": "Beef Steak"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Beef Steak",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 85
       },
       {
-        "name": {
-          "en": "Mushroom Soup"
-        },
-        "category": {
-          "en": "Soups"
-        },
+        "name": "Mushroom Soup",
+        "category": "Soups",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 20
       },
       {
-        "name": {
-          "en": "Mushroom Soup"
-        },
-        "category": {
-          "en": "Soups"
-        },
+        "name": "Mushroom Soup",
+        "category": "Soups",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 20
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 12
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 18
       },
       {
-        "name": {
-          "en": "Classic Caesar Salad"
-        },
-        "category": {
-          "en": "Salads"
-        },
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 30
       }
     ],
     "menuCategories": [
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Soups"
-      },
-      {
-        "en": "Desserts"
-      },
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Salads"
-      }
+      "Main Course",
+      "Soups",
+      "Desserts",
+      "Drinks",
+      "Salads"
     ],
     "currency": "SAR"
   },
   {
     "id": 5,
-    "name": {
-      "en": "Shawarma House"
-    },
+    "name": "Shawarma House",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -506,143 +326,87 @@
         "closing": "23:00"
       }
     },
-    "cuisine": {
-      "en": "Arabic"
-    },
+    "cuisine": "Arabic",
     "rating": 4.4,
     "deliveryTime": "15-20 min",
     "deliveryFee": 0,
     "offer": "Combo Deal",
     "distance": "1.2 km",
-    "state": {
-      "en": "Dammam"
-    },
-    "district": {
-      "en": "Shati"
-    },
-    "area": {
-      "en": "Dammam, Shati"
-    },
-    "description": {
-      "en": "Best shawarma wraps in town."
-    },
+    "state": "Dammam",
+    "district": "Shati",
+    "area": "Dammam, Shati",
+    "description": "Best shawarma wraps in town.",
     "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
     "tags": [
       "popular"
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Chicken Shawarma"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Chicken Shawarma",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
         "price": 12
       },
       {
-        "name": {
-          "en": "Onion Rings"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Onion Rings",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 16
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
-        "name": {
-          "en": "Crispy Fries"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Crispy Fries",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 15
       },
       {
-        "name": {
-          "en": "Spicy Wings"
-        },
-        "category": {
-          "en": "Appetizers"
-        },
+        "name": "Spicy Wings",
+        "category": "Appetizers",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 25
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
-        "name": {
-          "en": "Crispy Fries"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Crispy Fries",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 15
       },
       {
-        "name": {
-          "en": "Crispy Fries"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Crispy Fries",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 15
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 28
       }
     ],
     "menuCategories": [
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Sides"
-      },
-      {
-        "en": "Desserts"
-      },
-      {
-        "en": "Appetizers"
-      }
+      "Main Course",
+      "Sides",
+      "Desserts",
+      "Appetizers"
     ],
     "currency": "SAR"
   },
   {
     "id": 6,
-    "name": {
-      "en": "Healthy Greens"
-    },
+    "name": "Healthy Greens",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -657,26 +421,16 @@
         "closing": "22:00"
       }
     },
-    "cuisine": {
-      "en": "Healthy"
-    },
+    "cuisine": "Healthy",
     "rating": 4.8,
     "deliveryTime": "15-25 min",
     "deliveryFee": 5,
     "offer": "Free Drink",
     "distance": "2.1 km",
-    "state": {
-      "en": "Riyadh"
-    },
-    "district": {
-      "en": "Sulaimaniyah"
-    },
-    "area": {
-      "en": "Riyadh, Sulaimaniyah"
-    },
-    "description": {
-      "en": "Fresh salads and protein bowls."
-    },
+    "state": "Riyadh",
+    "district": "Sulaimaniyah",
+    "area": "Riyadh, Sulaimaniyah",
+    "description": "Fresh salads and protein bowls.",
     "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
     "tags": [
       "healthy",
@@ -684,123 +438,73 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Quinoa Salad"
-        },
-        "category": {
-          "en": "Salads"
-        },
+        "name": "Quinoa Salad",
+        "category": "Salads",
         "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
         "price": 38
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 28
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 12
       },
       {
-        "name": {
-          "en": "Spicy Wings"
-        },
-        "category": {
-          "en": "Appetizers"
-        },
+        "name": "Spicy Wings",
+        "category": "Appetizers",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 25
       },
       {
-        "name": {
-          "en": "Classic Caesar Salad"
-        },
-        "category": {
-          "en": "Salads"
-        },
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 30
       },
       {
-        "name": {
-          "en": "Onion Rings"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Onion Rings",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 16
       },
       {
-        "name": {
-          "en": "Crispy Fries"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Crispy Fries",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 15
       },
       {
-        "name": {
-          "en": "Mushroom Soup"
-        },
-        "category": {
-          "en": "Soups"
-        },
+        "name": "Mushroom Soup",
+        "category": "Soups",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 20
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 12
       }
     ],
     "menuCategories": [
-      {
-        "en": "Salads"
-      },
-      {
-        "en": "Desserts"
-      },
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Appetizers"
-      },
-      {
-        "en": "Sides"
-      },
-      {
-        "en": "Soups"
-      }
+      "Salads",
+      "Desserts",
+      "Drinks",
+      "Appetizers",
+      "Sides",
+      "Soups"
     ],
     "currency": "SAR"
   },
   {
     "id": 7,
-    "name": {
-      "en": "Taco Time"
-    },
+    "name": "Taco Time",
     "timings": {
       "friday": {
         "opening": "14:00",
@@ -815,26 +519,16 @@
         "closing": "00:00"
       }
     },
-    "cuisine": {
-      "en": "Mexican"
-    },
+    "cuisine": "Mexican",
     "rating": 4.2,
     "deliveryTime": "25-35 min",
     "deliveryFee": 12,
     "offer": "Free Delivery",
     "distance": "3.5 km",
-    "state": {
-      "en": "Khobar"
-    },
-    "district": {
-      "en": "Corniche"
-    },
-    "area": {
-      "en": "Khobar, Corniche"
-    },
-    "description": {
-      "en": "Authentic Mexican tacos and burritos."
-    },
+    "state": "Khobar",
+    "district": "Corniche",
+    "area": "Khobar, Corniche",
+    "description": "Authentic Mexican tacos and burritos.",
     "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47",
     "tags": [
       "spicy",
@@ -842,77 +536,47 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Beef Taco"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Beef Taco",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85",
         "price": 35
       },
       {
-        "name": {
-          "en": "Spicy Wings"
-        },
-        "category": {
-          "en": "Appetizers"
-        },
+        "name": "Spicy Wings",
+        "category": "Appetizers",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 25
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 18
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 12
       }
     ],
     "menuCategories": [
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Appetizers"
-      },
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Desserts"
-      }
+      "Main Course",
+      "Appetizers",
+      "Drinks",
+      "Desserts"
     ],
     "currency": "SAR"
   },
   {
     "id": 8,
-    "name": {
-      "en": "Pasta Villa"
-    },
+    "name": "Pasta Villa",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -927,26 +591,16 @@
         "closing": "00:00"
       }
     },
-    "cuisine": {
-      "en": "Italian"
-    },
+    "cuisine": "Italian",
     "rating": 4.5,
     "deliveryTime": "30-40 min",
     "deliveryFee": 15,
     "offer": "New Member 20%",
     "distance": "2.8 km",
-    "state": {
-      "en": "Riyadh"
-    },
-    "district": {
-      "en": "Hittin"
-    },
-    "area": {
-      "en": "Riyadh, Hittin"
-    },
-    "description": {
-      "en": "Handmade pasta with classic sauces."
-    },
+    "state": "Riyadh",
+    "district": "Hittin",
+    "area": "Riyadh, Hittin",
+    "description": "Handmade pasta with classic sauces.",
     "image": "https://images.unsplash.com/photo-1473093226795-af9932fe5856",
     "tags": [
       "pasta",
@@ -954,107 +608,65 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Fettuccine Alfredo"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Fettuccine Alfredo",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1645112481351-9ee8ca616cae",
         "price": 48
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 12
       },
       {
-        "name": {
-          "en": "Onion Rings"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Onion Rings",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 16
       },
       {
-        "name": {
-          "en": "Mushroom Soup"
-        },
-        "category": {
-          "en": "Soups"
-        },
+        "name": "Mushroom Soup",
+        "category": "Soups",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 20
       },
       {
-        "name": {
-          "en": "Crispy Fries"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Crispy Fries",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 15
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 12
       },
       {
-        "name": {
-          "en": "Crispy Fries"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Crispy Fries",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 15
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 12
       }
     ],
     "menuCategories": [
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Sides"
-      },
-      {
-        "en": "Soups"
-      }
+      "Main Course",
+      "Drinks",
+      "Sides",
+      "Soups"
     ],
     "currency": "SAR"
   },
   {
     "id": 9,
-    "name": {
-      "en": "Steak & Co"
-    },
+    "name": "Steak & Co",
     "timings": {
       "friday": {
         "opening": "16:00",
@@ -1069,26 +681,16 @@
         "closing": "23:00"
       }
     },
-    "cuisine": {
-      "en": "Steakhouse"
-    },
+    "cuisine": "Steakhouse",
     "rating": 4.9,
     "deliveryTime": "40-50 min",
     "deliveryFee": 25,
     "offer": "Premium Quality",
     "distance": "5.2 km",
-    "state": {
-      "en": "Jeddah"
-    },
-    "district": {
-      "en": "Al Shatie"
-    },
-    "area": {
-      "en": "Jeddah, Shatie"
-    },
-    "description": {
-      "en": "Premium cuts of meat grilled to perfection."
-    },
+    "state": "Jeddah",
+    "district": "Al Shatie",
+    "area": "Jeddah, Shatie",
+    "description": "Premium cuts of meat grilled to perfection.",
     "image": "https://images.unsplash.com/photo-1546241072-48010ad28c2c",
     "tags": [
       "steak",
@@ -1096,84 +698,52 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Ribeye Steak"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Ribeye Steak",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
         "price": 120
       },
       {
-        "name": {
-          "en": "Mushroom Soup"
-        },
-        "category": {
-          "en": "Soups"
-        },
+        "name": "Mushroom Soup",
+        "category": "Soups",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 20
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 28
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       },
       {
-        "name": {
-          "en": "Beef Steak"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Beef Steak",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 85
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 28
       }
     ],
     "menuCategories": [
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Soups"
-      },
-      {
-        "en": "Desserts"
-      }
+      "Main Course",
+      "Soups",
+      "Desserts"
     ],
     "currency": "SAR"
   },
   {
     "id": 10,
-    "name": {
-      "en": "Dim Sum House"
-    },
+    "name": "Dim Sum House",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -1188,26 +758,16 @@
         "closing": "22:00"
       }
     },
-    "cuisine": {
-      "en": "Chinese"
-    },
+    "cuisine": "Chinese",
     "rating": 4.4,
     "deliveryTime": "20-30 min",
     "deliveryFee": 10,
     "offer": "Happy Hour 15%",
     "distance": "1.9 km",
-    "state": {
-      "en": "Riyadh"
-    },
-    "district": {
-      "en": "Al Nakheel"
-    },
-    "area": {
-      "en": "Riyadh, Nakheel"
-    },
-    "description": {
-      "en": "Steamed and fried dumplings."
-    },
+    "state": "Riyadh",
+    "district": "Al Nakheel",
+    "area": "Riyadh, Nakheel",
+    "description": "Steamed and fried dumplings.",
     "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c",
     "tags": [
       "chinese",
@@ -1215,97 +775,59 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Shrimp Dumplings"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Shrimp Dumplings",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1563245394-17f991e39c9f",
         "price": 36
       },
       {
-        "name": {
-          "en": "Beef Steak"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Beef Steak",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 85
       },
       {
-        "name": {
-          "en": "Beef Steak"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Beef Steak",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 85
       },
       {
-        "name": {
-          "en": "Grilled Chicken"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Grilled Chicken",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 45
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 18
       },
       {
-        "name": {
-          "en": "Spicy Wings"
-        },
-        "category": {
-          "en": "Appetizers"
-        },
+        "name": "Spicy Wings",
+        "category": "Appetizers",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 25
       },
       {
-        "name": {
-          "en": "Cheesecake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Cheesecake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 28
       }
     ],
     "menuCategories": [
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Appetizers"
-      },
-      {
-        "en": "Desserts"
-      }
+      "Main Course",
+      "Drinks",
+      "Appetizers",
+      "Desserts"
     ],
     "currency": "SAR"
   },
   {
     "id": 11,
-    "name": {
-      "en": "Noodle Bar"
-    },
+    "name": "Noodle Bar",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -1320,26 +842,16 @@
         "closing": "23:30"
       }
     },
-    "cuisine": {
-      "en": "Asian"
-    },
+    "cuisine": "Asian",
     "rating": 4.3,
     "deliveryTime": "25-30 min",
     "deliveryFee": 8,
     "offer": "Free Spring Rolls",
     "distance": "2.4 km",
-    "state": {
-      "en": "Dammam"
-    },
-    "district": {
-      "en": "Faisaliyah"
-    },
-    "area": {
-      "en": "Dammam, Faisaliyah"
-    },
-    "description": {
-      "en": "Stir-fried noodles and ramen."
-    },
+    "state": "Dammam",
+    "district": "Faisaliyah",
+    "area": "Dammam, Faisaliyah",
+    "description": "Stir-fried noodles and ramen.",
     "image": "https://images.unsplash.com/photo-1552611052-33e04de081de",
     "tags": [
       "asian",
@@ -1347,100 +859,60 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Pad Thai"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Pad Thai",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de",
         "price": 42
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 12
       },
       {
-        "name": {
-          "en": "Mushroom Soup"
-        },
-        "category": {
-          "en": "Soups"
-        },
+        "name": "Mushroom Soup",
+        "category": "Soups",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 20
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 18
       },
       {
-        "name": {
-          "en": "Crispy Fries"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Crispy Fries",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 15
       },
       {
-        "name": {
-          "en": "Classic Caesar Salad"
-        },
-        "category": {
-          "en": "Salads"
-        },
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 30
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 12
       }
     ],
     "menuCategories": [
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Soups"
-      },
-      {
-        "en": "Sides"
-      },
-      {
-        "en": "Salads"
-      }
+      "Main Course",
+      "Drinks",
+      "Soups",
+      "Sides",
+      "Salads"
     ],
     "currency": "SAR"
   },
   {
     "id": 12,
-    "name": {
-      "en": "Dessert Delight"
-    },
+    "name": "Dessert Delight",
     "timings": {
       "friday": {
         "opening": "15:00",
@@ -1455,26 +927,16 @@
         "closing": "00:00"
       }
     },
-    "cuisine": {
-      "en": "Desserts"
-    },
+    "cuisine": "Desserts",
     "rating": 4.7,
     "deliveryTime": "15-20 min",
     "deliveryFee": 5,
     "offer": "Buy 2 Get 1",
     "distance": "1.1 km",
-    "state": {
-      "en": "Riyadh"
-    },
-    "district": {
-      "en": "Rawdah"
-    },
-    "area": {
-      "en": "Riyadh, Rawdah"
-    },
-    "description": {
-      "en": "Cakes, pastries, and sweet treats."
-    },
+    "state": "Riyadh",
+    "district": "Rawdah",
+    "area": "Riyadh, Rawdah",
+    "description": "Cakes, pastries, and sweet treats.",
     "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
     "tags": [
       "sweets",
@@ -1482,90 +944,54 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Chocolate Lava Cake"
-        },
-        "category": {
-          "en": "Desserts"
-        },
+        "name": "Chocolate Lava Cake",
+        "category": "Desserts",
         "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
         "price": 25
       },
       {
-        "name": {
-          "en": "Mushroom Soup"
-        },
-        "category": {
-          "en": "Soups"
-        },
+        "name": "Mushroom Soup",
+        "category": "Soups",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 20
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 12
       },
       {
-        "name": {
-          "en": "Grilled Chicken"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Grilled Chicken",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 45
       },
       {
-        "name": {
-          "en": "Classic Caesar Salad"
-        },
-        "category": {
-          "en": "Salads"
-        },
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 30
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 18
       }
     ],
     "menuCategories": [
-      {
-        "en": "Desserts"
-      },
-      {
-        "en": "Soups"
-      },
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Salads"
-      }
+      "Desserts",
+      "Soups",
+      "Drinks",
+      "Main Course",
+      "Salads"
     ],
     "currency": "SAR"
   },
   {
     "id": 13,
-    "name": {
-      "en": "Juice Junction"
-    },
+    "name": "Juice Junction",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -1580,26 +1006,16 @@
         "closing": "23:00"
       }
     },
-    "cuisine": {
-      "en": "Beverages"
-    },
+    "cuisine": "Beverages",
     "rating": 4.6,
     "deliveryTime": "10-20 min",
     "deliveryFee": 5,
     "offer": "25% OFF Juices",
     "distance": "0.8 km",
-    "state": {
-      "en": "Khobar"
-    },
-    "district": {
-      "en": "Olaya"
-    },
-    "area": {
-      "en": "Khobar, Olaya"
-    },
-    "description": {
-      "en": "Freshly squeezed juices and smoothies."
-    },
+    "state": "Khobar",
+    "district": "Olaya",
+    "area": "Khobar, Olaya",
+    "description": "Freshly squeezed juices and smoothies.",
     "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b2",
     "tags": [
       "juice",
@@ -1607,113 +1023,67 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Orange Juice"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Orange Juice",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423",
         "price": 15
       },
       {
-        "name": {
-          "en": "Crispy Fries"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Crispy Fries",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
         "price": 15
       },
       {
-        "name": {
-          "en": "Classic Caesar Salad"
-        },
-        "category": {
-          "en": "Salads"
-        },
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 30
       },
       {
-        "name": {
-          "en": "Crispy Fries"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Crispy Fries",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 15
       },
       {
-        "name": {
-          "en": "Beef Steak"
-        },
-        "category": {
-          "en": "Main Course"
-        },
+        "name": "Beef Steak",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
         "price": 85
       },
       {
-        "name": {
-          "en": "Onion Rings"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Onion Rings",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 16
       },
       {
-        "name": {
-          "en": "Spicy Wings"
-        },
-        "category": {
-          "en": "Appetizers"
-        },
+        "name": "Spicy Wings",
+        "category": "Appetizers",
         "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
         "price": 25
       },
       {
-        "name": {
-          "en": "Mushroom Soup"
-        },
-        "category": {
-          "en": "Soups"
-        },
+        "name": "Mushroom Soup",
+        "category": "Soups",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 20
       }
     ],
     "menuCategories": [
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Sides"
-      },
-      {
-        "en": "Salads"
-      },
-      {
-        "en": "Main Course"
-      },
-      {
-        "en": "Appetizers"
-      },
-      {
-        "en": "Soups"
-      }
+      "Drinks",
+      "Sides",
+      "Salads",
+      "Main Course",
+      "Appetizers",
+      "Soups"
     ],
     "currency": "SAR"
   },
   {
     "id": 14,
-    "name": {
-      "en": "Le Paris"
-    },
+    "name": "Le Paris",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -1728,26 +1098,16 @@
         "closing": "23:00"
       }
     },
-    "cuisine": {
-      "en": "French"
-    },
+    "cuisine": "French",
     "rating": 4.8,
     "deliveryTime": "35-45 min",
     "deliveryFee": 20,
     "offer": "Premium Selection",
     "distance": "4.5 km",
-    "state": {
-      "en": "Riyadh"
-    },
-    "district": {
-      "en": "Takhassusi"
-    },
-    "area": {
-      "en": "Riyadh, Takhassusi"
-    },
-    "description": {
-      "en": "French pastries and classic dishes."
-    },
+    "state": "Riyadh",
+    "district": "Takhassusi",
+    "area": "Riyadh, Takhassusi",
+    "description": "French pastries and classic dishes.",
     "image": "https://images.unsplash.com/photo-1550966841-3eeec10e7b99",
     "tags": [
       "french",
@@ -1755,80 +1115,48 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Croissant"
-        },
-        "category": {
-          "en": "Bakery"
-        },
+        "name": "Croissant",
+        "category": "Bakery",
         "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a",
         "price": 18
       },
       {
-        "name": {
-          "en": "Classic Caesar Salad"
-        },
-        "category": {
-          "en": "Salads"
-        },
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 30
       },
       {
-        "name": {
-          "en": "Spicy Wings"
-        },
-        "category": {
-          "en": "Appetizers"
-        },
+        "name": "Spicy Wings",
+        "category": "Appetizers",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 25
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 18
       },
       {
-        "name": {
-          "en": "Onion Rings"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Onion Rings",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 16
       }
     ],
     "menuCategories": [
-      {
-        "en": "Bakery"
-      },
-      {
-        "en": "Salads"
-      },
-      {
-        "en": "Appetizers"
-      },
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Sides"
-      }
+      "Bakery",
+      "Salads",
+      "Appetizers",
+      "Drinks",
+      "Sides"
     ],
     "currency": "SAR"
   },
   {
     "id": 15,
-    "name": {
-      "en": "The Coffee Club"
-    },
+    "name": "The Coffee Club",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -1843,26 +1171,16 @@
         "closing": "00:00"
       }
     },
-    "cuisine": {
-      "en": "Cafe"
-    },
+    "cuisine": "Cafe",
     "rating": 4.5,
     "deliveryTime": "15-25 min",
     "deliveryFee": 7,
     "offer": "Morning Special",
     "distance": "1.3 km",
-    "state": {
-      "en": "Riyadh"
-    },
-    "district": {
-      "en": "KAFD"
-    },
-    "area": {
-      "en": "Riyadh, KAFD"
-    },
-    "description": {
-      "en": "Specialty coffee and breakfast."
-    },
+    "state": "Riyadh",
+    "district": "KAFD",
+    "area": "Riyadh, KAFD",
+    "description": "Specialty coffee and breakfast.",
     "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
     "tags": [
       "coffee",
@@ -1870,66 +1188,40 @@
     ],
     "foodItems": [
       {
-        "name": {
-          "en": "Latte"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Latte",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1541167760496-162955ed8a9f",
         "price": 22
       },
       {
-        "name": {
-          "en": "Iced Tea"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Iced Tea",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 12
       },
       {
-        "name": {
-          "en": "Mojito"
-        },
-        "category": {
-          "en": "Drinks"
-        },
+        "name": "Mojito",
+        "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
         "price": 18
       },
       {
-        "name": {
-          "en": "Classic Caesar Salad"
-        },
-        "category": {
-          "en": "Salads"
-        },
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 30
       },
       {
-        "name": {
-          "en": "Onion Rings"
-        },
-        "category": {
-          "en": "Sides"
-        },
+        "name": "Onion Rings",
+        "category": "Sides",
         "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
         "price": 16
       }
     ],
     "menuCategories": [
-      {
-        "en": "Drinks"
-      },
-      {
-        "en": "Salads"
-      },
-      {
-        "en": "Sides"
-      }
+      "Drinks",
+      "Salads",
+      "Sides"
     ],
     "currency": "SAR"
   }

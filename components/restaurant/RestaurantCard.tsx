@@ -9,31 +9,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleBookmark } from "../../store/bookmarkSlice";
 import { setRestaurantId } from "../../store/OnPressRestaurantSlice";
 
-/**
- * LocalizedString and FoodItem types for type safety
- */
-type LocalizedString = {
-  en: string;
-  ar: string;
-};
-
 type FoodItem = {
-  name: LocalizedString;
+  name: string;
   image: string;
   price?: number;
 };
 
 export type Restaurant = {
   id: number;
-  name: LocalizedString;
+  name: string;
   foodItems: FoodItem[];
   rating: number;
   deliveryTime: string;
   deliveryFee: number;
   currency?: string;
-  cuisine?: LocalizedString;
+  cuisine?: string;
   offer?: string;
-  area?: LocalizedString;
+  area?: string;
   tags?: string[];
 };
 
@@ -49,7 +41,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const dispatch = useDispatch();
-  
+
   // Optimized State Selectors
   const isBookmarked = useSelector((state: RootState) =>
     restaurant?.id ? state.bookmark.value.includes(restaurant.id) : false,
@@ -61,18 +53,9 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
     [restaurant?.foodItems, currentIndex],
   );
 
-  const restaurantName = useMemo(
-    () => restaurant?.name?.["en"],
-    [restaurant?.name],
-  );
-  const cuisineName = useMemo(
-    () => restaurant?.cuisine?.["en"] || restaurant?.cuisine?.["en"],
-    [restaurant?.cuisine],
-  );
-  const areaName = useMemo(
-    () => restaurant?.area?.["en"] || restaurant?.area?.["en"],
-    [restaurant?.area],
-  );
+  const restaurantName = useMemo(() => restaurant?.name, [restaurant?.name]);
+  const cuisineName = useMemo(() => restaurant?.cuisine, [restaurant?.cuisine]);
+  const areaName = useMemo(() => restaurant?.area, [restaurant?.area]);
 
   // Helpers to localize currency and formatting
   const localizedCurrencyStr = useMemo(() => {
@@ -90,7 +73,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
   const formattedDeliveryFee = useMemo(() => {
     if (restaurant?.deliveryFee === 0) {
-      return 'Free';
+      return "Free";
     }
     return `${localizedCurrencyStr} ${restaurant.deliveryFee}`;
   }, [restaurant?.deliveryFee, localizedCurrencyStr]);
@@ -191,7 +174,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                   numberOfLines={1}
                   className={`text-white text-base font-bold mb-0.5 ${"text-left"}`}
                 >
-                  {currentFood?.name?.["en"]}
+                  {currentFood?.name}
                 </Text>
                 {formattedPrice && (
                   <Text
@@ -204,19 +187,13 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
               {/* Slider Controls */}
               {foodItems?.length > 1 && (
-                <View
-                  className={`${"flex-row"} ${"gap-2"} items-center mb-1`}
-                >
+                <View className={`${"flex-row"} ${"gap-2"} items-center mb-1`}>
                   <TouchableOpacity
                     onPress={handlePrev}
                     hitSlop={8}
                     className="w-9 h-9 rounded-full bg-white/25 items-center justify-center backdrop-blur-lg border border-white/10"
                   >
-                    <Ionicons
-                      name={'chevron-back'}
-                      size={18}
-                      color="white"
-                    />
+                    <Ionicons name={"chevron-back"} size={18} color="white" />
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={handleNext}
@@ -224,7 +201,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                     className="w-9 h-9 rounded-full bg-white/25 items-center justify-center backdrop-blur-lg border border-white/10"
                   >
                     <Ionicons
-                      name={'chevron-forward'}
+                      name={"chevron-forward"}
                       size={18}
                       color="white"
                     />
@@ -235,9 +212,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
             {/* Dot Indicator */}
             {foodItems?.length > 1 && (
-              <View
-                className={`flex-row justify-center mt-4 ${"gap-2"}`}
-              >
+              <View className={`flex-row justify-center mt-4 ${"gap-2"}`}>
                 {foodItems.map((_, idx) => (
                   <View
                     key={idx}
@@ -298,9 +273,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
           <View
             className={`${"flex-row"} items-center border-t border-border dark:border-border-dark pt-5 mt-2`}
           >
-            <View
-              className={`flex-row items-center me-5`}
-            >
+            <View className={`flex-row items-center me-5`}>
               <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
                 <Ionicons name="time-outline" size={16} color="#6b7280" />
               </View>
@@ -309,13 +282,13 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
               </Text>
             </View>
 
-            <View
-              className={`flex-row items-center ms-5`}
-            >
+            <View className={`flex-row items-center ms-5`}>
               <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
                 <Ionicons name="bicycle-outline" size={16} color="#6b7280" />
               </View>
-              <Text className={`text-text dark:text-text-dark text-[13px] font-semibold ${restaurant?.deliveryFee === 0 ? 'text-green-600 dark:text-green-400' : ''}`}>
+              <Text
+                className={`text-text dark:text-text-dark text-[13px] font-semibold ${restaurant?.deliveryFee === 0 ? "text-green-600 dark:text-green-400" : ""}`}
+              >
                 {formattedDeliveryFee}
               </Text>
             </View>

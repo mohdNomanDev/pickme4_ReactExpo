@@ -10,18 +10,9 @@ type Restaurant = {
   image: string;
   rating: number;
   distance: string;
-  area: {
-    en: string;
-    ar: string;
-  };
-  name: {
-    en: string;
-    ar: string;
-  };
-  description: {
-    en: string;
-    ar: string;
-  };
+  area: string;
+  name: string;
+  description: string;
   offer: string;
   deliveryTime: string;
   deliveryFee: number;

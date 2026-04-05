@@ -9,15 +9,10 @@ export interface FoodFilterState {
   categories: string[];
 }
 
-type LocalizedString = {
-  en: string;
-  ar: string;
-};
-
 type Props = {
   filters: FoodFilterState;
   setFilters: React.Dispatch<React.SetStateAction<FoodFilterState>>;
-  availableCategories: LocalizedString[];
+  availableCategories: string[];
 };
 
 const SORT_OPTIONS = [
@@ -89,12 +84,11 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
           </Text>
           <View className="flex-row flex-wrap gap-3 justify-start">
             {availableCategories.map((cat, idx) => {
-              const catValue = cat.en;
-              const isSelected = filters.categories.includes(catValue);
+              const isSelected = filters.categories.includes(cat);
               return (
                 <Pressable
                   key={idx}
-                  onPress={() => toggleCategory(catValue)}
+                  onPress={() => toggleCategory(cat)}
                   className={`py-2 px-5 rounded-full border ${
                     isSelected 
                       ? "bg-gray-900 border-gray-900 dark:bg-white dark:border-white" 
@@ -106,7 +100,7 @@ const FoodFilter = ({ filters, setFilters, availableCategories }: Props) => {
                       ? "text-white dark:text-gray-900" 
                       : "text-gray-700 dark:text-gray-300"
                   }`}>
-                    {currentLanguage === 'ar' ? cat.ar : cat.en}
+                    {cat}
                   </Text>
                 </Pressable>
               );

@@ -7,14 +7,9 @@ import { Text, View, useWindowDimensions, Platform } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import FoodCard from "./FoodCard";
 
-type LocalizedString = {
-  en: string;
-  ar: string;
-};
-
 type FoodItem = {
-  name: LocalizedString;
-  category: LocalizedString;
+  name: string;
+  category: string;
   image: string;
   price: number;
 };
@@ -40,13 +35,13 @@ const FoodCardListing = ({ foodItems }: Props) => {
 
   // Extract unique categories dynamically from the passed food items
   const availableCategories = useMemo(() => {
-    const catsMap = new Map<string, LocalizedString>();
+    const catsSet = new Set<string>();
     foodItems.forEach(item => {
-      if (item.category && item.category.en) {
-        catsMap.set(item.category.en, item.category);
+      if (item.category) {
+        catsSet.add(item.category);
       }
     });
-    return Array.from(catsMap.values());
+    return Array.from(catsSet);
   }, [foodItems]);
 
   const activeFilterCount = useMemo(() => {
@@ -62,7 +57,7 @@ const FoodCardListing = ({ foodItems }: Props) => {
 
     // Filter by Category
     if (filters.categories.length > 0) {
-      data = data.filter(item => item.category && filters.categories.includes(item.category.en));
+      data = data.filter(item => item.category && filters.categories.includes(item.category));
     }
 
     // Filter by Price Range

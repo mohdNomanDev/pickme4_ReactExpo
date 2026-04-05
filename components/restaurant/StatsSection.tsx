@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import { useMemo } from "react";
 
-const Stats = ({ data, lang }: any) => {
+const Stats = ({ data }: any) => {
   const formattedDeliveryFee = useMemo(() => {
     if (data.deliveryFee === 0) {
       return 'Free';
@@ -13,7 +13,7 @@ const Stats = ({ data, lang }: any) => {
     const localizedCurrency = currencyMap[cCode] || cCode;
     
     return `${localizedCurrency} ${data.deliveryFee}`;
-  }, [data.deliveryFee, data.currency, lang]);
+  }, [data.deliveryFee, data.currency]);
 
   return (
     <View className="flex-row justify-between p-4 rounded-2xl bg-white/10 border border-white/5">

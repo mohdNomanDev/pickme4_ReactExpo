@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Text, View } from "react-native";
 
-const Info = ({ data, lang }: any) => (
+const Info = ({ data }: any) => (
   <View className="mb-6">
     {/* Tag & Rating row */}
     <View className="flex-row items-center justify-between mb-4">
@@ -22,14 +22,14 @@ const Info = ({ data, lang }: any) => (
     <Text
       className="text-3xl font-extrabold text-white mb-2 tracking-tight text-start"
     >
-      {data.name?.en}
+      {data.name}
     </Text>
 
     {/* Location */}
     <View className="flex-row items-center gap-1.5 mb-5">
       <Ionicons name="location-sharp" size={16} color="#f87171" />
       <Text className="text-sm font-medium text-gray-300">
-        {data.distance} • {data.area?.[lang] ?? data.area?.en}
+        {data.distance} • {data.area}
       </Text>
     </View>
 
@@ -37,7 +37,7 @@ const Info = ({ data, lang }: any) => (
     <Text
       className="text-base text-gray-300 leading-6 text-start"
     >
-      {data.description?.[lang] ?? data.description?.en}
+      {data.description}
     </Text>
   </View>
 );
