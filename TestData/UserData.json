@@ -83,11 +83,7 @@
       }
     ],
     "preferences": {
-      "favoriteCuisines": [
-        "arabic",
-        "shawarma",
-        "kabsa"
-      ],
+      "favoriteCuisines": ["arabic", "shawarma", "kabsa"],
       "allergies": [],
       "notifications": {
         "push": true,
@@ -162,13 +158,102 @@
         ]
       }
     ],
+    "activeOrders": [
+      {
+        "orderId": "ord_2001",
+        "restaurantId": "rest_010",
+        "restaurantName": "The Saffron Grill",
+        "itemsCount": 3,
+        "status": "preparing",
+        "statusLabel": "Chef is preparing",
+        "estimatedDeliveryTime": "18:45",
+        "remainingTime": 12,
+        "progress": 0.6,
+        "deliveryType": "restaurant_delivery",
+        "rider": null,
+        "actions": {
+          "canContact": true,
+          "canTrack": true
+        },
+        "createdAt": "2026-03-29T18:30:00Z"
+      },
+      {
+        "orderId": "ord_2002",
+        "restaurantId": "rest_011",
+        "restaurantName": "Artisan Crust Pizza",
+        "itemsCount": 1,
+        "status": "on_the_way",
+        "statusLabel": "Rider is on the way",
+        "estimatedDeliveryTime": "19:05",
+        "remainingTime": 5,
+        "progress": 0.85,
+        "deliveryType": "rider_delivery",
+        "rider": {
+          "id": "rider_001",
+          "name": "Ahmad",
+          "phone": "+966512345678",
+          "vehicle": "bike",
+          "plateNumber": "XYZ-1234",
+          "rating": 4.7,
+          "location": {
+            "lat": 24.7136,
+            "lng": 46.6753
+          }
+        },
+        "actions": {
+          "canContact": true,
+          "canTrack": true
+        },
+        "createdAt": "2026-03-29T18:40:00Z"
+      }
+    ],
+
     "orderHistory": [
       {
         "orderId": "ord_1001",
         "restaurantId": "rest_002",
+        "restaurantName": "Wok Master Express",
         "status": "delivered",
-        "date": "2026-03-20T19:30:00Z",
-        "total": 120
+        "statusLabel": "Delivered",
+        "itemsCount": 2,
+        "totalAmount": 34.5,
+        "currency": "SAR",
+        "deliveredAt": "2026-03-20T19:30:00Z",
+        "actions": {
+          "canReorder": true,
+          "canRate": true
+        }
+      },
+      {
+        "orderId": "ord_1002",
+        "restaurantId": "rest_003",
+        "restaurantName": "Wrap & Roll",
+        "status": "delivered",
+        "statusLabel": "Delivered",
+        "itemsCount": 4,
+        "totalAmount": 52.0,
+        "currency": "SAR",
+        "deliveredAt": "2026-03-18T14:10:00Z",
+        "actions": {
+          "canReorder": true,
+          "canRate": true
+        }
+      },
+      {
+        "orderId": "ord_1003",
+        "restaurantId": "rest_004",
+        "restaurantName": "Ramen Republic",
+        "status": "cancelled",
+        "statusLabel": "Cancelled",
+        "itemsCount": 1,
+        "totalAmount": 18.9,
+        "currency": "SAR",
+        "cancelledAt": "2026-03-10T11:00:00Z",
+        "cancelReason": "Restaurant unavailable",
+        "actions": {
+          "canReorder": false,
+          "canRetry": true
+        }
       }
     ],
     "createdAt": "2025-01-10T10:30:00Z"
@@ -222,14 +307,8 @@
       }
     ],
     "preferences": {
-      "favoriteCuisines": [
-        "fast_food",
-        "desserts",
-        "coffee"
-      ],
-      "allergies": [
-        "nuts"
-      ],
+      "favoriteCuisines": ["fast_food", "desserts", "coffee"],
+      "allergies": ["nuts"],
       "notifications": {
         "push": true,
         "sms": false,
@@ -294,11 +373,7 @@
       }
     ],
     "preferences": {
-      "favoriteCuisines": [
-        "italian",
-        "burgers",
-        "healthy"
-      ],
+      "favoriteCuisines": ["italian", "burgers", "healthy"],
       "allergies": [],
       "notifications": {
         "push": true,

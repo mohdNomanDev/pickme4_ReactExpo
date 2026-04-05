@@ -6,6 +6,8 @@ import { onPressRestaurantSlice } from "./OnPressRestaurantSlice";
 import selectedAddressReducer from "./selectedAddressSlice";
 import {userSlice} from "./userSlice";
 import cartReducer from "./cartSlice";
+import ordersReducer from "./ordersSlice";
+import appModeReducer from "./appModeSlice";
 
 export const store = configureStore({
   reducer: {
@@ -15,7 +17,9 @@ export const store = configureStore({
     onPressRestaurant: onPressRestaurantSlice.reducer,
     selectedAddress: selectedAddressReducer,
     user: userSlice.reducer,
-    cart: cartReducer
+    cart: cartReducer,
+    orders: ordersReducer,
+    appMode: appModeReducer,
   },
 });
 

@@ -1,14 +1,12 @@
 import { useColorScheme } from "nativewind";
 import React from "react";
 import { View } from "react-native";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
 import BrandLogo from "../common/BrandLogo";
 import LocationSelector from "./LocationSelector";
 import ModeToggle from "./ModeToggle";
 
 const Navbar = () => {
-    const { colorScheme } = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   return (
     <View
@@ -20,16 +18,12 @@ const Navbar = () => {
       </View>
 
       {/* Center Section: Location Selector */}
-      <View
-        className={`flex-1 px-4 z-50 ${'items-start'}`}
-      >
+      <View className={`flex-1 px-4 z-50 ${"items-start"}`}>
         <LocationSelector />
       </View>
 
       {/* Right Section: Actions */}
-      <View
-        className={`flex-row items-center gap-2 flex-shrink-0 `}
-      >
+      <View className={`flex-row items-center gap-2 flex-shrink-0 `}>
         <ModeToggle />
       </View>
     </View>

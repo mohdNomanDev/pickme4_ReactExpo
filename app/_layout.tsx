@@ -4,6 +4,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useColorScheme as useNativeWindColorScheme } from "nativewind";
 import { useEffect, useState } from "react";
 import { useColorScheme as useSystemColorScheme } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import "../global.css";
 
 import { Provider, useDispatch, useSelector } from "react-redux";
@@ -61,6 +62,8 @@ function RootLayoutContent() {
     return null;
   }
 
+  // Stability: Do NOT conditionally render the navigator based on app state/mode here 
+  // to avoid unmounting the entire navigation tree, which breaks context on mobile.
   return (
     <Stack screenOptions={{ headerShown: false }}>
       <Stack.Screen name="index" />
@@ -72,7 +75,9 @@ function RootLayoutContent() {
 export default function RootLayout() {
   return (
     <Provider store={store}>
-      <RootLayoutContent />
+      <SafeAreaProvider>
+        <RootLayoutContent />
+      </SafeAreaProvider>
     </Provider>
   );
 }

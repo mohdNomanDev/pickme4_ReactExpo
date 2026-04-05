@@ -1,29 +1,139 @@
-import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
+import { useColorScheme } from "nativewind";
+import React, { useEffect, useState } from "react";
+import { ScrollView, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { useDispatch, useSelector } from "react-redux";
+import ActiveOrdersSection from "../../components/orders/ActiveOrdersSection";
+import OrderHistorySection from "../../components/orders/OrderHistorySection";
+import OrdersHeader from "../../components/orders/OrdersHeader";
+import OrdersTabs from "../../components/orders/OrdersTabs";
+import { setOrders } from "../../store/ordersSlice";
+import { RootState } from "../../store/store";
+import UserData from "../../TestData/UserData.json";
 
-export default function OrdersPage() {
-    
-  return (
-    <SafeAreaView edges={['top']} className="flex-1 bg-gray-50 dark:bg-background-dark">
-      <ScrollView 
-        className="flex-1" 
-        contentContainerStyle={{ paddingBottom: 100 }} // Extra padding for the floating tab bar
-        showsVerticalScrollIndicator={false}
-      >
-        <View className="flex-1 items-center justify-center py-20 px-6 max-w-5xl mx-auto w-full min-h-[60vh]">
-          <View className="w-24 h-24 bg-orange-100 dark:bg-orange-500/20 rounded-full items-center justify-center mb-6">
-            <Ionicons name="receipt" size={48} color="#f97316" />
-          </View>
-          <Text className="text-2xl font-bold text-gray-900 dark:text-white mb-2 text-center">
-            {'Orders'}
-          </Text>
-          <Text className="text-gray-500 dark:text-gray-400 text-center max-w-xs leading-5">
-            View your active orders and track their delivery status here.
-          </Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+// const MyOrdersScreen = () => {
+//   const dispatch = useDispatch();
+//   const { activeOrders, orderHistory } = useSelector(
+//     (state: RootState) => state.orders,
+//   );
+
+//   // Refactor to use local state for tab switching within the screen
+//   // to prevent Redux-induced wide re-renders that might affect navigation context.
+//   const [activeTab, setActiveTab] = useState<"active" | "history">("active");
+
+//   const { colorScheme } = useColorScheme();
+//   const isDark = colorScheme === "dark";
+//   const insets = useSafeAreaInsets();
+//   const [isReady, setIsReady] = useState(false);
+
+//   useEffect(() => {
+//     const timeout = setTimeout(() => {
+//       const user = UserData[0];
+//       if (user) {
+//         dispatch(
+//           setOrders({
+//             activeOrders: user.activeOrders || [],
+//             orderHistory: user.orderHistory || [],
+//           }),
+//         );
+//       }
+//     }, 0); // 👈 small delay fixes navigation timing
+
+//     return () => clearTimeout(timeout);
+//   }, [dispatch]);
+
+//   useEffect(() => {
+//     setIsReady(true);
+//   }, []);
+//   if (!isReady) return null;
+
+//   return (
+//     <View
+//       style={{ paddingTop: insets.top }}
+//       className={`flex-1 ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
+//     >
+//       <View className="flex-1 px-4 pt-2 md:px-8 lg:px-12 md:max-w-4xl lg:max-w-6xl md:mx-auto w-full">
+//         <OrdersHeader />
+
+//         {/* Pass local state to the tabs component */}
+//         <OrdersTabs activeTab={activeTab} onTabChange={setActiveTab} />
+
+//         <ScrollView
+//           showsVerticalScrollIndicator={false}
+//           contentContainerStyle={{ paddingBottom: 100 }}
+//           className="mt-4"
+//         >
+//           {/* ✅ KEEP BOTH MOUNTED */}
+
+//           <View style={{ display: activeTab === "active" ? "flex" : "none" }}>
+//             <ActiveOrdersSection orders={activeOrders} />
+//           </View>
+
+//           <View style={{ display: activeTab === "history" ? "flex" : "none" }}>
+//             <OrderHistorySection orders={orderHistory} />
+//           </View>
+//         </ScrollView>
+//       </View>
+//     </View>
+//   );
+// };
+
+const MyOrdersScreen = () => {
+  const dispatch = useDispatch();
+  const { activeOrders, orderHistory } = useSelector(
+    (state: RootState) => state.orders
   );
-}
+
+  const [activeTab, setActiveTab] = useState<"active" | "history">("active");
+  const [isReady, setIsReady] = useState(false);
+
+  const { colorScheme } = useColorScheme();
+  const isDark = colorScheme === "dark";
+  const insets = useSafeAreaInsets();
+
+  useEffect(() => {
+    setIsReady(true);
+
+    const timeout = setTimeout(() => {
+      const user = UserData[0];
+      if (user) {
+        dispatch(setOrders({
+          activeOrders: user.activeOrders || [],
+          orderHistory: user.orderHistory || [],
+        }));
+      }
+    }, 0);
+
+    return () => clearTimeout(timeout);
+  }, [dispatch]);
+
+  if (!isReady) return null;
+
+  return (
+    <View
+      style={{ paddingTop: insets.top }}
+      className={`flex-1 ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
+    >
+      <View className="flex-1 px-4 pt-2 md:px-8 lg:px-12 md:max-w-4xl lg:max-w-6xl md:mx-auto w-full">
+        <OrdersHeader />
+
+        <OrdersTabs activeTab={activeTab} onTabChange={setActiveTab} />
+
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{ paddingBottom: 100 }}
+          className="mt-4"
+        >
+          <View style={{ display: activeTab === "active" ? "flex" : "none" }}>
+            <ActiveOrdersSection orders={activeOrders} />
+          </View>
+
+          <View style={{ display: activeTab === "history" ? "flex" : "none" }}>
+            <OrderHistorySection orders={orderHistory} />
+          </View>
+        </ScrollView>
+      </View>
+    </View>
+  );
+};
+export default MyOrdersScreen;

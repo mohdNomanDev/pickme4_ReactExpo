@@ -1,23 +1,27 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
-import React, { useState } from "react";
+import React from "react";
 import { Pressable, Text, View } from "react-native";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../store/store";
+import { setAppMode, AppMode } from "../../store/appModeSlice";
 
 export default function ModeToggle() {
-  const [activeMode, setActiveMode] = useState<"food" | "ride">("food");
-      const { colorScheme } = useColorScheme();
+  const dispatch = useDispatch();
+  const activeMode = useSelector((state: RootState) => state.appMode.mode);
+  const { colorScheme } = useColorScheme();
 
   const isDark = colorScheme === "dark";
 
+  const handleModeChange = (mode: AppMode) => {
+    dispatch(setAppMode(mode));
+  };
+
   return (
-    <View
-      className={`flex-row bg-gray-100 dark:bg-gray-800 p-1 rounded-full `}
-    >
+    <View className={`flex-row bg-gray-100 dark:bg-gray-800 p-1 rounded-full `}>
       {/* Food Mode Button */}
       <Pressable
-        onPress={() => setActiveMode("food")}
+        onPress={() => handleModeChange("food")}
         className={`flex-row items-center justify-center px-3 py-1.5 rounded-full gap-1.5 ${activeMode === "food" ? "bg-white dark:bg-gray-700 shadow-sm" : ""} `}
       >
         <Ionicons
@@ -36,7 +40,7 @@ export default function ModeToggle() {
 
       {/* Ride Mode Button */}
       <Pressable
-        onPress={() => setActiveMode("ride")}
+        onPress={() => handleModeChange("ride")}
         className={`flex-row items-center justify-center px-3 py-1.5 rounded-full gap-1.5 ${activeMode === "ride" ? "bg-white dark:bg-gray-700 shadow-sm" : ""} `}
       >
         <Ionicons
