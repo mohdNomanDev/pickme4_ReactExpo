@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import React, { useCallback, useMemo, useState } from "react";
 import {
   FlatList,
@@ -8,7 +9,6 @@ import {
 } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import { useSelector } from "react-redux";
-import { Ionicons } from "@expo/vector-icons";
 
 import FilterButton from "@/components/common/FilterButton";
 import FilterSheet from "@/components/common/FilterSheet";
@@ -20,8 +20,31 @@ import RestaurantFilter, {
 } from "@/components/restaurant/RestaurantFilter";
 import { RootState } from "@/store/store";
 import restaurantDataJson from "@/TestData/RestaurantData.json";
+import userDataJson from "@/TestData/UserData.json";
 
-const restaurantData = restaurantDataJson as unknown as Restaurant[];
+type RestaurantWithLocation = Restaurant & {
+  district?: string;
+};
+
+type UserAddressWithDistrict = {
+  district?: string;
+  region?: string;
+  isDefault?: boolean;
+};
+
+type UserWithAddresses = {
+  addresses?: UserAddressWithDistrict[];
+};
+
+const restaurantData = restaurantDataJson as unknown as RestaurantWithLocation[];
+const fallbackUser = (userDataJson as unknown as UserWithAddresses[])[0];
+
+const normalizeDistrict = (district?: string) =>
+  district
+    ?.trim()
+    .toLowerCase()
+    .replace(/^al\s+/, "")
+    .replace(/\s+/g, " ") || "";
 
 const DEFAULT_FILTERS: FilterState = {
   sortBy: "recommended",
@@ -35,9 +58,34 @@ interface RestaurantCardListProps {
 }
 
 const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
-      const { width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
+  const selectedAddress = useSelector(
+    (state: RootState) => state.selectedAddress.selectedAddress,
+  );
+  const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
+
+  const userDistrict = useMemo(() => {
+    const defaultAddress =
+      (currentUser?.addresses?.find((address) => address.isDefault) ||
+        currentUser?.addresses?.[0] ||
+        fallbackUser?.addresses?.find((address) => address.isDefault) ||
+        fallbackUser?.addresses?.[0]) as UserAddressWithDistrict | undefined;
+
+    return (
+      selectedAddress?.region ||
+      (selectedAddress as UserAddressWithDistrict | null)?.district ||
+      defaultAddress?.district ||
+      defaultAddress?.region ||
+      ""
+    );
+  }, [currentUser?.addresses, selectedAddress]);
+
+  const normalizedUserDistrict = useMemo(
+    () => normalizeDistrict(userDistrict),
+    [userDistrict],
+  );
 
   // Determine active filter indicator count
   const activeFilterCount = useMemo(() => {
@@ -53,13 +101,21 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   const filteredData = useMemo(() => {
     let data = [...restaurantData];
 
-    // 1. Filter by Rating
+    // 1. Filter by selected/default user district
+    if (normalizedUserDistrict) {
+      data = data.filter(
+        (restaurant) =>
+          normalizeDistrict(restaurant.district) === normalizedUserDistrict,
+      );
+    }
+
+    // 2. Filter by Rating
     if (filters.rating) {
       const minRating = parseFloat(filters.rating.replace("+", ""));
       data = data.filter((r) => r.rating >= minRating);
     }
 
-    // 2. Filter by Price Range (using average item price)
+    // 3. Filter by Price Range (using average item price)
     if (filters.priceRange) {
       const isOver100 = filters.priceRange === "100+";
       const [minStr, maxStr] = filters.priceRange.split("-");
@@ -69,13 +125,15 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
       data = data.filter((r) => {
         if (!r.foodItems || r.foodItems.length === 0) return false;
         const avgPrice =
-          r.foodItems.reduce((sum: number, item: any) => sum + (item.price || 0), 0) /
-          r.foodItems.length;
+          r.foodItems.reduce(
+            (sum: number, item: any) => sum + (item.price || 0),
+            0,
+          ) / r.foodItems.length;
         return avgPrice >= min && avgPrice <= max;
       });
     }
 
-    // 3. Filter by Dietary (Mock mappings for demonstration)
+    // 4. Filter by Dietary (Mock mappings for demonstration)
     if (filters.dietary.length > 0) {
       data = data.filter((r) => {
         return filters.dietary.some((diet) => {
@@ -92,7 +150,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
       });
     }
 
-    // 4. Sort By
+    // 5. Sort By
     if (filters.sortBy === "rating") {
       data.sort((a, b) => b.rating - a.rating);
     } else if (filters.sortBy === "delivery_time") {
@@ -101,19 +159,21 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
         return match ? parseInt(match[1], 10) : 999;
       };
       data.sort(
-        (a, b) => parseTime(a.deliveryTime) - parseTime(b.deliveryTime)
+        (a, b) => parseTime(a.deliveryTime) - parseTime(b.deliveryTime),
       );
     } else if (filters.sortBy === "price_low_high") {
       const getAvgPrice = (r: Restaurant) =>
         r.foodItems?.length
-          ? r.foodItems.reduce((sum: number, item: any) => sum + (item.price || 0), 0) /
-            r.foodItems.length
+          ? r.foodItems.reduce(
+              (sum: number, item: any) => sum + (item.price || 0),
+              0,
+            ) / r.foodItems.length
           : Number.MAX_SAFE_INTEGER;
       data.sort((a, b) => getAvgPrice(a) - getAvgPrice(b));
     }
 
     return data;
-  }, [filters]);
+  }, [filters, normalizedUserDistrict]);
 
   const handleClearFilters = () => {
     setFilters(DEFAULT_FILTERS);
@@ -126,7 +186,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   // Determine number of columns based on screen width
   const numColumns = useMemo(
     () => (width > 1024 ? 3 : width > 768 ? 2 : 1),
-    [width]
+    [width],
   );
 
   const isWeb = Platform.OS === "web";
@@ -142,7 +202,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
         <RestaurantCard restaurant={item} />
       </Animated.View>
     ),
-    [numColumns]
+    [numColumns],
   );
 
   const ListHeader = useMemo(
@@ -153,9 +213,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
           entering={FadeInDown.duration(600).springify()}
           className="mb-8"
         >
-          <View
-            className="flex-row items-center justify-between w-full"
-          >
+          <View className="flex-row items-center justify-between w-full">
             <Text
               className={`flex-1 pr-4 text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark text-start pe-4`}
             >
@@ -173,7 +231,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
         </Animated.View>
       </View>
     ),
-    [isFilterOpen, activeFilterCount, filteredData.length, headerContent]
+    [isFilterOpen, activeFilterCount, filteredData.length, headerContent],
   );
 
   const ListEmpty = useMemo(
@@ -183,19 +241,19 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
           <Ionicons name="search-outline" size={48} color="#9ca3af" />
         </View>
         <Text className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-center">
-          {'No restaurants found'}
+          {"No restaurants found"}
         </Text>
         <Text className="text-gray-500 dark:text-gray-400 text-center max-w-xs">
-          {'Try adjusting or clearing some filters to see more results.'}
+          {"Try adjusting or clearing some filters to see more results."}
         </Text>
       </View>
     ),
-    [false]
+    [],
   );
 
   const keyExtractor = useCallback(
     (item: Restaurant) => item.id.toString(),
-    []
+    [],
   );
 
   return (
