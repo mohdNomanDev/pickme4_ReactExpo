@@ -110,8 +110,9 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
         setFieldValue("country", address.country);
         setFieldValue("countryCode", address.countryCode);
         setFieldValue("formattedAddress", address.formattedAddress);
-      } catch {
+      } catch (error) {
         if (geocodeRequestId.current === requestId) {
+          console.warn("Reverse geocoding failed:", error);
           setAddressLookupError("Could not find address details for this map point. You can enter them manually.");
         }
       } finally {

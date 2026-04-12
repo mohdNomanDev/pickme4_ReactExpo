@@ -1,3 +1,5 @@
+import { Platform } from "react-native";
+
 export type ReverseGeocodingCoordinate = {
   latitude: number;
   longitude: number;
@@ -46,41 +48,28 @@ type NominatimReverseResponse = {
 };
 
 const NOMINATIM_REVERSE_URL = "https://nominatim.openstreetmap.org/reverse";
+const ADDRESS_ZOOM_LEVEL = 18;
 
 function firstAvailable(...values: (string | undefined)[]) {
   return values.find((value) => value && value.trim().length > 0)?.trim() ?? "";
 }
 
-export async function reverseGeocodeCoordinate(
+function buildHeaders() {
+  const headers: Record<string, string> = {
+    Accept: "application/json",
+  };
+
+  if (Platform.OS !== "web") {
+    headers["User-Agent"] = "Pickme4OrderingMobile/1.0";
+  }
+
+  return headers;
+}
+
+function normalizeNominatimResult(
+  result: NominatimReverseResponse,
   coordinate: ReverseGeocodingCoordinate,
-  signal?: AbortSignal,
-): Promise<ReverseGeocodedAddress> {
-  const params = new URLSearchParams({
-    format: "jsonv2",
-    addressdetails: "1",
-    zoom: "18",
-    lat: coordinate.latitude.toString(),
-    lon: coordinate.longitude.toString(),
-    "accept-language": "en",
-  });
-
-  const response = await fetch(`${NOMINATIM_REVERSE_URL}?${params.toString()}`, {
-    headers: {
-      Accept: "application/json",
-    },
-    signal,
-  });
-
-  if (!response.ok) {
-    throw new Error("Unable to fetch address details for this location.");
-  }
-
-  const result = (await response.json()) as NominatimReverseResponse;
-
-  if (result.error) {
-    throw new Error(result.error);
-  }
-
+): ReverseGeocodedAddress {
   const address = result.address ?? {};
 
   return {
@@ -102,4 +91,35 @@ export async function reverseGeocodeCoordinate(
     street: firstAvailable(address.road, address.pedestrian, address.footway),
     buildingNumber: firstAvailable(address.house_number),
   };
+}
+
+export async function reverseGeocodeCoordinate(
+  coordinate: ReverseGeocodingCoordinate,
+  signal?: AbortSignal,
+): Promise<ReverseGeocodedAddress> {
+  const params = new URLSearchParams({
+    format: "jsonv2",
+    addressdetails: "1",
+    zoom: ADDRESS_ZOOM_LEVEL.toString(),
+    lat: coordinate.latitude.toString(),
+    lon: coordinate.longitude.toString(),
+    "accept-language": "en",
+  });
+
+  const response = await fetch(`${NOMINATIM_REVERSE_URL}?${params.toString()}`, {
+    headers: buildHeaders(),
+    signal,
+  });
+
+  if (!response.ok) {
+    throw new Error(`Unable to fetch address details. Status: ${response.status}`);
+  }
+
+  const result = (await response.json()) as NominatimReverseResponse;
+
+  if (result.error) {
+    throw new Error(result.error);
+  }
+
+  return normalizeNominatimResult(result, coordinate);
 }
