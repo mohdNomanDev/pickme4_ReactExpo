@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import {
   ActivityIndicator,
   type GestureResponderEvent,
@@ -22,6 +22,9 @@ export type {
 
 const DEFAULT_LATITUDE_DELTA = 0.012;
 const DEFAULT_LONGITUDE_DELTA = 0.012;
+const MIN_MAP_DELTA = 0.002;
+const MAX_MAP_DELTA = 0.18;
+const ZOOM_FACTOR = 2;
 
 function isValidCoordinate(latitude?: number | null, longitude?: number | null) {
   return (
@@ -114,16 +117,32 @@ export default function AppMap({
 }: AppMapProps) {
   const { colorScheme } = useColorScheme();
   const [layout, setLayout] = useState({ width: 0, height: 0 });
+  const [viewDelta, setViewDelta] = useState({
+    latitudeDelta,
+    longitudeDelta,
+  });
   const resolvedTheme = theme === "system" ? colorScheme : theme;
   const hasValidCoordinate = isValidCoordinate(latitude, longitude);
+
+  useEffect(() => {
+    setViewDelta({
+      latitudeDelta,
+      longitudeDelta,
+    });
+  }, [latitudeDelta, longitudeDelta]);
 
   const mapUrl = useMemo(() => {
     if (!hasValidCoordinate || typeof latitude !== "number" || typeof longitude !== "number") {
       return null;
     }
 
-    return buildOpenStreetMapUrl(latitude, longitude, latitudeDelta, longitudeDelta);
-  }, [hasValidCoordinate, latitude, latitudeDelta, longitude, longitudeDelta]);
+    return buildOpenStreetMapUrl(
+      latitude,
+      longitude,
+      viewDelta.latitudeDelta,
+      viewDelta.longitudeDelta,
+    );
+  }, [hasValidCoordinate, latitude, longitude, viewDelta.latitudeDelta, viewDelta.longitudeDelta]);
 
   if (
     loading ||
@@ -166,10 +185,10 @@ export default function AppMap({
       return;
     }
 
-    const south = latitude - latitudeDelta;
-    const north = latitude + latitudeDelta;
-    const west = longitude - longitudeDelta;
-    const east = longitude + longitudeDelta;
+    const south = latitude - viewDelta.latitudeDelta;
+    const north = latitude + viewDelta.latitudeDelta;
+    const west = longitude - viewDelta.longitudeDelta;
+    const east = longitude + viewDelta.longitudeDelta;
     const xRatio = offset.x / layout.width;
     const yRatio = offset.y / layout.height;
     const nextCoordinate = {
@@ -180,6 +199,21 @@ export default function AppMap({
     if (isValidCoordinate(nextCoordinate.latitude, nextCoordinate.longitude)) {
       onLocationChange(nextCoordinate);
     }
+  };
+
+  const handleZoom = (direction: "in" | "out") => {
+    const zoomMultiplier = direction === "in" ? 1 / ZOOM_FACTOR : ZOOM_FACTOR;
+
+    setViewDelta((currentDelta) => ({
+      latitudeDelta: Math.min(
+        MAX_MAP_DELTA,
+        Math.max(MIN_MAP_DELTA, currentDelta.latitudeDelta * zoomMultiplier),
+      ),
+      longitudeDelta: Math.min(
+        MAX_MAP_DELTA,
+        Math.max(MIN_MAP_DELTA, currentDelta.longitudeDelta * zoomMultiplier),
+      ),
+    }));
   };
 
   return (
@@ -205,6 +239,27 @@ export default function AppMap({
         onPress={handleMapPress}
         style={styles.selectionLayer}
       />
+
+      <View pointerEvents="none" style={styles.defaultZoomControlCover} />
+
+      <View style={styles.zoomControls}>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Zoom in"
+          onPress={() => handleZoom("in")}
+          style={styles.zoomButton}
+        >
+          <Text style={styles.zoomButtonText}>+</Text>
+        </Pressable>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Zoom out"
+          onPress={() => handleZoom("out")}
+          style={styles.zoomButton}
+        >
+          <Text style={styles.zoomButtonText}>-</Text>
+        </Pressable>
+      </View>
 
       <View style={styles.webOverlay} pointerEvents="box-none">
         <Pressable onPress={openMap} style={styles.openButton}>
@@ -246,6 +301,37 @@ const styles = StyleSheet.create({
   },
   selectionLayer: {
     ...StyleSheet.absoluteFillObject,
+  },
+  defaultZoomControlCover: {
+    backgroundColor: "#f9fafb",
+    borderBottomRightRadius: 8,
+    height: 92,
+    left: 0,
+    position: "absolute",
+    top: 0,
+    width: 60,
+  },
+  zoomControls: {
+    gap: 8,
+    left: 12,
+    position: "absolute",
+    top: 12,
+  },
+  zoomButton: {
+    alignItems: "center",
+    backgroundColor: "#ffffff",
+    borderColor: "#e5e7eb",
+    borderRadius: 8,
+    borderWidth: 1,
+    height: 40,
+    justifyContent: "center",
+    width: 40,
+  },
+  zoomButtonText: {
+    color: "#111827",
+    fontSize: 22,
+    fontWeight: "800",
+    lineHeight: 24,
   },
   webOverlay: {
     bottom: 12,
