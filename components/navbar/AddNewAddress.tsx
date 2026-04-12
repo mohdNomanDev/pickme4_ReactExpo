@@ -11,6 +11,7 @@ import {
 import { useDispatch } from "react-redux";
 import { addUserAddress, UserAddress } from "../../store/userSlice";
 import { addressSchema } from "../../utils/validations";
+import AppMap from "../common/app-map";
 import FormField from "../common/FormField";
 
 interface AddNewAddressProps {
@@ -20,6 +21,10 @@ interface AddNewAddressProps {
 
 const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
   const dispatch = useDispatch();
+  const defaultCoordinates = {
+    lat: 24.7136,
+    lng: 46.6753,
+  };
 
   const initialValues = {
     city: "",
@@ -29,6 +34,8 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
     floorApt: "",
     additionalDirections: "",
     label: "Home",
+    latitude: defaultCoordinates.lat,
+    longitude: defaultCoordinates.lng,
   };
 
   const handleSave = (values: typeof initialValues) => {
@@ -48,8 +55,8 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
       apartment: "",
       postalCode: "", // Would normally be collected or mapped
       coordinates: {
-        lat: 24.7136, // Dummy Riyadh coordinates (would come from Map Pin)
-        lng: 46.6753,
+        lat: values.latitude,
+        lng: values.longitude,
       },
       notes: values.additionalDirections,
       isDefault: false,
@@ -97,16 +104,40 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
         >
           {({ handleSubmit, setFieldValue, values }) => (
             <View className="gap-8 max-w-3xl mx-auto w-full">
-              {/* Map Placeholder */}
-              <View className="h-56 bg-orange-50/50 dark:bg-gray-800/30 rounded-3xl items-center justify-center border border-orange-100 dark:border-gray-700 overflow-hidden mb-2">
-                <View className="w-14 h-14 bg-white dark:bg-gray-800 rounded-full items-center justify-center shadow-sm mb-3">
-                  <Ionicons name="location" size={28} color="#f97316" />
+              <View className="gap-3">
+                <View className="flex-row items-center justify-between gap-4">
+                  <View className="flex-1">
+                    <Text className="text-xl font-bold text-gray-900 dark:text-white">
+                      Pin Location
+                    </Text>
+                    <Text className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                      {Platform.OS === "web"
+                        ? "Tap the map to adjust delivery location"
+                        : "Tap the map or drag the pin to adjust delivery location"}
+                    </Text>
+                  </View>
+                  <View className="h-11 w-11 rounded-full bg-orange-50 dark:bg-orange-900/20 items-center justify-center">
+                    <Ionicons name="location" size={22} color="#f97316" />
+                  </View>
                 </View>
-                <Text className="text-gray-600 dark:text-gray-400 font-medium text-lg">
-                  Pin Location on Map
-                </Text>
-                <Text className="text-gray-400 dark:text-gray-500 text-sm mt-1">
-                  Tap to select exact coordinates
+
+                <View className="h-72 md:h-96 rounded-2xl overflow-hidden border border-orange-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+                  <AppMap
+                    latitude={values.latitude}
+                    longitude={values.longitude}
+                    latitudeDelta={0.018}
+                    longitudeDelta={0.018}
+                    draggableMarker
+                    selectedMarkerTitle="Delivery location"
+                    onLocationChange={(coordinate) => {
+                      setFieldValue("latitude", coordinate.latitude);
+                      setFieldValue("longitude", coordinate.longitude);
+                    }}
+                  />
+                </View>
+
+                <Text className="text-xs font-semibold text-gray-500 dark:text-gray-400">
+                  {`Lat ${values.latitude.toFixed(5)} / Lng ${values.longitude.toFixed(5)}`}
                 </Text>
               </View>
 

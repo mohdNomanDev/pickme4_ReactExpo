@@ -81,7 +81,7 @@ import UserData from "../../TestData/UserData.json";
 const MyOrdersScreen = () => {
   const dispatch = useDispatch();
   const { activeOrders, orderHistory } = useSelector(
-    (state: RootState) => state.orders
+    (state: RootState) => state.orders,
   );
 
   const [activeTab, setActiveTab] = useState<"active" | "history">("active");
@@ -97,10 +97,12 @@ const MyOrdersScreen = () => {
     const timeout = setTimeout(() => {
       const user = UserData[0];
       if (user) {
-        dispatch(setOrders({
-          activeOrders: user.activeOrders || [],
-          orderHistory: user.orderHistory || [],
-        }));
+        dispatch(
+          setOrders({
+            activeOrders: user.activeOrders || [],
+            orderHistory: user.orderHistory || [],
+          }),
+        );
       }
     }, 0);
 
