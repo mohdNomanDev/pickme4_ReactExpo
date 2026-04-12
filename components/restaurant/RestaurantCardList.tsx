@@ -217,7 +217,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
             <Text
               className={`flex-1 pr-4 text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark text-start pe-4`}
             >
-              {filteredData.length} {"restaurant.count_header"}
+              {filteredData.length} {"Restaurants Serving You"}
             </Text>
 
             <FilterButton
