@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { Formik } from "formik";
-import React from "react";
+import React, { useCallback, useRef, useState } from "react";
 import {
   Platform,
   ScrollView,
@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useDispatch } from "react-redux";
 import { addUserAddress, UserAddress } from "../../store/userSlice";
+import { reverseGeocodeCoordinate } from "../../utils/reverseGeocoding";
 import { addressSchema } from "../../utils/validations";
 import AppMap from "../common/app-map";
 import FormField from "../common/FormField";
@@ -21,6 +22,9 @@ interface AddNewAddressProps {
 
 const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
   const dispatch = useDispatch();
+  const geocodeRequestId = useRef(0);
+  const [isFetchingAddress, setIsFetchingAddress] = useState(false);
+  const [addressLookupError, setAddressLookupError] = useState("");
   const defaultCoordinates = {
     lat: 24.7136,
     lng: 46.6753,
@@ -29,8 +33,13 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
   const initialValues = {
     city: "",
     district: "",
+    state: "",
     street: "",
     buildingNumber: "",
+    postalCode: "",
+    country: "",
+    countryCode: "",
+    formattedAddress: "",
     floorApt: "",
     additionalDirections: "",
     label: "Home",
@@ -49,11 +58,15 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
       title: values.label,
       city: values.city,
       district: values.district,
+      state: values.state,
       street: values.street,
       buildingNumber: values.buildingNumber,
       floor: values.floorApt,
       apartment: "",
-      postalCode: "", // Would normally be collected or mapped
+      postalCode: values.postalCode,
+      country: values.country,
+      countryCode: values.countryCode,
+      formattedAddress: values.formattedAddress,
       coordinates: {
         lat: values.latitude,
         lng: values.longitude,
@@ -67,6 +80,48 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
 
     if (onSaveSuccess) onSaveSuccess();
   };
+
+  const handleMapLocationChange = useCallback(
+    async (
+      coordinate: { latitude: number; longitude: number },
+      setFieldValue: (field: string, value: unknown, shouldValidate?: boolean) => void,
+    ) => {
+      const requestId = geocodeRequestId.current + 1;
+      geocodeRequestId.current = requestId;
+
+      setFieldValue("latitude", coordinate.latitude);
+      setFieldValue("longitude", coordinate.longitude);
+      setAddressLookupError("");
+      setIsFetchingAddress(true);
+
+      try {
+        const address = await reverseGeocodeCoordinate(coordinate);
+
+        if (geocodeRequestId.current !== requestId) {
+          return;
+        }
+
+        setFieldValue("city", address.city);
+        setFieldValue("district", address.district);
+        setFieldValue("state", address.state);
+        setFieldValue("street", address.street);
+        setFieldValue("buildingNumber", address.buildingNumber);
+        setFieldValue("postalCode", address.postalCode);
+        setFieldValue("country", address.country);
+        setFieldValue("countryCode", address.countryCode);
+        setFieldValue("formattedAddress", address.formattedAddress);
+      } catch {
+        if (geocodeRequestId.current === requestId) {
+          setAddressLookupError("Could not find address details for this map point. You can enter them manually.");
+        }
+      } finally {
+        if (geocodeRequestId.current === requestId) {
+          setIsFetchingAddress(false);
+        }
+      }
+    },
+    [],
+  );
 
   return (
     <View className="flex-1 bg-white dark:bg-card-dark w-full md:rounded-3xl md:my-8 md:border border-gray-100 dark:border-gray-800 overflow-hidden shadow-sm dark:shadow-none">
@@ -112,7 +167,7 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
                     </Text>
                     <Text className="text-gray-500 dark:text-gray-400 text-sm mt-1">
                       {Platform.OS === "web"
-                        ? "Tap the map to adjust delivery location"
+                        ? "Tap the map to fill delivery location details"
                         : "Tap the map or drag the pin to adjust delivery location"}
                     </Text>
                   </View>
@@ -130,15 +185,26 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
                     draggableMarker
                     selectedMarkerTitle="Delivery location"
                     onLocationChange={(coordinate) => {
-                      setFieldValue("latitude", coordinate.latitude);
-                      setFieldValue("longitude", coordinate.longitude);
+                      void handleMapLocationChange(coordinate, setFieldValue);
                     }}
                   />
                 </View>
 
-                <Text className="text-xs font-semibold text-gray-500 dark:text-gray-400">
-                  {`Lat ${values.latitude.toFixed(5)} / Lng ${values.longitude.toFixed(5)}`}
-                </Text>
+                <View className="gap-1">
+                  <Text className="text-xs font-semibold text-gray-500 dark:text-gray-400">
+                    {`Lat ${values.latitude.toFixed(5)} / Lng ${values.longitude.toFixed(5)}`}
+                  </Text>
+                  {isFetchingAddress ? (
+                    <Text className="text-xs font-semibold text-orange-500">
+                      Getting address details...
+                    </Text>
+                  ) : null}
+                  {addressLookupError ? (
+                    <Text className="text-xs font-semibold text-red-500">
+                      {addressLookupError}
+                    </Text>
+                  ) : null}
+                </View>
               </View>
 
               {/* Location Details Form */}
@@ -164,10 +230,33 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
                   </View>
                 </View>
 
+                <View className="flex-col md:flex-row gap-0 md:gap-4">
+                  <View className="flex-1">
+                    <FormField
+                      name="state"
+                      label="State / Province"
+                      placeholder="Enter State"
+                    />
+                  </View>
+                  <View className="flex-1">
+                    <FormField
+                      name="postalCode"
+                      label="Pin Code"
+                      placeholder="Enter Pin Code"
+                    />
+                  </View>
+                </View>
+
                 <FormField
                   name="street"
                   label="Street Name"
                   placeholder="Enter Street Name"
+                />
+
+                <FormField
+                  name="country"
+                  label="Country"
+                  placeholder="Enter Country"
                 />
 
                 <View className="flex-col md:flex-row gap-0 md:gap-4">

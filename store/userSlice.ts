@@ -6,11 +6,15 @@ export interface UserAddress {
   title: string;
   city: string;
   district: string;
+  state?: string;
   street: string;
   buildingNumber: string;
   floor: string;
   apartment: string;
   postalCode: string;
+  country?: string;
+  countryCode?: string;
+  formattedAddress?: string;
   coordinates: {
     lat: number;
     lng: number;
