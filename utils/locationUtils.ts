@@ -44,6 +44,33 @@ export interface RestaurantWithDistance {
 }
 
 /**
+ * Determines the active location based on selected saved address or device location.
+ */
+export const getActiveLocation = (
+  selectedAddress: { latitude?: number; longitude?: number } | null,
+  deviceLocation: Coordinates | null
+): { coordinates: Coordinates | null; type: "saved" | "device" | "none" } => {
+  if (selectedAddress?.latitude !== undefined && selectedAddress?.longitude !== undefined) {
+    return {
+      coordinates: { lat: selectedAddress.latitude, lng: selectedAddress.longitude },
+      type: "saved",
+    };
+  }
+
+  if (deviceLocation) {
+    return {
+      coordinates: deviceLocation,
+      type: "device",
+    };
+  }
+
+  return {
+    coordinates: null,
+    type: "none",
+  };
+};
+
+/**
  * Filters and sorts restaurants by distance from the user.
  */
 export const filterNearbyRestaurants = <T extends RestaurantWithDistance>(

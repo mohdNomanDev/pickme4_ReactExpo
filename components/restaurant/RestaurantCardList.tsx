@@ -18,7 +18,7 @@ import RestaurantFilter, {
   FilterState,
 } from "@/components/restaurant/RestaurantFilter";
 import restaurantDataJson from "@/TestData/RestaurantData.json";
-import { useNearbyRestaurants } from "@/hooks/useNearbyRestaurants";
+import { useRestaurantsByLocation } from "@/hooks/useRestaurantsByLocation";
 
 const restaurantData = restaurantDataJson as unknown as Restaurant[];
 
@@ -38,9 +38,11 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
 
-  // Use hook to get restaurants with distance calculated
-  // Setting maxDistance very high to get all restaurants but with distances
-  const { nearbyRestaurants: restaurantsWithDistance } = useNearbyRestaurants(restaurantData, 10000);
+  // Use hook to get restaurants based on active location (saved address or device)
+  const { 
+    restaurants: restaurantsWithDistance,
+    activeLocationName 
+  } = useRestaurantsByLocation(restaurantData, 10000); // 10000km to show all but with distance
 
   // Determine active filter indicator count
   const activeFilterCount = useMemo(() => {
@@ -163,11 +165,18 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
           className="mb-8"
         >
           <View className="flex-row items-center justify-between w-full">
-            <Text
-              className={`flex-1 pr-4 text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark text-start pe-4`}
-            >
-              {filteredData.length} {"Restaurants Serving You"}
-            </Text>
+            <View className="flex-1 pr-4">
+              <Text
+                className={`text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark text-start pe-4`}
+              >
+                {filteredData.length} {"Restaurants"}
+              </Text>
+              {activeLocationName && (
+                <Text className="text-sm text-text-muted dark:text-text-muted-dark mt-1 font-medium">
+                  Showing results near <Text className="text-primary font-bold">{activeLocationName}</Text>
+                </Text>
+              )}
+            </View>
 
             <FilterButton
               onPress={() => setIsFilterOpen(true)}
