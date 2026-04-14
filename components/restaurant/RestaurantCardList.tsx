@@ -18,7 +18,7 @@ import RestaurantFilter, {
   FilterState,
 } from "@/components/restaurant/RestaurantFilter";
 import restaurantDataJson from "@/TestData/RestaurantData.json";
-import { useRestaurantsByLocation } from "@/hooks/useRestaurantsByLocation";
+import { useCurrentLocationRestaurants } from "@/hooks/useCurrentLocationRestaurants";
 
 const restaurantData = restaurantDataJson as unknown as Restaurant[];
 
@@ -42,7 +42,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   const { 
     restaurants: restaurantsWithDistance,
     activeLocationName 
-  } = useRestaurantsByLocation(restaurantData, 10000); // 10000km to show all but with distance
+  } = useCurrentLocationRestaurants(restaurantData, 10000); // 10000km to show all but with distance
 
   // Determine active filter indicator count
   const activeFilterCount = useMemo(() => {

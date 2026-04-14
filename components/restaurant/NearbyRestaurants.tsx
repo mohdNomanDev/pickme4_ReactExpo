@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, ActivityIndicator, TouchableOpacity } from 'react-native';
-import { useRestaurantsByLocation } from '../../hooks/useRestaurantsByLocation';
+import { useCurrentLocationRestaurants } from '../../hooks/useCurrentLocationRestaurants';
 import RestaurantCard, { Restaurant } from './RestaurantCard';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -16,7 +16,7 @@ const NearbyRestaurants: React.FC<NearbyRestaurantsProps> = ({ restaurants, maxD
     error, 
     activeLocationType, 
     activeLocationName 
-  } = useRestaurantsByLocation(restaurants, maxDistance);
+  } = useCurrentLocationRestaurants(restaurants, maxDistance);
 
   if (loading) {
     return (

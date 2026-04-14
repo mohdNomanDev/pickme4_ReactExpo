@@ -1,6 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useMemo } from "react";
 import {
   Modal,
   Pressable,
@@ -17,15 +17,20 @@ export default function LocationSelector() {
   const buttonRef = useRef<View>(null);
 
       const { colorScheme } = useColorScheme();
-  const selectedAddress = useSelector(
-    (state: RootState) => state.selectedAddress.selectedAddress,
+  const { selectedAddress, locationSource } = useSelector(
+    (state: RootState) => state.selectedAddress,
   );
 
   // Determine what to display based on the selected address state
-  const displayLocation = selectedAddress
-    ? selectedAddress.title ||
-      `${selectedAddress.city}, ${selectedAddress.state || selectedAddress.street}`
-    : "Select Location";
+  const displayLocation = useMemo(() => {
+    if (locationSource === "device") {
+      return "Current Location";
+    }
+    return selectedAddress
+      ? selectedAddress.title ||
+        `${selectedAddress.city}, ${selectedAddress.state || selectedAddress.street}`
+      : "Select Location";
+  }, [locationSource, selectedAddress]);
 
   const toggleDropdown = () => {
     if (isOpen) {

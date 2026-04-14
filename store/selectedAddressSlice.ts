@@ -14,10 +14,12 @@ export interface Address {
 
 export interface SelectedAddressState {
   selectedAddress: Address | null;
+  locationSource: "saved" | "device";
 }
 
 const initialState: SelectedAddressState = {
   selectedAddress: null,
+  locationSource: "device", // Default to device
 };
 
 export const selectedAddressSlice = createSlice({
@@ -26,13 +28,21 @@ export const selectedAddressSlice = createSlice({
   reducers: {
     setSelectedAddress: (state, action: PayloadAction<Address | null>) => {
       state.selectedAddress = action.payload;
+      state.locationSource = action.payload ? "saved" : "device";
+    },
+    setLocationSource: (state, action: PayloadAction<"saved" | "device">) => {
+      state.locationSource = action.payload;
+      if (action.payload === "device") {
+        state.selectedAddress = null;
+      }
     },
     clearSelectedAddress: (state) => {
       state.selectedAddress = null;
+      state.locationSource = "device";
     },
   },
 });
 
-export const { setSelectedAddress, clearSelectedAddress } = selectedAddressSlice.actions;
+export const { setSelectedAddress, setLocationSource, clearSelectedAddress } = selectedAddressSlice.actions;
 
 export default selectedAddressSlice.reducer;
