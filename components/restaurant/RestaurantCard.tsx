@@ -33,6 +33,7 @@ export type Restaurant = {
     lng: number;
   };
   tags?: string[];
+  distanceValue?: number; // Added distance value in km
 };
 
 type RestaurantCardProps = {
@@ -279,25 +280,38 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
           <View
             className={`${"flex-row"} items-center border-t border-border dark:border-border-dark pt-5 mt-2`}
           >
-            <View className={`flex-row items-center me-5`}>
+            <View className={`flex-row items-center me-4`}>
               <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
                 <Ionicons name="time-outline" size={16} color="#6b7280" />
               </View>
-              <Text className="text-text dark:text-text-dark text-[13px] font-semibold">
+              <Text className="text-text dark:text-text-dark text-[12px] font-semibold">
                 {deliveryTime}
               </Text>
             </View>
 
-            <View className={`flex-row items-center ms-5`}>
+            <View className={`flex-row items-center me-4`}>
               <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
                 <Ionicons name="bicycle-outline" size={16} color="#6b7280" />
               </View>
               <Text
-                className={`text-text dark:text-text-dark text-[13px] font-semibold ${restaurant?.deliveryFee === 0 ? "text-green-600 dark:text-green-400" : ""}`}
+                className={`text-text dark:text-text-dark text-[12px] font-semibold ${restaurant?.deliveryFee === 0 ? "text-green-600 dark:text-green-400" : ""}`}
               >
                 {formattedDeliveryFee}
               </Text>
             </View>
+
+            {restaurant?.distanceValue !== undefined && (
+              <View className={`flex-row items-center`}>
+                <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
+                  <Ionicons name="location-outline" size={16} color="#6b7280" />
+                </View>
+                <Text className="text-text dark:text-text-dark text-[12px] font-semibold">
+                  {restaurant.distanceValue < 1 
+                    ? `${(restaurant.distanceValue * 1000).toFixed(0)} m`
+                    : `${restaurant.distanceValue.toFixed(1)} km`}
+                </Text>
+              </View>
+            )}
           </View>
         </View>
       </TouchableOpacity>

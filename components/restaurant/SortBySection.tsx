@@ -6,6 +6,7 @@ import { RootState } from "@/store/store";
 
 const OPTIONS = [
   { label: "Recommended", labelAr: "موصى به", value: "recommended" },
+  { label: "Nearest First", labelAr: "الأقرب أولاً", value: "distance" },
   { label: "Rating", labelAr: "التقييم", value: "rating" },
   { label: "Delivery Time", labelAr: "وقت التوصيل", value: "delivery_time" },
   { label: "Price: Low to High", labelAr: "السعر: من الأقل للأعلى", value: "price_low_high" },

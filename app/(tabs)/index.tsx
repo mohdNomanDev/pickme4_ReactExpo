@@ -7,11 +7,16 @@ import CartIcon from "../../components/cart/CartIcon";
 import ThemeToggle from "../../components/common/ThemeToggle";
 import Navbar from "../../components/navbar/navbar";
 import RestaurantCardList from "../../components/restaurant/RestaurantCardList";
+import NearbyRestaurants from "../../components/restaurant/NearbyRestaurants";
 import { RootState } from "../../store/store";
 import { setUser } from "../../store/userSlice";
 import userDataJson from "../../TestData/UserData.json";
+import restaurantDataJson from "../../TestData/RestaurantData.json";
 import { setCart } from "@/store/cartSlice";
 import { setSelectedAddress } from "@/store/selectedAddressSlice";
+import { Restaurant } from "@/components/restaurant/RestaurantCard";
+
+const restaurantData = restaurantDataJson as unknown as Restaurant[];
 
 export default function FoodHome() {
   const router = useRouter();
@@ -96,14 +101,17 @@ export default function FoodHome() {
                 </Text>
               </View>
 
+              {/* Nearby Restaurants Section */}
+              <NearbyRestaurants restaurants={restaurantData} maxDistance={1000} />
+
               {/* Quick Categories Section */}
               <View className="w-full">
                 <Text
-                  className={`text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mb-4 ${'text-left'}`}
+                  className={`text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mb-4 px-4 ${'text-left'}`}
                 >
                   {"Categories"}
                 </Text>
-                <View className="w-full h-24 md:h-32 bg-gray-200 dark:bg-gray-800 rounded-2xl items-center justify-center border border-gray-300 dark:border-gray-700">
+                <View className="mx-4 h-24 md:h-32 bg-gray-200 dark:bg-gray-800 rounded-2xl items-center justify-center border border-gray-300 dark:border-gray-700">
                   <Text className="text-gray-500 dark:text-gray-400 font-bold text-lg">
                     {"Categories Section"}
                   </Text>
@@ -116,3 +124,4 @@ export default function FoodHome() {
     </SafeAreaView>
   );
 }
+

@@ -18,6 +18,7 @@ import RestaurantFilter, {
   FilterState,
 } from "@/components/restaurant/RestaurantFilter";
 import restaurantDataJson from "@/TestData/RestaurantData.json";
+import { useNearbyRestaurants } from "@/hooks/useNearbyRestaurants";
 
 const restaurantData = restaurantDataJson as unknown as Restaurant[];
 
@@ -37,6 +38,10 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
 
+  // Use hook to get restaurants with distance calculated
+  // Setting maxDistance very high to get all restaurants but with distances
+  const { nearbyRestaurants: restaurantsWithDistance } = useNearbyRestaurants(restaurantData, 10000);
+
   // Determine active filter indicator count
   const activeFilterCount = useMemo(() => {
     let count = 0;
@@ -49,7 +54,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
 
   // Apply filtering and sorting logic
   const filteredData = useMemo(() => {
-    let data = [...restaurantData];
+    let data = [...restaurantsWithDistance];
 
     // 1. Filter by Rating
     if (filters.rating) {
@@ -95,6 +100,8 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
     // 4. Sort By
     if (filters.sortBy === "rating") {
       data.sort((a, b) => b.rating - a.rating);
+    } else if (filters.sortBy === "distance") {
+      data.sort((a, b) => (a.distanceValue || 0) - (b.distanceValue || 0));
     } else if (filters.sortBy === "delivery_time") {
       const parseTime = (time: string) => {
         const match = time.match(/(\d+)/);
@@ -115,7 +122,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
     }
 
     return data;
-  }, [filters]);
+  }, [filters, restaurantsWithDistance]);
 
   const handleClearFilters = () => {
     setFilters(DEFAULT_FILTERS);
