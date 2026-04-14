@@ -32,7 +32,6 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
 
   const initialValues = {
     city: "",
-    district: "",
     state: "",
     street: "",
     buildingNumber: "",
@@ -51,22 +50,25 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
     // Note: In a real app, you would make an API call to a backend here.
     // We cannot reliably write back to a local JSON file directly from an Expo device bundle.
     // Instead, we dispatch the new address to the Redux state so the UI updates immediately!
+    const displayAddress =
+      values.formattedAddress ||
+      `${values.buildingNumber ? values.buildingNumber + " " : ""}${values.street}, ${values.city}, ${values.state}`;
 
     const newAddress: UserAddress = {
       id: `addr_${Date.now()}`, // Temporary unique ID
       type: values.label.toLowerCase(),
       title: values.label,
-      city: values.city,
-      district: values.district,
       state: values.state,
+      city: values.city,
       street: values.street,
       buildingNumber: values.buildingNumber,
       floor: values.floorApt,
       apartment: "",
       postalCode: values.postalCode,
+      address: displayAddress,
       country: values.country,
       countryCode: values.countryCode,
-      formattedAddress: values.formattedAddress,
+      formattedAddress: displayAddress,
       coordinates: {
         lat: values.latitude,
         lng: values.longitude,
@@ -102,7 +104,6 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
         }
 
         setFieldValue("city", address.city);
-        setFieldValue("district", address.district);
         setFieldValue("state", address.state);
         setFieldValue("street", address.street);
         setFieldValue("buildingNumber", address.buildingNumber);
@@ -224,21 +225,14 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
                   </View>
                   <View className="flex-1">
                     <FormField
-                      name="district"
-                      label="District (Hayy)"
-                      placeholder="Enter District"
+                      name="state"
+                      label="State"
+                      placeholder="Enter State"
                     />
                   </View>
                 </View>
 
                 <View className="flex-col md:flex-row gap-0 md:gap-4">
-                  <View className="flex-1">
-                    <FormField
-                      name="state"
-                      label="State / Province"
-                      placeholder="Enter State"
-                    />
-                  </View>
                   <View className="flex-1">
                     <FormField
                       name="postalCode"

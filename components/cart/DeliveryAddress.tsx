@@ -11,6 +11,13 @@ const DeliveryAddress = ({ address }: { address?: any }) => {
   
   // Use selectedAddress from store, fallback to prop if needed
   const displayAddress = selectedAddress || address;
+  const deliveryAddressText = displayAddress
+    ? displayAddress.address ||
+      displayAddress.formattedAddress ||
+      [displayAddress.street, displayAddress.city, displayAddress.state]
+        .filter(Boolean)
+        .join(", ")
+    : "";
 
   return (
     <>
@@ -58,9 +65,7 @@ const DeliveryAddress = ({ address }: { address?: any }) => {
                   )}
                 </View>
                 <Text className="text-text-muted dark:text-text-muted-dark text-[13px] leading-5 text-left pr-4" numberOfLines={2}>
-                  {displayAddress.street || displayAddress.formattedAddress}
-                  {displayAddress.district ? `, ${displayAddress.district}` : ""}
-                  {displayAddress.city ? `, ${displayAddress.city}` : ""}
+                  {deliveryAddressText}
                 </Text>
               </>
             ) : (

@@ -39,12 +39,12 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
       setSelectedAddress({
         id: address.id,
         title: address.title,
-        formattedAddress: `${address.city}, ${address.district}, ${address.street}`,
+        formattedAddress: address.address || address.formattedAddress || `${address.street}, ${address.city}, ${address.state}`,
         latitude: address.coordinates?.lat,
         longitude: address.coordinates?.lng,
         street: address.street,
+        state: address.state,
         city: address.city,
-        region: address.district,
       }),
     );
     if (onClose) {
@@ -58,12 +58,12 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
       setSelectedAddress({
         id: address.id,
         title: address.title,
-        formattedAddress: `${address.city}, ${address.district}, ${address.street}`,
+        formattedAddress: address.address || address.formattedAddress || `${address.street}, ${address.city}, ${address.state}`,
         latitude: address.coordinates?.lat,
         longitude: address.coordinates?.lng,
         street: address.street,
+        state: address.state,
         city: address.city,
-        region: address.district,
       }),
     );
 
@@ -145,7 +145,7 @@ export default function SavedAddresses({ onClose }: SavedAddressesProps) {
                   className="text-xs text-gray-500 dark:text-gray-400 mt-0.5"
                   numberOfLines={1}
                 >
-                  {item.city}, {item.district}, {item.street}
+                  {item.address || item.formattedAddress || `${item.street}, ${item.city}, ${item.state}`}
                 </Text>
               </View>
 

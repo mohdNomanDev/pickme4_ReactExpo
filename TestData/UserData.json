@@ -18,7 +18,6 @@
         "type": "home",
         "title": "Home",
         "city": "Riyadh",
-        "district": "Al Olaya",
         "street": "King Fahd Road",
         "buildingNumber": "1234",
         "floor": "",
@@ -30,14 +29,14 @@
         },
         "notes": "Leave at the door, call when arrived.",
         "isDefault": true,
-        "address": "Building 1234, King Fahd Road, Al Olaya, Riyadh 12211, Saudi Arabia"
+        "address": "Building 1234, King Fahd Road, Al Olaya, Riyadh 12211, Saudi Arabia",
+        "state": "Riyadh"
       },
       {
         "id": "addr_004",
         "type": "work",
         "title": "Office HQ",
         "city": "Riyadh",
-        "district": "Al Malaz",
         "street": "Makkah Al Mukarramah Branch Road",
         "buildingNumber": "789",
         "floor": "5",
@@ -49,14 +48,14 @@
         },
         "notes": "Deliver to reception.",
         "isDefault": false,
-        "address": "Building 789, Makkah Al Mukarramah Branch Road, Al Malaz, Riyadh 12831, Saudi Arabia"
+        "address": "Building 789, Makkah Al Mukarramah Branch Road, Al Malaz, Riyadh 12831, Saudi Arabia",
+        "state": "Riyadh"
       },
       {
         "id": "addr_005",
         "type": "other",
         "title": "Parents House",
         "city": "Riyadh",
-        "district": "Al Yasmin",
         "street": "Abu Bakr Al Siddiq Road",
         "buildingNumber": "456",
         "floor": "",
@@ -68,7 +67,8 @@
         },
         "notes": "Ring the bell, don't leave outside.",
         "isDefault": false,
-        "address": "Building 456, Abu Bakr Al Siddiq Road, Al Yasmin, Riyadh 13322, Saudi Arabia"
+        "address": "Building 456, Abu Bakr Al Siddiq Road, Al Yasmin, Riyadh 13322, Saudi Arabia",
+        "state": "Riyadh"
       }
     ],
     "paymentMethods": [
@@ -283,7 +283,6 @@
         "type": "work",
         "title": "Office",
         "city": "Diriyah",
-        "district": "At Turaif",
         "street": "Wadi Hanifah Road",
         "buildingNumber": "88",
         "floor": "12",
@@ -295,7 +294,8 @@
         },
         "notes": "Leave at the reception.",
         "isDefault": true,
-        "address": "Building 88, Wadi Hanifah Road, At Turaif, Diriyah 13711, Riyadh Region, Saudi Arabia"
+        "address": "Building 88, Wadi Hanifah Road, At Turaif, Diriyah 13711, Riyadh Region, Saudi Arabia",
+        "state": "Riyadh"
       }
     ],
     "paymentMethods": [
@@ -364,7 +364,6 @@
         "type": "home",
         "title": "Apartment",
         "city": "Al Kharj",
-        "district": "Al Salam",
         "street": "King Abdulaziz Road",
         "buildingNumber": "45",
         "floor": "3",
@@ -376,7 +375,8 @@
         },
         "notes": "",
         "isDefault": true,
-        "address": "Building 45, King Abdulaziz Road, Al Salam, Al Kharj 16278, Riyadh Region, Saudi Arabia"
+        "address": "Building 45, King Abdulaziz Road, Al Salam, Al Kharj 16278, Riyadh Region, Saudi Arabia",
+        "state": "Riyadh"
       }
     ],
     "paymentMethods": [

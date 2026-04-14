@@ -34,7 +34,22 @@ export default function FoodHome() {
       // Hydrate selected address from user's default address
       if (mockUser.addresses && mockUser.addresses.length > 0) {
         const defaultAddress = mockUser.addresses.find((a: any) => a.isDefault) || mockUser.addresses[0];
-        dispatch(setSelectedAddress(defaultAddress));
+        dispatch(
+          setSelectedAddress({
+            id: defaultAddress.id,
+            title: defaultAddress.title,
+            formattedAddress:
+              defaultAddress.address ||
+              defaultAddress.formattedAddress ||
+              `${defaultAddress.street}, ${defaultAddress.city}, ${defaultAddress.state}`,
+            address: defaultAddress.address,
+            latitude: defaultAddress.coordinates?.lat,
+            longitude: defaultAddress.coordinates?.lng,
+            street: defaultAddress.street,
+            state: defaultAddress.state,
+            city: defaultAddress.city,
+          }),
+        );
       }
     }
   }, [currentUser, dispatch]);

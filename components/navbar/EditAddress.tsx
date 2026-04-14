@@ -25,7 +25,7 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
   // Pre-fill form values using full address details if available, otherwise fallback to selectedAddress map
   const initialValues = {
     city: fullAddressDetails?.city || selectedAddress?.city || '',
-    district: fullAddressDetails?.district || selectedAddress?.region || '',
+    state: fullAddressDetails?.state || selectedAddress?.state || '',
     street: fullAddressDetails?.street || selectedAddress?.street || '',
     buildingNumber: fullAddressDetails?.buildingNumber || '', 
     floorApt: fullAddressDetails?.floor || '',
@@ -38,11 +38,12 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
       // 1. Dispatch updated address back to the selected address state
       dispatch(setSelectedAddress({
         ...selectedAddress,
+        state: values.state,
         city: values.city,
-        region: values.district,
         street: values.street,
         title: values.label,
-        formattedAddress: `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.district}, ${values.city}`
+        address: `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.city}, ${values.state}`,
+        formattedAddress: `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.city}, ${values.state}`
       }));
 
       // 2. Dispatch updated address back to the user's saved addresses array
@@ -53,10 +54,12 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
             ...existingAddress,
             type: values.label.toLowerCase(),
             title: values.label,
+            state: values.state,
             city: values.city,
-            district: values.district,
             street: values.street,
             buildingNumber: values.buildingNumber,
+            address: `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.city}, ${values.state}`,
+            formattedAddress: `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.city}, ${values.state}`,
             floor: values.floorApt,
             notes: values.additionalDirections,
           }));
@@ -114,7 +117,7 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
                     <FormField name="city" label="City" placeholder="Enter City" />
                   </View>
                   <View className="flex-1">
-                    <FormField name="district" label="District (Hayy)" placeholder="Enter District" />
+                    <FormField name="state" label="State" placeholder="Enter State" />
                   </View>
                 </View>
 

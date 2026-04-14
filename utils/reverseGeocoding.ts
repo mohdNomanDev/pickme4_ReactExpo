@@ -10,7 +10,6 @@ export type ReverseGeocodedAddress = {
   longitude: number;
   formattedAddress: string;
   city: string;
-  district: string;
   state: string;
   postalCode: string;
   country: string;
@@ -24,11 +23,6 @@ type NominatimAddress = {
   road?: string;
   pedestrian?: string;
   footway?: string;
-  neighbourhood?: string;
-  suburb?: string;
-  city_district?: string;
-  district?: string;
-  county?: string;
   city?: string;
   town?: string;
   village?: string;
@@ -77,13 +71,6 @@ function normalizeNominatimResult(
     longitude: Number(result.lon ?? coordinate.longitude),
     formattedAddress: result.display_name ?? "",
     city: firstAvailable(address.city, address.town, address.village, address.municipality),
-    district: firstAvailable(
-      address.neighbourhood,
-      address.suburb,
-      address.city_district,
-      address.district,
-      address.county,
-    ),
     state: firstAvailable(address.state),
     postalCode: firstAvailable(address.postcode),
     country: firstAvailable(address.country),

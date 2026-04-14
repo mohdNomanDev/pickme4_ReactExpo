@@ -4,14 +4,14 @@ export interface UserAddress {
   id: string;
   type: string;
   title: string;
+  state: string;
   city: string;
-  district: string;
-  state?: string;
   street: string;
   buildingNumber: string;
   floor: string;
   apartment: string;
   postalCode: string;
+  address?: string;
   country?: string;
   countryCode?: string;
   formattedAddress?: string;

@@ -4,11 +4,12 @@ export interface Address {
   id?: string;
   title?: string; // e.g., "Home", "Work", "Office"
   formattedAddress: string;
+  address?: string;
   latitude?: number;
   longitude?: number;
   street?: string;
+  state?: string;
   city?: string;
-  region?: string;
 }
 
 export interface SelectedAddressState {

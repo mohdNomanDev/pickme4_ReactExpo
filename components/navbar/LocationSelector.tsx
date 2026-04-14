@@ -24,7 +24,7 @@ export default function LocationSelector() {
   // Determine what to display based on the selected address state
   const displayLocation = selectedAddress
     ? selectedAddress.title ||
-      `${selectedAddress.city}, ${selectedAddress.region || selectedAddress.street}`
+      `${selectedAddress.city}, ${selectedAddress.state || selectedAddress.street}`
     : "Select Location";
 
   const toggleDropdown = () => {
