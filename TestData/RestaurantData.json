@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Spice Hub",
+    "name": "Olaya Masala Kitchen",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -17,7 +17,7 @@
       }
     },
     "cuisine": "Indian",
-    "rating": 4.5,
+    "rating": 4.6,
     "deliveryTime": "25-30 min",
     "deliveryFee": 0,
     "offer": "20% OFF",
@@ -25,11 +25,17 @@
     "state": "Riyadh",
     "district": "Olaya",
     "area": "Riyadh, Olaya",
-    "description": "Authentic Indian spices and curries.",
+    "address": "King Fahd Road, Al Olaya, Riyadh 12211, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.7136,
+      "lng": 46.6753
+    },
+    "description": "North Indian curries, tandoor grills, and fresh naan made for family meals.",
     "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
     "tags": [
       "popular",
-      "spicy"
+      "spicy",
+      "family-meals"
     ],
     "foodItems": [
       {
@@ -39,34 +45,28 @@
         "price": 45
       },
       {
+        "name": "Chicken Biryani",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+        "price": 42
+      },
+      {
         "name": "Paneer Tikka",
         "category": "Starters",
         "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8",
         "price": 32
       },
       {
-        "name": "Grilled Chicken",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 45
-      },
-      {
-        "name": "Grilled Chicken",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 45
-      },
-      {
-        "name": "Crispy Fries",
+        "name": "Garlic Naan",
         "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 15
+        "image": "https://images.unsplash.com/photo-1626074353765-517a681e40be",
+        "price": 9
       },
       {
-        "name": "Mojito",
+        "name": "Mango Lassi",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 18
+        "image": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4",
+        "price": 16
       }
     ],
     "menuCategories": [
@@ -79,7 +79,7 @@
   },
   {
     "id": 2,
-    "name": "Burger Palace",
+    "name": "Malaz Burger Works",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -103,54 +103,53 @@
     "state": "Riyadh",
     "district": "Malaz",
     "area": "Riyadh, Malaz",
-    "description": "Juicy burgers and crispy fries.",
+    "address": "Makkah Al Mukarramah Branch Road, Al Malaz, Riyadh 12831, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.6645,
+      "lng": 46.7328
+    },
+    "description": "Smashed beef burgers, loaded fries, and thick milkshakes near Al Malaz.",
     "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
     "tags": [
-      "fastfood"
+      "fastfood",
+      "burgers"
     ],
     "foodItems": [
       {
-        "name": "Cheese Burger",
+        "name": "Double Smash Burger",
         "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
-        "price": 28
+        "price": 34
       },
       {
-        "name": "Mojito",
+        "name": "Crispy Chicken Burger",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
+        "price": 31
+      },
+      {
+        "name": "Loaded Cheese Fries",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1639024471283-03518883512d",
+        "price": 19
+      },
+      {
+        "name": "Chocolate Milkshake",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 18
-      },
-      {
-        "name": "Mushroom Soup",
-        "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 20
-      },
-      {
-        "name": "Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 28
-      },
-      {
-        "name": "Mojito",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 18
+        "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699",
+        "price": 22
       }
     ],
     "menuCategories": [
       "Main Course",
-      "Drinks",
-      "Soups",
-      "Desserts"
+      "Sides",
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 3,
-    "name": "Pizza Town",
+    "name": "Yasmin Stone Oven Pizza",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -171,13 +170,20 @@
     "deliveryFee": 10,
     "offer": "15% OFF",
     "distance": "3.2 km",
-    "state": "Jeddah",
-    "district": "Al Safa",
-    "area": "Jeddah, Al Safa",
-    "description": "Hot cheesy pizzas with fresh toppings.",
+    "state": "Riyadh",
+    "district": "Al Yasmin",
+    "area": "Riyadh, Al Yasmin",
+    "address": "Abu Bakr Al Siddiq Road, Al Yasmin, Riyadh 13322, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.8105,
+      "lng": 46.6558
+    },
+    "description": "Wood-fired pizzas, baked pastas, and shareable Italian starters.",
     "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
     "tags": [
-      "cheesy"
+      "cheesy",
+      "pizza",
+      "family-meals"
     ],
     "foodItems": [
       {
@@ -187,41 +193,41 @@
         "price": 42
       },
       {
-        "name": "Mojito",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 18
+        "name": "Margherita Pizza",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002",
+        "price": 36
       },
       {
         "name": "Spicy Wings",
         "category": "Appetizers",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+        "image": "https://images.unsplash.com/photo-1527477396000-e27163b481c2",
         "price": 25
       },
       {
         "name": "Classic Caesar Salad",
         "category": "Salads",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
+        "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9",
         "price": 30
       },
       {
-        "name": "Mojito",
+        "name": "Lemon Mint",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+        "image": "https://images.unsplash.com/photo-1621263764928-df1444c5e859",
         "price": 18
       }
     ],
     "menuCategories": [
       "Main Course",
-      "Drinks",
       "Appetizers",
-      "Salads"
+      "Salads",
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 4,
-    "name": "Sushi Zen",
+    "name": "Rawdah Sushi Bar",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -242,76 +248,63 @@
     "deliveryFee": 20,
     "offer": "10% OFF",
     "distance": "4.1 km",
-    "state": "Jeddah",
-    "district": "Al Rawdah",
-    "area": "Jeddah, Rawdah",
-    "description": "Fresh sushi and Japanese delicacies.",
+    "state": "Riyadh",
+    "district": "Rawdah",
+    "area": "Riyadh, Rawdah",
+    "address": "Khalid Ibn Al Waleed Street, Al Rawdah, Riyadh 13213, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.735,
+      "lng": 46.766
+    },
+    "description": "Fresh sushi boxes, hot ramen, and Japanese sides for late dinners.",
     "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c",
     "tags": [
-      "premium"
+      "premium",
+      "sushi"
     ],
     "foodItems": [
       {
-        "name": "Salmon Sushi",
+        "name": "Salmon Sushi Box",
         "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1553621042-f6e147245754",
         "price": 55
       },
       {
-        "name": "Beef Steak",
+        "name": "Chicken Katsu Curry",
         "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 85
+        "image": "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56",
+        "price": 49
       },
       {
-        "name": "Mushroom Soup",
+        "name": "Miso Soup",
         "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 20
-      },
-      {
-        "name": "Mushroom Soup",
-        "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 20
-      },
-      {
-        "name": "Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 28
-      },
-      {
-        "name": "Iced Tea",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 12
-      },
-      {
-        "name": "Mojito",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
+        "image": "https://images.unsplash.com/photo-1607301405390-d831c242f59b",
         "price": 18
       },
       {
-        "name": "Classic Caesar Salad",
-        "category": "Salads",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 30
+        "name": "Matcha Cheesecake",
+        "category": "Desserts",
+        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
+        "price": 28
+      },
+      {
+        "name": "Iced Green Tea",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
+        "price": 12
       }
     ],
     "menuCategories": [
       "Main Course",
       "Soups",
       "Desserts",
-      "Drinks",
-      "Salads"
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 5,
-    "name": "Shawarma House",
+    "name": "Wurud Shawarma Grill",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -332,81 +325,63 @@
     "deliveryFee": 0,
     "offer": "Combo Deal",
     "distance": "1.2 km",
-    "state": "Dammam",
-    "district": "Shati",
-    "area": "Dammam, Shati",
-    "description": "Best shawarma wraps in town.",
+    "state": "Riyadh",
+    "district": "Al Wurud",
+    "area": "Riyadh, Al Wurud",
+    "address": "Prince Sultan Bin Abdulaziz Road, Al Wurud, Riyadh 12252, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.7297,
+      "lng": 46.6853
+    },
+    "description": "Chicken shawarma, saj wraps, grilled kebabs, and quick Arabic sides.",
     "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
     "tags": [
-      "popular"
+      "popular",
+      "shawarma",
+      "arabic"
     ],
     "foodItems": [
       {
-        "name": "Chicken Shawarma",
+        "name": "Chicken Shawarma Saj",
         "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
-        "price": 12
+        "price": 14
       },
       {
-        "name": "Onion Rings",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 16
-      },
-      {
-        "name": "Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+        "name": "Beef Shawarma Plate",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
         "price": 28
+      },
+      {
+        "name": "Mixed Pickles",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1608039829572-78524f79c4c7",
+        "price": 8
       },
       {
         "name": "Crispy Fries",
         "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+        "image": "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d",
         "price": 15
       },
       {
-        "name": "Spicy Wings",
-        "category": "Appetizers",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 25
-      },
-      {
-        "name": "Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 28
-      },
-      {
-        "name": "Crispy Fries",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 15
-      },
-      {
-        "name": "Crispy Fries",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 15
-      },
-      {
-        "name": "Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 28
+        "name": "Ayran",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307",
+        "price": 10
       }
     ],
     "menuCategories": [
       "Main Course",
       "Sides",
-      "Desserts",
-      "Appetizers"
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 6,
-    "name": "Healthy Greens",
+    "name": "Sulaimaniyah Fresh Bowls",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -430,81 +405,62 @@
     "state": "Riyadh",
     "district": "Sulaimaniyah",
     "area": "Riyadh, Sulaimaniyah",
-    "description": "Fresh salads and protein bowls.",
+    "address": "Prince Musaed Bin Abdulaziz Street, As Sulimaniyah, Riyadh 12232, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.7,
+      "lng": 46.7006
+    },
+    "description": "Fresh salads, protein bowls, cold-pressed juices, and clean desserts.",
     "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
     "tags": [
       "healthy",
-      "fresh"
+      "fresh",
+      "salads"
     ],
     "foodItems": [
       {
-        "name": "Quinoa Salad",
+        "name": "Quinoa Chicken Bowl",
         "category": "Salads",
         "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
         "price": 38
       },
       {
-        "name": "Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 28
-      },
-      {
-        "name": "Iced Tea",
-        "category": "Drinks",
+        "name": "Salmon Avocado Bowl",
+        "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 12
+        "price": 52
       },
       {
-        "name": "Spicy Wings",
-        "category": "Appetizers",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 25
-      },
-      {
-        "name": "Classic Caesar Salad",
-        "category": "Salads",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 30
-      },
-      {
-        "name": "Onion Rings",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 16
-      },
-      {
-        "name": "Crispy Fries",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 15
-      },
-      {
-        "name": "Mushroom Soup",
+        "name": "Lentil Soup",
         "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
         "price": 20
       },
       {
-        "name": "Iced Tea",
+        "name": "Date Energy Bites",
+        "category": "Desserts",
+        "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c",
+        "price": 18
+      },
+      {
+        "name": "Green Detox Juice",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 12
+        "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec",
+        "price": 19
       }
     ],
     "menuCategories": [
       "Salads",
+      "Main Course",
+      "Soups",
       "Desserts",
-      "Drinks",
-      "Appetizers",
-      "Sides",
-      "Soups"
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 7,
-    "name": "Taco Time",
+    "name": "Hittin Taco Yard",
     "timings": {
       "friday": {
         "opening": "14:00",
@@ -525,10 +481,15 @@
     "deliveryFee": 12,
     "offer": "Free Delivery",
     "distance": "3.5 km",
-    "state": "Khobar",
-    "district": "Corniche",
-    "area": "Khobar, Corniche",
-    "description": "Authentic Mexican tacos and burritos.",
+    "state": "Riyadh",
+    "district": "Hittin",
+    "area": "Riyadh, Hittin",
+    "address": "Prince Turki Ibn Abdulaziz Al Awwal Road, Hittin, Riyadh 13513, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.7646,
+      "lng": 46.6067
+    },
+    "description": "Soft tacos, burrito bowls, nachos, and house-made salsas.",
     "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47",
     "tags": [
       "spicy",
@@ -536,47 +497,47 @@
     ],
     "foodItems": [
       {
-        "name": "Beef Taco",
+        "name": "Beef Taco Trio",
         "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85",
         "price": 35
       },
       {
-        "name": "Spicy Wings",
-        "category": "Appetizers",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 25
+        "name": "Chicken Burrito Bowl",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f",
+        "price": 39
       },
       {
-        "name": "Mojito",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
+        "name": "Loaded Nachos",
+        "category": "Appetizers",
+        "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d",
+        "price": 27
+      },
+      {
+        "name": "Churros",
+        "category": "Desserts",
+        "image": "https://images.unsplash.com/photo-1624371414361-e670edf4898d",
         "price": 18
       },
       {
-        "name": "Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 28
-      },
-      {
-        "name": "Iced Tea",
+        "name": "Lime Mojito",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 12
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
+        "price": 18
       }
     ],
     "menuCategories": [
       "Main Course",
       "Appetizers",
-      "Drinks",
-      "Desserts"
+      "Desserts",
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 8,
-    "name": "Pasta Villa",
+    "name": "Nakheel Pasta House",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -598,9 +559,14 @@
     "offer": "New Member 20%",
     "distance": "2.8 km",
     "state": "Riyadh",
-    "district": "Hittin",
-    "area": "Riyadh, Hittin",
-    "description": "Handmade pasta with classic sauces.",
+    "district": "Al Nakheel",
+    "area": "Riyadh, Al Nakheel",
+    "address": "Imam Saud Bin Abdulaziz Bin Mohammed Road, Al Nakheel, Riyadh 12382, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.7505,
+      "lng": 46.6269
+    },
+    "description": "Handmade pasta, risotto, soups, and Italian comfort dishes.",
     "image": "https://images.unsplash.com/photo-1473093226795-af9932fe5856",
     "tags": [
       "pasta",
@@ -614,59 +580,41 @@
         "price": 48
       },
       {
-        "name": "Iced Tea",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 12
-      },
-      {
-        "name": "Onion Rings",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 16
+        "name": "Penne Arrabbiata",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141",
+        "price": 42
       },
       {
         "name": "Mushroom Soup",
         "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
         "price": 20
       },
       {
-        "name": "Crispy Fries",
+        "name": "Garlic Bread",
         "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 15
+        "image": "https://images.unsplash.com/photo-1573140401552-3fab0b24306f",
+        "price": 16
       },
       {
-        "name": "Iced Tea",
+        "name": "Peach Iced Tea",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 12
-      },
-      {
-        "name": "Crispy Fries",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 15
-      },
-      {
-        "name": "Iced Tea",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
         "price": 12
       }
     ],
     "menuCategories": [
       "Main Course",
-      "Drinks",
+      "Soups",
       "Sides",
-      "Soups"
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 9,
-    "name": "Steak & Co",
+    "name": "Mursalat Steakhouse",
     "timings": {
       "friday": {
         "opening": "16:00",
@@ -687,10 +635,15 @@
     "deliveryFee": 25,
     "offer": "Premium Quality",
     "distance": "5.2 km",
-    "state": "Jeddah",
-    "district": "Al Shatie",
-    "area": "Jeddah, Shatie",
-    "description": "Premium cuts of meat grilled to perfection.",
+    "state": "Riyadh",
+    "district": "Al Mursalat",
+    "area": "Riyadh, Al Mursalat",
+    "address": "King Abdulaziz Road, Al Mursalat, Riyadh 12461, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.759,
+      "lng": 46.6947
+    },
+    "description": "Premium grilled cuts, steakhouse sides, and rich desserts.",
     "image": "https://images.unsplash.com/photo-1546241072-48010ad28c2c",
     "tags": [
       "steak",
@@ -704,46 +657,41 @@
         "price": 120
       },
       {
-        "name": "Mushroom Soup",
-        "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 20
-      },
-      {
-        "name": "Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 28
-      },
-      {
-        "name": "Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 28
-      },
-      {
-        "name": "Beef Steak",
+        "name": "Grilled Tenderloin",
         "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 85
+        "image": "https://images.unsplash.com/photo-1558030006-450675393462",
+        "price": 135
       },
       {
-        "name": "Cheesecake",
+        "name": "Creamy Mushroom Soup",
+        "category": "Soups",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
+        "price": 24
+      },
+      {
+        "name": "Mashed Potatoes",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf",
+        "price": 22
+      },
+      {
+        "name": "New York Cheesecake",
         "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 28
+        "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad",
+        "price": 30
       }
     ],
     "menuCategories": [
       "Main Course",
       "Soups",
+      "Sides",
       "Desserts"
     ],
     "currency": "SAR"
   },
   {
     "id": 10,
-    "name": "Dim Sum House",
+    "name": "Murabba Dim Sum House",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -765,9 +713,14 @@
     "offer": "Happy Hour 15%",
     "distance": "1.9 km",
     "state": "Riyadh",
-    "district": "Al Nakheel",
-    "area": "Riyadh, Nakheel",
-    "description": "Steamed and fried dumplings.",
+    "district": "Al Murabba",
+    "area": "Riyadh, Al Murabba",
+    "address": "King Faisal Road, Al Murabba, Riyadh 12613, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.6472,
+      "lng": 46.7103
+    },
+    "description": "Steamed dumplings, noodles, and wok dishes packed for delivery.",
     "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c",
     "tags": [
       "chinese",
@@ -781,53 +734,41 @@
         "price": 36
       },
       {
-        "name": "Beef Steak",
+        "name": "Chicken Chow Mein",
         "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 85
+        "image": "https://images.unsplash.com/photo-1552611052-33e04de081de",
+        "price": 39
       },
       {
-        "name": "Beef Steak",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 85
-      },
-      {
-        "name": "Grilled Chicken",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 45
-      },
-      {
-        "name": "Mojito",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 18
-      },
-      {
-        "name": "Spicy Wings",
+        "name": "Vegetable Spring Rolls",
         "category": "Appetizers",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 25
+        "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
+        "price": 22
       },
       {
-        "name": "Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 28
+        "name": "Hot and Sour Soup",
+        "category": "Soups",
+        "image": "https://images.unsplash.com/photo-1603105037880-880cd4edfb0d",
+        "price": 20
+      },
+      {
+        "name": "Jasmine Iced Tea",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
+        "price": 14
       }
     ],
     "menuCategories": [
       "Main Course",
-      "Drinks",
       "Appetizers",
-      "Desserts"
+      "Soups",
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 11,
-    "name": "Noodle Bar",
+    "name": "Rabi Noodle Bar",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -848,10 +789,15 @@
     "deliveryFee": 8,
     "offer": "Free Spring Rolls",
     "distance": "2.4 km",
-    "state": "Dammam",
-    "district": "Faisaliyah",
-    "area": "Dammam, Faisaliyah",
-    "description": "Stir-fried noodles and ramen.",
+    "state": "Riyadh",
+    "district": "Ar Rabi",
+    "area": "Riyadh, Ar Rabi",
+    "address": "Uthman Ibn Affan Road, Ar Rabi, Riyadh 13315, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.7942,
+      "lng": 46.6601
+    },
+    "description": "Ramen, pad thai, fried rice, and pan-Asian street food bowls.",
     "image": "https://images.unsplash.com/photo-1552611052-33e04de081de",
     "tags": [
       "asian",
@@ -861,58 +807,45 @@
       {
         "name": "Pad Thai",
         "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1559339352-11d035aa65de",
+        "image": "https://images.unsplash.com/photo-1559314809-0d155014e29e",
         "price": 42
       },
       {
-        "name": "Iced Tea",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 12
+        "name": "Chicken Ramen",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624",
+        "price": 44
       },
       {
-        "name": "Mushroom Soup",
+        "name": "Tom Yum Soup",
         "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 20
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
+        "price": 23
       },
       {
-        "name": "Mojito",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
+        "name": "Vegetable Spring Rolls",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
         "price": 18
       },
       {
-        "name": "Crispy Fries",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 15
-      },
-      {
-        "name": "Classic Caesar Salad",
-        "category": "Salads",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 30
-      },
-      {
-        "name": "Iced Tea",
+        "name": "Thai Iced Tea",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 12
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
+        "price": 16
       }
     ],
     "menuCategories": [
       "Main Course",
-      "Drinks",
       "Soups",
       "Sides",
-      "Salads"
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 12,
-    "name": "Dessert Delight",
+    "name": "Narjis Dessert Atelier",
     "timings": {
       "friday": {
         "opening": "15:00",
@@ -934,9 +867,14 @@
     "offer": "Buy 2 Get 1",
     "distance": "1.1 km",
     "state": "Riyadh",
-    "district": "Rawdah",
-    "area": "Riyadh, Rawdah",
-    "description": "Cakes, pastries, and sweet treats.",
+    "district": "Al Narjis",
+    "area": "Riyadh, Al Narjis",
+    "address": "Anas Ibn Malik Road, Al Narjis, Riyadh 13324, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.8417,
+      "lng": 46.6763
+    },
+    "description": "Cakes, kunafa cups, pastries, and Arabic sweets boxed for gifting.",
     "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
     "tags": [
       "sweets",
@@ -950,48 +888,33 @@
         "price": 25
       },
       {
-        "name": "Mushroom Soup",
-        "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 20
+        "name": "Pistachio Kunafa Cup",
+        "category": "Desserts",
+        "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
+        "price": 24
       },
       {
-        "name": "Iced Tea",
+        "name": "Mini Cheesecake Box",
+        "category": "Desserts",
+        "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad",
+        "price": 34
+      },
+      {
+        "name": "Iced Spanish Latte",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 12
-      },
-      {
-        "name": "Grilled Chicken",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 45
-      },
-      {
-        "name": "Classic Caesar Salad",
-        "category": "Salads",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 30
-      },
-      {
-        "name": "Mojito",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 18
+        "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735",
+        "price": 19
       }
     ],
     "menuCategories": [
       "Desserts",
-      "Soups",
-      "Drinks",
-      "Main Course",
-      "Salads"
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 13,
-    "name": "Juice Junction",
+    "name": "Qurtubah Juice Lab",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -1012,10 +935,15 @@
     "deliveryFee": 5,
     "offer": "25% OFF Juices",
     "distance": "0.8 km",
-    "state": "Khobar",
-    "district": "Olaya",
-    "area": "Khobar, Olaya",
-    "description": "Freshly squeezed juices and smoothies.",
+    "state": "Riyadh",
+    "district": "Qurtubah",
+    "area": "Riyadh, Qurtubah",
+    "address": "Thumamah Road, Qurtubah, Riyadh 13244, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.8042,
+      "lng": 46.7426
+    },
+    "description": "Fresh juices, smoothies, acai bowls, and light fruit cups.",
     "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b2",
     "tags": [
       "juice",
@@ -1029,61 +957,34 @@
         "price": 15
       },
       {
-        "name": "Crispy Fries",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 15
-      },
-      {
-        "name": "Classic Caesar Salad",
-        "category": "Salads",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 30
-      },
-      {
-        "name": "Crispy Fries",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 15
-      },
-      {
-        "name": "Beef Steak",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
-        "price": 85
-      },
-      {
-        "name": "Onion Rings",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 16
-      },
-      {
-        "name": "Spicy Wings",
-        "category": "Appetizers",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 25
-      },
-      {
-        "name": "Mushroom Soup",
-        "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+        "name": "Mango Smoothie",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4",
         "price": 20
+      },
+      {
+        "name": "Acai Bowl",
+        "category": "Bowls",
+        "image": "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38",
+        "price": 32
+      },
+      {
+        "name": "Seasonal Fruit Cup",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea",
+        "price": 18
       }
     ],
     "menuCategories": [
       "Drinks",
-      "Sides",
-      "Salads",
-      "Main Course",
-      "Appetizers",
-      "Soups"
+      "Bowls",
+      "Sides"
     ],
     "currency": "SAR"
   },
   {
     "id": 14,
-    "name": "Le Paris",
+    "name": "Takhassusi French Bakery",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -1107,7 +1008,12 @@
     "state": "Riyadh",
     "district": "Takhassusi",
     "area": "Riyadh, Takhassusi",
-    "description": "French pastries and classic dishes.",
+    "address": "Al Takhassusi Street, Al Muhammadiyah, Riyadh 12364, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.7202,
+      "lng": 46.6625
+    },
+    "description": "French pastries, croissants, quiche, and cafe-style brunch plates.",
     "image": "https://images.unsplash.com/photo-1550966841-3eeec10e7b99",
     "tags": [
       "french",
@@ -1115,52 +1021,52 @@
     ],
     "foodItems": [
       {
-        "name": "Croissant",
+        "name": "Butter Croissant",
         "category": "Bakery",
         "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a",
         "price": 18
       },
       {
-        "name": "Classic Caesar Salad",
+        "name": "Chicken Quiche",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35",
+        "price": 36
+      },
+      {
+        "name": "Nicoise Salad",
         "category": "Salads",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 30
+        "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9",
+        "price": 34
       },
       {
-        "name": "Spicy Wings",
-        "category": "Appetizers",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 25
+        "name": "Chocolate Eclair",
+        "category": "Desserts",
+        "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777",
+        "price": 22
       },
       {
-        "name": "Mojito",
+        "name": "Cappuccino",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
-        "price": 18
-      },
-      {
-        "name": "Onion Rings",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 16
+        "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735",
+        "price": 17
       }
     ],
     "menuCategories": [
       "Bakery",
+      "Main Course",
       "Salads",
-      "Appetizers",
-      "Drinks",
-      "Sides"
+      "Desserts",
+      "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 15,
-    "name": "The Coffee Club",
+    "name": "KAFD Coffee Roastery",
     "timings": {
       "friday": {
         "opening": "13:00",
-        "closing": "02:00"
+        "closing": "01:00"
       },
       "saturday": {
         "opening": "07:00",
@@ -1180,7 +1086,12 @@
     "state": "Riyadh",
     "district": "KAFD",
     "area": "Riyadh, KAFD",
-    "description": "Specialty coffee and breakfast.",
+    "address": "King Abdullah Financial District, Riyadh 13519, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.7661,
+      "lng": 46.6436
+    },
+    "description": "Specialty coffee, breakfast sandwiches, pastries, and office-friendly snacks.",
     "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
     "tags": [
       "coffee",
@@ -1194,34 +1105,34 @@
         "price": 22
       },
       {
-        "name": "Iced Tea",
+        "name": "Iced Americano",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 12
-      },
-      {
-        "name": "Mojito",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1484723091791-c0d7f5474198",
+        "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c",
         "price": 18
       },
       {
-        "name": "Classic Caesar Salad",
-        "category": "Salads",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 30
+        "name": "Turkey Croissant Sandwich",
+        "category": "Breakfast",
+        "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a",
+        "price": 29
       },
       {
-        "name": "Onion Rings",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
-        "price": 16
+        "name": "Labneh Toast",
+        "category": "Breakfast",
+        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
+        "price": 26
+      },
+      {
+        "name": "Almond Cookie",
+        "category": "Desserts",
+        "image": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e",
+        "price": 12
       }
     ],
     "menuCategories": [
       "Drinks",
-      "Salads",
-      "Sides"
+      "Breakfast",
+      "Desserts"
     ],
     "currency": "SAR"
   }
