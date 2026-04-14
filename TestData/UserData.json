@@ -29,7 +29,8 @@
           "lng": 46.6753
         },
         "notes": "Leave at the door, call when arrived.",
-        "isDefault": true
+        "isDefault": true,
+        "address": "Building 1234, King Fahd Road, Al Olaya, Riyadh 12211, Saudi Arabia"
       },
       {
         "id": "addr_004",
@@ -37,7 +38,7 @@
         "title": "Office HQ",
         "city": "Riyadh",
         "district": "Al Malaz",
-        "street": "Makkah Al Mukarramah Branch Rd",
+        "street": "Makkah Al Mukarramah Branch Road",
         "buildingNumber": "789",
         "floor": "5",
         "apartment": "502",
@@ -47,7 +48,8 @@
           "lng": 46.7328
         },
         "notes": "Deliver to reception.",
-        "isDefault": false
+        "isDefault": false,
+        "address": "Building 789, Makkah Al Mukarramah Branch Road, Al Malaz, Riyadh 12831, Saudi Arabia"
       },
       {
         "id": "addr_005",
@@ -65,7 +67,8 @@
           "lng": 46.6558
         },
         "notes": "Ring the bell, don't leave outside.",
-        "isDefault": false
+        "isDefault": false,
+        "address": "Building 456, Abu Bakr Al Siddiq Road, Al Yasmin, Riyadh 13322, Saudi Arabia"
       }
     ],
     "paymentMethods": [
@@ -83,7 +86,11 @@
       }
     ],
     "preferences": {
-      "favoriteCuisines": ["arabic", "shawarma", "kabsa"],
+      "favoriteCuisines": [
+        "arabic",
+        "shawarma",
+        "kabsa"
+      ],
       "allergies": [],
       "notifications": {
         "push": true,
@@ -207,7 +214,6 @@
         "createdAt": "2026-03-29T18:40:00Z"
       }
     ],
-
     "orderHistory": [
       {
         "orderId": "ord_1001",
@@ -231,7 +237,7 @@
         "status": "delivered",
         "statusLabel": "Delivered",
         "itemsCount": 4,
-        "totalAmount": 52.0,
+        "totalAmount": 52,
         "currency": "SAR",
         "deliveredAt": "2026-03-18T14:10:00Z",
         "actions": {
@@ -276,19 +282,20 @@
         "id": "addr_002",
         "type": "work",
         "title": "Office",
-        "city": "Jeddah",
-        "district": "Al Shati",
-        "street": "Corniche Road",
+        "city": "Diriyah",
+        "district": "At Turaif",
+        "street": "Wadi Hanifah Road",
         "buildingNumber": "88",
         "floor": "12",
         "apartment": "1204",
-        "postalCode": "23412",
+        "postalCode": "13711",
         "coordinates": {
-          "lat": 21.6085,
-          "lng": 39.1039
+          "lat": 24.7375,
+          "lng": 46.575
         },
         "notes": "Leave at the reception.",
-        "isDefault": true
+        "isDefault": true,
+        "address": "Building 88, Wadi Hanifah Road, At Turaif, Diriyah 13711, Riyadh Region, Saudi Arabia"
       }
     ],
     "paymentMethods": [
@@ -307,8 +314,14 @@
       }
     ],
     "preferences": {
-      "favoriteCuisines": ["fast_food", "desserts", "coffee"],
-      "allergies": ["nuts"],
+      "favoriteCuisines": [
+        "fast_food",
+        "desserts",
+        "coffee"
+      ],
+      "allergies": [
+        "nuts"
+      ],
       "notifications": {
         "push": true,
         "sms": false,
@@ -350,19 +363,20 @@
         "id": "addr_003",
         "type": "home",
         "title": "Apartment",
-        "city": "Dammam",
-        "district": "Al Faisaliyah",
-        "street": "Prince Mohammed Bin Fahd Road",
+        "city": "Al Kharj",
+        "district": "Al Salam",
+        "street": "King Abdulaziz Road",
         "buildingNumber": "45",
         "floor": "3",
         "apartment": "12",
-        "postalCode": "32271",
+        "postalCode": "16278",
         "coordinates": {
-          "lat": 26.4207,
-          "lng": 50.0888
+          "lat": 24.1554,
+          "lng": 47.3346
         },
         "notes": "",
-        "isDefault": true
+        "isDefault": true,
+        "address": "Building 45, King Abdulaziz Road, Al Salam, Al Kharj 16278, Riyadh Region, Saudi Arabia"
       }
     ],
     "paymentMethods": [
@@ -373,7 +387,11 @@
       }
     ],
     "preferences": {
-      "favoriteCuisines": ["italian", "burgers", "healthy"],
+      "favoriteCuisines": [
+        "italian",
+        "burgers",
+        "healthy"
+      ],
       "allergies": [],
       "notifications": {
         "push": true,
@@ -385,11 +403,20 @@
     "cart": [],
     "orderHistory": [
       {
-        "orderId": "ord_1002",
+        "orderId": "ord_1004",
         "restaurantId": "rest_005",
+        "restaurantName": "Al Majmaah Masala Kitchen",
         "status": "cancelled",
-        "date": "2026-03-10T11:00:00Z",
-        "total": 85
+        "statusLabel": "Cancelled",
+        "itemsCount": 2,
+        "totalAmount": 85,
+        "currency": "SAR",
+        "cancelledAt": "2026-03-10T11:00:00Z",
+        "cancelReason": "Restaurant unavailable",
+        "actions": {
+          "canReorder": false,
+          "canRetry": true
+        }
       }
     ],
     "createdAt": "2025-03-01T08:10:00Z"

@@ -8,7 +8,6 @@ import {
   View,
 } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
-import { useSelector } from "react-redux";
 
 import FilterButton from "@/components/common/FilterButton";
 import FilterSheet from "@/components/common/FilterSheet";
@@ -18,33 +17,9 @@ import RestaurantCard, {
 import RestaurantFilter, {
   FilterState,
 } from "@/components/restaurant/RestaurantFilter";
-import { RootState } from "@/store/store";
 import restaurantDataJson from "@/TestData/RestaurantData.json";
-import userDataJson from "@/TestData/UserData.json";
 
-type RestaurantWithLocation = Restaurant & {
-  district?: string;
-};
-
-type UserAddressWithDistrict = {
-  district?: string;
-  region?: string;
-  isDefault?: boolean;
-};
-
-type UserWithAddresses = {
-  addresses?: UserAddressWithDistrict[];
-};
-
-const restaurantData = restaurantDataJson as unknown as RestaurantWithLocation[];
-const fallbackUser = (userDataJson as unknown as UserWithAddresses[])[0];
-
-const normalizeDistrict = (district?: string) =>
-  district
-    ?.trim()
-    .toLowerCase()
-    .replace(/^al\s+/, "")
-    .replace(/\s+/g, " ") || "";
+const restaurantData = restaurantDataJson as unknown as Restaurant[];
 
 const DEFAULT_FILTERS: FilterState = {
   sortBy: "recommended",
@@ -59,33 +34,8 @@ interface RestaurantCardListProps {
 
 const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   const { width } = useWindowDimensions();
-  const selectedAddress = useSelector(
-    (state: RootState) => state.selectedAddress.selectedAddress,
-  );
-  const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
-
-  const userDistrict = useMemo(() => {
-    const defaultAddress =
-      (currentUser?.addresses?.find((address) => address.isDefault) ||
-        currentUser?.addresses?.[0] ||
-        fallbackUser?.addresses?.find((address) => address.isDefault) ||
-        fallbackUser?.addresses?.[0]) as UserAddressWithDistrict | undefined;
-
-    return (
-      selectedAddress?.region ||
-      (selectedAddress as UserAddressWithDistrict | null)?.district ||
-      defaultAddress?.district ||
-      defaultAddress?.region ||
-      ""
-    );
-  }, [currentUser?.addresses, selectedAddress]);
-
-  const normalizedUserDistrict = useMemo(
-    () => normalizeDistrict(userDistrict),
-    [userDistrict],
-  );
 
   // Determine active filter indicator count
   const activeFilterCount = useMemo(() => {
@@ -101,21 +51,13 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   const filteredData = useMemo(() => {
     let data = [...restaurantData];
 
-    // 1. Filter by selected/default user district
-    if (normalizedUserDistrict) {
-      data = data.filter(
-        (restaurant) =>
-          normalizeDistrict(restaurant.district) === normalizedUserDistrict,
-      );
-    }
-
-    // 2. Filter by Rating
+    // 1. Filter by Rating
     if (filters.rating) {
       const minRating = parseFloat(filters.rating.replace("+", ""));
       data = data.filter((r) => r.rating >= minRating);
     }
 
-    // 3. Filter by Price Range (using average item price)
+    // 2. Filter by Price Range (using average item price)
     if (filters.priceRange) {
       const isOver100 = filters.priceRange === "100+";
       const [minStr, maxStr] = filters.priceRange.split("-");
@@ -133,7 +75,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
       });
     }
 
-    // 4. Filter by Dietary (Mock mappings for demonstration)
+    // 3. Filter by Dietary (Mock mappings for demonstration)
     if (filters.dietary.length > 0) {
       data = data.filter((r) => {
         return filters.dietary.some((diet) => {
@@ -150,7 +92,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
       });
     }
 
-    // 5. Sort By
+    // 4. Sort By
     if (filters.sortBy === "rating") {
       data.sort((a, b) => b.rating - a.rating);
     } else if (filters.sortBy === "delivery_time") {
@@ -173,7 +115,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
     }
 
     return data;
-  }, [filters, normalizedUserDistrict]);
+  }, [filters]);
 
   const handleClearFilters = () => {
     setFilters(DEFAULT_FILTERS);

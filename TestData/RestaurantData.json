@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Olaya Masala Kitchen",
+    "name": "Riyadh Najdi Kitchen",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -16,62 +16,55 @@
         "closing": "23:00"
       }
     },
-    "cuisine": "Indian",
-    "rating": 4.6,
-    "deliveryTime": "25-30 min",
+    "cuisine": "Saudi",
+    "rating": 4.2,
+    "deliveryTime": "15-25 min",
     "deliveryFee": 0,
     "offer": "20% OFF",
-    "distance": "2.5 km",
+    "distance": "0.8 km",
     "state": "Riyadh",
-    "district": "Olaya",
-    "area": "Riyadh, Olaya",
-    "address": "King Fahd Road, Al Olaya, Riyadh 12211, Saudi Arabia",
+    "city": "Riyadh",
+    "area": "Riyadh, Riyadh Region",
+    "address": "King Abdulaziz Road, Riyadh, Riyadh Region, Saudi Arabia",
     "coordinates": {
       "lat": 24.7136,
       "lng": 46.6753
     },
-    "description": "North Indian curries, tandoor grills, and fresh naan made for family meals.",
-    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+    "description": "Najdi rice plates, grilled chicken, and warm local sides.",
+    "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
     "tags": [
-      "popular",
-      "spicy",
-      "family-meals"
+      "riyadh-region",
+      "saudi",
+      "kabsa"
     ],
     "foodItems": [
       {
-        "name": "Butter Chicken",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
-        "price": 45
-      },
-      {
-        "name": "Chicken Biryani",
+        "name": "Chicken Kabsa",
         "category": "Main Course",
         "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
-        "price": 42
+        "price": 38
       },
       {
-        "name": "Paneer Tikka",
-        "category": "Starters",
-        "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8",
-        "price": 32
+        "name": "Mandi Lamb",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
+        "price": 58
       },
       {
-        "name": "Garlic Naan",
+        "name": "Jareesh Bowl",
         "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1626074353765-517a681e40be",
-        "price": 9
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
+        "price": 22
       },
       {
-        "name": "Mango Lassi",
+        "name": "Laban",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4",
-        "price": 16
+        "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307",
+        "price": 8
       }
     ],
     "menuCategories": [
       "Main Course",
-      "Starters",
       "Sides",
       "Drinks"
     ],
@@ -79,7 +72,78 @@
   },
   {
     "id": 2,
-    "name": "Malaz Burger Works",
+    "name": "Al Kharj Shawarma Grill",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Arabic",
+    "rating": 4.3,
+    "deliveryTime": "20-30 min",
+    "deliveryFee": 8,
+    "offer": "Free Delivery",
+    "distance": "1.4 km",
+    "state": "Riyadh",
+    "city": "Al Kharj",
+    "area": "Al Kharj, Riyadh Region",
+    "address": "King Fahd Road, Al Kharj, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.1554,
+      "lng": 47.3346
+    },
+    "description": "Fresh shawarma, grilled wraps, pickles, and fries.",
+    "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
+    "tags": [
+      "riyadh-region",
+      "shawarma",
+      "quick-bites"
+    ],
+    "foodItems": [
+      {
+        "name": "Chicken Shawarma Saj",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
+        "price": 14
+      },
+      {
+        "name": "Beef Shawarma Plate",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
+        "price": 28
+      },
+      {
+        "name": "Crispy Fries",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d",
+        "price": 15
+      },
+      {
+        "name": "Lemon Mint",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1621263764928-df1444c5e859",
+        "price": 16
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Sides",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 3,
+    "name": "Diriyah Burger Works",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -95,24 +159,25 @@
       }
     },
     "cuisine": "American",
-    "rating": 4.3,
-    "deliveryTime": "20-25 min",
-    "deliveryFee": 15,
-    "offer": "Buy 1 Get 1",
-    "distance": "1.8 km",
+    "rating": 4.4,
+    "deliveryTime": "25-35 min",
+    "deliveryFee": 11,
+    "offer": "Combo Deal",
+    "distance": "2.0 km",
     "state": "Riyadh",
-    "district": "Malaz",
-    "area": "Riyadh, Malaz",
-    "address": "Makkah Al Mukarramah Branch Road, Al Malaz, Riyadh 12831, Saudi Arabia",
+    "city": "Diriyah",
+    "area": "Diriyah, Riyadh Region",
+    "address": "Prince Sultan Road, Diriyah, Riyadh Region, Saudi Arabia",
     "coordinates": {
-      "lat": 24.6645,
-      "lng": 46.7328
+      "lat": 24.7375,
+      "lng": 46.575
     },
-    "description": "Smashed beef burgers, loaded fries, and thick milkshakes near Al Malaz.",
+    "description": "Smashed burgers, crispy chicken sandwiches, and loaded fries.",
     "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
     "tags": [
-      "fastfood",
-      "burgers"
+      "riyadh-region",
+      "burgers",
+      "fastfood"
     ],
     "foodItems": [
       {
@@ -148,8 +213,8 @@
     "currency": "SAR"
   },
   {
-    "id": 3,
-    "name": "Yasmin Stone Oven Pizza",
+    "id": 4,
+    "name": "Dawadmi Stone Oven Pizza",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -165,25 +230,25 @@
       }
     },
     "cuisine": "Italian",
-    "rating": 4.6,
-    "deliveryTime": "30-35 min",
-    "deliveryFee": 10,
+    "rating": 4.5,
+    "deliveryTime": "30-40 min",
+    "deliveryFee": 14,
     "offer": "15% OFF",
-    "distance": "3.2 km",
+    "distance": "2.6 km",
     "state": "Riyadh",
-    "district": "Al Yasmin",
-    "area": "Riyadh, Al Yasmin",
-    "address": "Abu Bakr Al Siddiq Road, Al Yasmin, Riyadh 13322, Saudi Arabia",
+    "city": "Dawadmi",
+    "area": "Dawadmi, Riyadh Region",
+    "address": "Market Street, Dawadmi, Riyadh Region, Saudi Arabia",
     "coordinates": {
-      "lat": 24.8105,
-      "lng": 46.6558
+      "lat": 24.5077,
+      "lng": 44.3924
     },
-    "description": "Wood-fired pizzas, baked pastas, and shareable Italian starters.",
+    "description": "Wood-fired pizzas, pasta bowls, salads, and refreshing drinks.",
     "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
     "tags": [
-      "cheesy",
+      "riyadh-region",
       "pizza",
-      "family-meals"
+      "italian"
     ],
     "foodItems": [
       {
@@ -199,96 +264,13 @@
         "price": 36
       },
       {
-        "name": "Spicy Wings",
-        "category": "Appetizers",
-        "image": "https://images.unsplash.com/photo-1527477396000-e27163b481c2",
-        "price": 25
-      },
-      {
         "name": "Classic Caesar Salad",
         "category": "Salads",
         "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9",
         "price": 30
       },
       {
-        "name": "Lemon Mint",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1621263764928-df1444c5e859",
-        "price": 18
-      }
-    ],
-    "menuCategories": [
-      "Main Course",
-      "Appetizers",
-      "Salads",
-      "Drinks"
-    ],
-    "currency": "SAR"
-  },
-  {
-    "id": 4,
-    "name": "Rawdah Sushi Bar",
-    "timings": {
-      "friday": {
-        "opening": "13:00",
-        "closing": "02:00"
-      },
-      "saturday": {
-        "opening": "10:00",
-        "closing": "02:00"
-      },
-      "weekday": {
-        "opening": "10:00",
-        "closing": "23:00"
-      }
-    },
-    "cuisine": "Japanese",
-    "rating": 4.7,
-    "deliveryTime": "35-40 min",
-    "deliveryFee": 20,
-    "offer": "10% OFF",
-    "distance": "4.1 km",
-    "state": "Riyadh",
-    "district": "Rawdah",
-    "area": "Riyadh, Rawdah",
-    "address": "Khalid Ibn Al Waleed Street, Al Rawdah, Riyadh 13213, Saudi Arabia",
-    "coordinates": {
-      "lat": 24.735,
-      "lng": 46.766
-    },
-    "description": "Fresh sushi boxes, hot ramen, and Japanese sides for late dinners.",
-    "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c",
-    "tags": [
-      "premium",
-      "sushi"
-    ],
-    "foodItems": [
-      {
-        "name": "Salmon Sushi Box",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1553621042-f6e147245754",
-        "price": 55
-      },
-      {
-        "name": "Chicken Katsu Curry",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56",
-        "price": 49
-      },
-      {
-        "name": "Miso Soup",
-        "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1607301405390-d831c242f59b",
-        "price": 18
-      },
-      {
-        "name": "Matcha Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
-        "price": 28
-      },
-      {
-        "name": "Iced Green Tea",
+        "name": "Peach Iced Tea",
         "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
         "price": 12
@@ -296,15 +278,14 @@
     ],
     "menuCategories": [
       "Main Course",
-      "Soups",
-      "Desserts",
+      "Salads",
       "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 5,
-    "name": "Wurud Shawarma Grill",
+    "name": "Al Majmaah Masala Kitchen",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -319,69 +300,63 @@
         "closing": "23:00"
       }
     },
-    "cuisine": "Arabic",
-    "rating": 4.4,
-    "deliveryTime": "15-20 min",
-    "deliveryFee": 0,
-    "offer": "Combo Deal",
-    "distance": "1.2 km",
+    "cuisine": "Indian",
+    "rating": 4.6,
+    "deliveryTime": "35-45 min",
+    "deliveryFee": 17,
+    "offer": "New Member 20%",
+    "distance": "3.2 km",
     "state": "Riyadh",
-    "district": "Al Wurud",
-    "area": "Riyadh, Al Wurud",
-    "address": "Prince Sultan Bin Abdulaziz Road, Al Wurud, Riyadh 12252, Saudi Arabia",
+    "city": "Al Majmaah",
+    "area": "Al Majmaah, Riyadh Region",
+    "address": "Central Road, Al Majmaah, Riyadh Region, Saudi Arabia",
     "coordinates": {
-      "lat": 24.7297,
-      "lng": 46.6853
+      "lat": 25.9045,
+      "lng": 45.3453
     },
-    "description": "Chicken shawarma, saj wraps, grilled kebabs, and quick Arabic sides.",
-    "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
+    "description": "Curries, biryani, tandoor grills, and fresh naan.",
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
     "tags": [
-      "popular",
-      "shawarma",
-      "arabic"
+      "riyadh-region",
+      "indian",
+      "spicy"
     ],
     "foodItems": [
       {
-        "name": "Chicken Shawarma Saj",
+        "name": "Butter Chicken",
         "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
-        "price": 14
+        "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
+        "price": 45
       },
       {
-        "name": "Beef Shawarma Plate",
+        "name": "Chicken Biryani",
         "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
-        "price": 28
+        "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+        "price": 42
       },
       {
-        "name": "Mixed Pickles",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1608039829572-78524f79c4c7",
-        "price": 8
+        "name": "Paneer Tikka",
+        "category": "Starters",
+        "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8",
+        "price": 32
       },
       {
-        "name": "Crispy Fries",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d",
-        "price": 15
-      },
-      {
-        "name": "Ayran",
+        "name": "Mango Lassi",
         "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307",
-        "price": 10
+        "image": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4",
+        "price": 16
       }
     ],
     "menuCategories": [
       "Main Course",
-      "Sides",
+      "Starters",
       "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 6,
-    "name": "Sulaimaniyah Fresh Bowls",
+    "name": "Al Zulfi Fresh Bowls",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -397,24 +372,24 @@
       }
     },
     "cuisine": "Healthy",
-    "rating": 4.8,
-    "deliveryTime": "15-25 min",
-    "deliveryFee": 5,
-    "offer": "Free Drink",
-    "distance": "2.1 km",
+    "rating": 4.7,
+    "deliveryTime": "40-50 min",
+    "deliveryFee": 0,
+    "offer": "Buy 1 Get 1",
+    "distance": "3.8 km",
     "state": "Riyadh",
-    "district": "Sulaimaniyah",
-    "area": "Riyadh, Sulaimaniyah",
-    "address": "Prince Musaed Bin Abdulaziz Street, As Sulimaniyah, Riyadh 12232, Saudi Arabia",
+    "city": "Al Zulfi",
+    "area": "Al Zulfi, Riyadh Region",
+    "address": "Main Street, Al Zulfi, Riyadh Region, Saudi Arabia",
     "coordinates": {
-      "lat": 24.7,
-      "lng": 46.7006
+      "lat": 26.2995,
+      "lng": 44.8154
     },
-    "description": "Fresh salads, protein bowls, cold-pressed juices, and clean desserts.",
+    "description": "Protein bowls, fresh salads, soups, and cold-pressed juices.",
     "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
     "tags": [
+      "riyadh-region",
       "healthy",
-      "fresh",
       "salads"
     ],
     "foodItems": [
@@ -437,12 +412,6 @@
         "price": 20
       },
       {
-        "name": "Date Energy Bites",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c",
-        "price": 18
-      },
-      {
         "name": "Green Detox Juice",
         "category": "Drinks",
         "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec",
@@ -453,616 +422,13 @@
       "Salads",
       "Main Course",
       "Soups",
-      "Desserts",
       "Drinks"
     ],
     "currency": "SAR"
   },
   {
     "id": 7,
-    "name": "Hittin Taco Yard",
-    "timings": {
-      "friday": {
-        "opening": "14:00",
-        "closing": "01:00"
-      },
-      "saturday": {
-        "opening": "11:00",
-        "closing": "01:00"
-      },
-      "weekday": {
-        "opening": "11:00",
-        "closing": "00:00"
-      }
-    },
-    "cuisine": "Mexican",
-    "rating": 4.2,
-    "deliveryTime": "25-35 min",
-    "deliveryFee": 12,
-    "offer": "Free Delivery",
-    "distance": "3.5 km",
-    "state": "Riyadh",
-    "district": "Hittin",
-    "area": "Riyadh, Hittin",
-    "address": "Prince Turki Ibn Abdulaziz Al Awwal Road, Hittin, Riyadh 13513, Saudi Arabia",
-    "coordinates": {
-      "lat": 24.7646,
-      "lng": 46.6067
-    },
-    "description": "Soft tacos, burrito bowls, nachos, and house-made salsas.",
-    "image": "https://images.unsplash.com/photo-1565299585323-38d6b0865b47",
-    "tags": [
-      "spicy",
-      "mexican"
-    ],
-    "foodItems": [
-      {
-        "name": "Beef Taco Trio",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85",
-        "price": 35
-      },
-      {
-        "name": "Chicken Burrito Bowl",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1626700051175-6818013e1d4f",
-        "price": 39
-      },
-      {
-        "name": "Loaded Nachos",
-        "category": "Appetizers",
-        "image": "https://images.unsplash.com/photo-1513456852971-30c0b8199d4d",
-        "price": 27
-      },
-      {
-        "name": "Churros",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1624371414361-e670edf4898d",
-        "price": 18
-      },
-      {
-        "name": "Lime Mojito",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
-        "price": 18
-      }
-    ],
-    "menuCategories": [
-      "Main Course",
-      "Appetizers",
-      "Desserts",
-      "Drinks"
-    ],
-    "currency": "SAR"
-  },
-  {
-    "id": 8,
-    "name": "Nakheel Pasta House",
-    "timings": {
-      "friday": {
-        "opening": "13:00",
-        "closing": "02:00"
-      },
-      "saturday": {
-        "opening": "12:00",
-        "closing": "01:00"
-      },
-      "weekday": {
-        "opening": "12:00",
-        "closing": "00:00"
-      }
-    },
-    "cuisine": "Italian",
-    "rating": 4.5,
-    "deliveryTime": "30-40 min",
-    "deliveryFee": 15,
-    "offer": "New Member 20%",
-    "distance": "2.8 km",
-    "state": "Riyadh",
-    "district": "Al Nakheel",
-    "area": "Riyadh, Al Nakheel",
-    "address": "Imam Saud Bin Abdulaziz Bin Mohammed Road, Al Nakheel, Riyadh 12382, Saudi Arabia",
-    "coordinates": {
-      "lat": 24.7505,
-      "lng": 46.6269
-    },
-    "description": "Handmade pasta, risotto, soups, and Italian comfort dishes.",
-    "image": "https://images.unsplash.com/photo-1473093226795-af9932fe5856",
-    "tags": [
-      "pasta",
-      "italian"
-    ],
-    "foodItems": [
-      {
-        "name": "Fettuccine Alfredo",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1645112481351-9ee8ca616cae",
-        "price": 48
-      },
-      {
-        "name": "Penne Arrabbiata",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1551183053-bf91a1d81141",
-        "price": 42
-      },
-      {
-        "name": "Mushroom Soup",
-        "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
-        "price": 20
-      },
-      {
-        "name": "Garlic Bread",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1573140401552-3fab0b24306f",
-        "price": 16
-      },
-      {
-        "name": "Peach Iced Tea",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
-        "price": 12
-      }
-    ],
-    "menuCategories": [
-      "Main Course",
-      "Soups",
-      "Sides",
-      "Drinks"
-    ],
-    "currency": "SAR"
-  },
-  {
-    "id": 9,
-    "name": "Mursalat Steakhouse",
-    "timings": {
-      "friday": {
-        "opening": "16:00",
-        "closing": "02:00"
-      },
-      "saturday": {
-        "opening": "13:00",
-        "closing": "01:00"
-      },
-      "weekday": {
-        "opening": "13:00",
-        "closing": "23:00"
-      }
-    },
-    "cuisine": "Steakhouse",
-    "rating": 4.9,
-    "deliveryTime": "40-50 min",
-    "deliveryFee": 25,
-    "offer": "Premium Quality",
-    "distance": "5.2 km",
-    "state": "Riyadh",
-    "district": "Al Mursalat",
-    "area": "Riyadh, Al Mursalat",
-    "address": "King Abdulaziz Road, Al Mursalat, Riyadh 12461, Saudi Arabia",
-    "coordinates": {
-      "lat": 24.759,
-      "lng": 46.6947
-    },
-    "description": "Premium grilled cuts, steakhouse sides, and rich desserts.",
-    "image": "https://images.unsplash.com/photo-1546241072-48010ad28c2c",
-    "tags": [
-      "steak",
-      "fine-dining"
-    ],
-    "foodItems": [
-      {
-        "name": "Ribeye Steak",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092",
-        "price": 120
-      },
-      {
-        "name": "Grilled Tenderloin",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1558030006-450675393462",
-        "price": 135
-      },
-      {
-        "name": "Creamy Mushroom Soup",
-        "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
-        "price": 24
-      },
-      {
-        "name": "Mashed Potatoes",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf",
-        "price": 22
-      },
-      {
-        "name": "New York Cheesecake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad",
-        "price": 30
-      }
-    ],
-    "menuCategories": [
-      "Main Course",
-      "Soups",
-      "Sides",
-      "Desserts"
-    ],
-    "currency": "SAR"
-  },
-  {
-    "id": 10,
-    "name": "Murabba Dim Sum House",
-    "timings": {
-      "friday": {
-        "opening": "13:00",
-        "closing": "23:00"
-      },
-      "saturday": {
-        "opening": "11:00",
-        "closing": "23:00"
-      },
-      "weekday": {
-        "opening": "11:00",
-        "closing": "22:00"
-      }
-    },
-    "cuisine": "Chinese",
-    "rating": 4.4,
-    "deliveryTime": "20-30 min",
-    "deliveryFee": 10,
-    "offer": "Happy Hour 15%",
-    "distance": "1.9 km",
-    "state": "Riyadh",
-    "district": "Al Murabba",
-    "area": "Riyadh, Al Murabba",
-    "address": "King Faisal Road, Al Murabba, Riyadh 12613, Saudi Arabia",
-    "coordinates": {
-      "lat": 24.6472,
-      "lng": 46.7103
-    },
-    "description": "Steamed dumplings, noodles, and wok dishes packed for delivery.",
-    "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c",
-    "tags": [
-      "chinese",
-      "dumplings"
-    ],
-    "foodItems": [
-      {
-        "name": "Shrimp Dumplings",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1563245394-17f991e39c9f",
-        "price": 36
-      },
-      {
-        "name": "Chicken Chow Mein",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1552611052-33e04de081de",
-        "price": 39
-      },
-      {
-        "name": "Vegetable Spring Rolls",
-        "category": "Appetizers",
-        "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
-        "price": 22
-      },
-      {
-        "name": "Hot and Sour Soup",
-        "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1603105037880-880cd4edfb0d",
-        "price": 20
-      },
-      {
-        "name": "Jasmine Iced Tea",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
-        "price": 14
-      }
-    ],
-    "menuCategories": [
-      "Main Course",
-      "Appetizers",
-      "Soups",
-      "Drinks"
-    ],
-    "currency": "SAR"
-  },
-  {
-    "id": 11,
-    "name": "Rabi Noodle Bar",
-    "timings": {
-      "friday": {
-        "opening": "13:00",
-        "closing": "01:00"
-      },
-      "saturday": {
-        "opening": "11:00",
-        "closing": "01:00"
-      },
-      "weekday": {
-        "opening": "11:00",
-        "closing": "23:30"
-      }
-    },
-    "cuisine": "Asian",
-    "rating": 4.3,
-    "deliveryTime": "25-30 min",
-    "deliveryFee": 8,
-    "offer": "Free Spring Rolls",
-    "distance": "2.4 km",
-    "state": "Riyadh",
-    "district": "Ar Rabi",
-    "area": "Riyadh, Ar Rabi",
-    "address": "Uthman Ibn Affan Road, Ar Rabi, Riyadh 13315, Saudi Arabia",
-    "coordinates": {
-      "lat": 24.7942,
-      "lng": 46.6601
-    },
-    "description": "Ramen, pad thai, fried rice, and pan-Asian street food bowls.",
-    "image": "https://images.unsplash.com/photo-1552611052-33e04de081de",
-    "tags": [
-      "asian",
-      "noodles"
-    ],
-    "foodItems": [
-      {
-        "name": "Pad Thai",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1559314809-0d155014e29e",
-        "price": 42
-      },
-      {
-        "name": "Chicken Ramen",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624",
-        "price": 44
-      },
-      {
-        "name": "Tom Yum Soup",
-        "category": "Soups",
-        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
-        "price": 23
-      },
-      {
-        "name": "Vegetable Spring Rolls",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
-        "price": 18
-      },
-      {
-        "name": "Thai Iced Tea",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
-        "price": 16
-      }
-    ],
-    "menuCategories": [
-      "Main Course",
-      "Soups",
-      "Sides",
-      "Drinks"
-    ],
-    "currency": "SAR"
-  },
-  {
-    "id": 12,
-    "name": "Narjis Dessert Atelier",
-    "timings": {
-      "friday": {
-        "opening": "15:00",
-        "closing": "02:00"
-      },
-      "saturday": {
-        "opening": "10:00",
-        "closing": "01:00"
-      },
-      "weekday": {
-        "opening": "10:00",
-        "closing": "00:00"
-      }
-    },
-    "cuisine": "Desserts",
-    "rating": 4.7,
-    "deliveryTime": "15-20 min",
-    "deliveryFee": 5,
-    "offer": "Buy 2 Get 1",
-    "distance": "1.1 km",
-    "state": "Riyadh",
-    "district": "Al Narjis",
-    "area": "Riyadh, Al Narjis",
-    "address": "Anas Ibn Malik Road, Al Narjis, Riyadh 13324, Saudi Arabia",
-    "coordinates": {
-      "lat": 24.8417,
-      "lng": 46.6763
-    },
-    "description": "Cakes, kunafa cups, pastries, and Arabic sweets boxed for gifting.",
-    "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
-    "tags": [
-      "sweets",
-      "desserts"
-    ],
-    "foodItems": [
-      {
-        "name": "Chocolate Lava Cake",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1563805042-7684c019e1cb",
-        "price": 25
-      },
-      {
-        "name": "Pistachio Kunafa Cup",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1578985545062-69928b1d9587",
-        "price": 24
-      },
-      {
-        "name": "Mini Cheesecake Box",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1533134242443-d4fd215305ad",
-        "price": 34
-      },
-      {
-        "name": "Iced Spanish Latte",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735",
-        "price": 19
-      }
-    ],
-    "menuCategories": [
-      "Desserts",
-      "Drinks"
-    ],
-    "currency": "SAR"
-  },
-  {
-    "id": 13,
-    "name": "Qurtubah Juice Lab",
-    "timings": {
-      "friday": {
-        "opening": "13:00",
-        "closing": "00:00"
-      },
-      "saturday": {
-        "opening": "08:00",
-        "closing": "23:00"
-      },
-      "weekday": {
-        "opening": "08:00",
-        "closing": "23:00"
-      }
-    },
-    "cuisine": "Beverages",
-    "rating": 4.6,
-    "deliveryTime": "10-20 min",
-    "deliveryFee": 5,
-    "offer": "25% OFF Juices",
-    "distance": "0.8 km",
-    "state": "Riyadh",
-    "district": "Qurtubah",
-    "area": "Riyadh, Qurtubah",
-    "address": "Thumamah Road, Qurtubah, Riyadh 13244, Saudi Arabia",
-    "coordinates": {
-      "lat": 24.8042,
-      "lng": 46.7426
-    },
-    "description": "Fresh juices, smoothies, acai bowls, and light fruit cups.",
-    "image": "https://images.unsplash.com/photo-1622597467836-f3285f2131b2",
-    "tags": [
-      "juice",
-      "healthy"
-    ],
-    "foodItems": [
-      {
-        "name": "Orange Juice",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1613478223719-2ab802602423",
-        "price": 15
-      },
-      {
-        "name": "Mango Smoothie",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4",
-        "price": 20
-      },
-      {
-        "name": "Acai Bowl",
-        "category": "Bowls",
-        "image": "https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38",
-        "price": 32
-      },
-      {
-        "name": "Seasonal Fruit Cup",
-        "category": "Sides",
-        "image": "https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea",
-        "price": 18
-      }
-    ],
-    "menuCategories": [
-      "Drinks",
-      "Bowls",
-      "Sides"
-    ],
-    "currency": "SAR"
-  },
-  {
-    "id": 14,
-    "name": "Takhassusi French Bakery",
-    "timings": {
-      "friday": {
-        "opening": "13:00",
-        "closing": "01:00"
-      },
-      "saturday": {
-        "opening": "08:00",
-        "closing": "00:00"
-      },
-      "weekday": {
-        "opening": "08:00",
-        "closing": "23:00"
-      }
-    },
-    "cuisine": "French",
-    "rating": 4.8,
-    "deliveryTime": "35-45 min",
-    "deliveryFee": 20,
-    "offer": "Premium Selection",
-    "distance": "4.5 km",
-    "state": "Riyadh",
-    "district": "Takhassusi",
-    "area": "Riyadh, Takhassusi",
-    "address": "Al Takhassusi Street, Al Muhammadiyah, Riyadh 12364, Saudi Arabia",
-    "coordinates": {
-      "lat": 24.7202,
-      "lng": 46.6625
-    },
-    "description": "French pastries, croissants, quiche, and cafe-style brunch plates.",
-    "image": "https://images.unsplash.com/photo-1550966841-3eeec10e7b99",
-    "tags": [
-      "french",
-      "bakery"
-    ],
-    "foodItems": [
-      {
-        "name": "Butter Croissant",
-        "category": "Bakery",
-        "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a",
-        "price": 18
-      },
-      {
-        "name": "Chicken Quiche",
-        "category": "Main Course",
-        "image": "https://images.unsplash.com/photo-1558961363-fa8fdf82db35",
-        "price": 36
-      },
-      {
-        "name": "Nicoise Salad",
-        "category": "Salads",
-        "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9",
-        "price": 34
-      },
-      {
-        "name": "Chocolate Eclair",
-        "category": "Desserts",
-        "image": "https://images.unsplash.com/photo-1488477181946-6428a0291777",
-        "price": 22
-      },
-      {
-        "name": "Cappuccino",
-        "category": "Drinks",
-        "image": "https://images.unsplash.com/photo-1461023058943-07fcbe16d735",
-        "price": 17
-      }
-    ],
-    "menuCategories": [
-      "Bakery",
-      "Main Course",
-      "Salads",
-      "Desserts",
-      "Drinks"
-    ],
-    "currency": "SAR"
-  },
-  {
-    "id": 15,
-    "name": "KAFD Coffee Roastery",
+    "name": "Shaqra Coffee Roastery",
     "timings": {
       "friday": {
         "opening": "13:00",
@@ -1078,22 +444,23 @@
       }
     },
     "cuisine": "Cafe",
-    "rating": 4.5,
+    "rating": 4.8,
     "deliveryTime": "15-25 min",
-    "deliveryFee": 7,
+    "deliveryFee": 8,
     "offer": "Morning Special",
-    "distance": "1.3 km",
+    "distance": "4.4 km",
     "state": "Riyadh",
-    "district": "KAFD",
-    "area": "Riyadh, KAFD",
-    "address": "King Abdullah Financial District, Riyadh 13519, Saudi Arabia",
+    "city": "Shaqra",
+    "area": "Shaqra, Riyadh Region",
+    "address": "King Abdulaziz Road, Shaqra, Riyadh Region, Saudi Arabia",
     "coordinates": {
-      "lat": 24.7661,
-      "lng": 46.6436
+      "lat": 25.2526,
+      "lng": 45.2529
     },
-    "description": "Specialty coffee, breakfast sandwiches, pastries, and office-friendly snacks.",
+    "description": "Specialty coffee, pastries, breakfast sandwiches, and office snacks.",
     "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
     "tags": [
+      "riyadh-region",
       "coffee",
       "breakfast"
     ],
@@ -1117,10 +484,502 @@
         "price": 29
       },
       {
-        "name": "Labneh Toast",
+        "name": "Almond Cookie",
+        "category": "Desserts",
+        "image": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e",
+        "price": 12
+      }
+    ],
+    "menuCategories": [
+      "Drinks",
+      "Breakfast",
+      "Desserts"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 8,
+    "name": "Wadi ad-Dawasir Najdi Kitchen",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Saudi",
+    "rating": 4.9,
+    "deliveryTime": "20-30 min",
+    "deliveryFee": 11,
+    "offer": "20% OFF",
+    "distance": "5.0 km",
+    "state": "Riyadh",
+    "city": "Wadi ad-Dawasir",
+    "area": "Wadi ad-Dawasir, Riyadh Region",
+    "address": "King Fahd Road, Wadi ad-Dawasir, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 20.4631,
+      "lng": 44.7877
+    },
+    "description": "Najdi rice plates, grilled chicken, and warm local sides.",
+    "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+    "tags": [
+      "riyadh-region",
+      "saudi",
+      "kabsa"
+    ],
+    "foodItems": [
+      {
+        "name": "Chicken Kabsa",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+        "price": 38
+      },
+      {
+        "name": "Mandi Lamb",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
+        "price": 58
+      },
+      {
+        "name": "Jareesh Bowl",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
+        "price": 22
+      },
+      {
+        "name": "Laban",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307",
+        "price": 8
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Sides",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 9,
+    "name": "Afif Shawarma Grill",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Arabic",
+    "rating": 4.2,
+    "deliveryTime": "25-35 min",
+    "deliveryFee": 14,
+    "offer": "Free Delivery",
+    "distance": "5.6 km",
+    "state": "Riyadh",
+    "city": "Afif",
+    "area": "Afif, Riyadh Region",
+    "address": "Prince Sultan Road, Afif, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 23.9067,
+      "lng": 42.9172
+    },
+    "description": "Fresh shawarma, grilled wraps, pickles, and fries.",
+    "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
+    "tags": [
+      "riyadh-region",
+      "shawarma",
+      "quick-bites"
+    ],
+    "foodItems": [
+      {
+        "name": "Chicken Shawarma Saj",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
+        "price": 14
+      },
+      {
+        "name": "Beef Shawarma Plate",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
+        "price": 28
+      },
+      {
+        "name": "Crispy Fries",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d",
+        "price": 15
+      },
+      {
+        "name": "Lemon Mint",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1621263764928-df1444c5e859",
+        "price": 16
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Sides",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 10,
+    "name": "Al Ghat Burger Works",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "American",
+    "rating": 4.3,
+    "deliveryTime": "30-40 min",
+    "deliveryFee": 17,
+    "offer": "Combo Deal",
+    "distance": "0.8 km",
+    "state": "Riyadh",
+    "city": "Al Ghat",
+    "area": "Al Ghat, Riyadh Region",
+    "address": "Market Street, Al Ghat, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 26.0292,
+      "lng": 44.9466
+    },
+    "description": "Smashed burgers, crispy chicken sandwiches, and loaded fries.",
+    "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
+    "tags": [
+      "riyadh-region",
+      "burgers",
+      "fastfood"
+    ],
+    "foodItems": [
+      {
+        "name": "Double Smash Burger",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+        "price": 34
+      },
+      {
+        "name": "Crispy Chicken Burger",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
+        "price": 31
+      },
+      {
+        "name": "Loaded Cheese Fries",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1639024471283-03518883512d",
+        "price": 19
+      },
+      {
+        "name": "Chocolate Milkshake",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699",
+        "price": 22
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Sides",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 11,
+    "name": "Hotat Bani Tamim Stone Oven Pizza",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Italian",
+    "rating": 4.4,
+    "deliveryTime": "35-45 min",
+    "deliveryFee": 0,
+    "offer": "15% OFF",
+    "distance": "1.4 km",
+    "state": "Riyadh",
+    "city": "Hotat Bani Tamim",
+    "area": "Hotat Bani Tamim, Riyadh Region",
+    "address": "Central Road, Hotat Bani Tamim, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 23.4975,
+      "lng": 46.8669
+    },
+    "description": "Wood-fired pizzas, pasta bowls, salads, and refreshing drinks.",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
+    "tags": [
+      "riyadh-region",
+      "pizza",
+      "italian"
+    ],
+    "foodItems": [
+      {
+        "name": "Pepperoni Pizza",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e",
+        "price": 42
+      },
+      {
+        "name": "Margherita Pizza",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002",
+        "price": 36
+      },
+      {
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
+        "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9",
+        "price": 30
+      },
+      {
+        "name": "Peach Iced Tea",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
+        "price": 12
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Salads",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 12,
+    "name": "Al Hariq Masala Kitchen",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Indian",
+    "rating": 4.5,
+    "deliveryTime": "40-50 min",
+    "deliveryFee": 8,
+    "offer": "New Member 20%",
+    "distance": "2.0 km",
+    "state": "Riyadh",
+    "city": "Al Hariq",
+    "area": "Al Hariq, Riyadh Region",
+    "address": "Main Street, Al Hariq, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 23.6222,
+      "lng": 46.5067
+    },
+    "description": "Curries, biryani, tandoor grills, and fresh naan.",
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+    "tags": [
+      "riyadh-region",
+      "indian",
+      "spicy"
+    ],
+    "foodItems": [
+      {
+        "name": "Butter Chicken",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
+        "price": 45
+      },
+      {
+        "name": "Chicken Biryani",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+        "price": 42
+      },
+      {
+        "name": "Paneer Tikka",
+        "category": "Starters",
+        "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8",
+        "price": 32
+      },
+      {
+        "name": "Mango Lassi",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4",
+        "price": 16
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Starters",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 13,
+    "name": "Al Muzahimiyah Fresh Bowls",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "00:00"
+      },
+      "saturday": {
+        "opening": "09:00",
+        "closing": "23:00"
+      },
+      "weekday": {
+        "opening": "09:00",
+        "closing": "22:00"
+      }
+    },
+    "cuisine": "Healthy",
+    "rating": 4.6,
+    "deliveryTime": "15-25 min",
+    "deliveryFee": 11,
+    "offer": "Buy 1 Get 1",
+    "distance": "2.6 km",
+    "state": "Riyadh",
+    "city": "Al Muzahimiyah",
+    "area": "Al Muzahimiyah, Riyadh Region",
+    "address": "King Abdulaziz Road, Al Muzahimiyah, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.4672,
+      "lng": 46.2754
+    },
+    "description": "Protein bowls, fresh salads, soups, and cold-pressed juices.",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+    "tags": [
+      "riyadh-region",
+      "healthy",
+      "salads"
+    ],
+    "foodItems": [
+      {
+        "name": "Quinoa Chicken Bowl",
+        "category": "Salads",
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+        "price": 38
+      },
+      {
+        "name": "Salmon Avocado Bowl",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+        "price": 52
+      },
+      {
+        "name": "Lentil Soup",
+        "category": "Soups",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
+        "price": 20
+      },
+      {
+        "name": "Green Detox Juice",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec",
+        "price": 19
+      }
+    ],
+    "menuCategories": [
+      "Salads",
+      "Main Course",
+      "Soups",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 14,
+    "name": "Rumah Coffee Roastery",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "01:00"
+      },
+      "saturday": {
+        "opening": "07:00",
+        "closing": "01:00"
+      },
+      "weekday": {
+        "opening": "07:00",
+        "closing": "00:00"
+      }
+    },
+    "cuisine": "Cafe",
+    "rating": 4.7,
+    "deliveryTime": "20-30 min",
+    "deliveryFee": 14,
+    "offer": "Morning Special",
+    "distance": "3.2 km",
+    "state": "Riyadh",
+    "city": "Rumah",
+    "area": "Rumah, Riyadh Region",
+    "address": "King Fahd Road, Rumah, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 25.5671,
+      "lng": 47.1595
+    },
+    "description": "Specialty coffee, pastries, breakfast sandwiches, and office snacks.",
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+    "tags": [
+      "riyadh-region",
+      "coffee",
+      "breakfast"
+    ],
+    "foodItems": [
+      {
+        "name": "Latte",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1541167760496-162955ed8a9f",
+        "price": 22
+      },
+      {
+        "name": "Iced Americano",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c",
+        "price": 18
+      },
+      {
+        "name": "Turkey Croissant Sandwich",
         "category": "Breakfast",
-        "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
-        "price": 26
+        "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a",
+        "price": 29
       },
       {
         "name": "Almond Cookie",
@@ -1133,6 +992,931 @@
       "Drinks",
       "Breakfast",
       "Desserts"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 15,
+    "name": "Thadiq Najdi Kitchen",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Saudi",
+    "rating": 4.8,
+    "deliveryTime": "25-35 min",
+    "deliveryFee": 17,
+    "offer": "20% OFF",
+    "distance": "3.8 km",
+    "state": "Riyadh",
+    "city": "Thadiq",
+    "area": "Thadiq, Riyadh Region",
+    "address": "Prince Sultan Road, Thadiq, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 25.2867,
+      "lng": 45.8682
+    },
+    "description": "Najdi rice plates, grilled chicken, and warm local sides.",
+    "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+    "tags": [
+      "riyadh-region",
+      "saudi",
+      "kabsa"
+    ],
+    "foodItems": [
+      {
+        "name": "Chicken Kabsa",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+        "price": 38
+      },
+      {
+        "name": "Mandi Lamb",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
+        "price": 58
+      },
+      {
+        "name": "Jareesh Bowl",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
+        "price": 22
+      },
+      {
+        "name": "Laban",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307",
+        "price": 8
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Sides",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 16,
+    "name": "Huraymila Shawarma Grill",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Arabic",
+    "rating": 4.9,
+    "deliveryTime": "30-40 min",
+    "deliveryFee": 0,
+    "offer": "Free Delivery",
+    "distance": "4.4 km",
+    "state": "Riyadh",
+    "city": "Huraymila",
+    "area": "Huraymila, Riyadh Region",
+    "address": "Market Street, Huraymila, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 25.1169,
+      "lng": 46.0987
+    },
+    "description": "Fresh shawarma, grilled wraps, pickles, and fries.",
+    "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
+    "tags": [
+      "riyadh-region",
+      "shawarma",
+      "quick-bites"
+    ],
+    "foodItems": [
+      {
+        "name": "Chicken Shawarma Saj",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
+        "price": 14
+      },
+      {
+        "name": "Beef Shawarma Plate",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
+        "price": 28
+      },
+      {
+        "name": "Crispy Fries",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d",
+        "price": 15
+      },
+      {
+        "name": "Lemon Mint",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1621263764928-df1444c5e859",
+        "price": 16
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Sides",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 17,
+    "name": "Durma Burger Works",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "American",
+    "rating": 4.2,
+    "deliveryTime": "35-45 min",
+    "deliveryFee": 8,
+    "offer": "Combo Deal",
+    "distance": "5.0 km",
+    "state": "Riyadh",
+    "city": "Durma",
+    "area": "Durma, Riyadh Region",
+    "address": "Central Road, Durma, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.5995,
+      "lng": 46.1324
+    },
+    "description": "Smashed burgers, crispy chicken sandwiches, and loaded fries.",
+    "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
+    "tags": [
+      "riyadh-region",
+      "burgers",
+      "fastfood"
+    ],
+    "foodItems": [
+      {
+        "name": "Double Smash Burger",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+        "price": 34
+      },
+      {
+        "name": "Crispy Chicken Burger",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
+        "price": 31
+      },
+      {
+        "name": "Loaded Cheese Fries",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1639024471283-03518883512d",
+        "price": 19
+      },
+      {
+        "name": "Chocolate Milkshake",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699",
+        "price": 22
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Sides",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 18,
+    "name": "Al Quwayiyah Stone Oven Pizza",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Italian",
+    "rating": 4.3,
+    "deliveryTime": "40-50 min",
+    "deliveryFee": 11,
+    "offer": "15% OFF",
+    "distance": "5.6 km",
+    "state": "Riyadh",
+    "city": "Al Quwayiyah",
+    "area": "Al Quwayiyah, Riyadh Region",
+    "address": "Main Street, Al Quwayiyah, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.0718,
+      "lng": 45.2806
+    },
+    "description": "Wood-fired pizzas, pasta bowls, salads, and refreshing drinks.",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
+    "tags": [
+      "riyadh-region",
+      "pizza",
+      "italian"
+    ],
+    "foodItems": [
+      {
+        "name": "Pepperoni Pizza",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e",
+        "price": 42
+      },
+      {
+        "name": "Margherita Pizza",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002",
+        "price": 36
+      },
+      {
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
+        "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9",
+        "price": 30
+      },
+      {
+        "name": "Peach Iced Tea",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
+        "price": 12
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Salads",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 19,
+    "name": "Al Aflaj Masala Kitchen",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Indian",
+    "rating": 4.4,
+    "deliveryTime": "15-25 min",
+    "deliveryFee": 14,
+    "offer": "New Member 20%",
+    "distance": "0.8 km",
+    "state": "Riyadh",
+    "city": "Al Aflaj",
+    "area": "Al Aflaj, Riyadh Region",
+    "address": "King Abdulaziz Road, Al Aflaj, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 22.2793,
+      "lng": 46.7252
+    },
+    "description": "Curries, biryani, tandoor grills, and fresh naan.",
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+    "tags": [
+      "riyadh-region",
+      "indian",
+      "spicy"
+    ],
+    "foodItems": [
+      {
+        "name": "Butter Chicken",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
+        "price": 45
+      },
+      {
+        "name": "Chicken Biryani",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+        "price": 42
+      },
+      {
+        "name": "Paneer Tikka",
+        "category": "Starters",
+        "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8",
+        "price": 32
+      },
+      {
+        "name": "Mango Lassi",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4",
+        "price": 16
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Starters",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 20,
+    "name": "Al Sulayyil Fresh Bowls",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "00:00"
+      },
+      "saturday": {
+        "opening": "09:00",
+        "closing": "23:00"
+      },
+      "weekday": {
+        "opening": "09:00",
+        "closing": "22:00"
+      }
+    },
+    "cuisine": "Healthy",
+    "rating": 4.5,
+    "deliveryTime": "20-30 min",
+    "deliveryFee": 17,
+    "offer": "Buy 1 Get 1",
+    "distance": "1.4 km",
+    "state": "Riyadh",
+    "city": "Al Sulayyil",
+    "area": "Al Sulayyil, Riyadh Region",
+    "address": "King Fahd Road, Al Sulayyil, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 20.4617,
+      "lng": 45.5779
+    },
+    "description": "Protein bowls, fresh salads, soups, and cold-pressed juices.",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+    "tags": [
+      "riyadh-region",
+      "healthy",
+      "salads"
+    ],
+    "foodItems": [
+      {
+        "name": "Quinoa Chicken Bowl",
+        "category": "Salads",
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+        "price": 38
+      },
+      {
+        "name": "Salmon Avocado Bowl",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+        "price": 52
+      },
+      {
+        "name": "Lentil Soup",
+        "category": "Soups",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
+        "price": 20
+      },
+      {
+        "name": "Green Detox Juice",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec",
+        "price": 19
+      }
+    ],
+    "menuCategories": [
+      "Salads",
+      "Main Course",
+      "Soups",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 21,
+    "name": "Sajir Coffee Roastery",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "01:00"
+      },
+      "saturday": {
+        "opening": "07:00",
+        "closing": "01:00"
+      },
+      "weekday": {
+        "opening": "07:00",
+        "closing": "00:00"
+      }
+    },
+    "cuisine": "Cafe",
+    "rating": 4.6,
+    "deliveryTime": "25-35 min",
+    "deliveryFee": 0,
+    "offer": "Morning Special",
+    "distance": "2.0 km",
+    "state": "Riyadh",
+    "city": "Sajir",
+    "area": "Sajir, Riyadh Region",
+    "address": "Prince Sultan Road, Sajir, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 25.1828,
+      "lng": 44.5965
+    },
+    "description": "Specialty coffee, pastries, breakfast sandwiches, and office snacks.",
+    "image": "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
+    "tags": [
+      "riyadh-region",
+      "coffee",
+      "breakfast"
+    ],
+    "foodItems": [
+      {
+        "name": "Latte",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1541167760496-162955ed8a9f",
+        "price": 22
+      },
+      {
+        "name": "Iced Americano",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1517701604599-bb29b565090c",
+        "price": 18
+      },
+      {
+        "name": "Turkey Croissant Sandwich",
+        "category": "Breakfast",
+        "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a",
+        "price": 29
+      },
+      {
+        "name": "Almond Cookie",
+        "category": "Desserts",
+        "image": "https://images.unsplash.com/photo-1499636136210-6f4ee915583e",
+        "price": 12
+      }
+    ],
+    "menuCategories": [
+      "Drinks",
+      "Breakfast",
+      "Desserts"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 22,
+    "name": "Al Artawiyah Najdi Kitchen",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Saudi",
+    "rating": 4.7,
+    "deliveryTime": "30-40 min",
+    "deliveryFee": 8,
+    "offer": "20% OFF",
+    "distance": "2.6 km",
+    "state": "Riyadh",
+    "city": "Al Artawiyah",
+    "area": "Al Artawiyah, Riyadh Region",
+    "address": "Market Street, Al Artawiyah, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 26.5039,
+      "lng": 45.3469
+    },
+    "description": "Najdi rice plates, grilled chicken, and warm local sides.",
+    "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+    "tags": [
+      "riyadh-region",
+      "saudi",
+      "kabsa"
+    ],
+    "foodItems": [
+      {
+        "name": "Chicken Kabsa",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+        "price": 38
+      },
+      {
+        "name": "Mandi Lamb",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1544025162-d76694265947",
+        "price": 58
+      },
+      {
+        "name": "Jareesh Bowl",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
+        "price": 22
+      },
+      {
+        "name": "Laban",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307",
+        "price": 8
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Sides",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 23,
+    "name": "Marat Shawarma Grill",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Arabic",
+    "rating": 4.8,
+    "deliveryTime": "35-45 min",
+    "deliveryFee": 11,
+    "offer": "Free Delivery",
+    "distance": "3.2 km",
+    "state": "Riyadh",
+    "city": "Marat",
+    "area": "Marat, Riyadh Region",
+    "address": "Central Road, Marat, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 25.0703,
+      "lng": 45.4615
+    },
+    "description": "Fresh shawarma, grilled wraps, pickles, and fries.",
+    "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
+    "tags": [
+      "riyadh-region",
+      "shawarma",
+      "quick-bites"
+    ],
+    "foodItems": [
+      {
+        "name": "Chicken Shawarma Saj",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1561651823-34feb02250e4",
+        "price": 14
+      },
+      {
+        "name": "Beef Shawarma Plate",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1529006557810-274b9b2fc783",
+        "price": 28
+      },
+      {
+        "name": "Crispy Fries",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1630384060421-cb20d0e0649d",
+        "price": 15
+      },
+      {
+        "name": "Lemon Mint",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1621263764928-df1444c5e859",
+        "price": 16
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Sides",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 24,
+    "name": "Ushaiger Burger Works",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "American",
+    "rating": 4.9,
+    "deliveryTime": "40-50 min",
+    "deliveryFee": 14,
+    "offer": "Combo Deal",
+    "distance": "3.8 km",
+    "state": "Riyadh",
+    "city": "Ushaiger",
+    "area": "Ushaiger, Riyadh Region",
+    "address": "Main Street, Ushaiger, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 25.3402,
+      "lng": 45.1886
+    },
+    "description": "Smashed burgers, crispy chicken sandwiches, and loaded fries.",
+    "image": "https://images.unsplash.com/photo-1571091718767-18b5b1457add",
+    "tags": [
+      "riyadh-region",
+      "burgers",
+      "fastfood"
+    ],
+    "foodItems": [
+      {
+        "name": "Double Smash Burger",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd",
+        "price": 34
+      },
+      {
+        "name": "Crispy Chicken Burger",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1606755962773-d324e0a13086",
+        "price": 31
+      },
+      {
+        "name": "Loaded Cheese Fries",
+        "category": "Sides",
+        "image": "https://images.unsplash.com/photo-1639024471283-03518883512d",
+        "price": 19
+      },
+      {
+        "name": "Chocolate Milkshake",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699",
+        "price": 22
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Sides",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 25,
+    "name": "Layla Stone Oven Pizza",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Italian",
+    "rating": 4.2,
+    "deliveryTime": "15-25 min",
+    "deliveryFee": 17,
+    "offer": "15% OFF",
+    "distance": "4.4 km",
+    "state": "Riyadh",
+    "city": "Layla",
+    "area": "Layla, Riyadh Region",
+    "address": "King Abdulaziz Road, Layla, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 22.2833,
+      "lng": 46.7333
+    },
+    "description": "Wood-fired pizzas, pasta bowls, salads, and refreshing drinks.",
+    "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591",
+    "tags": [
+      "riyadh-region",
+      "pizza",
+      "italian"
+    ],
+    "foodItems": [
+      {
+        "name": "Pepperoni Pizza",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1628840042765-356cda07504e",
+        "price": 42
+      },
+      {
+        "name": "Margherita Pizza",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002",
+        "price": 36
+      },
+      {
+        "name": "Classic Caesar Salad",
+        "category": "Salads",
+        "image": "https://images.unsplash.com/photo-1550304943-4f24f54ddde9",
+        "price": 30
+      },
+      {
+        "name": "Peach Iced Tea",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc",
+        "price": 12
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Salads",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 26,
+    "name": "Al Hair Masala Kitchen",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "02:00"
+      },
+      "saturday": {
+        "opening": "10:00",
+        "closing": "02:00"
+      },
+      "weekday": {
+        "opening": "10:00",
+        "closing": "23:00"
+      }
+    },
+    "cuisine": "Indian",
+    "rating": 4.3,
+    "deliveryTime": "20-30 min",
+    "deliveryFee": 0,
+    "offer": "New Member 20%",
+    "distance": "5.0 km",
+    "state": "Riyadh",
+    "city": "Al Hair",
+    "area": "Al Hair, Riyadh Region",
+    "address": "King Fahd Road, Al Hair, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 24.4018,
+      "lng": 46.8224
+    },
+    "description": "Curries, biryani, tandoor grills, and fresh naan.",
+    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4",
+    "tags": [
+      "riyadh-region",
+      "indian",
+      "spicy"
+    ],
+    "foodItems": [
+      {
+        "name": "Butter Chicken",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398",
+        "price": 45
+      },
+      {
+        "name": "Chicken Biryani",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1563379091339-03246963d96c",
+        "price": 42
+      },
+      {
+        "name": "Paneer Tikka",
+        "category": "Starters",
+        "image": "https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8",
+        "price": 32
+      },
+      {
+        "name": "Mango Lassi",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4",
+        "price": 16
+      }
+    ],
+    "menuCategories": [
+      "Main Course",
+      "Starters",
+      "Drinks"
+    ],
+    "currency": "SAR"
+  },
+  {
+    "id": 27,
+    "name": "Ad Dilam Fresh Bowls",
+    "timings": {
+      "friday": {
+        "opening": "13:00",
+        "closing": "00:00"
+      },
+      "saturday": {
+        "opening": "09:00",
+        "closing": "23:00"
+      },
+      "weekday": {
+        "opening": "09:00",
+        "closing": "22:00"
+      }
+    },
+    "cuisine": "Healthy",
+    "rating": 4.4,
+    "deliveryTime": "25-35 min",
+    "deliveryFee": 8,
+    "offer": "Buy 1 Get 1",
+    "distance": "5.6 km",
+    "state": "Riyadh",
+    "city": "Ad Dilam",
+    "area": "Ad Dilam, Riyadh Region",
+    "address": "Prince Sultan Road, Ad Dilam, Riyadh Region, Saudi Arabia",
+    "coordinates": {
+      "lat": 23.991,
+      "lng": 47.1627
+    },
+    "description": "Protein bowls, fresh salads, soups, and cold-pressed juices.",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+    "tags": [
+      "riyadh-region",
+      "healthy",
+      "salads"
+    ],
+    "foodItems": [
+      {
+        "name": "Quinoa Chicken Bowl",
+        "category": "Salads",
+        "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+        "price": 38
+      },
+      {
+        "name": "Salmon Avocado Bowl",
+        "category": "Main Course",
+        "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+        "price": 52
+      },
+      {
+        "name": "Lentil Soup",
+        "category": "Soups",
+        "image": "https://images.unsplash.com/photo-1547592166-23ac45744acd",
+        "price": 20
+      },
+      {
+        "name": "Green Detox Juice",
+        "category": "Drinks",
+        "image": "https://images.unsplash.com/photo-1610970881699-44a5587cabec",
+        "price": 19
+      }
+    ],
+    "menuCategories": [
+      "Salads",
+      "Main Course",
+      "Soups",
+      "Drinks"
     ],
     "currency": "SAR"
   }

@@ -26,6 +26,12 @@ export type Restaurant = {
   cuisine?: string;
   offer?: string;
   area?: string;
+  city?: string;
+  address?: string;
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
   tags?: string[];
 };
 
@@ -108,7 +114,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
   const handleNavigateToMenu = useCallback(() => {
     dispatch(setRestaurantId(restaurant.id));
     router.push("/restaurant/RestaurantMenu");
-  }, [dispatch, router]);
+  }, [dispatch, restaurant.id, router]);
 
   if (!restaurant) return null;
 
