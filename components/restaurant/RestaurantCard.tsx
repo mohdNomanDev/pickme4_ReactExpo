@@ -50,19 +50,16 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
   const dispatch = useDispatch();
 
   // Optimized State Selectors
+  // Using a more stable selector pattern to prevent unnecessary re-renders
   const isBookmarked = useSelector((state: RootState) =>
-    restaurant?.id ? state.bookmark.value.includes(restaurant.id) : false,
+    state.bookmark.value.indexOf(restaurant?.id) !== -1
   );
 
-  // Memoized Calculations
-  const currentFood = useMemo(
-    () => restaurant?.foodItems?.[currentIndex],
-    [restaurant?.foodItems, currentIndex],
-  );
+  // Simplified: Only memoize values that actually require calculation or are objects.
+  // Accessing a string property like restaurant?.name is O(1) and faster than useMemo overhead.
+  const { foodItems, rating, deliveryTime, offer, name: restaurantName, cuisine: cuisineName, area: areaName } = restaurant;
 
-  const restaurantName = useMemo(() => restaurant?.name, [restaurant?.name]);
-  const cuisineName = useMemo(() => restaurant?.cuisine, [restaurant?.cuisine]);
-  const areaName = useMemo(() => restaurant?.area, [restaurant?.area]);
+  const currentFood = foodItems?.[currentIndex];
 
   // Helpers to localize currency and formatting
   const localizedCurrencyStr = useMemo(() => {

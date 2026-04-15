@@ -2,7 +2,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useColorScheme as useNativeWindColorScheme } from "nativewind";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useColorScheme as useSystemColorScheme } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import "../global.css";
@@ -11,7 +11,7 @@ import { Provider, useDispatch, useSelector } from "react-redux";
 import { RootState, store } from "../store/store";
 import { THEME_KEY, ThemeMode, syncTheme } from "../store/themeSlice";
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
+// Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
 function RootLayoutContent() {
@@ -21,53 +21,60 @@ function RootLayoutContent() {
   const { setColorScheme } = useNativeWindColorScheme();
   const [appIsReady, setAppIsReady] = useState(false);
 
-  // 1. Initial Data Preparation
+  // Memoized theme applicator to prevent redundant calls
+  const applyTheme = useCallback((mode: ThemeMode, system: "light" | "dark" | null | undefined) => {
+    if (mode === "system") {
+      setColorScheme(system || "light");
+    } else {
+      setColorScheme(mode);
+    }
+  }, [setColorScheme]);
+
   useEffect(() => {
     async function prepare() {
       try {
-        // Load theme from storage
-        const savedTheme = (await AsyncStorage.getItem(
-          THEME_KEY,
-        )) as ThemeMode | null;
+        const savedTheme = await AsyncStorage.getItem(THEME_KEY) as ThemeMode | null;
         if (savedTheme) {
           dispatch(syncTheme(savedTheme));
+          // Apply saved theme immediately
+          applyTheme(savedTheme, systemColorScheme);
+        } else {
+          applyTheme("system", systemColorScheme);
         }
       } catch (e) {
-        console.warn(e);
+        console.warn("Theme loading error:", e);
       } finally {
         setAppIsReady(true);
       }
     }
 
     prepare();
-  }, [dispatch]);
+  }, [dispatch, systemColorScheme, applyTheme]);
 
-  // 2. Dynamic Theme Application
-  useEffect(() => {
-    if (themeMode === "system") {
-      setColorScheme(systemColorScheme || "light");
-    } else {
-      setColorScheme(themeMode);
-    }
-  }, [themeMode, systemColorScheme, setColorScheme]);
-
-  // 3. Splash Screen Management
+  // Sync theme when mode changes after init
   useEffect(() => {
     if (appIsReady) {
-      SplashScreen.hideAsync();
+      applyTheme(themeMode, systemColorScheme);
+    }
+  }, [themeMode, systemColorScheme, appIsReady, applyTheme]);
+
+  useEffect(() => {
+    if (appIsReady) {
+      // Small delay to ensure layout is painted before hiding splash
+      const timer = setTimeout(() => {
+        SplashScreen.hideAsync();
+      }, 50);
+      return () => clearTimeout(timer);
     }
   }, [appIsReady]);
 
-  if (!appIsReady) {
-    return null;
-  }
+  if (!appIsReady) return null;
 
-  // Stability: Do NOT conditionally render the navigator based on app state/mode here 
-  // to avoid unmounting the entire navigation tree, which breaks context on mobile.
   return (
-    <Stack screenOptions={{ headerShown: false }}>
+    <Stack screenOptions={{ headerShown: false, animation: 'fade' }}>
       <Stack.Screen name="index" />
       <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="(modals)" options={{ presentation: 'modal' }} />
     </Stack>
   );
 }

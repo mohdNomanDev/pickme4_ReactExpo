@@ -1,26 +1,35 @@
-export const calculateCartTotals = (cart: any[]) => {
+export interface CartTotals {
+  subtotal: number;
+  deliveryFee: number;
+  vat: number;
+  total: number;
+}
+
+/**
+ * Optimized Cart Calculation
+ * Memoization should be handled at the selector level in Redux.
+ */
+export const calculateCartTotals = (
+  cart: any[], 
+  config = { taxRate: 0.15, freeDeliveryThreshold: 100, defaultDeliveryFee: 10 }
+): CartTotals => {
   let subtotal = 0;
 
-  // 🧮 calculate subtotal
-  cart.forEach((restaurant: any) => {
-    restaurant.items.forEach((item: any) => {
-      subtotal += item.price * item.quantity;
-    });
-  });
+  // Single pass calculation
+  for (const restaurant of cart) {
+    for (const item of restaurant.items) {
+      subtotal += (item.price || 0) * (item.quantity || 0);
+    }
+  }
 
-  // 🚚 delivery (simple logic for now)
-  const deliveryFee = subtotal > 100 ? 0 : 10;
-
-  // 🧾 VAT 15%
-  const vat = subtotal * 0.15;
-
-  // 💰 total
+  const deliveryFee = subtotal === 0 ? 0 : (subtotal > config.freeDeliveryThreshold ? 0 : config.defaultDeliveryFee);
+  const vat = subtotal * config.taxRate;
   const total = subtotal + vat + deliveryFee;
 
   return {
-    subtotal,
-    deliveryFee,
-    vat,
-    total,
+    subtotal: Number(subtotal.toFixed(2)),
+    deliveryFee: Number(deliveryFee.toFixed(2)),
+    vat: Number(vat.toFixed(2)),
+    total: Number(total.toFixed(2)),
   };
 };
