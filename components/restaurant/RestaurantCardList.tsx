@@ -31,6 +31,9 @@ const DEFAULT_FILTERS: FilterState = {
 
 interface RestaurantCardListProps {
   headerContent?: React.ReactNode;
+  maxDistance?: number;
+  title?: string;
+  limit?: number;
 }
 
 /**
@@ -38,7 +41,7 @@ interface RestaurantCardListProps {
  * Optimized for high-performance rendering of restaurant feeds.
  * NOTE: For production scalability, consider replacing FlatList with @shopify/flash-list.
  */
-const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
+const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit }: RestaurantCardListProps) => {
   const { width } = useWindowDimensions();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
@@ -47,7 +50,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   const { 
     restaurants: restaurantsWithDistance,
     activeLocationName 
-  } = useCurrentLocationRestaurants(restaurantData, 10000);
+  } = useCurrentLocationRestaurants(restaurantData, maxDistance);
 
   // Active filter indicator count
   const activeFilterCount = useMemo(() => {
@@ -110,6 +113,32 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
     return data;
   }, [filters, restaurantsWithDistance]);
 
+  const displayedData = useMemo(() => {
+    if (limit && limit > 0) {
+      return filteredData.slice(0, limit);
+    }
+    return filteredData;
+  }, [filteredData, limit]);
+
+  const dynamicTitle = useMemo(() => {
+    if (title) return title;
+    
+    let base = maxDistance < 1000 ? "Nearby Restaurants" : "All Restaurants";
+    
+    const parts = [];
+    if (filters.priceRange) {
+      const priceText = filters.priceRange === "100+" ? "over 100 SAR" : `${filters.priceRange} SAR`;
+      parts.push(priceText);
+    }
+    if (filters.rating) parts.push(`${filters.rating} stars`);
+    
+    if (parts.length > 0) {
+      return `${base} (${parts.join(" & ")})`;
+    }
+    
+    return base;
+  }, [title, maxDistance, filters]);
+
   const handleClearFilters = useCallback(() => {
     setFilters(DEFAULT_FILTERS);
   }, []);
@@ -144,14 +173,12 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
         <View className="mb-8 mt-4">
           <View className="flex-row items-center justify-between w-full">
             <View className="flex-1 pr-4">
-              <Text className="text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark text-start">
-                {filteredData.length} Restaurants
+              <Text className="text-2xl md:text-3xl font-display font-bold text-text dark:text-text-dark text-start capitalize">
+                {dynamicTitle}
               </Text>
-              {activeLocationName && (
-                <Text className="text-sm text-text-muted dark:text-text-muted-dark mt-1 font-medium">
-                  Showing results near <Text className="text-primary font-bold">{activeLocationName}</Text>
-                </Text>
-              )}
+              <Text className="text-sm text-text-muted dark:text-text-muted-dark mt-1 font-medium">
+                {filteredData.length} results {activeLocationName ? `near ${activeLocationName}` : ""}
+              </Text>
             </View>
             <FilterButton
               onPress={() => setIsFilterOpen(true)}
@@ -162,7 +189,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
         </View>
       </View>
     ),
-    [isFilterOpen, activeFilterCount, filteredData.length, headerContent, activeLocationName],
+    [isFilterOpen, activeFilterCount, filteredData.length, headerContent, activeLocationName, dynamicTitle],
   );
 
   const ListEmpty = useCallback(
@@ -185,7 +212,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   return (
     <View className="flex-1 w-full max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
       <FlatList
-        data={filteredData}
+        data={displayedData}
         key={numColumns} // Necessary for FlatList to re-layout grid
         numColumns={numColumns}
         keyExtractor={(item) => item.id.toString()}
@@ -208,7 +235,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
         onClose={() => setIsFilterOpen(false)}
         onClear={handleClearFilters}
         onApply={handleApplyFilters}
-        resultsCount={filteredData.length}
+        resultsCount={displayedData.length}
       >
         <RestaurantFilter filters={filters} setFilters={setFilters} />
       </FilterSheet>

@@ -92,6 +92,8 @@ export default function FoodHome() {
 
       <View className="w-full flex-1">
         <RestaurantCardList
+          maxDistance={100} // Limit to 15km as requested
+          limit={10} // Show top 10 nearby as a "limit"
           headerContent={
             <View className="w-full flex-1 gap-8 mb-8 mt-2">
               {/* Banner / Offers Carousel Section */}
@@ -101,13 +103,10 @@ export default function FoodHome() {
                 </Text>
               </View>
 
-              {/* Nearby Restaurants Section */}
-              <NearbyRestaurants restaurants={restaurantData} maxDistance={1000} />
-
               {/* Quick Categories Section */}
               <View className="w-full">
                 <Text
-                  className={`text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mb-4 px-4 ${'text-left'}`}
+                  className={`text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mb-4 px-4 text-left`}
                 >
                   {"Categories"}
                 </Text>
