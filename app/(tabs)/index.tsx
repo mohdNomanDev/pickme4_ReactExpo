@@ -92,8 +92,7 @@ export default function FoodHome() {
 
       <View className="w-full flex-1">
         <RestaurantCardList
-          maxDistance={100} // Limit to 15km as requested
-          limit={10} // Show top 10 nearby as a "limit"
+          maxDistance={100} // Standard discovery radius
           headerContent={
             <View className="w-full flex-1 gap-8 mb-8 mt-2">
               {/* Banner / Offers Carousel Section */}
