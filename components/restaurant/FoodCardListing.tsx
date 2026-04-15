@@ -112,13 +112,14 @@ const FoodCardListing = ({ foodItems }: Props) => {
       {filteredData.length > 0 ? (
         <View className={`flex-row flex-wrap w-full gap-4 ${isWeb ? 'pb-6' : ''}`}>
           {filteredData.map((item, index) => (
-            <Animated.View 
+            <Animated.View
               key={index}
               entering={FadeInDown.delay(index * 40).duration(500).springify()}
-              style={{ width: numColumns === 1 ? '100%' : '48%' }}
+              className={numColumns === 1 ? 'w-full' : 'w-[48%]'}
             >
               <FoodCard data={item} />
             </Animated.View>
+
           ))}
         </View>
       ) : (

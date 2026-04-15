@@ -123,14 +123,14 @@ const MyOrdersScreen = () => {
 
         <ScrollView
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: 100 }}
+          contentContainerClassName="pb-[100px]"
           className="mt-4"
         >
-          <View style={{ display: activeTab === "active" ? "flex" : "none" }}>
+          <View className={activeTab === "active" ? "flex" : "hidden"}>
             <ActiveOrdersSection orders={activeOrders} />
           </View>
 
-          <View style={{ display: activeTab === "history" ? "flex" : "none" }}>
+          <View className={activeTab === "history" ? "flex" : "hidden"}>
             <OrderHistorySection orders={orderHistory} />
           </View>
         </ScrollView>

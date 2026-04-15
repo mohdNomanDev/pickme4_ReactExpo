@@ -5,22 +5,14 @@ const PlaceOrderButton = ({ total }: { total: number }) => {
   
   return (
     <TouchableOpacity
-      className="bg-primary active:opacity-80 rounded-xl py-4 px-6 flex-row justify-between items-center shadow-lg w-full mt-4"
-      style={{
-        shadowColor: "#F97316",
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 6,
-        elevation: 8,
-      }}
+      className="bg-primary active:opacity-80 rounded-xl py-4 px-6 flex-row justify-between items-center shadow-lg w-full mt-4 shadow-primary/30"
     >
-      <Text className="text-text dark:text-text-dark font-bold text-lg text-left ">
+      <Text className="text-white font-bold text-lg text-left ">
         {"Place Order"}
       </Text>
       <View className="bg-black/20 dark:bg-white/10 px-3 py-1.5 rounded-lg">
         <Text
-          className="text-text dark:text-text-dark font-bold text-right "
-          style={{ fontVariant: ["tabular-nums"] }}
+          className="text-white font-bold text-right tabular-nums"
         >
           {"SAR"} {total.toFixed(2)}
         </Text>

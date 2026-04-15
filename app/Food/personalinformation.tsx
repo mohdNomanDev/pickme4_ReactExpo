@@ -64,12 +64,7 @@ export default function PersonalInformationPage() {
       >
         <ScrollView 
           className="flex-1"
-          contentContainerStyle={{ 
-            paddingHorizontal: 20,
-            paddingVertical: 24, 
-            paddingBottom: 40,
-            alignItems: 'center'
-          }}
+          contentContainerClassName="px-5 py-6 pb-10 items-center"
           showsVerticalScrollIndicator={false}
           contentInsetAdjustmentBehavior="automatic"
         >

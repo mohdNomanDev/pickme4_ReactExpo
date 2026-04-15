@@ -90,7 +90,7 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
         )}
       </View>
 
-      <ScrollView className="flex-1" contentContainerStyle={{ padding: 24, paddingBottom: 60 }} showsVerticalScrollIndicator={false}>
+      <ScrollView className="flex-1" contentContainerClassName="p-6 pb-[60px]" showsVerticalScrollIndicator={false}>
         <Formik
           initialValues={initialValues}
           validationSchema={addressSchema}

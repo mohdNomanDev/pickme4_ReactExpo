@@ -69,10 +69,10 @@ const NearbyRestaurants: React.FC<NearbyRestaurantsProps> = ({ restaurants, maxD
         <ScrollView 
           horizontal 
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ paddingHorizontal: 16, gap: 16 }}
+          contentContainerClassName="px-4 gap-4"
         >
           {nearbyRestaurants.map((restaurant) => (
-            <View key={restaurant.id} style={{ width: 280 }}>
+            <View key={restaurant.id} className="w-[280px]">
               <RestaurantCard restaurant={restaurant} />
             </View>
           ))}

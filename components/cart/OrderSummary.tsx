@@ -15,55 +15,52 @@ const OrderSummary = () => {
       <PaymentMethod />
 
       <View className="mb-2">
-        <View className="flex-row justify-between items-center py-1.5">
-          <Text className="text-text-muted dark:text-text-muted-dark text-sm text-left ">
+        <View className="flex-row justify-between mb-4">
+          <Text className="text-text-muted dark:text-text-muted-dark text-sm font-medium text-left ">
             {"Subtotal"}
           </Text>
           <Text
-            className="text-text dark:text-text-dark text-sm font-semibold text-right "
-            style={{ fontVariant: ["tabular-nums"] }}
+            className="text-text dark:text-text-dark text-sm font-semibold text-right tabular-nums"
           >
             {"SAR"} {subtotal.toFixed(2)}
           </Text>
         </View>
 
-        <View className="flex-row justify-between items-center py-1.5">
-          <Text className="text-text-muted dark:text-text-muted-dark text-sm text-left ">
+        <View className="flex-row justify-between mb-4">
+          <Text className="text-text-muted dark:text-text-muted-dark text-sm font-medium text-left ">
             {"Delivery Fee"}
           </Text>
           <Text
-            className="text-text dark:text-text-dark text-sm font-semibold text-right "
-            style={{ fontVariant: ["tabular-nums"] }}
+            className="text-text dark:text-text-dark text-sm font-semibold text-right tabular-nums"
           >
             {deliveryFee === 0
-              ? "FREE"
-              : `${"SAR"} ${deliveryFee.toFixed(2)}`}
+              ? "Free"
+              : `SAR ${deliveryFee.toFixed(2)}`}
           </Text>
         </View>
 
-        <View className="flex-row justify-between items-center py-1.5">
-          <Text className="text-text-muted dark:text-text-muted-dark text-sm text-left ">
+        <View className="flex-row justify-between mb-4">
+          <Text className="text-text-muted dark:text-text-muted-dark text-sm font-medium text-left ">
             {"VAT (15%)"}
           </Text>
           <Text
-            className="text-text dark:text-text-dark text-sm font-semibold text-right "
-            style={{ fontVariant: ["tabular-nums"] }}
+            className="text-text dark:text-text-dark text-sm font-semibold text-right tabular-nums"
           >
             {"SAR"} {vat.toFixed(2)}
           </Text>
         </View>
 
-        <View className="flex-row justify-between items-center py-2 mt-3 pt-4 border-t border-border dark:border-border-dark">
-          <Text className="font-bold text-text dark:text-text-dark text-lg text-left ">
+        <View className="flex-row justify-between mt-2 pt-4 border-t border-border dark:border-border-dark">
+          <Text className="font-bold text-text dark:text-text-dark text-xl text-left ">
             {"Total"}
           </Text>
           <Text
-            className="font-bold text-primary text-xl text-right "
-            style={{ fontVariant: ["tabular-nums"] }}
+            className="font-bold text-primary text-xl text-right tabular-nums"
           >
             {"SAR"} {total.toFixed(2)}
           </Text>
         </View>
+
       </View>
 
       <PlaceOrderButton total={total} />

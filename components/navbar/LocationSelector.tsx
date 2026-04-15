@@ -98,8 +98,8 @@ export default function LocationSelector() {
         <Pressable className="flex-1" onPress={closeDropdown}>
           {/* The dropdown container itself. onPress={(e) => e.stopPropagation()} prevents closing when tapping inside */}
           <View
+            className="absolute"
             style={{
-              position: "absolute",
               top: dropdownPos.top,
               left: dropdownPos.left,
             }}

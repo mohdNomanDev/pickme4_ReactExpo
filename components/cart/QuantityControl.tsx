@@ -34,14 +34,14 @@ const QuantityControl = ({
         />
       </TouchableOpacity>
 
-      <View className="px-1 min-w-[24px] items-center">
+      <View className="w-10 items-center">
         <Text
-          className="font-bold text-text dark:text-text-dark text-base"
-          style={{ fontVariant: ["tabular-nums"] }}
+          className="font-bold text-text dark:text-text-dark text-base tabular-nums"
         >
           {quantity}
         </Text>
       </View>
+
 
       <TouchableOpacity
         className="p-2 items-center justify-center w-8 h-8 rounded-full bg-primary active:bg-primary/80 shadow-md"

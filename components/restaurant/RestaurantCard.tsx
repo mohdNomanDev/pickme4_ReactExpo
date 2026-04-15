@@ -45,6 +45,8 @@ type RestaurantCardProps = {
  * Optimized for performance and high-quality UI/UX in Saudi market.
  */
 const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
+  if (!restaurant) return null;
+
   const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const dispatch = useDispatch();
@@ -52,14 +54,22 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
   // Optimized State Selectors
   // Using a more stable selector pattern to prevent unnecessary re-renders
   const isBookmarked = useSelector((state: RootState) =>
-    state.bookmark.value.indexOf(restaurant?.id) !== -1
+    state.bookmark.value.indexOf(restaurant.id) !== -1
   );
 
   // Simplified: Only memoize values that actually require calculation or are objects.
-  // Accessing a string property like restaurant?.name is O(1) and faster than useMemo overhead.
-  const { foodItems, rating, deliveryTime, offer, name: restaurantName, cuisine: cuisineName, area: areaName } = restaurant;
+  const { 
+    foodItems, 
+    rating, 
+    deliveryTime, 
+    offer, 
+    name: restaurantName, 
+    cuisine: cuisineName, 
+    area: areaName 
+  } = restaurant;
 
   const currentFood = foodItems?.[currentIndex];
+
 
   // Helpers to localize currency and formatting
   const localizedCurrencyStr = useMemo(() => {
@@ -114,10 +124,6 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
     router.push("/restaurant/RestaurantMenu");
   }, [dispatch, restaurant.id, router]);
 
-  if (!restaurant) return null;
-
-  const { foodItems, rating, deliveryTime, offer } = restaurant;
-
   return (
     <View className="mb-6 bg-card dark:bg-card-dark rounded-[32px] overflow-hidden border border-border dark:border-border-dark shadow-sm hover:shadow-md transition-shadow">
       <TouchableOpacity
@@ -131,15 +137,14 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
             key={currentIndex}
             entering={FadeIn.duration(400)}
             exiting={FadeOut.duration(400)}
-            style={{ width: "100%", height: "100%" }}
+            className="w-full h-full"
           >
             <Image
               source={currentFood?.image}
               contentFit="cover"
               transition={500}
               cachePolicy="memory-disk"
-              style={{ width: "100%", height: "100%" }}
-              className="bg-gray-100 dark:bg-gray-800"
+              className="w-full h-full bg-gray-100 dark:bg-gray-800"
             />
           </Animated.View>
 

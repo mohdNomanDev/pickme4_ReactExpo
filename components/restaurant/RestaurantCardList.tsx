@@ -127,7 +127,10 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
   // Optimized Render Item
   const renderItem = useCallback(
     ({ item }: { item: Restaurant }) => (
-      <View style={{ flex: 1 / numColumns, paddingHorizontal: numColumns > 1 ? 12 : 0 }}>
+      <View 
+        className={numColumns > 1 ? "px-3" : ""} 
+        style={{ flex: 1 / numColumns }}
+      >
         <RestaurantCard restaurant={item} />
       </View>
     ),
@@ -190,7 +193,7 @@ const RestaurantCardList = ({ headerContent }: RestaurantCardListProps) => {
         ListHeaderComponent={ListHeader}
         ListEmptyComponent={ListEmpty}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 100 }}
+        contentContainerClassName="pb-[100px]"
         
         // Performance Optimizations
         removeClippedSubviews={Platform.OS !== "web"}

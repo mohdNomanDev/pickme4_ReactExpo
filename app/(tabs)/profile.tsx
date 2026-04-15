@@ -40,7 +40,7 @@ export default function ProfilePage() {
     >
       <ScrollView
         className="flex-1"
-        contentContainerStyle={{ paddingBottom: 120 }} // Extra padding for the floating tab bar
+        contentContainerClassName="pb-[120px]"
         showsVerticalScrollIndicator={false}
       >
         {/* Header Title */}

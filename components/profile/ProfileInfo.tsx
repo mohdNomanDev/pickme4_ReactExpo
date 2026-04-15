@@ -141,8 +141,7 @@ export const ProfileInfo = ({ user, onSave }: ProfileInfoProps) => {
         <TouchableOpacity 
           onPress={() => formik.handleSubmit()}
           activeOpacity={0.8}
-          className="bg-orange-500 rounded-xl py-4 md:py-5 items-center shadow-sm"
-          style={{ boxShadow: "0 4px 6px -1px rgba(249, 115, 22, 0.2)" }}
+          className="bg-orange-500 rounded-xl py-4 md:py-5 items-center shadow-lg shadow-orange-500/20"
         >
           <Text className="text-white font-bold text-lg md:text-xl">
             {'Save Changes'}

@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useEffect, memo } from "react";
 import {
   ActivityIndicator,
-  StyleSheet,
   Text,
   View,
 } from "react-native";
@@ -10,7 +9,6 @@ import MapView, {
   Polyline,
   PROVIDER_DEFAULT,
   type LatLng,
-  type MapPressEvent,
   type MapStyleElement,
   type Region,
 } from "react-native-maps";
@@ -122,9 +120,12 @@ export default function AppMap({
 
   if (loading || !region || !shouldRenderMap) {
     return (
-      <View style={[styles.container, styles.placeholder, style]}>
+      <View 
+        className="flex-1 min-h-[320px] w-full items-center bg-gray-50 dark:bg-gray-900 justify-center gap-[10px]"
+        style={style}
+      >
         <ActivityIndicator color="#f97316" />
-        <Text selectable style={styles.placeholderText}>
+        <Text selectable className="text-gray-600 dark:text-gray-400 text-sm font-semibold">
           {loading ? "Loading map..." : "Initializing..."}
         </Text>
       </View>
@@ -132,10 +133,11 @@ export default function AppMap({
   }
 
   return (
-    <View style={[styles.container, style]}>
+    <View className="flex-1 min-h-[320px] w-full overflow-hidden" style={style}>
       <MapView
         provider={PROVIDER_DEFAULT}
-        style={[styles.map, mapStyle]}
+        className="flex-1 w-full"
+        style={mapStyle}
         initialRegion={region}
         loadingEnabled
         loadingBackgroundColor={resolvedTheme === "dark" ? "#111827" : "#f9fafb"}
@@ -170,47 +172,10 @@ export default function AppMap({
       </MapView>
 
       {!isMapReady && (
-        <View pointerEvents="none" style={styles.loadingOverlay}>
+        <View pointerEvents="none" className="absolute inset-0 items-center justify-center bg-gray-50/70 dark:bg-gray-900/70">
           <ActivityIndicator color="#f97316" />
         </View>
       )}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, minHeight: 320, width: "100%" },
-  map: { flex: 1, width: "100%" },
-  placeholder: { alignItems: "center", backgroundColor: "#f9fafb", gap: 10, justifyContent: "center" },
-  placeholderText: { color: "#4b5563", fontSize: 14, fontWeight: "600" },
-  loadingOverlay: { ...StyleSheet.absoluteFillObject, alignItems: "center", backgroundColor: "rgba(249, 250, 251, 0.72)", justifyContent: "center" },
-});
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    minHeight: 320,
-    width: "100%",
-  },
-  map: {
-    flex: 1,
-    width: "100%",
-  },
-  placeholder: {
-    alignItems: "center",
-    backgroundColor: "#f9fafb",
-    gap: 10,
-    justifyContent: "center",
-  },
-  placeholderText: {
-    color: "#4b5563",
-    fontSize: 14,
-    fontWeight: "600",
-  },
-  loadingOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    alignItems: "center",
-    backgroundColor: "rgba(249, 250, 251, 0.72)",
-    justifyContent: "center",
-  },
-});

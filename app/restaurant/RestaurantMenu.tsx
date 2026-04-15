@@ -27,10 +27,7 @@ export default function RestaurantMenu() {
     <SafeAreaView edges={['top', 'bottom']} className="flex-1 bg-background dark:bg-background-dark">
       <ScrollView 
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ 
-          flexGrow: 1,
-          paddingBottom: 40
-        }}
+        contentContainerClassName="flex-grow pb-10"
         className="w-full"
       >
         <View className="w-full max-w-7xl mx-auto">

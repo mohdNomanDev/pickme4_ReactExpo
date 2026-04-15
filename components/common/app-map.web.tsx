@@ -5,7 +5,6 @@ import {
   Linking,
   type LayoutChangeEvent,
   Pressable,
-  StyleSheet,
   Text,
   View,
 } from "react-native";
@@ -152,9 +151,12 @@ export default function AppMap({
     typeof longitude !== "number"
   ) {
     return (
-      <View style={[styles.container, styles.placeholder, style]}>
+      <View 
+        className="flex-1 min-h-[320px] w-full items-center bg-gray-50 dark:bg-gray-900 justify-center gap-[10px]"
+        style={style}
+      >
         <ActivityIndicator color="#f97316" />
-        <Text selectable style={styles.placeholderText}>
+        <Text selectable className="text-gray-600 dark:text-gray-400 text-sm font-semibold">
           {loading ? "Loading map..." : "Location unavailable"}
         </Text>
       </View>
@@ -218,135 +220,51 @@ export default function AppMap({
 
   return (
     <View
-      style={[
-        styles.container,
-        resolvedTheme === "dark" ? styles.darkContainer : styles.lightContainer,
-        style,
-      ]}
+      className={`flex-1 min-h-[320px] overflow-hidden w-full ${resolvedTheme === "dark" ? "bg-gray-900" : "bg-gray-50"}`}
       onLayout={handleLayout}
+      style={style}
     >
       {React.createElement("iframe", {
         src: mapUrl,
         title: selectedMarkerTitle,
         loading: "lazy",
         referrerPolicy: "no-referrer-when-downgrade",
-        style: styles.iframe,
+        style: { border: 0, height: "100%", width: "100%" },
       })}
 
       <Pressable
         accessibilityRole="button"
         accessibilityLabel="Select map location"
         onPress={handleMapPress}
-        style={styles.selectionLayer}
+        className="absolute inset-0"
       />
 
-      <View pointerEvents="none" style={styles.defaultZoomControlCover} />
+      <View pointerEvents="none" className="bg-gray-50 dark:bg-gray-900 absolute top-0 left-0 w-[60px] h-[92px] rounded-br-lg" />
 
-      <View style={styles.zoomControls}>
+      <View className="absolute top-3 left-3 gap-2">
         <Pressable
           accessibilityRole="button"
           accessibilityLabel="Zoom in"
           onPress={() => handleZoom("in")}
-          style={styles.zoomButton}
+          className="w-10 h-10 items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm"
         >
-          <Text style={styles.zoomButtonText}>+</Text>
+          <Text className="text-gray-900 text-[22px] font-extrabold leading-6">+</Text>
         </Pressable>
         <Pressable
           accessibilityRole="button"
           accessibilityLabel="Zoom out"
           onPress={() => handleZoom("out")}
-          style={styles.zoomButton}
+          className="w-10 h-10 items-center justify-center bg-white border border-gray-200 rounded-lg shadow-sm"
         >
-          <Text style={styles.zoomButtonText}>-</Text>
+          <Text className="text-gray-900 text-[22px] font-extrabold leading-6">-</Text>
         </Pressable>
       </View>
 
-      <View style={styles.webOverlay} pointerEvents="box-none">
-        <Pressable onPress={openMap} style={styles.openButton}>
-          <Text style={styles.openButtonText}>Open map</Text>
+      <View className="absolute bottom-3 right-3" pointerEvents="box-none">
+        <Pressable onPress={openMap} className="bg-primary rounded-lg px-3.5 py-2.5 shadow-md shadow-primary/20">
+          <Text className="text-white text-[13px] font-bold">Open map</Text>
         </Pressable>
       </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    minHeight: 320,
-    overflow: "hidden",
-    width: "100%",
-  },
-  lightContainer: {
-    backgroundColor: "#f9fafb",
-  },
-  darkContainer: {
-    backgroundColor: "#111827",
-  },
-  placeholder: {
-    alignItems: "center",
-    backgroundColor: "#f9fafb",
-    gap: 10,
-    justifyContent: "center",
-  },
-  placeholderText: {
-    color: "#4b5563",
-    fontSize: 14,
-    fontWeight: "600",
-  },
-  iframe: {
-    borderWidth: 0,
-    height: "100%",
-    width: "100%",
-  },
-  selectionLayer: {
-    ...StyleSheet.absoluteFillObject,
-  },
-  defaultZoomControlCover: {
-    backgroundColor: "#f9fafb",
-    borderBottomRightRadius: 8,
-    height: 92,
-    left: 0,
-    position: "absolute",
-    top: 0,
-    width: 60,
-  },
-  zoomControls: {
-    gap: 8,
-    left: 12,
-    position: "absolute",
-    top: 12,
-  },
-  zoomButton: {
-    alignItems: "center",
-    backgroundColor: "#ffffff",
-    borderColor: "#e5e7eb",
-    borderRadius: 8,
-    borderWidth: 1,
-    height: 40,
-    justifyContent: "center",
-    width: 40,
-  },
-  zoomButtonText: {
-    color: "#111827",
-    fontSize: 22,
-    fontWeight: "800",
-    lineHeight: 24,
-  },
-  webOverlay: {
-    bottom: 12,
-    position: "absolute",
-    right: 12,
-  },
-  openButton: {
-    backgroundColor: "#f97316",
-    borderRadius: 8,
-    paddingHorizontal: 14,
-    paddingVertical: 10,
-  },
-  openButtonText: {
-    color: "#ffffff",
-    fontSize: 13,
-    fontWeight: "700",
-  },
-});

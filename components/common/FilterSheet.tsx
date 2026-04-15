@@ -86,7 +86,7 @@ const FilterSheet = ({
             <ScrollView
               className="px-6 py-4 flex-shrink-1"
               showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ paddingBottom: 24 }}
+              contentContainerClassName="pb-6"
             >
               {children}
             </ScrollView>

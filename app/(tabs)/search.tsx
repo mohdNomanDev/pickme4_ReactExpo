@@ -7,11 +7,12 @@ export default function SearchPage() {
     
   return (
     <SafeAreaView edges={['top']} className="flex-1 bg-gray-50 dark:bg-background-dark">
-      <ScrollView 
-        className="flex-1" 
-        contentContainerStyle={{ paddingBottom: 100 }} // Extra padding for the floating tab bar
+      <ScrollView
+        className="flex-1"
+        contentContainerClassName="pb-[100px]"
         showsVerticalScrollIndicator={false}
       >
+
         <View className="flex-1 items-center justify-center py-20 px-6 max-w-5xl mx-auto w-full min-h-[60vh]">
           <View className="w-24 h-24 bg-orange-100 dark:bg-orange-500/20 rounded-full items-center justify-center mb-6">
             <Ionicons name="search" size={48} color="#f97316" />

@@ -43,7 +43,7 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
       <View className="relative w-full aspect-[4/3] bg-gray-100 dark:bg-gray-800">
         <Image
           source={{ uri: data.image }}
-          style={{ width: '100%', height: '100%' }}
+          className="w-full h-full"
           contentFit="cover"
           transition={300}
         />

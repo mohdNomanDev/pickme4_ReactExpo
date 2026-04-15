@@ -77,7 +77,7 @@ const CartScreen = ({ isTab = false }: CartScreenProps) => {
         <View className="flex-1 md:flex-row w-full max-w-7xl mx-auto">
           <ScrollView
             className="flex-1 md:w-2/3"
-            contentContainerStyle={{ padding: 16, gap: 16 }}
+            contentContainerClassName="p-4 gap-4"
             showsVerticalScrollIndicator={false}
           >
             {cartData.map((section: any, index: number) => (
@@ -91,14 +91,7 @@ const CartScreen = ({ isTab = false }: CartScreenProps) => {
           </ScrollView>
 
           <View
-            className="p-4 bg-card dark:bg-card-dark rounded-t-3xl md:rounded-2xl md:w-1/3 md:m-4 shadow-lg border-t md:border border-border dark:border-border-dark md:top-6"
-            style={{
-              shadowColor: "#000",
-              shadowOffset: { width: 0, height: -4 },
-              shadowOpacity: 0.3,
-              shadowRadius: 6,
-              elevation: 10,
-            }}
+            className="p-4 bg-card dark:bg-card-dark rounded-t-3xl md:rounded-2xl md:w-1/3 md:m-4 shadow-lg border-t md:border border-border dark:border-border-dark md:top-6 shadow-black/10 dark:shadow-black/40"
           >
             <OrderSummary />
           </View>

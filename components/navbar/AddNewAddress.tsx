@@ -151,7 +151,7 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
 
       <ScrollView
         className="flex-1"
-        contentContainerStyle={{ padding: 24, paddingBottom: 60 }}
+        contentContainerClassName="p-6 pb-[60px]"
         showsVerticalScrollIndicator={false}
       >
         <Formik

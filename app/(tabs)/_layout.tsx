@@ -79,8 +79,7 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
       style={containerStyle}
     >
       <View
-        className="flex-row justify-around items-center w-full max-w-[400px] h-[70px] rounded-[35px] bg-white dark:bg-gray-800 shadow-xl shadow-orange-500/20 dark:shadow-black/40"
-        style={{ elevation: 15 }}
+        className="flex-row justify-around items-center w-full max-w-[400px] h-[70px] rounded-[35px] bg-white dark:bg-gray-800 shadow-2xl shadow-orange-500/20 dark:shadow-black/40"
       >
         {state.routes.map((route, index) => (
           <TabItem
