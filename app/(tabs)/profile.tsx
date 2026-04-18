@@ -1,5 +1,5 @@
 import userDataJson from "@/TestData/UserData.json";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import { useColorScheme } from "nativewind";
 import React, { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
@@ -18,7 +18,6 @@ import { RootState } from "../../store/store";
 
 export default function ProfilePage() {
       const { colorScheme, toggleColorScheme } = useColorScheme();
-  const router = useRouter();
   const storeUser = useSelector((state: RootState) => state.user?.currentUser);
   let [currentUser, setCurrentUser] = useState(storeUser || userDataJson[0]);
 

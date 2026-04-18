@@ -14,7 +14,10 @@ export default function ModeToggle() {
   const isDark = colorScheme === "dark";
 
   const handleModeChange = (mode: AppMode) => {
-    dispatch(setAppMode(mode));
+    // Small delay to ensure any pending navigation context updates are settled
+    setTimeout(() => {
+      dispatch(setAppMode(mode));
+    }, 0);
   };
 
   return (

@@ -1,5 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import { useColorScheme } from "nativewind";
 import React from "react";
 import {
@@ -19,9 +19,8 @@ interface SavedAddressesProps {
 
 export default function SavedAddresses({ onClose }: SavedAddressesProps) {
   const dispatch = useDispatch();
-  const router = useRouter();
-    const { colorScheme } = useColorScheme();
-    const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const { colorScheme } = useColorScheme();
+  const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const selectedAddress = useSelector(
     (state: RootState) => state.selectedAddress.selectedAddress,
   );

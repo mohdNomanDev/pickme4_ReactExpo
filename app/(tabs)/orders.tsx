@@ -119,7 +119,11 @@ const MyOrdersScreen = () => {
       <View className="flex-1 px-4 pt-2 md:px-8 lg:px-12 md:max-w-4xl lg:max-w-6xl md:mx-auto w-full">
         <OrdersHeader />
 
-        <OrdersTabs activeTab={activeTab} onTabChange={setActiveTab} />
+        <OrdersTabs activeTab={activeTab} onTabChange={(tab) => {
+          setTimeout(() => {
+            setActiveTab(tab);
+          }, 0);
+        }} />
 
         <ScrollView
           showsVerticalScrollIndicator={false}

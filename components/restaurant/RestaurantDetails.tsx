@@ -1,5 +1,5 @@
 import { Image } from "expo-image";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import {  View } from "react-native";
 import { BlurView } from "expo-blur";
 import Header from "./HeaderSection";
@@ -24,7 +24,6 @@ type Props = {
 };
 
 const RestaurantDetails = ({ data }: Props) => {
-    const router = useRouter();
 
   if (!data) return null;
 

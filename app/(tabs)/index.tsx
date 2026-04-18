@@ -1,4 +1,4 @@
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import React, { useEffect, useMemo } from "react";
 import { Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -19,7 +19,6 @@ import { Restaurant } from "@/components/restaurant/RestaurantCard";
 const restaurantData = restaurantDataJson as unknown as Restaurant[];
 
 export default function FoodHome() {
-  const router = useRouter();
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state: RootState) => state.user);
   const cartData = useSelector((state: any) => state.cart.cart);

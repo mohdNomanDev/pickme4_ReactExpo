@@ -1,6 +1,6 @@
 import React from 'react';
 import { ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform, View, Text } from 'react-native';
-import { Stack, useRouter } from 'expo-router';
+import { Stack, router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,7 +9,6 @@ import { updateUserProfile } from '../../store/userSlice';
 import { ProfileInfo } from '../../components/profile/ProfileInfo';
 
 export default function PersonalInformationPage() {
-      const router = useRouter();
   const dispatch = useDispatch();
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
 

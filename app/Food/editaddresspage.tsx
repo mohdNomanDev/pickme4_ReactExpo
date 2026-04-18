@@ -1,11 +1,10 @@
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import React from "react";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import EditAddress from "../../components/navbar/EditAddress";
 
 export default function EditAddressPage() {
-  const router = useRouter();
 
   return (
     <SafeAreaView edges={['top', 'bottom']} className="flex-1 bg-gray-50 dark:bg-background-dark">

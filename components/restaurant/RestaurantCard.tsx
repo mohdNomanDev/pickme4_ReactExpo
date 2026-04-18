@@ -1,7 +1,7 @@
 import { RootState } from "@/store/store";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import React, { memo, useCallback, useMemo, useState } from "react";
 import { Pressable, Text, TouchableOpacity, View } from "react-native";
 import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
@@ -47,7 +47,6 @@ type RestaurantCardProps = {
 const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
   if (!restaurant) return null;
 
-  const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const dispatch = useDispatch();
 

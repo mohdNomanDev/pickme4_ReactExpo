@@ -1,11 +1,10 @@
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 import React from "react";
 import { View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AddNewAddress from "../../components/navbar/AddNewAddress";
 
 export default function AddNewAddressPage() {
-  const router = useRouter();
 
   return (
     <SafeAreaView

@@ -7,7 +7,7 @@ import PromoCode from "@/components/cart/PromoCode";
 import { useSelector } from "react-redux";
 import { Ionicons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { useRouter } from "expo-router";
+import { router } from "expo-router";
 
 interface CartScreenProps {
   isTab?: boolean;
@@ -17,7 +17,6 @@ const CartScreen = ({ isTab = false }: CartScreenProps) => {
   const cartData = useSelector((state: any) => state.cart.cart);
   const user = useSelector((state: any) => state.user?.user);
   const insets = useSafeAreaInsets();
-  const router = useRouter();
 
   const defaultAddress = user?.addresses?.find((a: any) => a.isDefault) || null;
 
