@@ -185,6 +185,18 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
                     latitudeDelta={0.018}
                     longitudeDelta={0.018}
                     draggableMarker
+                    showSearchBar
+                    searchPlaceholder="Search for your building or area..."
+                    onSelectPlace={(place) => {
+                      setFieldValue("latitude", place.latitude);
+                      setFieldValue("longitude", place.longitude);
+                      setFieldValue("formattedAddress", place.address);
+                      // Trigger reverse geocode to fill other fields based on selected point
+                      void handleMapLocationChange({ 
+                        latitude: place.latitude, 
+                        longitude: place.longitude 
+                      }, setFieldValue);
+                    }}
                     selectedMarkerTitle="Delivery location"
                     onLocationChange={(coordinate) => {
                       void handleMapLocationChange(coordinate, setFieldValue);

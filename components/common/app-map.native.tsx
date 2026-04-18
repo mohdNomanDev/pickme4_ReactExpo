@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, memo } from "react";
+import React, { useMemo, useState, useEffect, memo, useRef } from "react";
 import {
   ActivityIndicator,
   Text,
@@ -14,6 +14,7 @@ import MapView, {
 } from "react-native-maps";
 import { useColorScheme } from "nativewind";
 import type { AppMapProps, AppMapMarker } from "./app-map.types";
+import MapSearchBar from "./MapSearchBar";
 
 export type {
   AppMapCoordinate,
@@ -77,6 +78,9 @@ export default function AppMap({
   draggableMarker = false,
   selectedMarkerTitle = "Selected location",
   onLocationChange,
+  showSearchBar = false,
+  searchPlaceholder,
+  onSelectPlace,
   theme = "system",
   style,
   mapStyle,
@@ -84,6 +88,7 @@ export default function AppMap({
   const [isMapReady, setIsMapReady] = useState(false);
   const [shouldRenderMap, setShouldRenderMap] = useState(false);
   const { colorScheme } = useColorScheme();
+  const mapRef = useRef<MapView>(null);
 
   // Lazy load map to keep transitions smooth
   useEffect(() => {
@@ -104,6 +109,13 @@ export default function AppMap({
     };
   }, [latitude, latitudeDelta, longitude, longitudeDelta]);
 
+  // Sync region if coordinate props change externally
+  useEffect(() => {
+    if (isMapReady && region && mapRef.current) {
+      mapRef.current.animateToRegion(region, 500);
+    }
+  }, [latitude, longitude, isMapReady]);
+
   const validMarkers = useMemo(
     () => markers.filter((marker) => isValidCoordinate(marker.lat, marker.lng)),
     [markers],
@@ -117,6 +129,23 @@ export default function AppMap({
     }, []),
     [route],
   );
+
+  const handlePlaceSelect = (place: { latitude: number; longitude: number; address: string }) => {
+    const coordinate = { latitude: place.latitude, longitude: place.longitude };
+    
+    if (mapRef.current) {
+      mapRef.current.animateToRegion({
+        ...coordinate,
+        latitudeDelta: DEFAULT_LATITUDE_DELTA,
+        longitudeDelta: DEFAULT_LONGITUDE_DELTA,
+      }, 500);
+    }
+    
+    // Notify parent
+    onSelectPlace?.(place);
+    // Also trigger location change for the marker
+    onLocationChange?.(coordinate);
+  };
 
   if (loading || !region || !shouldRenderMap) {
     return (
@@ -134,7 +163,15 @@ export default function AppMap({
 
   return (
     <View className="flex-1 min-h-[320px] w-full overflow-hidden" style={style}>
+      {showSearchBar && (
+        <MapSearchBar 
+          onSelectLocation={handlePlaceSelect}
+          placeholder={searchPlaceholder}
+        />
+      )}
+
       <MapView
+        ref={mapRef}
         provider={PROVIDER_DEFAULT}
         className="flex-1 w-full"
         style={mapStyle}

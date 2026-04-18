@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { View, Text, TouchableOpacity, ScrollView, Platform } from 'react-native';
 import { Formik } from 'formik';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,6 +8,8 @@ import { setSelectedAddress } from '../../store/selectedAddressSlice';
 import { updateUserAddress } from '../../store/userSlice';
 import FormField from '../common/FormField';
 import { addressSchema } from '../../utils/validations';
+import AppMap from '../common/app-map';
+import { reverseGeocodeCoordinate } from "../../utils/reverseGeocoding";
 
 interface EditAddressProps {
   onCancel?: () => void;
@@ -16,6 +18,8 @@ interface EditAddressProps {
 
 const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
   const dispatch = useDispatch();
+  const geocodeRequestId = useRef(0);
+  const [isFetchingAddress, setIsFetchingAddress] = useState(false);
   const selectedAddress = useSelector((state: RootState) => state.selectedAddress.selectedAddress);
   const currentUser = useSelector((state: RootState) => state.user.currentUser);
 
@@ -31,19 +35,60 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
     floorApt: fullAddressDetails?.floor || '',
     additionalDirections: fullAddressDetails?.notes || '',
     label: fullAddressDetails?.title || selectedAddress?.title || 'Home',
+    latitude: fullAddressDetails?.coordinates?.lat || selectedAddress?.latitude || 24.7136,
+    longitude: fullAddressDetails?.coordinates?.lng || selectedAddress?.longitude || 46.6753,
+    formattedAddress: fullAddressDetails?.formattedAddress || selectedAddress?.formattedAddress || '',
   };
+
+  const handleMapLocationChange = useCallback(
+    async (
+      coordinate: { latitude: number; longitude: number },
+      setFieldValue: (field: string, value: unknown, shouldValidate?: boolean) => void,
+    ) => {
+      const requestId = geocodeRequestId.current + 1;
+      geocodeRequestId.current = requestId;
+
+      setFieldValue("latitude", coordinate.latitude);
+      setFieldValue("longitude", coordinate.longitude);
+      setIsFetchingAddress(true);
+
+      try {
+        const address = await reverseGeocodeCoordinate(coordinate);
+
+        if (geocodeRequestId.current !== requestId) return;
+
+        setFieldValue("city", address.city);
+        setFieldValue("state", address.state);
+        setFieldValue("street", address.street);
+        setFieldValue("buildingNumber", address.buildingNumber);
+        setFieldValue("formattedAddress", address.formattedAddress);
+      } catch (error) {
+        console.warn("Reverse geocoding failed:", error);
+      } finally {
+        if (geocodeRequestId.current === requestId) {
+          setIsFetchingAddress(false);
+        }
+      }
+    },
+    [],
+  );
 
   const handleSave = (values: typeof initialValues) => {
     if (selectedAddress) {
+      const displayAddress = values.formattedAddress || 
+        `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.city}, ${values.state}`;
+
       // 1. Dispatch updated address back to the selected address state
       dispatch(setSelectedAddress({
         ...selectedAddress,
+        latitude: values.latitude,
+        longitude: values.longitude,
         state: values.state,
         city: values.city,
         street: values.street,
         title: values.label,
-        address: `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.city}, ${values.state}`,
-        formattedAddress: `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.city}, ${values.state}`
+        address: displayAddress,
+        formattedAddress: displayAddress
       }));
 
       // 2. Dispatch updated address back to the user's saved addresses array
@@ -58,8 +103,12 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
             city: values.city,
             street: values.street,
             buildingNumber: values.buildingNumber,
-            address: `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.city}, ${values.state}`,
-            formattedAddress: `${values.buildingNumber ? values.buildingNumber + ' ' : ''}${values.street}, ${values.city}, ${values.state}`,
+            address: displayAddress,
+            formattedAddress: displayAddress,
+            coordinates: {
+              lat: values.latitude,
+              lng: values.longitude,
+            },
             floor: values.floorApt,
             notes: values.additionalDirections,
           }));
@@ -67,7 +116,6 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
       }
     }
 
-    console.log('Edited address saved:', values);
     if (onSaveSuccess) onSaveSuccess();
   };
 
@@ -99,13 +147,58 @@ const EditAddress = ({ onCancel, onSaveSuccess }: EditAddressProps) => {
         >
           {({ handleSubmit, setFieldValue, values }) => (
             <View className="gap-8 max-w-3xl mx-auto w-full">
-              {/* Map Placeholder */}
-              <View className="h-56 bg-orange-50/50 dark:bg-gray-800/30 rounded-3xl items-center justify-center border border-orange-100 dark:border-gray-700 overflow-hidden mb-2">
-                <View className="w-14 h-14 bg-white dark:bg-gray-800 rounded-full items-center justify-center shadow-sm mb-3">
-                  <Ionicons name="location" size={28} color="#f97316" />
+              {/* Map Section */}
+              <View className="gap-3">
+                <View className="flex-row items-center justify-between gap-4">
+                  <View className="flex-1">
+                    <Text className="text-xl font-bold text-gray-900 dark:text-white">
+                      Pin Location
+                    </Text>
+                    <Text className="text-gray-500 dark:text-gray-400 text-sm mt-1">
+                      Search or drag the pin to adjust your delivery location
+                    </Text>
+                  </View>
+                  <View className="h-11 w-11 rounded-full bg-orange-50 dark:bg-orange-900/20 items-center justify-center">
+                    <Ionicons name="location" size={22} color="#f97316" />
+                  </View>
                 </View>
-                <Text className="text-gray-600 dark:text-gray-400 font-medium text-lg">Pin Location on Map</Text>
-                <Text className="text-gray-400 dark:text-gray-500 text-sm mt-1">Tap to change exact coordinates</Text>
+
+                <View className="h-72 md:h-96 rounded-2xl overflow-hidden border border-orange-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900">
+                  <AppMap
+                    latitude={values.latitude}
+                    longitude={values.longitude}
+                    latitudeDelta={0.018}
+                    longitudeDelta={0.018}
+                    draggableMarker
+                    showSearchBar
+                    searchPlaceholder="Search for your building or area..."
+                    onSelectPlace={(place) => {
+                      setFieldValue("latitude", place.latitude);
+                      setFieldValue("longitude", place.longitude);
+                      setFieldValue("formattedAddress", place.address);
+                      // Trigger reverse geocode to fill other fields based on selected point
+                      void handleMapLocationChange({ 
+                        latitude: place.latitude, 
+                        longitude: place.longitude 
+                      }, setFieldValue);
+                    }}
+                    selectedMarkerTitle="Delivery location"
+                    onLocationChange={(coordinate) => {
+                      void handleMapLocationChange(coordinate, setFieldValue);
+                    }}
+                  />
+                </View>
+
+                <View className="gap-1">
+                  <Text className="text-xs font-semibold text-gray-500 dark:text-gray-400">
+                    {`Lat ${values.latitude.toFixed(5)} / Lng ${values.longitude.toFixed(5)}`}
+                  </Text>
+                  {isFetchingAddress ? (
+                    <Text className="text-xs font-semibold text-orange-500">
+                      Getting address details...
+                    </Text>
+                  ) : null}
+                </View>
               </View>
 
               {/* Location Details Form */}

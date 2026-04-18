@@ -110,6 +110,9 @@ export default function AppMap({
   longitudeDelta = DEFAULT_LONGITUDE_DELTA,
   loading = false,
   onLocationChange,
+  showSearchBar = false,
+  searchPlaceholder,
+  onSelectPlace,
   selectedMarkerTitle = "Selected location",
   theme = "system",
   style,
@@ -142,6 +145,15 @@ export default function AppMap({
       viewDelta.longitudeDelta,
     );
   }, [hasValidCoordinate, latitude, longitude, viewDelta.latitudeDelta, viewDelta.longitudeDelta]);
+
+  const handlePlaceSelect = (place: { latitude: number; longitude: number; address: string }) => {
+    const coordinate = { latitude: place.latitude, longitude: place.longitude };
+    
+    // Notify parent
+    onSelectPlace?.(place);
+    // Also trigger location change for the marker
+    onLocationChange?.(coordinate);
+  };
 
   if (
     loading ||
@@ -224,6 +236,13 @@ export default function AppMap({
       onLayout={handleLayout}
       style={style}
     >
+      {showSearchBar && (
+        <MapSearchBar 
+          onSelectLocation={handlePlaceSelect}
+          placeholder={searchPlaceholder}
+        />
+      )}
+
       {React.createElement("iframe", {
         src: mapUrl,
         title: selectedMarkerTitle,

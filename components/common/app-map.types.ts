@@ -31,6 +31,9 @@ export type AppMapProps = {
   draggableMarker?: boolean;
   selectedMarkerTitle?: string;
   onLocationChange?: (coordinate: AppMapCoordinate) => void;
+  showSearchBar?: boolean;
+  searchPlaceholder?: string;
+  onSelectPlace?: (place: { latitude: number; longitude: number; address: string }) => void;
   theme?: AppMapTheme;
   style?: StyleProp<ViewStyle>;
   mapStyle?: StyleProp<ViewStyle>;
