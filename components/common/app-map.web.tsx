@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { useColorScheme } from "nativewind";
 import type { AppMapProps } from "./app-map.types";
+import MapSearchBar from "./MapSearchBar";
 
 export type {
   AppMapCoordinate,
