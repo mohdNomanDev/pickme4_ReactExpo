@@ -3,7 +3,7 @@ import {
   View,
   TextInput,
   TouchableOpacity,
-  FlatList,
+  ScrollView,
   Text,
   ActivityIndicator,
   Keyboard,
@@ -172,11 +172,10 @@ export default function MapSearchBar({
           }`}
           style={{ maxHeight: 240 }}
         >
-          <FlatList
-            data={suggestions}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
+          <ScrollView keyboardShouldPersistTaps="always">
+            {suggestions.map((item) => (
               <TouchableOpacity
+                key={item.id}
                 onPress={() => handleSelect(item)}
                 className={`flex-row items-center px-4 py-3 border-b ${
                   isDark ? "border-gray-700 active:bg-gray-700" : "border-gray-50 active:bg-gray-50"
@@ -194,9 +193,8 @@ export default function MapSearchBar({
                   {item.description}
                 </Text>
               </TouchableOpacity>
-            )}
-            keyboardShouldPersistTaps="always"
-          />
+            ))}
+          </ScrollView>
         </View>
       )}
     </View>
