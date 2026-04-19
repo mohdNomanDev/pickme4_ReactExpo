@@ -48,14 +48,14 @@ export default function FoodScreen() {
   }, [currentUser, dispatch]);
 
   return (
-    <View className="w-full flex-1">
+    <View className="w-full flex-1 bg-background dark:bg-background-dark">
       <RestaurantCardList
         maxDistance={100} // Standard discovery radius
         headerContent={
           <View className="w-full flex-1 gap-8 mb-8 mt-2">
             {/* Banner / Offers Carousel Section */}
-            <View className="w-full h-48 md:h-64 bg-gray-200 dark:bg-gray-800 rounded-3xl items-center justify-center border border-gray-300 dark:border-gray-700">
-              <Text className="text-gray-500 dark:text-gray-400 font-bold text-lg">
+            <View className="w-full h-48 md:h-64 bg-card dark:bg-card-dark rounded-3xl items-center justify-center border border-border dark:border-border-dark">
+              <Text className="text-text-muted dark:text-text-muted-dark font-bold text-lg">
                 {"Banner Section"}
               </Text>
             </View>
@@ -63,12 +63,12 @@ export default function FoodScreen() {
             {/* Quick Categories Section */}
             <View className="w-full">
               <Text
-                className={`text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white mb-4 px-4 text-left`}
+                className="text-xl md:text-2xl font-extrabold text-text dark:text-text-dark mb-4 px-4 text-left"
               >
                 {"Categories"}
               </Text>
-              <View className="mx-4 h-24 md:h-32 bg-gray-200 dark:bg-gray-800 rounded-2xl items-center justify-center border border-gray-300 dark:border-gray-700">
-                <Text className="text-gray-500 dark:text-gray-400 font-bold text-lg">
+              <View className="mx-4 h-24 md:h-32 bg-card dark:bg-card-dark rounded-2xl items-center justify-center border border-border dark:border-border-dark">
+                <Text className="text-text-muted dark:text-text-muted-dark font-bold text-lg">
                   {"Categories Section"}
                 </Text>
               </View>
