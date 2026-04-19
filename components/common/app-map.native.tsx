@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   Text,
   View,
+  StyleSheet,
 } from "react-native";
 import MapView, {
   Marker,
@@ -114,7 +115,7 @@ export default function AppMap({
     if (isMapReady && region && mapRef.current) {
       mapRef.current.animateToRegion(region, 500);
     }
-  }, [latitude, longitude, isMapReady]);
+  }, [latitude, longitude, isMapReady, region]);
 
   const validMarkers = useMemo(
     () => markers.filter((marker) => isValidCoordinate(marker.lat, marker.lng)),
@@ -150,7 +151,7 @@ export default function AppMap({
   if (loading || !region || !shouldRenderMap) {
     return (
       <View 
-        className="flex-1 min-h-[320px] w-full items-center bg-gray-50 dark:bg-gray-900 justify-center gap-[10px]"
+        className="flex-1 w-full items-center bg-gray-50 dark:bg-gray-900 justify-center gap-[10px]"
         style={style}
       >
         <ActivityIndicator color="#f97316" />
@@ -162,19 +163,11 @@ export default function AppMap({
   }
 
   return (
-    <View className="flex-1 min-h-[320px] w-full overflow-hidden" style={style}>
-      {showSearchBar && (
-        <MapSearchBar 
-          onSelectLocation={handlePlaceSelect}
-          placeholder={searchPlaceholder}
-        />
-      )}
-
+    <View className="flex-1 w-full overflow-hidden" style={style}>
       <MapView
         ref={mapRef}
         provider={PROVIDER_DEFAULT}
-        className="flex-1 w-full"
-        style={mapStyle}
+        style={[StyleSheet.absoluteFill, mapStyle]}
         initialRegion={region}
         loadingEnabled
         loadingBackgroundColor={resolvedTheme === "dark" ? "#111827" : "#f9fafb"}
@@ -207,6 +200,15 @@ export default function AppMap({
           />
         )}
       </MapView>
+
+      {showSearchBar && (
+        <View className="absolute top-0 left-0 right-0 p-2">
+          <MapSearchBar 
+            onSelectLocation={handlePlaceSelect}
+            placeholder={searchPlaceholder}
+          />
+        </View>
+      )}
 
       {!isMapReady && (
         <View pointerEvents="none" className="absolute inset-0 items-center justify-center bg-gray-50/70 dark:bg-gray-900/70">
