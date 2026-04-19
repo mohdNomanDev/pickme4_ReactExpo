@@ -23,6 +23,11 @@ const MessageToast = () => {
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(position === "top" ? -100 : 100);
 
+  const dispatchHideMessage = () => {
+    console.log("hideMessage type:", typeof hideMessage);
+    dispatch(hideMessage());
+  };
+
   useEffect(() => {
     if (visible) {
       opacity.value = withTiming(1, { duration: 300 });
@@ -39,7 +44,7 @@ const MessageToast = () => {
   const handleHide = () => {
     opacity.value = withTiming(0, { duration: 300 });
     translateY.value = withTiming(position === "top" ? -100 : 100, { duration: 300 }, () => {
-      runOnJS(dispatch)(hideMessage());
+      runOnJS(dispatchHideMessage)();
     });
   };
 
