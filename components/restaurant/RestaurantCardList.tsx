@@ -34,6 +34,7 @@ interface RestaurantCardListProps {
   maxDistance?: number;
   title?: string;
   limit?: number;
+  data?: Restaurant[];
 }
 
 /**
@@ -41,7 +42,7 @@ interface RestaurantCardListProps {
  * Optimized for high-performance rendering of restaurant feeds.
  * NOTE: For production scalability, consider replacing FlatList with @shopify/flash-list.
  */
-const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit }: RestaurantCardListProps) => {
+const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit, data: externalData }: RestaurantCardListProps) => {
   const { width } = useWindowDimensions();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
@@ -50,7 +51,7 @@ const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit }
   const { 
     restaurants: restaurantsWithDistance,
     activeLocationName 
-  } = useCurrentLocationRestaurants(restaurantData, maxDistance);
+  } = useCurrentLocationRestaurants(externalData || restaurantData, maxDistance);
 
   // Active filter indicator count
   const activeFilterCount = useMemo(() => {
