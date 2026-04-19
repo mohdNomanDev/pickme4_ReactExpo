@@ -8,6 +8,7 @@ import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleBookmark } from "../../store/bookmarkSlice";
 import { setRestaurantId } from "../../store/OnPressRestaurantSlice";
+import AddToCartButton from "../ui/AddToCartButton";
 
 type FoodItem = {
   name: string;
@@ -53,20 +54,20 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
 
   // Optimized State Selectors
   // Using a more stable selector pattern to prevent unnecessary re-renders
-  const isBookmarked = useSelector((state: RootState) =>
-    state.bookmark.value.indexOf(restaurant.id) !== -1
+  const isBookmarked = useSelector(
+    (state: RootState) => state.bookmark.value.indexOf(restaurant.id) !== -1,
   );
 
   // Simplified: Only memoize values that actually require calculation or are objects.
-  const { 
-    foodItems, 
-    rating, 
-    deliveryTime, 
-    offer, 
-    name: restaurantName, 
-    cuisine: cuisineName, 
+  const {
+    foodItems,
+    rating,
+    deliveryTime,
+    offer,
+    name: restaurantName,
+    cuisine: cuisineName,
     area: areaName,
-    matchedFoodItems
+    matchedFoodItems,
   } = restaurant;
 
   const currentFood = foodItems?.[currentIndex];
@@ -134,7 +135,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
           Matched Items
         </Text>
         {matchedFoodItems.map((item, index) => (
-          <View 
+          <View
             key={`${item.name}-${index}`}
             className="flex-row items-center justify-between bg-gray-50 dark:bg-gray-800/40 rounded-2xl p-3 mb-2 border border-gray-100 dark:border-gray-800"
           >
@@ -146,7 +147,10 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                 transition={200}
               />
               <View className="ml-3 flex-1">
-                <Text numberOfLines={1} className="text-base font-bold text-gray-900 dark:text-white mb-0.5">
+                <Text
+                  numberOfLines={1}
+                  className="text-base font-bold text-gray-900 dark:text-white mb-0.5"
+                >
                   {item.name}
                 </Text>
                 <Text className="text-sm font-bold text-primary">
@@ -154,12 +158,13 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                 </Text>
               </View>
             </View>
-            <TouchableOpacity 
-              className="w-10 h-10 rounded-full bg-primary items-center justify-center shadow-sm shadow-primary/20"
-              activeOpacity={0.7}
-            >
-              <Ionicons name="add" size={24} color="white" />
-            </TouchableOpacity>
+            <AddToCartButton
+              item={item}
+              restaurantId={restaurant.id.toString()}
+              restaurantName={restaurant.name}
+              iconColor="white"
+              className="bg-primary shadow-sm shadow-primary/20"
+            />
           </View>
         ))}
       </View>
@@ -248,7 +253,11 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                       hitSlop={8}
                       className="w-9 h-9 rounded-full bg-white/25 items-center justify-center backdrop-blur-lg border border-white/10"
                     >
-                      <Ionicons name="chevron-forward" size={18} color="white" />
+                      <Ionicons
+                        name="chevron-forward"
+                        size={18}
+                        color="white"
+                      />
                     </TouchableOpacity>
                   </View>
                 )}
@@ -280,7 +289,9 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                     {offer}
                   </Text>
                 </View>
-              ) : <View />}
+              ) : (
+                <View />
+              )}
               <Pressable
                 onPress={handleToggleBookmark}
                 className="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-800 items-center justify-center"
@@ -313,7 +324,11 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                 )}
                 {areaName && (
                   <View className="flex-row items-center">
-                    <Ionicons name="location-outline" size={12} color="#9ca3af" />
+                    <Ionicons
+                      name="location-outline"
+                      size={12}
+                      color="#9ca3af"
+                    />
                     <Text className="text-text-muted dark:text-text-muted-dark text-[11px] font-medium ms-1 text-left">
                       {areaName}
                     </Text>
@@ -357,7 +372,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                   <Ionicons name="location-outline" size={16} color="#6b7280" />
                 </View>
                 <Text className="text-text dark:text-text-dark text-[12px] font-semibold">
-                  {restaurant.distanceValue < 1 
+                  {restaurant.distanceValue < 1
                     ? `${(restaurant.distanceValue * 1000).toFixed(0)} m`
                     : `${restaurant.distanceValue.toFixed(1)} km`}
                 </Text>

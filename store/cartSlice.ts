@@ -12,6 +12,7 @@ export interface CartItem {
 
 export interface CartRestaurant {
   restaurantId: string;
+  restaurantName: string; // Added to store the actual name
   items: CartItem[];
 }
 
@@ -30,13 +31,16 @@ const cartSlice = createSlice({
     setCart: (state, action: PayloadAction<CartRestaurant[]>) => {
       state.cart = action.payload;
     },
-    addItem: (state, action: PayloadAction<{ restaurantId: string; item: Omit<CartItem, "quantity"> }>) => {
-      const { restaurantId, item } = action.payload;
+    addItem: (state, action: PayloadAction<{ restaurantId: string; restaurantName: string; item: Omit<CartItem, "quantity"> }>) => {
+      const { restaurantId, restaurantName, item } = action.payload;
       let restaurant = state.cart.find((r) => r.restaurantId === restaurantId);
 
       if (!restaurant) {
-        restaurant = { restaurantId, items: [] };
+        restaurant = { restaurantId, restaurantName, items: [] };
         state.cart.push(restaurant);
+      } else {
+        // Ensure name is updated/present if it was missing before
+        restaurant.restaurantName = restaurantName;
       }
 
       const existingItem = restaurant.items.find((i) => i.name === item.name);

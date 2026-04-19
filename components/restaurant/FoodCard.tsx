@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import { Text, TouchableOpacity, View, Platform, useWindowDimensions } from "react-native";
 import { Image } from "expo-image";
-import { Ionicons } from "@expo/vector-icons";
+import AddToCartButton from "../ui/AddToCartButton";
 
 type FoodItem = {
   name: string;
@@ -12,17 +12,12 @@ type FoodItem = {
 
 type Props = {
   data: FoodItem;
-  onAddToCart?: (item: FoodItem) => void;
+  restaurantId: string;
+  restaurantName: string;
 };
 
-const FoodCard = ({ data, onAddToCart }: Props) => {
+const FoodCard = ({ data, restaurantId, restaurantName }: Props) => {
     const { width } = useWindowDimensions();
-
-  const handleAddToCart = () => {
-    if (onAddToCart) {
-      onAddToCart(data);
-    }
-  };
 
   const formattedPrice = useMemo(() => {
     const currencyStr = 'SAR';
@@ -30,7 +25,6 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
   }, [data.price]);
 
   const isWeb = Platform.OS === 'web';
-  const isTablet = width > 768;
 
   return (
     <TouchableOpacity
@@ -78,13 +72,11 @@ const FoodCard = ({ data, onAddToCart }: Props) => {
             {formattedPrice}
           </Text>
 
-          <TouchableOpacity
-            onPress={handleAddToCart}
-            className="bg-primary/10 dark:bg-primary/20 w-10 h-10 rounded-full items-center justify-center active:bg-primary/20 dark:active:bg-primary/30 transition-colors"
-            activeOpacity={0.7}
-          >
-            <Ionicons name="add" size={24} color="#f97316" />
-        </TouchableOpacity>
+          <AddToCartButton 
+            item={data} 
+            restaurantId={restaurantId}
+            restaurantName={restaurantName}
+          />
         </View>
       </View>
     </TouchableOpacity>

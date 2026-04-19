@@ -15,7 +15,7 @@ const CartRestaurantSection = ({ section }: { section: any }) => {
           />
         </View>
         <Text className="text-lg font-bold text-text dark:text-text-dark flex-1 text-left ">
-          {section.restaurantId}
+          {section.restaurantName || "Restaurant"}
         </Text>
       </View>
 
