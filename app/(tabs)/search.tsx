@@ -1,43 +1,47 @@
-import React, { useState, useMemo, useCallback, useEffect, useRef } from 'react';
-import { 
-  View, 
-  Text, 
-  TextInput, 
-  TouchableOpacity, 
-  ActivityIndicator, 
-  Platform,
+import { Ionicons } from "@expo/vector-icons";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
+import {
+  ActivityIndicator,
   Keyboard,
-  Pressable
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { Ionicons } from '@expo/vector-icons';
-import Animated, { FadeIn, FadeInDown } from 'react-native-reanimated';
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import Animated, { FadeIn, FadeInDown } from "react-native-reanimated";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import RestaurantCardList from '@/components/restaurant/RestaurantCardList';
-import { Restaurant } from '@/components/restaurant/RestaurantCard';
-import restaurantDataJson from '@/TestData/RestaurantData.json';
+import { Restaurant } from "@/components/restaurant/RestaurantCard";
+import RestaurantCardList from "@/components/restaurant/RestaurantCardList";
+import restaurantDataJson from "@/TestData/RestaurantData.json";
 
 const ALL_RESTAURANTS = restaurantDataJson as unknown as Restaurant[];
 
 const POPULAR_CATEGORIES = [
-  { id: '1', name: 'Pizza', icon: 'pizza-outline' },
-  { id: '2', name: 'Burger', icon: 'fast-food-outline' },
-  { id: '3', name: 'Biryani', icon: 'restaurant-outline' },
-  { id: '4', name: 'Chicken', icon: 'flame-outline' },
+  { id: "1", name: "Pizza", icon: "pizza-outline" },
+  { id: "2", name: "Burger", icon: "fast-food-outline" },
+  { id: "3", name: "Biryani", icon: "restaurant-outline" },
+  { id: "4", name: "Chicken", icon: "flame-outline" },
 ];
 
-const RECENT_SEARCHES = ['Shawarma', 'Arabic Coffee', 'Pasta', 'Healthy Salad'];
+const RECENT_SEARCHES = ["Shawarma", "Arabic Coffee", "Pasta", "Healthy Salad"];
 
 export default function SearchPage() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [debouncedQuery, setDebouncedQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedQuery, setDebouncedQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const searchInputRef = useRef<TextInput>(null);
 
   // Debounce logic
   useEffect(() => {
     if (!searchQuery.trim()) {
-      setDebouncedQuery('');
+      setDebouncedQuery("");
       setIsLoading(false);
       return;
     }
@@ -59,18 +63,18 @@ export default function SearchPage() {
     return ALL_RESTAURANTS.filter((restaurant) => {
       // 1. Search by restaurant name
       const nameMatch = restaurant.name.toLowerCase().includes(query);
-      
+
       // 2. Search by cuisine
       const cuisineMatch = restaurant.cuisine?.toLowerCase().includes(query);
 
       // 3. Search by food items
-      const foodItemMatch = restaurant.foodItems?.some(item => 
-        item.name.toLowerCase().includes(query)
+      const foodItemMatch = restaurant.foodItems?.some((item) =>
+        item.name.toLowerCase().includes(query),
       );
 
       // 4. Search by tags
-      const tagMatch = restaurant.tags?.some(tag => 
-        tag.toLowerCase().includes(query)
+      const tagMatch = restaurant.tags?.some((tag) =>
+        tag.toLowerCase().includes(query),
       );
 
       return nameMatch || cuisineMatch || foodItemMatch || tagMatch;
@@ -78,8 +82,8 @@ export default function SearchPage() {
   }, [debouncedQuery]);
 
   const handleClearSearch = useCallback(() => {
-    setSearchQuery('');
-    setDebouncedQuery('');
+    setSearchQuery("");
+    setDebouncedQuery("");
     Keyboard.dismiss();
   }, []);
 
@@ -112,7 +116,7 @@ export default function SearchPage() {
   );
 
   const renderEmptyState = () => (
-    <Animated.ScrollView 
+    <Animated.ScrollView
       entering={FadeIn}
       className="flex-1 px-4 pt-6"
       showsVerticalScrollIndicator={false}
@@ -120,19 +124,25 @@ export default function SearchPage() {
       {/* Recent Searches */}
       <View className="mb-8">
         <View className="flex-row items-center justify-between mb-4">
-          <Text className="text-lg font-bold text-gray-900 dark:text-white">Recent Searches</Text>
+          <Text className="text-lg font-bold text-gray-900 dark:text-white">
+            Recent Searches
+          </Text>
           <TouchableOpacity>
-            <Text className="text-sm font-semibold text-primary">Clear All</Text>
+            <Text className="text-sm font-semibold text-primary">
+              Clear All
+            </Text>
           </TouchableOpacity>
         </View>
         <View className="flex-row flex-wrap gap-2">
           {RECENT_SEARCHES.map((item) => (
-            <TouchableOpacity 
+            <TouchableOpacity
               key={item}
               onPress={() => handleCategoryPress(item)}
               className="px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
             >
-              <Text className="text-sm text-gray-600 dark:text-gray-300 font-medium">{item}</Text>
+              <Text className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+                {item}
+              </Text>
             </TouchableOpacity>
           ))}
         </View>
@@ -140,19 +150,23 @@ export default function SearchPage() {
 
       {/* Popular Categories */}
       <View className="mb-8">
-        <Text className="text-lg font-bold text-gray-900 dark:text-white mb-4">Popular Categories</Text>
+        <Text className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+          Popular Categories
+        </Text>
         <View className="flex-row flex-wrap gap-4">
           {POPULAR_CATEGORIES.map((cat) => (
-            <TouchableOpacity 
+            <TouchableOpacity
               key={cat.id}
               onPress={() => handleCategoryPress(cat.name)}
               className="items-center"
-              style={{ width: '22%' }}
+              style={{ width: "22%" }}
             >
               <View className="w-14 h-14 rounded-2xl bg-orange-50 dark:bg-orange-900/20 items-center justify-center mb-2">
                 <Ionicons name={cat.icon as any} size={28} color="#f97316" />
               </View>
-              <Text className="text-xs font-bold text-gray-700 dark:text-gray-300 text-center">{cat.name}</Text>
+              <Text className="text-xs font-bold text-gray-700 dark:text-gray-300 text-center">
+                {cat.name}
+              </Text>
             </TouchableOpacity>
           ))}
         </View>
@@ -161,8 +175,12 @@ export default function SearchPage() {
       {/* Discover Banner */}
       <View className="p-6 rounded-3xl bg-primary/10 border border-primary/20 overflow-hidden relative">
         <View className="z-10">
-          <Text className="text-xl font-bold text-primary mb-1">Cravings? We got you!</Text>
-          <Text className="text-sm text-primary/80 font-medium">Find the best deals near you</Text>
+          <Text className="text-xl font-bold text-primary mb-1">
+            Cravings? We got you!
+          </Text>
+          <Text className="text-sm text-primary/80 font-medium">
+            Find the best deals near you
+          </Text>
         </View>
         <View className="absolute right-[-10] bottom-[-10] opacity-10">
           <Ionicons name="fast-food" size={100} color="#f97316" />
@@ -172,7 +190,7 @@ export default function SearchPage() {
   );
 
   const renderNoResults = () => (
-    <Animated.View 
+    <Animated.View
       entering={FadeInDown}
       className="flex-1 items-center justify-center px-6 py-20"
     >
@@ -183,9 +201,10 @@ export default function SearchPage() {
         No results found for "{debouncedQuery}"
       </Text>
       <Text className="text-gray-500 dark:text-gray-400 text-center max-w-xs leading-5">
-        Try checking for typos or use more general keywords like "Pizza" or "Burger"
+        Try checking for typos or use more general keywords like "Pizza" or
+        "Burger"
       </Text>
-      <TouchableOpacity 
+      <TouchableOpacity
         onPress={handleClearSearch}
         className="mt-6 px-6 py-3 bg-primary rounded-2xl"
       >
@@ -195,20 +214,25 @@ export default function SearchPage() {
   );
 
   return (
-    <SafeAreaView edges={['top']} className="flex-1 bg-white dark:bg-background-dark">
+    <SafeAreaView
+      edges={["top"]}
+      className="flex-1 bg-white dark:bg-background-dark"
+    >
       {renderSearchHeader()}
 
       <View className="flex-1">
         {isLoading ? (
           <View className="flex-1 items-center justify-center">
             <ActivityIndicator size="large" color="#f97316" />
-            <Text className="mt-4 text-gray-500 font-medium">Searching deliciousness...</Text>
+            <Text className="mt-4 text-gray-500 font-medium">
+              Searching deliciousness...
+            </Text>
           </View>
         ) : !searchQuery.trim() ? (
           renderEmptyState()
         ) : filteredRestaurants.length > 0 ? (
-          <RestaurantCardList 
-            data={filteredRestaurants} 
+          <RestaurantCardList
+            data={filteredRestaurants}
             title={`Results for "${debouncedQuery}"`}
             maxDistance={50} // Higher limit for search results
           />

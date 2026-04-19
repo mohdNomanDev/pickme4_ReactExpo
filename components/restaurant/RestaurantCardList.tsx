@@ -7,7 +7,6 @@ import {
   useWindowDimensions,
   View,
 } from "react-native";
-import Animated, { FadeInDown } from "react-native-reanimated";
 
 import FilterButton from "@/components/common/FilterButton";
 import FilterSheet from "@/components/common/FilterSheet";
@@ -17,8 +16,8 @@ import RestaurantCard, {
 import RestaurantFilter, {
   FilterState,
 } from "@/components/restaurant/RestaurantFilter";
-import restaurantDataJson from "@/TestData/RestaurantData.json";
 import { useCurrentLocationRestaurants } from "@/hooks/useCurrentLocationRestaurants";
+import restaurantDataJson from "@/TestData/RestaurantData.json";
 
 const restaurantData = restaurantDataJson as unknown as Restaurant[];
 
@@ -42,16 +41,20 @@ interface RestaurantCardListProps {
  * Optimized for high-performance rendering of restaurant feeds.
  * NOTE: For production scalability, consider replacing FlatList with @shopify/flash-list.
  */
-const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit, data: externalData }: RestaurantCardListProps) => {
+const RestaurantCardList = ({
+  headerContent,
+  maxDistance = 10000,
+  title,
+  limit,
+  data: externalData,
+}: RestaurantCardListProps) => {
   const { width } = useWindowDimensions();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FilterState>(DEFAULT_FILTERS);
 
   // Use hook to get restaurants based on active location
-  const { 
-    restaurants: restaurantsWithDistance,
-    activeLocationName 
-  } = useCurrentLocationRestaurants(externalData || restaurantData, maxDistance);
+  const { restaurants: restaurantsWithDistance, activeLocationName } =
+    useCurrentLocationRestaurants(externalData || restaurantData, maxDistance);
 
   // Active filter indicator count
   const activeFilterCount = useMemo(() => {
@@ -66,7 +69,7 @@ const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit, 
   // Optimized filtering and sorting logic
   const filteredData = useMemo(() => {
     if (!restaurantsWithDistance) return [];
-    
+
     let data = [...restaurantsWithDistance];
 
     // 1. Filter by Rating
@@ -92,11 +95,14 @@ const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit, 
 
     // 3. Filter by Dietary
     if (filters.dietary.length > 0) {
-      const activeDiets = filters.dietary.map(d => d.toLowerCase());
+      const activeDiets = filters.dietary.map((d) => d.toLowerCase());
       data = data.filter((r) => {
         return activeDiets.some((d) => {
-          if (d === "halal") return true; 
-          return r.tags?.some(tag => tag.toLowerCase() === d) || r.cuisine?.toLowerCase() === d;
+          if (d === "halal") return true;
+          return (
+            r.tags?.some((tag) => tag.toLowerCase() === d) ||
+            r.cuisine?.toLowerCase() === d
+          );
         });
       });
     }
@@ -123,20 +129,23 @@ const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit, 
 
   const dynamicTitle = useMemo(() => {
     if (title) return title;
-    
+
     let base = maxDistance < 1000 ? "Nearby Restaurants" : "All Restaurants";
-    
+
     const parts = [];
     if (filters.priceRange) {
-      const priceText = filters.priceRange === "100+" ? "over 100 SAR" : `${filters.priceRange} SAR`;
+      const priceText =
+        filters.priceRange === "100+"
+          ? "over 100 SAR"
+          : `${filters.priceRange} SAR`;
       parts.push(priceText);
     }
     if (filters.rating) parts.push(`${filters.rating} stars`);
-    
+
     if (parts.length > 0) {
       return `${base} (${parts.join(" & ")})`;
     }
-    
+
     return base;
   }, [title, maxDistance, filters]);
 
@@ -157,8 +166,8 @@ const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit, 
   // Optimized Render Item
   const renderItem = useCallback(
     ({ item }: { item: Restaurant }) => (
-      <View 
-        className={numColumns > 1 ? "px-3" : ""} 
+      <View
+        className={numColumns > 1 ? "px-3" : ""}
         style={{ flex: 1 / numColumns }}
       >
         <RestaurantCard restaurant={item} />
@@ -178,7 +187,8 @@ const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit, 
                 {dynamicTitle}
               </Text>
               <Text className="text-sm text-text-muted dark:text-text-muted-dark mt-1 font-medium">
-                {filteredData.length} results {activeLocationName ? `near ${activeLocationName}` : ""}
+                {filteredData.length} results{" "}
+                {activeLocationName ? `near ${activeLocationName}` : ""}
               </Text>
             </View>
             <FilterButton
@@ -190,7 +200,14 @@ const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit, 
         </View>
       </View>
     ),
-    [isFilterOpen, activeFilterCount, filteredData.length, headerContent, activeLocationName, dynamicTitle],
+    [
+      isFilterOpen,
+      activeFilterCount,
+      filteredData.length,
+      headerContent,
+      activeLocationName,
+      dynamicTitle,
+    ],
   );
 
   const ListEmpty = useCallback(
@@ -222,7 +239,6 @@ const RestaurantCardList = ({ headerContent, maxDistance = 10000, title, limit, 
         ListEmptyComponent={ListEmpty}
         showsVerticalScrollIndicator={false}
         contentContainerClassName="pb-[100px]"
-        
         // Performance Optimizations
         removeClippedSubviews={Platform.OS !== "web"}
         initialNumToRender={width > 768 ? 10 : 6}
