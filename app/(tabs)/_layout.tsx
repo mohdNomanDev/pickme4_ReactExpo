@@ -8,17 +8,20 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 interface TabItemProps {
   route: any;
-  index: number;
   isFocused: boolean;
   descriptors: any;
   navigation: any;
   colorScheme: string | undefined;
 }
 
-const TabItem = memo(({ route, index, isFocused, descriptors, navigation, colorScheme }: TabItemProps) => {
+const TabItem = memo(function TabItem({
+  route,
+  isFocused,
+  descriptors,
+  navigation,
+  colorScheme,
+}: TabItemProps) {
   const options = descriptors[route.key].options;
-  
-  if (options.href === null) return null;
 
   const onPress = useCallback(() => {
     const event = navigation.emit({
@@ -38,6 +41,8 @@ const TabItem = memo(({ route, index, isFocused, descriptors, navigation, colorS
       target: route.key,
     });
   }, [navigation, route.key]);
+
+  if (options.href === null) return null;
 
   const iconColor = isFocused
     ? "#f97316"
@@ -68,9 +73,12 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
   const { colorScheme } = useColorScheme();
   const insets = useSafeAreaInsets();
 
-  const containerStyle = useMemo(() => ({
-    paddingBottom: Math.max(insets.bottom, Platform.OS === "ios" ? 24 : 16),
-  }), [insets.bottom]);
+  const containerStyle = useMemo(
+    () => ({
+      paddingBottom: Math.max(insets.bottom, Platform.OS === "ios" ? 24 : 16),
+    }),
+    [insets.bottom],
+  );
 
   return (
     <View
@@ -78,14 +86,11 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
       pointerEvents="box-none"
       style={containerStyle}
     >
-      <View
-        className="flex-row justify-around items-center w-full max-w-[400px] h-[70px] rounded-[35px] bg-white dark:bg-gray-800 shadow-2xl shadow-orange-500/20 dark:shadow-black/40"
-      >
+      <View className="flex-row justify-around items-center w-full max-w-[400px] h-[70px] rounded-[35px] bg-white dark:bg-gray-800 shadow-2xl shadow-orange-500/20 dark:shadow-black/40">
         {state.routes.map((route, index) => (
           <TabItem
             key={route.key}
             route={route}
-            index={index}
             isFocused={state.index === index}
             descriptors={descriptors}
             navigation={navigation}
@@ -98,9 +103,10 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
 }
 
 export default function FoodHomeLayout() {
-  const renderTabBar = useCallback((props: BottomTabBarProps) => (
-    <CustomTabBar {...props} />
-  ), []);
+  const renderTabBar = useCallback(
+    (props: BottomTabBarProps) => <CustomTabBar {...props} />,
+    [],
+  );
 
   return (
     <Tabs

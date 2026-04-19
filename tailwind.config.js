@@ -9,7 +9,9 @@ module.exports = {
     "./hooks/**/*.{js,jsx,ts,tsx}",
     "./services/**/*.{js,jsx,ts,tsx}",
     "./store/**/*.{js,jsx,ts,tsx}",
+    "./TestData/**/*.{js,jsx,ts,tsx,json}",
     "./utils/**/*.{js,jsx,ts,tsx}",
+    "./*.{js,jsx,ts,tsx}",
   ],
   presets: [require("nativewind/preset")],
   theme: {
