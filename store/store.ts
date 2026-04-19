@@ -8,6 +8,7 @@ import {userSlice} from "./userSlice";
 import cartReducer from "./cartSlice";
 import ordersReducer from "./ordersSlice";
 import appModeReducer from "./appModeSlice";
+import messageReducer from "./messageSlice";
 
 export const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
     cart: cartReducer,
     orders: ordersReducer,
     appMode: appModeReducer,
+    message: messageReducer,
   },
 });
 

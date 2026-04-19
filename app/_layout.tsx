@@ -10,6 +10,7 @@ import "../global.css";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { RootState, store } from "../store/store";
 import { THEME_KEY, ThemeMode, syncTheme } from "../store/themeSlice";
+import MessageToast from "@/components/ui/MessageToast";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
@@ -71,11 +72,14 @@ function RootLayoutContent() {
   if (!appIsReady) return null;
 
   return (
-    <Stack screenOptions={{ headerShown: false, animation: 'fade' }}>
-      <Stack.Screen name="index" />
-      <Stack.Screen name="(tabs)" />
-      <Stack.Screen name="(modals)" options={{ presentation: 'modal' }} />
-    </Stack>
+    <>
+      <Stack screenOptions={{ headerShown: false, animation: 'fade' }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen name="(modals)" options={{ presentation: 'modal' }} />
+      </Stack>
+      <MessageToast />
+    </>
   );
 }
 

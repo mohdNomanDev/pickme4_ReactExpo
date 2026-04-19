@@ -3,6 +3,7 @@ import { TouchableOpacity, GestureResponderEvent } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useDispatch } from "react-redux";
 import { addItem } from "@/store/cartSlice";
+import { showMessage } from "@/store/messageSlice";
 
 interface FoodItem {
   name: string;
@@ -46,6 +47,13 @@ const AddToCartButton: React.FC<AddToCartButtonProps> = ({
               image: item.image,
               price: item.price,
             },
+          })
+        );
+        dispatch(
+          showMessage({
+            message: `${item.name} added to cart!`,
+            type: "success",
+            position: "bottom",
           })
         );
       }
