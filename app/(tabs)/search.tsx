@@ -193,20 +193,17 @@ export default function SearchPage() {
   );
 
   const renderNoResults = () => (
-    <Animated.View
-      entering={FadeInDown}
-      className="flex-1 px-6"
-    >
+    <Animated.View entering={FadeInDown} className="flex-1 px-6">
       <View className="max-w-md mx-auto w-full items-center justify-center py-20">
         <View className="w-24 h-24 bg-gray-100 dark:bg-gray-800 rounded-full items-center justify-center mb-6">
           <Ionicons name="search-outline" size={48} color="#9ca3af" />
         </View>
         <Text className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-center">
-          No results found for "{debouncedQuery}"
+          No results found for `{debouncedQuery}`
         </Text>
         <Text className="text-gray-500 dark:text-gray-400 text-center max-w-xs leading-5">
-          Try checking for typos or use more general keywords like "Pizza" or
-          "Burger"
+          Try checking for typos or use more general keywords like `Pizza` or
+          `Burger`
         </Text>
         <TouchableOpacity
           onPress={handleClearSearch}
