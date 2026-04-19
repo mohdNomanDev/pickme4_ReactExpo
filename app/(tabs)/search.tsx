@@ -92,25 +92,27 @@ export default function SearchPage() {
   }, []);
 
   const renderSearchHeader = () => (
-    <View className="px-4 py-3 bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800 sticky top-0 z-50">
-      <View className="flex-row items-center px-4 h-12 rounded-2xl bg-gray-100 dark:bg-gray-800 border border-transparent focus:border-primary/30">
-        <Ionicons name="search" size={20} color="#f97316" />
-        <TextInput
-          ref={searchInputRef}
-          className="flex-1 ml-3 text-base font-medium text-gray-900 dark:text-white"
-          placeholder="Search food or restaurants..."
-          placeholderTextColor="#9ca3af"
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-          autoFocus
-          autoCorrect={false}
-          returnKeyType="search"
-        />
-        {searchQuery.length > 0 && (
-          <TouchableOpacity onPress={handleClearSearch} hitSlop={10}>
-            <Ionicons name="close-circle" size={20} color="#9ca3af" />
-          </TouchableOpacity>
-        )}
+    <View className="bg-white dark:bg-background-dark border-b border-gray-100 dark:border-gray-800 sticky top-0 z-50">
+      <View className="max-w-5xl mx-auto w-full px-4 py-3">
+        <View className="flex-row items-center px-4 h-12 rounded-2xl bg-gray-100 dark:bg-gray-800 border border-transparent focus:border-primary/30">
+          <Ionicons name="search" size={20} color="#f97316" />
+          <TextInput
+            ref={searchInputRef}
+            className="flex-1 ml-3 text-base font-medium text-gray-900 dark:text-white"
+            placeholder="Search food or restaurants..."
+            placeholderTextColor="#9ca3af"
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+            autoFocus
+            autoCorrect={false}
+            returnKeyType="search"
+          />
+          {searchQuery.length > 0 && (
+            <TouchableOpacity onPress={handleClearSearch} hitSlop={10}>
+              <Ionicons name="close-circle" size={20} color="#9ca3af" />
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
     </View>
   );
@@ -118,72 +120,73 @@ export default function SearchPage() {
   const renderEmptyState = () => (
     <Animated.ScrollView
       entering={FadeIn}
-      className="flex-1 px-4 pt-6"
+      className="flex-1"
       showsVerticalScrollIndicator={false}
     >
-      {/* Recent Searches */}
-      <View className="mb-8">
-        <View className="flex-row items-center justify-between mb-4">
-          <Text className="text-lg font-bold text-gray-900 dark:text-white">
-            Recent Searches
-          </Text>
-          <TouchableOpacity>
-            <Text className="text-sm font-semibold text-primary">
-              Clear All
+      <View className="max-w-5xl mx-auto w-full px-4 pt-6 pb-24">
+        {/* Recent Searches */}
+        <View className="mb-8">
+          <View className="flex-row items-center justify-between mb-4">
+            <Text className="text-lg font-bold text-gray-900 dark:text-white">
+              Recent Searches
             </Text>
-          </TouchableOpacity>
-        </View>
-        <View className="flex-row flex-wrap gap-2">
-          {RECENT_SEARCHES.map((item) => (
-            <TouchableOpacity
-              key={item}
-              onPress={() => handleCategoryPress(item)}
-              className="px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
-            >
-              <Text className="text-sm text-gray-600 dark:text-gray-300 font-medium">
-                {item}
+            <TouchableOpacity>
+              <Text className="text-sm font-semibold text-primary">
+                Clear All
               </Text>
             </TouchableOpacity>
-          ))}
+          </View>
+          <View className="flex-row flex-wrap gap-2">
+            {RECENT_SEARCHES.map((item) => (
+              <TouchableOpacity
+                key={item}
+                onPress={() => handleCategoryPress(item)}
+                className="px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+              >
+                <Text className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+                  {item}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
         </View>
-      </View>
 
-      {/* Popular Categories */}
-      <View className="mb-8">
-        <Text className="text-lg font-bold text-gray-900 dark:text-white mb-4">
-          Popular Categories
-        </Text>
-        <View className="flex-row flex-wrap gap-4">
-          {POPULAR_CATEGORIES.map((cat) => (
-            <TouchableOpacity
-              key={cat.id}
-              onPress={() => handleCategoryPress(cat.name)}
-              className="items-center"
-              style={{ width: "22%" }}
-            >
-              <View className="w-14 h-14 rounded-2xl bg-orange-50 dark:bg-orange-900/20 items-center justify-center mb-2">
-                <Ionicons name={cat.icon as any} size={28} color="#f97316" />
-              </View>
-              <Text className="text-xs font-bold text-gray-700 dark:text-gray-300 text-center">
-                {cat.name}
-              </Text>
-            </TouchableOpacity>
-          ))}
+        {/* Popular Categories */}
+        <View className="mb-8">
+          <Text className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+            Popular Categories
+          </Text>
+          <View className="flex-row flex-wrap">
+            {POPULAR_CATEGORIES.map((cat) => (
+              <TouchableOpacity
+                key={cat.id}
+                onPress={() => handleCategoryPress(cat.name)}
+                className="items-center mb-6 w-1/4"
+              >
+                <View className="w-14 h-14 rounded-2xl bg-orange-50 dark:bg-orange-900/20 items-center justify-center mb-2">
+                  <Ionicons name={cat.icon as any} size={28} color="#f97316" />
+                </View>
+                <Text className="text-xs font-bold text-gray-700 dark:text-gray-300 text-center">
+                  {cat.name}
+                </Text>
+              </TouchableOpacity>
+            ))}
+          </View>
         </View>
-      </View>
 
-      {/* Discover Banner */}
-      <View className="p-6 rounded-3xl bg-primary/10 border border-primary/20 overflow-hidden relative">
-        <View className="z-10">
-          <Text className="text-xl font-bold text-primary mb-1">
-            Cravings? We got you!
-          </Text>
-          <Text className="text-sm text-primary/80 font-medium">
-            Find the best deals near you
-          </Text>
-        </View>
-        <View className="absolute right-[-10] bottom-[-10] opacity-10">
-          <Ionicons name="fast-food" size={100} color="#f97316" />
+        {/* Discover Banner */}
+        <View className="p-6 rounded-3xl bg-primary/10 border border-primary/20 overflow-hidden relative">
+          <View className="z-10">
+            <Text className="text-xl font-bold text-primary mb-1">
+              Cravings? We got you!
+            </Text>
+            <Text className="text-sm text-primary/80 font-medium">
+              Find the best deals near you
+            </Text>
+          </View>
+          <View className="absolute right-[-10] bottom-[-10] opacity-10">
+            <Ionicons name="fast-food" size={100} color="#f97316" />
+          </View>
         </View>
       </View>
     </Animated.ScrollView>
@@ -192,24 +195,26 @@ export default function SearchPage() {
   const renderNoResults = () => (
     <Animated.View
       entering={FadeInDown}
-      className="flex-1 items-center justify-center px-6 py-20"
+      className="flex-1 px-6"
     >
-      <View className="w-24 h-24 bg-gray-100 dark:bg-gray-800 rounded-full items-center justify-center mb-6">
-        <Ionicons name="search-outline" size={48} color="#9ca3af" />
+      <View className="max-w-md mx-auto w-full items-center justify-center py-20">
+        <View className="w-24 h-24 bg-gray-100 dark:bg-gray-800 rounded-full items-center justify-center mb-6">
+          <Ionicons name="search-outline" size={48} color="#9ca3af" />
+        </View>
+        <Text className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-center">
+          No results found for "{debouncedQuery}"
+        </Text>
+        <Text className="text-gray-500 dark:text-gray-400 text-center max-w-xs leading-5">
+          Try checking for typos or use more general keywords like "Pizza" or
+          "Burger"
+        </Text>
+        <TouchableOpacity
+          onPress={handleClearSearch}
+          className="mt-6 px-6 py-3 bg-primary rounded-2xl"
+        >
+          <Text className="text-white font-bold">Clear Search</Text>
+        </TouchableOpacity>
       </View>
-      <Text className="text-xl font-bold text-gray-900 dark:text-white mb-2 text-center">
-        No results found for "{debouncedQuery}"
-      </Text>
-      <Text className="text-gray-500 dark:text-gray-400 text-center max-w-xs leading-5">
-        Try checking for typos or use more general keywords like "Pizza" or
-        "Burger"
-      </Text>
-      <TouchableOpacity
-        onPress={handleClearSearch}
-        className="mt-6 px-6 py-3 bg-primary rounded-2xl"
-      >
-        <Text className="text-white font-bold">Clear Search</Text>
-      </TouchableOpacity>
     </Animated.View>
   );
 
@@ -231,11 +236,13 @@ export default function SearchPage() {
         ) : !searchQuery.trim() ? (
           renderEmptyState()
         ) : filteredRestaurants.length > 0 ? (
-          <RestaurantCardList
-            data={filteredRestaurants}
-            title={`Results for "${debouncedQuery}"`}
-            maxDistance={50} // Higher limit for search results
-          />
+          <View className="flex-1 max-w-5xl mx-auto w-full pb-24">
+            <RestaurantCardList
+              data={filteredRestaurants}
+              title={`Results for "${debouncedQuery}"`}
+              maxDistance={50} // Higher limit for search results
+            />
+          </View>
         ) : (
           renderNoResults()
         )}
