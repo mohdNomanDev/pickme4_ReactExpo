@@ -34,6 +34,7 @@ export type Restaurant = {
   };
   tags?: string[];
   distanceValue?: number; // Added distance value in km
+  matchedFoodItems?: FoodItem[]; // Added for search results
 };
 
 type RestaurantCardProps = {
@@ -64,11 +65,11 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
     offer, 
     name: restaurantName, 
     cuisine: cuisineName, 
-    area: areaName 
+    area: areaName,
+    matchedFoodItems
   } = restaurant;
 
   const currentFood = foodItems?.[currentIndex];
-
 
   // Helpers to localize currency and formatting
   const localizedCurrencyStr = useMemo(() => {
@@ -121,7 +122,49 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
   const handleNavigateToMenu = useCallback(() => {
     dispatch(setRestaurantId(restaurant.id));
     router.push("/restaurant/RestaurantMenu");
-  }, [dispatch, restaurant.id, router]);
+  }, [dispatch, restaurant.id]);
+
+  const renderMatchedFoodItems = () => {
+    if (!matchedFoodItems || matchedFoodItems.length === 0) return null;
+
+    return (
+      <View className="px-5 pb-5">
+        <View className="h-[1px] bg-gray-100 dark:bg-gray-800 mb-4" />
+        <Text className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-[2px] mb-3">
+          Matched Items
+        </Text>
+        {matchedFoodItems.map((item, index) => (
+          <View 
+            key={`${item.name}-${index}`}
+            className="flex-row items-center justify-between bg-gray-50 dark:bg-gray-800/40 rounded-2xl p-3 mb-2 border border-gray-100 dark:border-gray-800"
+          >
+            <View className="flex-row items-center flex-1">
+              <Image
+                source={item.image}
+                className="w-16 h-16 rounded-xl bg-gray-200 dark:bg-gray-700"
+                contentFit="cover"
+                transition={200}
+              />
+              <View className="ml-3 flex-1">
+                <Text numberOfLines={1} className="text-base font-bold text-gray-900 dark:text-white mb-0.5">
+                  {item.name}
+                </Text>
+                <Text className="text-sm font-bold text-primary">
+                  {localizedCurrencyStr} {item.price}
+                </Text>
+              </View>
+            </View>
+            <TouchableOpacity 
+              className="w-10 h-10 rounded-full bg-primary items-center justify-center shadow-sm shadow-primary/20"
+              activeOpacity={0.7}
+            >
+              <Ionicons name="add" size={24} color="white" />
+            </TouchableOpacity>
+          </View>
+        ))}
+      </View>
+    );
+  };
 
   return (
     <View className="mb-6 bg-card dark:bg-card-dark rounded-[32px] overflow-hidden border border-border dark:border-border-dark shadow-sm hover:shadow-md transition-shadow">
@@ -130,123 +173,138 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
         className="flex-1"
         onPress={handleNavigateToMenu}
       >
-        {/* IMAGE SECTION */}
-        <View className="relative h-60 w-full overflow-hidden">
-          <Animated.View
-            key={currentIndex}
-            entering={FadeIn.duration(400)}
-            exiting={FadeOut.duration(400)}
-            className="w-full h-full"
-          >
-            <Image
-              source={currentFood?.image}
-              contentFit="cover"
-              transition={500}
-              cachePolicy="memory-disk"
-              className="w-full h-full bg-gray-100 dark:bg-gray-800"
-            />
-          </Animated.View>
-
-          {/* Top Overlays */}
-          <View
-            className={`absolute top-4 left-4 right-4 items-start ${"flex-row"} justify-between z-10`}
-          >
-            {offer ? (
-              <View className="bg-primary px-3 py-1.5 rounded-2xl shadow-lg shadow-primary/30">
-                <Text className="text-white text-[10px] font-bold uppercase tracking-widest">
-                  {offer}
-                </Text>
-              </View>
-            ) : (
-              <View />
-            )}
-
-            <Pressable
-              onPress={handleToggleBookmark}
-              hitSlop={10}
-              className="w-11 h-11 rounded-full bg-white/90 dark:bg-black/40 items-center justify-center backdrop-blur-xl border border-white/20"
+        {/* IMAGE SECTION - Only show if NO matched items */}
+        {(!matchedFoodItems || matchedFoodItems.length === 0) && (
+          <View className="relative h-60 w-full overflow-hidden">
+            <Animated.View
+              key={currentIndex}
+              entering={FadeIn.duration(400)}
+              exiting={FadeOut.duration(400)}
+              className="w-full h-full"
             >
-              <Ionicons
-                name={isBookmarked ? "bookmark" : "bookmark-outline"}
-                size={22}
-                color={isBookmarked ? "#f27f0d" : "#4b5563"}
+              <Image
+                source={currentFood?.image}
+                contentFit="cover"
+                transition={500}
+                cachePolicy="memory-disk"
+                className="w-full h-full bg-gray-100 dark:bg-gray-800"
               />
-            </Pressable>
-          </View>
+            </Animated.View>
 
-          {/* Bottom Overlays: Food Info Slider */}
-          <View className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
-            <View className={`${"flex-row"} justify-between items-end`}>
-              <View className="flex-1">
-                <Text
-                  numberOfLines={1}
-                  className={`text-white text-base font-bold mb-0.5 ${"text-left"}`}
-                >
-                  {currentFood?.name}
-                </Text>
-                {formattedPrice && (
-                  <Text
-                    className={`text-primary font-bold text-sm ${"text-left"}`}
-                  >
-                    {formattedPrice}
+            {/* Top Overlays */}
+            <View className="absolute top-4 left-4 right-4 items-start flex-row justify-between z-10">
+              {offer ? (
+                <View className="bg-primary px-3 py-1.5 rounded-2xl shadow-lg shadow-primary/30">
+                  <Text className="text-white text-[10px] font-bold uppercase tracking-widest">
+                    {offer}
                   </Text>
+                </View>
+              ) : (
+                <View />
+              )}
+
+              <Pressable
+                onPress={handleToggleBookmark}
+                hitSlop={10}
+                className="w-11 h-11 rounded-full bg-white/90 dark:bg-black/40 items-center justify-center backdrop-blur-xl border border-white/20"
+              >
+                <Ionicons
+                  name={isBookmarked ? "bookmark" : "bookmark-outline"}
+                  size={22}
+                  color={isBookmarked ? "#f27f0d" : "#4b5563"}
+                />
+              </Pressable>
+            </View>
+
+            {/* Bottom Overlays: Food Info Slider */}
+            <View className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+              <View className="flex-row justify-between items-end">
+                <View className="flex-1">
+                  <Text
+                    numberOfLines={1}
+                    className="text-white text-base font-bold mb-0.5 text-left"
+                  >
+                    {currentFood?.name}
+                  </Text>
+                  {formattedPrice && (
+                    <Text className="text-primary font-bold text-sm text-left">
+                      {formattedPrice}
+                    </Text>
+                  )}
+                </View>
+
+                {/* Slider Controls */}
+                {foodItems?.length > 1 && (
+                  <View className="flex-row gap-2 items-center mb-1">
+                    <TouchableOpacity
+                      onPress={handlePrev}
+                      hitSlop={8}
+                      className="w-9 h-9 rounded-full bg-white/25 items-center justify-center backdrop-blur-lg border border-white/10"
+                    >
+                      <Ionicons name="chevron-back" size={18} color="white" />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={handleNext}
+                      hitSlop={8}
+                      className="w-9 h-9 rounded-full bg-white/25 items-center justify-center backdrop-blur-lg border border-white/10"
+                    >
+                      <Ionicons name="chevron-forward" size={18} color="white" />
+                    </TouchableOpacity>
+                  </View>
                 )}
               </View>
 
-              {/* Slider Controls */}
+              {/* Dot Indicator */}
               {foodItems?.length > 1 && (
-                <View className={`${"flex-row"} ${"gap-2"} items-center mb-1`}>
-                  <TouchableOpacity
-                    onPress={handlePrev}
-                    hitSlop={8}
-                    className="w-9 h-9 rounded-full bg-white/25 items-center justify-center backdrop-blur-lg border border-white/10"
-                  >
-                    <Ionicons name={"chevron-back"} size={18} color="white" />
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={handleNext}
-                    hitSlop={8}
-                    className="w-9 h-9 rounded-full bg-white/25 items-center justify-center backdrop-blur-lg border border-white/10"
-                  >
-                    <Ionicons
-                      name={"chevron-forward"}
-                      size={18}
-                      color="white"
+                <View className="flex-row justify-center mt-4 gap-2">
+                  {foodItems.map((_, idx) => (
+                    <View
+                      key={idx}
+                      className={`h-1.5 rounded-full ${idx === currentIndex ? "w-6 bg-primary" : "w-1.5 bg-white/40"}`}
                     />
-                  </TouchableOpacity>
+                  ))}
                 </View>
               )}
             </View>
-
-            {/* Dot Indicator */}
-            {foodItems?.length > 1 && (
-              <View className={`flex-row justify-center mt-4 ${"gap-2"}`}>
-                {foodItems.map((_, idx) => (
-                  <View
-                    key={idx}
-                    className={`h-1.5 rounded-full ${idx === currentIndex ? "w-6 bg-primary" : "w-1.5 bg-white/40"}`}
-                  />
-                ))}
-              </View>
-            )}
           </View>
-        </View>
+        )}
 
         {/* DETAILS SECTION */}
         <View className="p-6">
-          <View className={`${"flex-row"} justify-between items-start mb-3`}>
-            <View className={`flex-1 me-3`}>
+          {/* Top Row: Bookmark and Offer (Moved here if image is hidden) */}
+          {matchedFoodItems && matchedFoodItems.length > 0 && (
+            <View className="flex-row justify-between items-center mb-4">
+              {offer ? (
+                <View className="bg-primary/10 px-3 py-1 rounded-xl">
+                  <Text className="text-primary text-[10px] font-bold uppercase tracking-widest">
+                    {offer}
+                  </Text>
+                </View>
+              ) : <View />}
+              <Pressable
+                onPress={handleToggleBookmark}
+                className="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-800 items-center justify-center"
+              >
+                <Ionicons
+                  name={isBookmarked ? "bookmark" : "bookmark-outline"}
+                  size={20}
+                  color={isBookmarked ? "#f27f0d" : "#4b5563"}
+                />
+              </Pressable>
+            </View>
+          )}
+
+          <View className="flex-row justify-between items-start mb-3">
+            <View className="flex-1 me-3">
               <Text
                 numberOfLines={1}
-                className={`text-2xl font-bold text-text dark:text-text-dark mb-1 ${"text-left"}`}
+                className="text-2xl font-bold text-text dark:text-text-dark mb-1 text-left"
               >
                 {restaurantName}
               </Text>
-              <View className={`${"flex-row"} items-center ${"gap-2"}`}>
+              <View className="flex-row items-center gap-2">
                 {cuisineName && (
-                  <Text
-                    className={`text-text-muted dark:text-text-muted-dark text-xs font-medium ${"text-left"}`}
-                  >
+                  <Text className="text-text-muted dark:text-text-muted-dark text-xs font-medium text-left">
                     {cuisineName}
                   </Text>
                 )}
@@ -254,15 +312,9 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
                   <View className="w-1 h-1 rounded-full bg-gray-300 dark:bg-gray-600" />
                 )}
                 {areaName && (
-                  <View className={`${"flex-row"} items-center`}>
-                    <Ionicons
-                      name="location-outline"
-                      size={12}
-                      color="#9ca3af"
-                    />
-                    <Text
-                      className={`text-text-muted dark:text-text-muted-dark text-[11px] font-medium ms-1 ${"text-left"}`}
-                    >
+                  <View className="flex-row items-center">
+                    <Ionicons name="location-outline" size={12} color="#9ca3af" />
+                    <Text className="text-text-muted dark:text-text-muted-dark text-[11px] font-medium ms-1 text-left">
                       {areaName}
                     </Text>
                   </View>
@@ -278,10 +330,8 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
           </View>
 
           {/* Meta Info */}
-          <View
-            className={`${"flex-row"} items-center border-t border-border dark:border-border-dark pt-5 mt-2`}
-          >
-            <View className={`flex-row items-center me-4`}>
+          <View className="flex-row items-center border-t border-border dark:border-border-dark pt-5 mt-2">
+            <View className="flex-row items-center me-4">
               <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
                 <Ionicons name="time-outline" size={16} color="#6b7280" />
               </View>
@@ -290,7 +340,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
               </Text>
             </View>
 
-            <View className={`flex-row items-center me-4`}>
+            <View className="flex-row items-center me-4">
               <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
                 <Ionicons name="bicycle-outline" size={16} color="#6b7280" />
               </View>
@@ -302,7 +352,7 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
             </View>
 
             {restaurant?.distanceValue !== undefined && (
-              <View className={`flex-row items-center`}>
+              <View className="flex-row items-center">
                 <View className="w-8 h-8 rounded-full bg-gray-50 dark:bg-gray-800/50 items-center justify-center mr-2">
                   <Ionicons name="location-outline" size={16} color="#6b7280" />
                 </View>
@@ -315,6 +365,9 @@ const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
             )}
           </View>
         </View>
+
+        {/* MATCHED FOOD ITEMS SECTION */}
+        {renderMatchedFoodItems()}
       </TouchableOpacity>
     </View>
   );

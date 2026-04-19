@@ -60,25 +60,35 @@ export default function SearchPage() {
     if (!debouncedQuery.trim()) return [];
 
     const query = debouncedQuery.toLowerCase();
-    return ALL_RESTAURANTS.filter((restaurant) => {
+    
+    return ALL_RESTAURANTS.map((restaurant) => {
+      // Extract matched food items
+      const matchedFoodItems = restaurant.foodItems?.filter((item) =>
+        item.name.toLowerCase().includes(query),
+      ) || [];
+
       // 1. Search by restaurant name
       const nameMatch = restaurant.name.toLowerCase().includes(query);
 
       // 2. Search by cuisine
       const cuisineMatch = restaurant.cuisine?.toLowerCase().includes(query);
 
-      // 3. Search by food items
-      const foodItemMatch = restaurant.foodItems?.some((item) =>
-        item.name.toLowerCase().includes(query),
-      );
+      // 3. Search by food items (already covered by matchedFoodItems.length > 0)
+      const foodItemMatch = matchedFoodItems.length > 0;
 
       // 4. Search by tags
       const tagMatch = restaurant.tags?.some((tag) =>
         tag.toLowerCase().includes(query),
       );
 
-      return nameMatch || cuisineMatch || foodItemMatch || tagMatch;
-    });
+      if (nameMatch || cuisineMatch || foodItemMatch || tagMatch) {
+        return {
+          ...restaurant,
+          matchedFoodItems: foodItemMatch ? matchedFoodItems : [],
+        };
+      }
+      return null;
+    }).filter(Boolean) as Restaurant[];
   }, [debouncedQuery]);
 
   const handleClearSearch = useCallback(() => {
