@@ -77,8 +77,11 @@ export const ordersSlice = createSlice({
     setActiveTab: (state, action: PayloadAction<"active" | "history">) => {
       state.activeTab = action.payload;
     },
+    addActiveOrder: (state, action: PayloadAction<ActiveOrder>) => {
+      state.activeOrders.unshift(action.payload); // Add new order at the top
+    },
   },
 });
 
-export const { setOrders, setActiveTab } = ordersSlice.actions;
+export const { setOrders, setActiveTab, addActiveOrder } = ordersSlice.actions;
 export default ordersSlice.reducer;
