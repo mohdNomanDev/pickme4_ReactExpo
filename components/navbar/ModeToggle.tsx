@@ -1,23 +1,24 @@
 import { Ionicons } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { useColorScheme } from "nativewind";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
-import { setAppMode, AppMode } from "../../store/appModeSlice";
+import { AppMode } from "../../store/appModeSlice";
 
 export default function ModeToggle() {
-  const dispatch = useDispatch();
   const activeMode = useSelector((state: RootState) => state.appMode.mode);
   const { colorScheme } = useColorScheme();
 
   const isDark = colorScheme === "dark";
 
   const handleModeChange = (mode: AppMode) => {
-    // Small delay to ensure any pending navigation context updates are settled
-    setTimeout(() => {
-      dispatch(setAppMode(mode));
-    }, 0);
+    if (mode === "food") {
+      router.navigate("/(tabs)/home");
+    } else {
+      router.navigate("/(tabs)/home/ride");
+    }
   };
 
   return (
