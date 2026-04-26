@@ -1,5 +1,4 @@
 import userDataJson from "@/TestData/UserData.json";
-import ThemeToggle from "@/components/common/ThemeToggle";
 import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
@@ -90,12 +89,6 @@ export default function ProfilePage() {
               title={"Language"}
               value={"English"}
             />
-            <View className="border-b border-gray-100 bg-white p-4 dark:border-gray-800/50 dark:bg-gray-800">
-              <Text className="mb-3 text-base font-medium text-gray-800 dark:text-gray-200">
-                Theme
-              </Text>
-              <ThemeToggle />
-            </View>
           </SettingsSection>
 
           <SettingsSection title={"More"} isLast>

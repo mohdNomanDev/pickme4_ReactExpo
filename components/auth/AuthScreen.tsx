@@ -1,5 +1,4 @@
 import { LinearGradient } from "expo-linear-gradient";
-import { useColorScheme } from "nativewind";
 import React, { ReactNode } from "react";
 import {
   KeyboardAvoidingView,
@@ -8,8 +7,6 @@ import {
   Text,
   View,
 } from "react-native";
-
-import ThemeToggle from "@/components/common/ThemeToggle";
 
 interface AuthScreenProps {
   children: ReactNode;
@@ -24,11 +21,7 @@ export default function AuthScreen({
   subtitle,
   title,
 }: AuthScreenProps) {
-  const { colorScheme } = useColorScheme();
-  const gradientColors: [string, string, string] =
-    colorScheme === "dark"
-      ? ["#0a0a0a", "#111827", "#0a0a0a"]
-      : ["#fff7ed", "#f8f7f5", "#ffffff"];
+  const gradientColors: [string, string, string] = ["#fff7ed", "#f8f7f5", "#ffffff"];
 
   return (
     <LinearGradient colors={gradientColors} style={{ flex: 1 }}>
@@ -45,9 +38,6 @@ export default function AuthScreen({
         >
           <View className="mx-auto w-full max-w-[480px]">
             <View className="mb-8 gap-4">
-              <View className="items-end">
-                <ThemeToggle />
-              </View>
               <View className="h-16 w-16 items-center justify-center rounded-[24px] bg-orange-500 shadow-xl shadow-orange-500/30">
                 <Text className="text-2xl font-black text-white">P4</Text>
               </View>

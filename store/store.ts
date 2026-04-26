@@ -1,7 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { bookmarkSlice } from "./bookmarkSlice";
 import { languageSlice } from "./languageSlice";
-import themeReducer from "./themeSlice";
 import { onPressRestaurantSlice } from "./OnPressRestaurantSlice";
 import selectedAddressReducer from "./selectedAddressSlice";
 import {userSlice} from "./userSlice";
@@ -14,7 +13,6 @@ export const store = configureStore({
   reducer: {
     language: languageSlice.reducer,
     bookmark: bookmarkSlice.reducer,
-    theme: themeReducer,
     onPressRestaurant: onPressRestaurantSlice.reducer,
     selectedAddress: selectedAddressReducer,
     user: userSlice.reducer,

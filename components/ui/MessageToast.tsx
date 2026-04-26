@@ -52,7 +52,7 @@ const MessageToast = () => {
     transform: [{ translateY: translateY.value }],
   }));
 
-  if (!visible && opacity.value === 0) return null;
+  if (!visible) return null;
 
   const getThemeStyles = () => {
     switch (type) {

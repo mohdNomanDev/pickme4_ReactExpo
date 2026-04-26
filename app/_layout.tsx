@@ -1,72 +1,30 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import * as SystemUI from "expo-system-ui";
 import { useColorScheme as useNativeWindColorScheme } from "nativewind";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import "../global.css";
 
-import { Provider, useDispatch, useSelector } from "react-redux";
-import { RootState, store } from "../store/store";
-import { isThemeMode, THEME_KEY, syncTheme } from "../store/themeSlice";
+import { Provider } from "react-redux";
+import { store } from "../store/store";
 import MessageToast from "@/components/ui/MessageToast";
 
 // Prevent the splash screen from auto-hiding
 SplashScreen.preventAutoHideAsync();
 
 function RootLayoutContent() {
-  const dispatch = useDispatch();
-  const themeMode = useSelector((state: RootState) => state.theme.mode);
-  const { colorScheme, setColorScheme } = useNativeWindColorScheme();
-  const setColorSchemeRef = useRef(setColorScheme);
+  const { setColorScheme } = useNativeWindColorScheme();
   const [appIsReady, setAppIsReady] = useState(false);
 
-  const isDark = colorScheme === "dark";
-  const systemBackgroundColor = useMemo(
-    () => (isDark ? "#0a0a0a" : "#f8f7f5"),
-    [isDark],
-  );
+  const systemBackgroundColor = "#f8f7f5"; // Locked to light background
 
   useEffect(() => {
-    setColorSchemeRef.current = setColorScheme;
+    // Force light mode on initialization
+    setColorScheme("light");
+    setAppIsReady(true);
   }, [setColorScheme]);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function prepare() {
-      try {
-        const savedTheme = await AsyncStorage.getItem(THEME_KEY);
-        const initialTheme = isThemeMode(savedTheme) ? savedTheme : "system";
-
-        dispatch(syncTheme(initialTheme));
-        setColorSchemeRef.current(initialTheme);
-      } catch (e) {
-        console.warn("Theme loading error:", e);
-        dispatch(syncTheme("system"));
-        setColorSchemeRef.current("system");
-      } finally {
-        if (isMounted) {
-          setAppIsReady(true);
-        }
-      }
-    }
-
-    prepare();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [dispatch]);
-
-  // Sync theme when mode changes after init
-  useEffect(() => {
-    if (appIsReady) {
-      setColorSchemeRef.current(themeMode);
-    }
-  }, [themeMode, appIsReady]);
 
   useEffect(() => {
     if (appIsReady) {
@@ -74,11 +32,10 @@ function RootLayoutContent() {
         console.warn("System UI theme error:", error);
       });
     }
-  }, [appIsReady, systemBackgroundColor]);
+  }, [appIsReady]);
 
   useEffect(() => {
     if (appIsReady) {
-      // Small delay to ensure layout is painted before hiding splash
       const timer = setTimeout(() => {
         SplashScreen.hideAsync();
       }, 50);
@@ -91,14 +48,12 @@ function RootLayoutContent() {
   return (
     <>
       <StatusBar
-        style={isDark ? "light" : "dark"}
+        style="dark"
         backgroundColor={systemBackgroundColor}
       />
       <Stack screenOptions={{ headerShown: false, animation: "fade" }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="auth" />
-        <Stack.Screen name="Food" />
-        <Stack.Screen name="restaurant" />
         <Stack.Screen name="(tabs)" />
       </Stack>
       <MessageToast />

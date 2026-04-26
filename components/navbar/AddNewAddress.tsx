@@ -12,7 +12,6 @@ import { useDispatch } from "react-redux";
 import { addUserAddress, UserAddress } from "../../store/userSlice";
 import { reverseGeocodeCoordinate } from "../../utils/reverseGeocoding";
 import { addressSchema } from "../../utils/validations";
-import ThemeToggle from "../common/ThemeToggle";
 import AppMap from "../common/app-map";
 import FormField from "../common/FormField";
 
@@ -150,7 +149,6 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
           </Text>
         </View>
         <View className="flex-row items-center gap-2">
-          <ThemeToggle compact />
           {Platform.OS === "web" && onCancel && (
             <TouchableOpacity
               onPress={onCancel}

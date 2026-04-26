@@ -1,7 +1,6 @@
 import { Ionicons } from "@expo/vector-icons";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { Tabs } from "expo-router";
-import { useColorScheme } from "nativewind";
 import React, { memo, useCallback, useMemo } from "react";
 import { Platform, Pressable, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
@@ -11,7 +10,6 @@ interface TabItemProps {
   isFocused: boolean;
   descriptors: any;
   navigation: any;
-  colorScheme: string | undefined;
 }
 
 const TabItem = memo(function TabItem({
@@ -19,7 +17,6 @@ const TabItem = memo(function TabItem({
   isFocused,
   descriptors,
   navigation,
-  colorScheme,
 }: TabItemProps) {
   const options = descriptors[route.key].options;
 
@@ -44,11 +41,7 @@ const TabItem = memo(function TabItem({
 
   if (options.href === null) return null;
 
-  const iconColor = isFocused
-    ? "#f97316"
-    : colorScheme === "dark"
-      ? "#9ca3af"
-      : "#6b7280";
+  const iconColor = isFocused ? "#f27f0d" : "#6b7280";
 
   return (
     <Pressable
@@ -70,7 +63,6 @@ const TabItem = memo(function TabItem({
 });
 
 function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
-  const { colorScheme } = useColorScheme();
   const insets = useSafeAreaInsets();
 
   const containerStyle = useMemo(
@@ -86,7 +78,7 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
       pointerEvents="box-none"
       style={containerStyle}
     >
-      <View className="flex-row justify-around items-center w-full max-w-[400px] h-[70px] rounded-[35px] bg-white dark:bg-gray-800 shadow-2xl shadow-orange-500/20 dark:shadow-black/40">
+      <View className="flex-row justify-around items-center w-full max-w-[400px] h-[70px] rounded-[35px] bg-white shadow-2xl shadow-orange-500/20">
         {state.routes.map((route, index) => (
           <TabItem
             key={route.key}
@@ -94,7 +86,6 @@ function CustomTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
             isFocused={state.index === index}
             descriptors={descriptors}
             navigation={navigation}
-            colorScheme={colorScheme}
           />
         ))}
       </View>
@@ -122,7 +113,7 @@ export default function FoodHomeLayout() {
           title: "Home",
           tabBarIcon: ({ color, focused }) => (
             <View
-              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50 dark:bg-orange-500/20" : ""}`}
+              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50" : ""}`}
             >
               <Ionicons
                 name={focused ? "home" : "home-outline"}
@@ -139,7 +130,7 @@ export default function FoodHomeLayout() {
           title: "Search",
           tabBarIcon: ({ color, focused }) => (
             <View
-              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50 dark:bg-orange-500/20" : ""}`}
+              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50" : ""}`}
             >
               <Ionicons
                 name={focused ? "search" : "search-outline"}
@@ -156,7 +147,7 @@ export default function FoodHomeLayout() {
           title: "Cart",
           tabBarIcon: ({ color, focused }) => (
             <View
-              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50 dark:bg-orange-500/20" : ""}`}
+              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50" : ""}`}
             >
               <Ionicons
                 name={focused ? "cart" : "cart-outline"}
@@ -173,7 +164,7 @@ export default function FoodHomeLayout() {
           title: "Orders",
           tabBarIcon: ({ color, focused }) => (
             <View
-              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50 dark:bg-orange-500/20" : ""}`}
+              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50" : ""}`}
             >
               <Ionicons
                 name={focused ? "receipt" : "receipt-outline"}
@@ -190,7 +181,7 @@ export default function FoodHomeLayout() {
           title: "Profile",
           tabBarIcon: ({ color, focused }) => (
             <View
-              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50 dark:bg-orange-500/20" : ""}`}
+              className={`items-center justify-center h-12 w-12 rounded-full transition-all ${focused ? "bg-orange-50" : ""}`}
             >
               <Ionicons
                 name={focused ? "person" : "person-outline"}
