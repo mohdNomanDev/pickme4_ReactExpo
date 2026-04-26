@@ -53,25 +53,24 @@ Join our community of developers creating universal apps.
 
 # pickme4_ReactExpo
 
-
 # react cmd
-npm install expo@^55.0.0 
-# or use the --fix flag to automatically update compatible packages:
-npx expo install expo@latest --fix
 
+npm install expo@^55.0.0
+
+# or use the --fix flag to automatically update compatible packages:
+
+npx expo install expo@latest --fix
 
 npx expo install --fix
 
-
 # Optionally, you can delete node modules and lock files
-rm -rf node_modules
-# Then reinstall
-npm install # or yarn install, bun install
 
+rm -rf node_modules
+
+# Then reinstall
+
+npm install # or yarn install, bun install
 
 npx expo-doctor
 
 npx skills add expo/skills
-
-
-
