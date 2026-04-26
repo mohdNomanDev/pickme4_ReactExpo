@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { addUserAddress, UserAddress } from "../../store/userSlice";
 import { reverseGeocodeCoordinate } from "../../utils/reverseGeocoding";
 import { addressSchema } from "../../utils/validations";
+import ThemeToggle from "../common/ThemeToggle";
 import AppMap from "../common/app-map";
 import FormField from "../common/FormField";
 
@@ -86,7 +87,11 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
   const handleMapLocationChange = useCallback(
     async (
       coordinate: { latitude: number; longitude: number },
-      setFieldValue: (field: string, value: unknown, shouldValidate?: boolean) => void,
+      setFieldValue: (
+        field: string,
+        value: unknown,
+        shouldValidate?: boolean,
+      ) => void,
     ) => {
       const requestId = geocodeRequestId.current + 1;
       geocodeRequestId.current = requestId;
@@ -114,7 +119,9 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
       } catch (error) {
         if (geocodeRequestId.current === requestId) {
           console.warn("Reverse geocoding failed:", error);
-          setAddressLookupError("Could not find address details for this map point. You can enter them manually.");
+          setAddressLookupError(
+            "Could not find address details for this map point. You can enter them manually.",
+          );
         }
       } finally {
         if (geocodeRequestId.current === requestId) {
@@ -129,24 +136,30 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
     <View className="flex-1 bg-white dark:bg-card-dark w-full md:rounded-3xl md:my-8 md:border border-gray-100 dark:border-gray-800 overflow-hidden shadow-sm dark:shadow-none">
       {/* Header */}
       <View className="flex-row items-center justify-between px-6 py-5 border-b border-gray-100 dark:border-gray-800 bg-white dark:bg-card-dark z-10">
-        <View className="flex-row items-center gap-3">
+        <View className="mr-3 flex-1 flex-row items-center gap-3">
           {Platform.OS !== "web" && onCancel && (
             <TouchableOpacity onPress={onCancel} className="mr-2">
               <Ionicons name="arrow-back" size={24} color="#f97316" />
             </TouchableOpacity>
           )}
-          <Text className="text-2xl font-bold text-gray-900 dark:text-white">
+          <Text
+            numberOfLines={1}
+            className="flex-1 text-2xl font-bold text-gray-900 dark:text-white"
+          >
             Add New Address
           </Text>
         </View>
-        {Platform.OS === "web" && onCancel && (
-          <TouchableOpacity
-            onPress={onCancel}
-            className="p-2 rounded-full bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-          >
-            <Ionicons name="close" size={24} color="#6b7280" />
-          </TouchableOpacity>
-        )}
+        <View className="flex-row items-center gap-2">
+          <ThemeToggle compact />
+          {Platform.OS === "web" && onCancel && (
+            <TouchableOpacity
+              onPress={onCancel}
+              className="p-2 rounded-full bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <Ionicons name="close" size={24} color="#6b7280" />
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
 
       <ScrollView
@@ -192,10 +205,13 @@ const AddNewAddress = ({ onCancel, onSaveSuccess }: AddNewAddressProps) => {
                       setFieldValue("longitude", place.longitude);
                       setFieldValue("formattedAddress", place.address);
                       // Trigger reverse geocode to fill other fields based on selected point
-                      void handleMapLocationChange({ 
-                        latitude: place.latitude, 
-                        longitude: place.longitude 
-                      }, setFieldValue);
+                      void handleMapLocationChange(
+                        {
+                          latitude: place.latitude,
+                          longitude: place.longitude,
+                        },
+                        setFieldValue,
+                      );
                     }}
                     selectedMarkerTitle="Delivery location"
                     onLocationChange={(coordinate) => {

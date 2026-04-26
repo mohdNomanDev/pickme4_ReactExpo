@@ -1,6 +1,6 @@
 import userDataJson from "@/TestData/UserData.json";
+import ThemeToggle from "@/components/common/ThemeToggle";
 import { router } from "expo-router";
-import { useColorScheme } from "nativewind";
 import React, { useEffect, useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -17,7 +17,6 @@ import { RootState } from "../../store/store";
 // const currentUser = UserData[0];
 
 export default function ProfilePage() {
-      const { colorScheme, toggleColorScheme } = useColorScheme();
   const storeUser = useSelector((state: RootState) => state.user?.currentUser);
   let [currentUser, setCurrentUser] = useState(storeUser || userDataJson[0]);
 
@@ -29,8 +28,7 @@ export default function ProfilePage() {
     }
   }, [storeUser]);
 
-  const userName =
-    currentUser.name.full;
+  const userName = currentUser.name.full;
 
   return (
     <SafeAreaView
@@ -66,9 +64,7 @@ export default function ProfilePage() {
           />
 
           {/* Settings Sections */}
-          <SettingsSection
-            title={"Account Settings"}
-          >
+          <SettingsSection title={"Account Settings"}>
             <ProfileOption
               icon="person-outline"
               title={"Personal Information"}
@@ -79,10 +75,7 @@ export default function ProfilePage() {
               title={"Saved Addresses"}
               value={currentUser.addresses.length.toString()}
             />
-            <ProfileOption
-              icon="card-outline"
-              title={"Payment Methods"}
-            />
+            <ProfileOption icon="card-outline" title={"Payment Methods"} />
           </SettingsSection>
 
           <SettingsSection title={"Preferences"}>
@@ -95,22 +88,18 @@ export default function ProfilePage() {
             <ProfileOption
               icon="language-outline"
               title={"Language"}
-              value={'English'}
+              value={"English"}
             />
-            <ProfileOption
-              icon="moon-outline"
-              title={"Dark Mode"}
-              hasSwitch
-              switchValue={colorScheme === "dark"}
-              onPress={toggleColorScheme}
-            />
+            <View className="border-b border-gray-100 bg-white p-4 dark:border-gray-800/50 dark:bg-gray-800">
+              <Text className="mb-3 text-base font-medium text-gray-800 dark:text-gray-200">
+                Theme
+              </Text>
+              <ThemeToggle />
+            </View>
           </SettingsSection>
 
           <SettingsSection title={"More"} isLast>
-            <ProfileOption
-              icon="help-buoy-outline"
-              title={"Help Center"}
-            />
+            <ProfileOption icon="help-buoy-outline" title={"Help Center"} />
             <ProfileOption
               icon="document-text-outline"
               title={"Terms & Conditions"}

@@ -48,7 +48,7 @@ export default function LoginScreen() {
       subtitle="Login locally with your name and phone number. No backend, Firebase, or external service is used."
       footer={
         <View className="flex-row items-center gap-2">
-          <Text className="font-semibold text-gray-600">
+          <Text className="font-semibold text-gray-600 dark:text-gray-300">
             New to Pickme4?
           </Text>
           <Link href="/auth/signup" asChild>
@@ -109,11 +109,7 @@ export default function LoginScreen() {
             >
               <View className="flex-1 gap-1">
                 <View className="flex-row items-center gap-2">
-                  <Ionicons
-                    name="location-outline"
-                    size={18}
-                    color="#f97316"
-                  />
+                  <Ionicons name="location-outline" size={18} color="#f97316" />
                   <Text className="font-extrabold text-gray-950 dark:text-white">
                     Mock saved address
                   </Text>
@@ -124,7 +120,7 @@ export default function LoginScreen() {
               </View>
               <View
                 className={`h-8 w-14 rounded-full p-1 ${
-                  hasAddress ? "bg-orange-500" : "bg-gray-300"
+                  hasAddress ? "bg-orange-500" : "bg-gray-300 dark:bg-gray-700"
                 }`}
               >
                 <View

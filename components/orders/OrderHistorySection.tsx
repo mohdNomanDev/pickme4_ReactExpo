@@ -1,5 +1,4 @@
 import React from "react";
-import { useColorScheme } from "nativewind";
 import { Text, View } from "react-native";
 import { OrderHistory } from "../../store/ordersSlice";
 import OrderHistoryItem from "./OrderHistoryItem";
@@ -9,15 +8,10 @@ interface Props {
 }
 
 const OrderHistorySection = ({ orders = [] }: Props) => {
-  const { colorScheme } = useColorScheme();
-  const isDark = colorScheme === "dark";
-
   if (orders.length === 0) {
     return (
       <View className="py-20 items-center justify-center w-full">
-        <Text
-          className={`text-lg font-medium ${isDark ? "text-gray-400" : "text-gray-500"}`}
-        >
+        <Text className="text-lg font-medium text-gray-500 dark:text-gray-400">
           You havent placed any orders yet
         </Text>
       </View>

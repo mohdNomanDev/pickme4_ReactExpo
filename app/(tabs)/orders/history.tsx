@@ -8,10 +8,11 @@ export default function OrderHistoryScreen() {
   const { orderHistory } = useSelector((state: RootState) => state.orders);
 
   return (
-    <View className="flex-1">
+    <View className="flex-1 bg-gray-50 dark:bg-background-dark">
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerClassName="pb-[100px]"
+        contentInsetAdjustmentBehavior="automatic"
       >
         <OrderHistorySection orders={orderHistory} />
       </ScrollView>

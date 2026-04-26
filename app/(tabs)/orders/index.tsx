@@ -8,10 +8,11 @@ export default function ActiveOrdersScreen() {
   const { activeOrders } = useSelector((state: RootState) => state.orders);
 
   return (
-    <View className="flex-1">
+    <View className="flex-1 bg-gray-50 dark:bg-background-dark">
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerClassName="pb-[100px]"
+        contentInsetAdjustmentBehavior="automatic"
       >
         <ActiveOrdersSection orders={activeOrders} />
       </ScrollView>

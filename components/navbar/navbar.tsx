@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import BrandLogo from "../common/BrandLogo";
+import ThemeToggle from "../common/ThemeToggle";
 import LocationSelector from "./LocationSelector";
 import ModeToggle from "./ModeToggle";
 
@@ -21,6 +22,7 @@ const Navbar = () => {
 
       {/* Right Section: Actions */}
       <View className={`flex-row items-center gap-2 flex-shrink-0 `}>
+        <ThemeToggle compact />
         <ModeToggle />
       </View>
     </View>

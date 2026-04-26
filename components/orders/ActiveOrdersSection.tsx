@@ -1,21 +1,17 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { useColorScheme } from 'nativewind';
-import OrderCard from './OrderCard';
-import { ActiveOrder } from '../../store/ordersSlice';
+import React from "react";
+import { View, Text } from "react-native";
+import OrderCard from "./OrderCard";
+import { ActiveOrder } from "../../store/ordersSlice";
 
 interface Props {
   orders: ActiveOrder[];
 }
 
 const ActiveOrdersSection = ({ orders = [] }: Props) => {
-  const { colorScheme } = useColorScheme();
-  const isDark = colorScheme === 'dark';
-
   if (orders.length === 0) {
     return (
       <View className="py-20 items-center justify-center w-full">
-        <Text className={`text-lg font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+        <Text className="text-lg font-medium text-gray-500 dark:text-gray-400">
           No active orders right now
         </Text>
       </View>

@@ -9,7 +9,9 @@ import OrdersHeader from "../../../components/orders/OrdersHeader";
 import { setOrders } from "../../../store/ordersSlice";
 import UserData from "../../../TestData/UserData.json";
 
-const MaterialTopTabs = withLayoutContext(createMaterialTopTabNavigator().Navigator);
+const MaterialTopTabs = withLayoutContext(
+  createMaterialTopTabNavigator().Navigator,
+);
 
 export default function OrdersLayout() {
   const { colorScheme } = useColorScheme();
@@ -40,7 +42,7 @@ export default function OrdersLayout() {
   return (
     <View
       style={{ paddingTop: insets.top }}
-      className={`flex-1 ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
+      className="flex-1 bg-gray-50 dark:bg-background-dark"
     >
       <View className="flex-1 px-4 pt-2 md:px-8 lg:px-12 md:max-w-4xl lg:max-w-6xl md:mx-auto w-full">
         <OrdersHeader />
@@ -71,11 +73,17 @@ export default function OrdersLayout() {
               borderRadius: 12,
             },
             tabBarPressColor: "transparent",
-            sceneStyle: { backgroundColor: "transparent" }
+            sceneStyle: { backgroundColor: "transparent" },
           }}
         >
-          <MaterialTopTabs.Screen name="index" options={{ title: "Active Orders" }} />
-          <MaterialTopTabs.Screen name="history" options={{ title: "Order History" }} />
+          <MaterialTopTabs.Screen
+            name="index"
+            options={{ title: "Active Orders" }}
+          />
+          <MaterialTopTabs.Screen
+            name="history"
+            options={{ title: "Order History" }}
+          />
         </MaterialTopTabs>
       </View>
     </View>

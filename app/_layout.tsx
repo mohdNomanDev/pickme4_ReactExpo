@@ -1,15 +1,16 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
+import * as SystemUI from "expo-system-ui";
 import { useColorScheme as useNativeWindColorScheme } from "nativewind";
-import React, { useEffect, useState, useCallback } from "react";
-import { useColorScheme as useSystemColorScheme } from "react-native";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import "../global.css";
 
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { RootState, store } from "../store/store";
-import { THEME_KEY, ThemeMode, syncTheme } from "../store/themeSlice";
+import { isThemeMode, THEME_KEY, syncTheme } from "../store/themeSlice";
 import MessageToast from "@/components/ui/MessageToast";
 
 // Prevent the splash screen from auto-hiding
@@ -18,46 +19,62 @@ SplashScreen.preventAutoHideAsync();
 function RootLayoutContent() {
   const dispatch = useDispatch();
   const themeMode = useSelector((state: RootState) => state.theme.mode);
-  const systemColorScheme = useSystemColorScheme();
-  const { setColorScheme } = useNativeWindColorScheme();
+  const { colorScheme, setColorScheme } = useNativeWindColorScheme();
+  const setColorSchemeRef = useRef(setColorScheme);
   const [appIsReady, setAppIsReady] = useState(false);
 
-  // Memoized theme applicator to prevent redundant calls
-  const applyTheme = useCallback((mode: ThemeMode, system: "light" | "dark" | null | undefined) => {
-    if (mode === "system") {
-      setColorScheme(system || "light");
-    } else {
-      setColorScheme(mode);
-    }
+  const isDark = colorScheme === "dark";
+  const systemBackgroundColor = useMemo(
+    () => (isDark ? "#0a0a0a" : "#f8f7f5"),
+    [isDark],
+  );
+
+  useEffect(() => {
+    setColorSchemeRef.current = setColorScheme;
   }, [setColorScheme]);
 
   useEffect(() => {
+    let isMounted = true;
+
     async function prepare() {
       try {
-        const savedTheme = await AsyncStorage.getItem(THEME_KEY) as ThemeMode | null;
-        if (savedTheme) {
-          dispatch(syncTheme(savedTheme));
-          // Apply saved theme immediately
-          applyTheme(savedTheme, systemColorScheme);
-        } else {
-          applyTheme("system", systemColorScheme);
-        }
+        const savedTheme = await AsyncStorage.getItem(THEME_KEY);
+        const initialTheme = isThemeMode(savedTheme) ? savedTheme : "system";
+
+        dispatch(syncTheme(initialTheme));
+        setColorSchemeRef.current(initialTheme);
       } catch (e) {
         console.warn("Theme loading error:", e);
+        dispatch(syncTheme("system"));
+        setColorSchemeRef.current("system");
       } finally {
-        setAppIsReady(true);
+        if (isMounted) {
+          setAppIsReady(true);
+        }
       }
     }
 
     prepare();
-  }, [dispatch, systemColorScheme, applyTheme]);
+
+    return () => {
+      isMounted = false;
+    };
+  }, [dispatch]);
 
   // Sync theme when mode changes after init
   useEffect(() => {
     if (appIsReady) {
-      applyTheme(themeMode, systemColorScheme);
+      setColorSchemeRef.current(themeMode);
     }
-  }, [themeMode, systemColorScheme, appIsReady, applyTheme]);
+  }, [themeMode, appIsReady]);
+
+  useEffect(() => {
+    if (appIsReady) {
+      SystemUI.setBackgroundColorAsync(systemBackgroundColor).catch((error) => {
+        console.warn("System UI theme error:", error);
+      });
+    }
+  }, [appIsReady, systemBackgroundColor]);
 
   useEffect(() => {
     if (appIsReady) {
@@ -73,7 +90,11 @@ function RootLayoutContent() {
 
   return (
     <>
-      <Stack screenOptions={{ headerShown: false, animation: 'fade' }}>
+      <StatusBar
+        style={isDark ? "light" : "dark"}
+        backgroundColor={systemBackgroundColor}
+      />
+      <Stack screenOptions={{ headerShown: false, animation: "fade" }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="auth" />
         <Stack.Screen name="Food" />

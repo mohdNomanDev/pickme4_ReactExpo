@@ -1,25 +1,15 @@
-import { useColorScheme } from "nativewind";
 import React from "react";
 import { Text, View } from "react-native";
 
-const OrdersHeader = () => {
-  const { colorScheme } = useColorScheme();
-  const isDark = colorScheme === "dark";
+import ThemeToggle from "@/components/common/ThemeToggle";
 
+const OrdersHeader = () => {
   return (
-    <View className="flex-row items-center justify-between py-4">
-      <Text
-        className={`text-2xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}
-      >
+    <View className="flex-row items-center justify-between gap-3 py-4">
+      <Text className="text-2xl font-bold text-gray-900 dark:text-white">
         My Orders
       </Text>
-      {/* <View className={`rounded-full ${isDark ? "bg-gray-800" : "bg-gray-200"}`}>
-        <Pressable
-          style={({ pressed }) => ({ padding: 8, opacity: pressed ? 0.7 : 1 })}
-        >
-          <Ionicons name="search" size={20} color={isDark ? "#fff" : "#000"} />
-        </Pressable>
-      </View> */}
+      <ThemeToggle compact />
     </View>
   );
 };

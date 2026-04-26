@@ -45,7 +45,7 @@ export default function SignupScreen() {
       subtitle="Start with a local mock signup. After OTP verification you will add your delivery address."
       footer={
         <View className="flex-row items-center gap-2">
-          <Text className="font-semibold text-gray-600">
+          <Text className="font-semibold text-gray-600 dark:text-gray-300">
             Already have an account?
           </Text>
           <Link href="/auth/login" asChild>
@@ -100,8 +100,8 @@ export default function SignupScreen() {
 
             <View className="rounded-2xl border border-orange-100 bg-orange-50/80 p-4 dark:border-orange-900/40 dark:bg-orange-950/30">
               <Text className="text-sm font-bold leading-5 text-orange-800 dark:text-orange-200">
-                Signup users always continue to address setup after entering
-                OTP 1234.
+                Signup users always continue to address setup after entering OTP
+                1234.
               </Text>
             </View>
 

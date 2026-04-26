@@ -1,31 +1,31 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Appearance } from 'react-native';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export type ThemeMode = 'light' | 'dark' | 'system';
+export const THEME_MODES = ["light", "dark", "system"] as const;
+export type ThemeMode = (typeof THEME_MODES)[number];
 
 interface ThemeState {
   mode: ThemeMode;
-};
+}
 
 const initialState: ThemeState = {
-  mode: 'system',
+  mode: "system",
 };
 
-export const THEME_KEY = 'user-theme-preference';
+export const THEME_KEY = "user-theme-preference";
+
+export const isThemeMode = (value: unknown): value is ThemeMode =>
+  typeof value === "string" && THEME_MODES.includes(value as ThemeMode);
 
 export const themeSlice = createSlice({
-  name: 'theme',
+  name: "theme",
   initialState,
   reducers: {
     setTheme: (state, action: PayloadAction<ThemeMode>) => {
       state.mode = action.payload;
-      // Persist to storage
-      AsyncStorage.setItem(THEME_KEY, action.payload);
     },
     syncTheme: (state, action: PayloadAction<ThemeMode>) => {
       state.mode = action.payload;
-    }
+    },
   },
 });
 
