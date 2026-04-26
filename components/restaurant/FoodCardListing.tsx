@@ -2,7 +2,7 @@ import FilterButton from "@/components/common/FilterButton";
 import FilterSheet from "@/components/common/FilterSheet";
 import FoodFilter, { FoodFilterState } from "@/components/restaurant/FoodFilter";
 import { Ionicons } from "@expo/vector-icons";
-import React, { useState, useMemo, useCallback } from "react";
+import React, { useState, useMemo } from "react";
 import { Text, View, useWindowDimensions, Platform } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
 import FoodCard from "./FoodCard";
@@ -16,6 +16,8 @@ type FoodItem = {
 
 type Props = {
   foodItems: FoodItem[];
+  restaurantId: string;
+  restaurantName: string;
 };
 
 const DEFAULT_FILTERS: FoodFilterState = {
@@ -24,7 +26,7 @@ const DEFAULT_FILTERS: FoodFilterState = {
   categories: [],
 };
 
-const FoodCardListing = ({ foodItems }: Props) => {
+const FoodCardListing = ({ foodItems, restaurantId, restaurantName }: Props) => {
     const { width } = useWindowDimensions();
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [filters, setFilters] = useState<FoodFilterState>(DEFAULT_FILTERS);
@@ -117,7 +119,11 @@ const FoodCardListing = ({ foodItems }: Props) => {
               entering={FadeInDown.delay(index * 40).duration(500).springify()}
               className={numColumns === 1 ? 'w-full' : 'w-[48%]'}
             >
-              <FoodCard data={item} />
+              <FoodCard
+                data={item}
+                restaurantId={restaurantId}
+                restaurantName={restaurantName}
+              />
             </Animated.View>
 
           ))}

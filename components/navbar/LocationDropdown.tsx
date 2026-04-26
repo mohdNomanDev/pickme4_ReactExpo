@@ -1,10 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
-import { useColorScheme } from "nativewind";
-import React, { useState } from "react";
+import React from "react";
 import { Platform, Pressable, ScrollView, Text, View, ActivityIndicator } from "react-native";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
 import SavedAddresses from "./SavedAddresses";
 import { useCurrentLocationRestaurants } from "../../hooks/useCurrentLocationRestaurants";
 import restaurantDataJson from "../../TestData/RestaurantData.json";
@@ -18,8 +15,6 @@ interface LocationDropdownProps {
 }
 
 export default function LocationDropdown({ onClose, containerClassName = "" }: LocationDropdownProps) {
-  const { colorScheme } = useColorScheme();
-  
   const { selectCurrentLocation, loading, error } = useCurrentLocationRestaurants(restaurantData);
 
   const handleUseCurrentLocation = async () => {

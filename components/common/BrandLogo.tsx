@@ -1,7 +1,5 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
 
 export default function BrandLogo() {
     return (

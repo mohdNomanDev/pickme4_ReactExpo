@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Text, View, Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useSelector, useDispatch } from "react-redux";
@@ -23,10 +23,16 @@ const MessageToast = () => {
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(position === "top" ? -100 : 100);
 
-  const dispatchHideMessage = () => {
-    console.log("hideMessage type:", typeof hideMessage);
+  const dispatchHideMessage = useCallback(() => {
     dispatch(hideMessage());
-  };
+  }, [dispatch]);
+
+  const handleHide = useCallback(() => {
+    opacity.value = withTiming(0, { duration: 300 });
+    translateY.value = withTiming(position === "top" ? -100 : 100, { duration: 300 }, () => {
+      runOnJS(dispatchHideMessage)();
+    });
+  }, [dispatchHideMessage, opacity, position, translateY]);
 
   useEffect(() => {
     if (visible) {
@@ -39,14 +45,7 @@ const MessageToast = () => {
 
       return () => clearTimeout(timer);
     }
-  }, [visible, duration]);
-
-  const handleHide = () => {
-    opacity.value = withTiming(0, { duration: 300 });
-    translateY.value = withTiming(position === "top" ? -100 : 100, { duration: 300 }, () => {
-      runOnJS(dispatchHideMessage)();
-    });
-  };
+  }, [duration, handleHide, opacity, translateY, visible]);
 
   const animatedStyle = useAnimatedStyle(() => ({
     opacity: opacity.value,

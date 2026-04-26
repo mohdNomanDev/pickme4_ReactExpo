@@ -1,7 +1,5 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
 
 const OPTIONS = [
   { label: "Vegetarian", labelAr: "نباتي", value: "Vegetarian" },

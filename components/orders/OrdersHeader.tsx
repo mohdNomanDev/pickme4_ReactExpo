@@ -1,7 +1,6 @@
-import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
 import React from "react";
-import { Text, Pressable, View } from "react-native";
+import { Text, View } from "react-native";
 
 const OrdersHeader = () => {
   const { colorScheme } = useColorScheme();

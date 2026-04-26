@@ -7,7 +7,6 @@ import {
   Text,
   ActivityIndicator,
   Keyboard,
-  Platform,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { useColorScheme } from "nativewind";
@@ -41,7 +40,7 @@ export default function MapSearchBar({
   const { colorScheme } = useColorScheme();
   const isDark = colorScheme === "dark";
   
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const fetchSuggestions = useCallback(async (text: string) => {
     if (!text || text.length < 3) {

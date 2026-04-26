@@ -1,4 +1,3 @@
-import { useColorScheme } from "nativewind";
 import React from "react";
 import { View } from "react-native";
 import BrandLogo from "../common/BrandLogo";
@@ -6,8 +5,6 @@ import LocationSelector from "./LocationSelector";
 import ModeToggle from "./ModeToggle";
 
 const Navbar = () => {
-  const { colorScheme } = useColorScheme();
-
   return (
     <View
       className={`flex-row items-center justify-between px-4 py-3 bg-white dark:bg-card-dark border-b border-gray-100 dark:border-gray-800 z-50 `}

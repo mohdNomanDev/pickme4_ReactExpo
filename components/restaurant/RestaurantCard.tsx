@@ -47,8 +47,6 @@ type RestaurantCardProps = {
  * Optimized for performance and high-quality UI/UX in Saudi market.
  */
 const RestaurantCard = memo(({ restaurant }: RestaurantCardProps) => {
-  if (!restaurant) return null;
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const dispatch = useDispatch();
 

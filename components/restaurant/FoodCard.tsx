@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Text, TouchableOpacity, View, Platform, useWindowDimensions } from "react-native";
+import { Text, TouchableOpacity, View, Platform } from "react-native";
 import { Image } from "expo-image";
 import AddToCartButton from "../ui/AddToCartButton";
 
@@ -17,8 +17,6 @@ type Props = {
 };
 
 const FoodCard = ({ data, restaurantId, restaurantName }: Props) => {
-    const { width } = useWindowDimensions();
-
   const formattedPrice = useMemo(() => {
     const currencyStr = 'SAR';
     return `${currencyStr} ${data.price}`;

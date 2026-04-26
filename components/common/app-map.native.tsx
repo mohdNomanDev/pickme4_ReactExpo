@@ -49,6 +49,8 @@ const MemoizedMarker = memo(({ marker, index }: { marker: AppMapMarker; index: n
   />
 ));
 
+MemoizedMarker.displayName = "MemoizedMarker";
+
 function isValidCoordinate(latitude?: number | null, longitude?: number | null) {
   return (
     typeof latitude === "number" &&

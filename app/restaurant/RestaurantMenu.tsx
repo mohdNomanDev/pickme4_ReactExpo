@@ -36,7 +36,11 @@ export default function RestaurantMenu() {
           {/* Menu Items Section */}
           <View className="px-6 md:px-10 pb-20 max-w-5xl mx-auto w-full">
             {selectedRestaurant && selectedRestaurant.foodItems && (
-              <FoodCardListing foodItems={selectedRestaurant.foodItems} />
+              <FoodCardListing
+                foodItems={selectedRestaurant.foodItems}
+                restaurantId={selectedRestaurant.id.toString()}
+                restaurantName={selectedRestaurant.name}
+              />
             )}
           </View>
         </View>

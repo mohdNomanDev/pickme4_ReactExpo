@@ -14,7 +14,6 @@ const NearbyRestaurants: React.FC<NearbyRestaurantsProps> = ({ restaurants, maxD
     restaurants: nearbyRestaurants, 
     loading, 
     error, 
-    activeLocationType, 
     activeLocationName 
   } = useCurrentLocationRestaurants(restaurants, maxDistance);
 
@@ -28,9 +27,6 @@ const NearbyRestaurants: React.FC<NearbyRestaurantsProps> = ({ restaurants, maxD
       </View>
     );
   }
-
-  // Show results even if location is denied, as it might fallback to saved address or show all
-  const hasNoLocation = activeLocationType === "none";
 
   return (
     <View className="mb-8">

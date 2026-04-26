@@ -9,8 +9,6 @@ import {
   ScrollView,
   useWindowDimensions,
 } from "react-native";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
 
 import CloseButton from "./CloseButton";
 import ClearButton from "./ClearButton";

@@ -75,6 +75,9 @@ function RootLayoutContent() {
     <>
       <Stack screenOptions={{ headerShown: false, animation: 'fade' }}>
         <Stack.Screen name="index" />
+        <Stack.Screen name="auth" />
+        <Stack.Screen name="Food" />
+        <Stack.Screen name="restaurant" />
         <Stack.Screen name="(tabs)" />
       </Stack>
       <MessageToast />

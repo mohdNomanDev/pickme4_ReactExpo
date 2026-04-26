@@ -1,8 +1,5 @@
 import React from "react";
 import { View, Text, Pressable } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
 
 const OPTIONS = [
   { label: "Recommended", labelAr: "موصى به", value: "recommended" },
